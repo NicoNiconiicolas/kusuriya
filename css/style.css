@@ -1,0 +1,94 @@
+html{
+	overflow: hidden;
+	font-family: arial;
+}
+
+body{
+	margin: 0;
+	text-align: center;
+}
+
+h1{
+	margin: 0;
+	color: #FFF;
+	background: #752;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	font-size: 1.8em;
+	padding: 5px;
+}
+
+#bg{
+	z-index: -99;
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	background: url('../img/panya.png') 0% 0% / 100% 100% no-repeat;
+}
+
+#footer{
+	color: white;
+	position: absolute;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	grid-template-areas: "shop synth exploration";
+	bottom: 0;
+	width: 100vw;
+	height: 10vh;
+	background: #752;
+}
+
+.menu-el{
+	cursor: pointer;
+	color: white;
+	display: inline-block;
+	padding-top: 3vh;
+	padding-bottom: 3vh;
+	font-size: 1.5em;
+	border-left: 1px solid #A85;
+}
+
+.menu-el:first-child{
+	border-left: none;
+}
+
+.menu-el:hover{
+	background: #863;
+}
+
+#box{
+	background: #FFE;
+	border-radius: 10px;
+	border: 4px #BBA ridge;
+	margin: auto;
+	margin-top: 50px;
+	width: 80vw;
+	height: 70vh;
+}
+
+#stall{
+	display: grid;
+	grid-template-columns: auto auto auto;
+	margin-left: 1vw;
+	margin-right: 1vw;
+	margin-top: 1vh;
+	width: 100%;
+	height: 63vh;
+}
+
+.case{
+	width: 92%;
+	height: 92%;
+	background: #EEB;
+}
+
+.obj{
+	width: 100%;
+	height: 100%;
+}
+
+@media (max-width: 768px){
+	#bg{
+		background: url('../img/panya.png') 50% 0% / 200% 100% no-repeat;
+	}
+}

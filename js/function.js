@@ -15,8 +15,8 @@ function showInv(){
 }
 
 function empty(nslot){
-	setCookie("slot"+nslot, 'empty', 365);
-	setCookie("slot"+nslot+"_value", 0, 365);
+	setCookie("slot"+nslot, 'empty', 3650);
+	setCookie("slot"+nslot+"_value", 0, 3650);
 	slot[nslot] = 'empty';
 }
 
@@ -96,8 +96,8 @@ function add(item){
 	while(loop = true){
 		if(i != 10){
 			if(slot[i] == 'empty'){
-				setCookie("slot"+i, item, 365)
-				setCookie("slot"+i+"_value", price, 365)
+				setCookie("slot"+i, item, 3650)
+				setCookie("slot"+i+"_value", price, 3650)
 				document.getElementById('potionName').innerHTML = pName;
 				document.getElementById('nprice').innerHTML = price;
 				document.getElementById('youMade').style.display = 'block'
@@ -160,14 +160,14 @@ function trySell(focus){
 			}
 		}
 	}
-	setCookie('lastTime', getTime(), 365);}
+	setCookie('lastTime', getTime(), 3650);}
 
 function sell(nslot){
 	var currentMoney = parseInt(getCookie('balance'));
-	setCookie('balance', currentMoney+parseInt(getCookie('slot'+nslot+"_value")), 365);
+	setCookie('balance', currentMoney+parseInt(getCookie('slot'+nslot+"_value")), 3650);
 	document.getElementById('obj'+nslot).title = "";
-	setCookie('slot'+nslot+"_value", 0, 365);
-	setCookie('slot'+nslot, 'empty', 365);
+	setCookie('slot'+nslot+"_value", 0, 3650);
+	setCookie('slot'+nslot, 'empty', 3650);
 	empty(nslot);
 	document.getElementById('sfx').play();
 }
@@ -175,14 +175,14 @@ function sell(nslot){
 function synth(obj){
 	switch(obj){
 		case 'baie1':
-		setCookie("baie1", parseInt(getCookie('baie1'))+1);
+		setCookie("baie1", parseInt(getCookie('baie1'))+1, 3650);
 		break
 
 		case 'baie2':
 		var need = parseInt(getCookie('baie1'));
 		if(need >= 2){
-			setCookie("baie1", parseInt(getCookie('baie1'))-2);
-			setCookie("baie2", parseInt(getCookie('baie2'))+1);
+			setCookie("baie1", parseInt(getCookie('baie1'))-2, 3650);
+			setCookie("baie2", parseInt(getCookie('baie2'))+1, 3650);
 			document.getElementById('baie1').innerHTML = getCookie("baie1");
 			document.getElementById('baie2').innerHTML = getCookie("baie2");
 		}else{
@@ -194,8 +194,8 @@ function synth(obj){
 		case 'baie3':
 		var need = parseInt(getCookie('baie2'));
 		if(need >= 2){
-			setCookie("baie2", parseInt(getCookie('baie2'))-2);
-			setCookie("baie3", parseInt(getCookie('baie3'))+1);
+			setCookie("baie2", parseInt(getCookie('baie2'))-2, 3650);
+			setCookie("baie3", parseInt(getCookie('baie3'))+1, 3650);
 			document.getElementById('baie2').innerHTML = getCookie("baie2");
 			document.getElementById('baie3').innerHTML = getCookie("baie3");
 		}else{
@@ -205,14 +205,14 @@ function synth(obj){
 		break
 
 		case 'blueberry1':
-		setCookie("blueberry1", parseInt(getCookie('blueberry1'))+1);
+		setCookie("blueberry1", parseInt(getCookie('blueberry1'))+1, 3650);
 		break
 
 		case 'blueberry2':
 		var need = parseInt(getCookie('blueberry1'));
 		if(need >= 2){
-			setCookie("blueberry1", parseInt(getCookie('blueberry1'))-2);
-			setCookie("blueberry2", parseInt(getCookie('blueberry2'))+1);
+			setCookie("blueberry1", parseInt(getCookie('blueberry1'))-2, 3650);
+			setCookie("blueberry2", parseInt(getCookie('blueberry2'))+1, 3650);
 			document.getElementById('blueberry1').innerHTML = getCookie("blueberry1");
 			document.getElementById('blueberry2').innerHTML = getCookie("blueberry2");
 		}else{
@@ -224,8 +224,8 @@ function synth(obj){
 		case 'blueberry3':
 		var need = parseInt(getCookie('blueberry2'));
 		if(need >= 2){
-			setCookie("blueberry2", parseInt(getCookie('blueberry2'))-2);
-			setCookie("blueberry3", parseInt(getCookie('blueberry3'))+1);
+			setCookie("blueberry2", parseInt(getCookie('blueberry2'))-2, 3650);
+			setCookie("blueberry3", parseInt(getCookie('blueberry3'))+1, 3650);
 			document.getElementById('blueberry2').innerHTML = getCookie("blueberry2");
 			document.getElementById('blueberry3').innerHTML = getCookie("blueberry3");
 		}else{
@@ -235,14 +235,14 @@ function synth(obj){
 		break
 
 		case 'raisin1':
-		setCookie("raisin1", parseInt(getCookie('raisin1'))+1);
+		setCookie("raisin1", parseInt(getCookie('raisin1'))+1, 3650);
 		break
 
 		case 'raisin2':
 		var need = parseInt(getCookie('raisin1'));
 		if(need >= 2){
-			setCookie("raisin1", parseInt(getCookie('raisin1'))-2);
-			setCookie("raisin2", parseInt(getCookie('raisin2'))+1);
+			setCookie("raisin1", parseInt(getCookie('raisin1'))-2, 3650);
+			setCookie("raisin2", parseInt(getCookie('raisin2'))+1, 3650);
 			document.getElementById('raisin1').innerHTML = getCookie("raisin1");
 			document.getElementById('raisin2').innerHTML = getCookie("raisin2");
 		}else{
@@ -254,8 +254,8 @@ function synth(obj){
 		case 'raisin3':
 		var need = parseInt(getCookie('raisin2'));
 		if(need >= 2){
-			setCookie("raisin2", parseInt(getCookie('raisin2'))-2);
-			setCookie("raisin3", parseInt(getCookie('raisin3'))+1);
+			setCookie("raisin2", parseInt(getCookie('raisin2'))-2, 3650);
+			setCookie("raisin3", parseInt(getCookie('raisin3'))+1, 3650);
 			document.getElementById('raisin2').innerHTML = getCookie("raisin2");
 			document.getElementById('raisin3').innerHTML = getCookie("raisin3");
 		}else{
@@ -271,11 +271,11 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('baie1'));
 			if(need >= 2){
-				setCookie("baie1", parseInt(getCookie('baie1'))-2);
+				setCookie("baie1", parseInt(getCookie('baie1'))-2, 3650);
 				document.getElementById('baie1').innerHTML = getCookie('baie1');
 				add('red3');
 				document.getElementById('prize').play();
-				setCookie('lastTime', getTime(), 365);
+				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
 				alert('il vous manque les ingrédients suivants : x'+missing+' baie(s) en vrac')
@@ -290,11 +290,11 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('baie2'));
 			if(need >= 2){
-				setCookie("baie2", parseInt(getCookie('baie2'))-2);
+				setCookie("baie2", parseInt(getCookie('baie2'))-2, 3650);
 				document.getElementById('baie2').innerHTML = getCookie('baie2');
 				add('red2');
 				document.getElementById('prize').play();
-				setCookie('lastTime', getTime(), 365);
+				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
 				alert('il vous manque les ingrédients suivants : x'+missing+' baie(s) délicieuse(s)')
@@ -309,11 +309,12 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('baie3'));
 			if(need >= 2){
-				setCookie("baie3", parseInt(getCookie('baie3'))-2);
+				setCookie("baie3", parseInt(getCookie('baie3'))-2, 3650);
 				document.getElementById('baie3').innerHTML = getCookie('baie3');
 				add('red1');
 				document.getElementById('prize').play();
-				setCookie('lastTime', getTime(), 365);			}else{
+				setCookie('lastTime', getTime(), 3650);
+			}else{
 				var missing = 2 - need;
 				alert('il vous manque les ingrédients suivants : x'+missing+' baies parfaites')
 			}
@@ -327,11 +328,11 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('blueberry3'));
 			if(need >= 2){
-				setCookie("blueberry3", parseInt(getCookie('blueberry3'))-2);
+				setCookie("blueberry3", parseInt(getCookie('blueberry3'))-2, 3650);
 				document.getElementById('blueberry3').innerHTML = getCookie('blueberry3');
 				add('blue1');
 				document.getElementById('prize').play();
-				setCookie('lastTime', getTime(), 365);
+				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
 				alert('il vous manque les ingrédients suivants : x'+missing+' myrtilles parfaites')
@@ -346,11 +347,11 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('blueberry2'));
 			if(need >= 2){
-				setCookie("blueberry2", parseInt(getCookie('blueberry2'))-2);
+				setCookie("blueberry2", parseInt(getCookie('blueberry2'))-2, 3650);
 				document.getElementById('blueberry2').innerHTML = getCookie('blueberry2');
 				add('blue2');
 				document.getElementById('prize').play();
-				setCookie('lastTime', getTime(), 365);
+				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
 				alert('il vous manque les ingrédients suivants : x'+missing+' myrtille(s) envoûtante(s)')
@@ -365,11 +366,12 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('blueberry1'));
 			if(need >= 2){
-				setCookie("blueberry1", parseInt(getCookie('blueberry1'))-2);
+				setCookie("blueberry1", parseInt(getCookie('blueberry1'))-2, 3650);
 				document.getElementById('blueberry1').innerHTML = getCookie('blueberry1');
 				add('blue3');
 				document.getElementById('prize').play();
-				setCookie('lastTime', getTime(), 365);			}else{
+				setCookie('lastTime', getTime(), 3650);
+			}else{
 				var missing = 2 - need;
 				alert('il vous manque les ingrédients suivants : x'+missing+' myrtille(s) en vrac')
 			}
@@ -383,11 +385,12 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('raisin3'));
 			if(need >= 2){
-				setCookie("raisin3", parseInt(getCookie('raisin3'))-2);
+				setCookie("raisin3", parseInt(getCookie('raisin3'))-2, 3650);
 				document.getElementById('raisin3').innerHTML = getCookie('raisin3');
 				add('purple1');
 				document.getElementById('prize').play();
-				setCookie('lastTime', getTime(), 365);			}else{
+				setCookie('lastTime', getTime(), 3650);
+			}else{
 				var missing = 2 - need;
 				alert('il vous manque les ingrédients suivants : x'+missing+' raisins parfaits')
 			}
@@ -401,11 +404,12 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('raisin2'));
 			if(need >= 2){
-				setCookie("raisin2", parseInt(getCookie('raisin2'))-2);
+				setCookie("raisin2", parseInt(getCookie('raisin2'))-2, 3650);
 				document.getElementById('raisin2').innerHTML = getCookie('raisin2');
 				add('purple2');
 				document.getElementById('prize').play();
-				setCookie('lastTime', getTime(), 365);			}else{
+				setCookie('lastTime', getTime(), 3650);
+			}else{
 				var missing = 2 - need;
 				alert('il vous manque les ingrédients suivants : x'+missing+' raisin(s) savoureu(x)')
 			}
@@ -419,11 +423,12 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('raisin1'));
 			if(need >= 2){
-				setCookie("raisin1", parseInt(getCookie('raisin1'))-2);
+				setCookie("raisin1", parseInt(getCookie('raisin1'))-2, 3650);
 				document.getElementById('raisin1').innerHTML = getCookie('raisin1');
 				add('purple3');
 				document.getElementById('prize').play();
-				setCookie('lastTime', getTime(), 365);			}else{
+				setCookie('lastTime', getTime(), 3650);
+			}else{
 				var missing = 2 - need;
 				alert('il vous manque les ingrédients suivants : x'+missing+' raisin(s) en vrac')
 			}
@@ -439,15 +444,16 @@ function synth(obj){
 			var need2 = parseInt(getCookie('blueberry3'));
 			var need3 = parseInt(getCookie('raisin3'));
 			if(need1 >= 2 && need2 >= 2 && need3 >= 2){
-				setCookie("blueberry1", parseInt(getCookie('baie3'))-2);
+				setCookie("blueberry1", parseInt(getCookie('baie3'))-2, 3650);
 				document.getElementById('blueberry1').innerHTML = getCookie('baie3');
-				setCookie("blueberry1", parseInt(getCookie('blueberry3'))-2);
+				setCookie("blueberry1", parseInt(getCookie('blueberry3'))-2, 3650);
 				document.getElementById('blueberry1').innerHTML = getCookie('blueberry3');
-				setCookie("blueberry1", parseInt(getCookie('raisin3'))-2);
+				setCookie("blueberry1", parseInt(getCookie('raisin3'))-2, 3650);
 				document.getElementById('blueberry1').innerHTML = getCookie('raisin3');
 				add('wine');
 				document.getElementById('prize').play();
-				setCookie('lastTime', getTime(), 365);			}else{
+				setCookie('lastTime', getTime(), 3650);
+			}else{
 				var msg = "il vous manque les ingrédients suivants : ";
 				if(need1 < 2){
 					var missing = 2 - need1;
@@ -612,5 +618,15 @@ function failedInit(){
 		newQuestion();
 	}else{
 		initQuestion();
+	}
+}
+
+function updateDeck(){
+	var url = document.getElementById('deckLink').value;
+	if(url == ''){
+		alert('champ vide');
+	}else{
+		setCookie('deck', url, 3650);
+		alert('Deck chargé ! \n\n(pour peu que votre lien soit valide)');
 	}
 }

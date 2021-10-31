@@ -7,7 +7,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<div id='question'>n/a</div>"+
 "<div id='answerbox'><input id='answer' autofocus></input></div>"+
 "<div id='goodAnswer'>n/a</div>"+
-"<div id='combo'>combo : <span id='ncombo'>0</span><br>multiplicateur : x<span id='multiple'>1</span></div>";
+"<div id='combo'>carte(s) vue(s) : <span id='cards'>"+getCookie('cardsToday')+"</span><br>combo(s) : <span id='ncombo'>0</span><br>multiplicateur : x<span id='multiple'>1</span></div>";
 
 let quest = [];
 let questions = [];
@@ -21,8 +21,14 @@ let combo = 0;
 let multiplicateur = 1;
 let progression = 0;
 let nQuestion = 0;
+let lastQ = "";
+let lastA = "";
+let lastA2 = "";
+let lastQ2 = "";
 let wrongA = [];
 let wrongQ = [];
+let wasWrong = false;
+checkCards();
 
 document.getElementById('answer').addEventListener("keydown", (e) => {
   if (e.key == "Enter") {

@@ -45,52 +45,52 @@ function add(item){
 	switch(item){
 		case 'red3':
 		price = Math.floor(Math.random()*15)+10;
-		pName = "Jus de baies";
+		pName = "Sirop pour la toux";
 		break
 
 		case 'red2':
 		price = Math.floor(Math.random()*25)+50;
-		pName = "Potion Orange";
+		pName = "Limonade fruitée";
 		break
 
 		case 'red1':
 		price = Math.floor(Math.random()*110)+115;
-		pName = "Potion Citron";
+		pName = "Lessive";
 		break
 
 		case 'blue3':
 		price = Math.floor(Math.random()*66)+33;
-		pName = "Potion Bleue";
+		pName = "Lubrifiant";
 		break
 
 		case 'blue2':
 		price = Math.floor(Math.random()*150)+150;
-		pName = "Potion Ciel";
+		pName = "Liquide de refroidissement";
 		break
 
 		case 'blue1':
 		price = Math.floor(Math.random()*500)+500;
-		pName = "Potion Claire";
+		pName = "Solution acide";
 		break
 
 		case 'purple3':
 		price = Math.floor(Math.random()*200)+125;
-		pName = "Potion Mauve";
+		pName = "Anti-poison";
 		break
 
 		case 'purple2':
 		price = Math.floor(Math.random()*267)+333;
-		pName = "Potion Lavande";
+		pName = "Parfum Lavande";
 		break
 
 		case 'purple1':
 		price = Math.floor(Math.random()*1250)+1250;
-		pName = "Potion Rose";
+		pName = "Liqueur bonbon";
 		break
 
 		case 'wine':
 		price = Math.floor(Math.random()*15000)+10000;
-		pName = "Potion Cramoisie";
+		pName = "Remède universel";
 		break
 	}
 	while(loop = true){
@@ -110,12 +110,6 @@ function add(item){
 			}
 		}
 	}
-}
-
-function today(){
-var d = new Date();
-let day = d.getDay();
-return day;
 }
 
 function getTime(){
@@ -173,6 +167,7 @@ function sell(nslot){
 }
 
 function synth(obj){
+	var sfx = document.getElementById('sfx');
 	switch(obj){
 		case 'baie1':
 		setCookie("baie1", parseInt(getCookie('baie1'))+1, 3650);
@@ -185,6 +180,7 @@ function synth(obj){
 			setCookie("baie2", parseInt(getCookie('baie2'))+1, 3650);
 			document.getElementById('baie1').innerHTML = getCookie("baie1");
 			document.getElementById('baie2').innerHTML = getCookie("baie2");
+			sfx.play();
 		}else{
 			var missing = 2 - need;
 			alert('il vous manque les ingrédients suivants : '+missing+' baie(s) en vrac')
@@ -198,6 +194,7 @@ function synth(obj){
 			setCookie("baie3", parseInt(getCookie('baie3'))+1, 3650);
 			document.getElementById('baie2').innerHTML = getCookie("baie2");
 			document.getElementById('baie3').innerHTML = getCookie("baie3");
+			sfx.play();
 		}else{
 			var missing = 2 - need;
 			alert('il vous manque les ingrédients suivants : '+missing+' baie(s) délicieuse(s)')
@@ -215,6 +212,7 @@ function synth(obj){
 			setCookie("blueberry2", parseInt(getCookie('blueberry2'))+1, 3650);
 			document.getElementById('blueberry1').innerHTML = getCookie("blueberry1");
 			document.getElementById('blueberry2').innerHTML = getCookie("blueberry2");
+			sfx.play();
 		}else{
 			var missing = 2 - need;
 			alert('il vous manque les ingrédients suivants : '+missing+' myrtille(s) en vrac')
@@ -228,6 +226,7 @@ function synth(obj){
 			setCookie("blueberry3", parseInt(getCookie('blueberry3'))+1, 3650);
 			document.getElementById('blueberry2').innerHTML = getCookie("blueberry2");
 			document.getElementById('blueberry3').innerHTML = getCookie("blueberry3");
+			sfx.play();
 		}else{
 			var missing = 2 - need;
 			alert('il vous manque les ingrédients suivants : '+missing+' myrtille(s) envoûtante(s)')
@@ -245,6 +244,7 @@ function synth(obj){
 			setCookie("raisin2", parseInt(getCookie('raisin2'))+1, 3650);
 			document.getElementById('raisin1').innerHTML = getCookie("raisin1");
 			document.getElementById('raisin2').innerHTML = getCookie("raisin2");
+			sfx.play();
 		}else{
 			var missing = 2 - need;
 			alert('il vous manque les ingrédients suivants : '+missing+' raisin(s) en vrac')
@@ -258,6 +258,7 @@ function synth(obj){
 			setCookie("raisin3", parseInt(getCookie('raisin3'))+1, 3650);
 			document.getElementById('raisin2').innerHTML = getCookie("raisin2");
 			document.getElementById('raisin3').innerHTML = getCookie("raisin3");
+			sfx.play();
 		}else{
 			var missing = 2 - need;
 			alert('il vous manque les ingrédients suivants : '+missing+' raisin(s) savoureu(x)')
@@ -520,21 +521,32 @@ function bar(perc){
 	gacha();
 }
 
-function initQuestion(){
-	console.log('15 new questions');
+function initQuestion(fail){
+	console.log('10 new questions');
+	if(fail == false){
+		lastQ2 = questions[questions.length-1]
+		lastA2 = answers[answers.length-1]
+	}
 	questions = [];
 	answers = [];
+	if(fail == true){
+		questions.push(lastQ2);
+		answers.push(lastA2);
+	}else{
+		questions.push(lastQ2);
+		answers.push(lastA2);
+	}
 	max = quest.length;
 	var values = [];
 	for (i = 0; i < max; ++i){
     	values.push(i);
 	}
-	for(i = 0; i < 15; ++i){
+	for(i = 0; i < 10; ++i){
 		var n = values.splice(Math.random()*values.length,1)[0];
 		questions.push(quest[n]);
 		answers.push(ans[n]);
 	}
-	nQuestion = 0;
+		nQuestion = 1;
 	newQuestion();
 }
 
@@ -547,6 +559,8 @@ function newQuestion(){
 }
 
 function checkAnswer(){
+	setCookie('cardsToday', parseInt(getCookie('cardsToday'))+1, 3650);
+	document.getElementById('cards').innerHTML = getCookie('cardsToday');
 	var correct = false;
 	var user = document.getElementById('answer').value;
 	var comp = answers[nQuestion].split(',');
@@ -601,8 +615,13 @@ function failedInit(){
 	max = wrongA.length;
 	console.log(max+' failed');
 	if(max != 0){
+		lastQ = questions[questions.length-1];
+		lastA = answers[questions.length-1];
+		console.log("last question was : "+lastQ)
 		questions = [];
 		answers = [];
+		questions.push(lastQ);
+		answers.push(lastA);
 		var values = [];
 		for (i = 0; i < max; ++i){
 		   	values.push(i);
@@ -612,13 +631,21 @@ function failedInit(){
 			questions.push(wrongQ[n]);
 			answers.push(wrongA[n]);
 		}
-		nQuestion = 0;
+		nQuestion = 1;
+		lastQ2 = wrongQ[max-1];
+		lastA2 = wrongA[max-1];
 		wrongA = [];
 		wrongQ = [];
+		wasWrong = true
 		console.log('start review of : '+questions);
 		newQuestion();
 	}else{
-		initQuestion();
+		if(wasWrong == true){
+			initQuestion(true);
+			wasWrong = false;	
+		}else{
+			initQuestion(false);	
+		}
 	}
 }
 
@@ -630,4 +657,112 @@ function updateDeck(){
 		setCookie('deck', url, 3650);
 		alert('Deck chargé ! \n\n(pour peu que votre lien soit valide)');
 	}
+}
+
+function firstLoan(){
+	var d = new Date();
+	var today = d.getDay();
+	if(today == 0){
+		today = 7;
+	}
+	var nextloan = 7 - today + 1;
+	var totalLoan = nextloan * 1000;
+	setCookie("toPay", totalLoan, 3650);
+	setCookie("isPaid", false, 3650);
+	var now = Math.floor(new Date().getTime()/1000/60/60/24/7);
+	setCookie("nextLoan", now, 3650);
+}
+
+function checkLoan(){
+	var now = Math.floor(new Date().getTime()/1000/60/60/24/7);
+	if(now > parseInt(getCookie('nextLoan'))){
+		if(getCookie('isPaid') == 'false'){
+			alert('/!\\ Game over /!\\\nRaison: Factures impayées\nDébut d\'une nouvelle partie');
+			alert('Nouvelle partie');
+			setCookie("slot1", "empty", 3650);
+			setCookie("slot2", "empty", 3650);
+			setCookie("slot3", "empty", 3650);
+			setCookie("slot4", "empty", 3650);
+			setCookie("slot5", "empty", 3650);
+			setCookie("slot6", "empty", 3650);
+			setCookie("slot7", "empty", 3650);
+			setCookie("slot8", "empty", 3650);
+			setCookie("slot9", "empty", 3650);
+			setCookie("slot1_value", 0, 3650);
+			setCookie("slot2_value", 0, 3650);
+			setCookie("slot3_value", 0, 3650);
+			setCookie("slot4_value", 0, 3650);
+			setCookie("slot5_value", 0, 3650);
+			setCookie("slot6_value", 0, 3650);
+			setCookie("slot7_value", 0, 3650);
+			setCookie("slot8_value", 0, 3650);
+			setCookie("slot9_value", 0, 3650);
+			setCookie("balance", 0, 3650);
+			setCookie("baie1", 0, 3650);
+			setCookie("baie2", 0, 3650);
+			setCookie("baie3", 0, 3650);
+			setCookie("blueberry1", 0, 3650);
+			setCookie("blueberry2", 0, 3650);
+			setCookie("blueberry3", 0, 3650);
+			setCookie("raisin1", 0, 3650);
+			setCookie("raisin2", 0, 3650);
+			setCookie("raisin3", 0, 3650);
+			setCookie("deck", "deck/deck.js", 3650);
+			firstLoan();
+			var slot = [];
+			slot[1] = getCookie('slot1');
+			slot[2] = getCookie('slot2');
+			slot[3] = getCookie('slot3');
+			slot[4] = getCookie('slot4');
+			slot[5] = getCookie('slot5');
+			slot[6] = getCookie('slot6');
+			slot[7] = getCookie('slot7');
+			slot[8] = getCookie('slot8');
+			slot[9] = getCookie('slot9');
+		}else{
+			setCookie('nextloan', now, 3650);
+			setCookie('isPaid', false, 3650);
+			setCookie("toPay", 7000, 3650);
+			alert('Le paiement de vos factures ont bien été reçues !');
+		}
+	}
+}
+
+function pay(){
+	if(getCookie('balance') < getCookie('toPay')){
+		alert('fonds insufisants');
+	}else{
+		document.getElementById('sfx').play();
+		setCookie('balance', parseInt(getCookie('balance'))-parseInt(getCookie('toPay')), 3650)
+		setCookie('isPaid', true, 3650);
+		setCookie("toPay", 0, 3650);
+		showLoan();
+	}
+}
+
+function showLoan(){
+	if(parseInt(getCookie('toPay')) == 0){
+		document.getElementById('payer').style.display = 'none';
+	}
+	var $paid = document.getElementById('paid');
+	if(getCookie('isPaid') == 'true'){
+		$paid.innerHTML = "　payé";
+		$paid.style.color = 'green';
+	}else{
+		$paid.innerHTML = "　impayé";
+		$paid.style.color = 'red';
+	}
+	document.getElementById('toPay').innerHTML = getCookie('toPay');
+	document.getElementById('balance').innerHTML = getCookie('balance');
+}
+
+function checkCards(){
+	if(parseInt(getCookie('day')) < today()){
+		setCookie('day', today(), 3650);
+		setCookie('cardsToday', 0, 3650);
+	}
+}
+
+function today(){
+	return Math.round(new Date().getTime()/1000/60/60/24);
 }

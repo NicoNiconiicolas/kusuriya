@@ -1,6 +1,7 @@
 document.getElementsByTagName('body')[0].innerHTML +=""+
+"<audio id='sfx' src='sfx/kaching.mp3'></audio>"+
 "<div id='box'>"+
-	"<h1>Shop</h1>"+
+	"<div id='grid'><h1>Shop</h1><div id='money'>balance : <span id='balance'></span>$</div></div>"+
 		"<div id='stall'>"+
 			"<div class='case'><div id='obj1' class='obj'></div></div>"+
 			"<div class='case'><div id='obj2' class='obj'></div></div>"+
@@ -13,5 +14,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 			"<div class='case'><div id='obj9' class='obj'></div></div>"+
 	"</div>"+
 "</div>";
-
+document.getElementById('sfx').volume = 0.5;
+trySell(false);
 showInv();
+setInterval(function(){trySell(true); showInv();}, 60000);

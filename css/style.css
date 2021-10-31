@@ -32,6 +32,24 @@ button{
 	border-radius: 5px;
 }
 
+#deckLink{
+	width: 33vw;
+}
+
+#okButton{
+	display: inline-block;
+	padding: 5px;
+	border-radius: 10px;
+	background: #333;
+	color: white;
+	border: 2px #222 solid;
+	cursor: pointer;
+}
+
+#okButton:hover{
+	background: #252525;
+}
+
 #question, #goodAnswer{
 	display: inline-block;
 	padding-top: 5px;

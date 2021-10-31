@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<title>薬屋さん</title>
+	<title>薬屋</title>
 <script type="text/javascript" src='js/function.js'></script>
 <script type="text/javascript" src='js/nikolib.js'></script>
 </head>
@@ -23,6 +23,25 @@
 		setCookie("slot7", "empty", 365);
 		setCookie("slot8", "empty", 365);
 		setCookie("slot9", "empty", 365);
+		setCookie("slot1_value", 0, 365);
+		setCookie("slot2_value", 0, 365);
+		setCookie("slot3_value", 0, 365);
+		setCookie("slot4_value", 0, 365);
+		setCookie("slot5_value", 0, 365);
+		setCookie("slot6_value", 0, 365);
+		setCookie("slot7_value", 0, 365);
+		setCookie("slot8_value", 0, 365);
+		setCookie("slot9_value", 0, 365);
+		setCookie("balance", 0, 365);
+		setCookie("baie1", 0, 365);
+		setCookie("baie2", 0, 365);
+		setCookie("baie3", 0, 365);
+		setCookie("blueberry1", 0, 365);
+		setCookie("blueberry2", 0, 365);
+		setCookie("blueberry3", 0, 365);
+		setCookie("raisin1", 0, 365);
+		setCookie("raisin2", 0, 365);
+		setCookie("raisin3", 0, 365);
 	}
 	// charge les cookies dans des variables à chaque changement de page
 	var slot = [];
@@ -43,7 +62,7 @@
 		case null:
 		p = "shop";
 		
-		case "shop":case "synth":case "gather":
+		case "shop":case "synth":case "gather":case"gestion":
 		break
 
 		default:

@@ -511,7 +511,7 @@ function gacha(){
 		document.getElementById('goodAnswer').style.display = 'none';
 		document.getElementById('prize').play();
 		setTimeout(function(){progression = 0;document.getElementById('won').style.display = 'none';document.getElementById('question').style.display = 'inline-block';document.getElementById('goodAnswer').style.display = 'inline-block';document.getElementById('answerbox').style.display = 'block';document.getElementById('progress').style.width = "0%";}, 3000);
-		setTimeout(document.getElementById('answerbox').focus(), 20);
+		setTimeout(function(){document.getElementById('answerbox').focus()}, 1000);
 	}
 }
 

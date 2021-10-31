@@ -45,12 +45,12 @@ function add(item){
 	switch(item){
 		case 'red3':
 		price = Math.floor(Math.random()*15)+10;
-		pName = "Sirop pour la toux";
+		pName = "Limonade fruitée";
 		break
 
 		case 'red2':
 		price = Math.floor(Math.random()*25)+50;
-		pName = "Limonade fruitée";
+		pName = "Sirop pour la toux";
 		break
 
 		case 'red1':
@@ -666,7 +666,7 @@ function firstLoan(){
 		today = 7;
 	}
 	var nextloan = 7 - today + 1;
-	var totalLoan = nextloan * 1000;
+	var totalLoan = nextloan * 500;
 	setCookie("toPay", totalLoan, 3650);
 	setCookie("isPaid", false, 3650);
 	var now = Math.floor(new Date().getTime()/1000/60/60/24/7);

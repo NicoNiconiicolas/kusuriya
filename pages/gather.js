@@ -24,7 +24,7 @@ let progression = 0;
 let nQuestion = 0;
 let wrongA = [];
 let wrongQ = [];
-setTimeout(function(){initQuestion()}, 0);
+setTimeout(function(){initQuestion()}, 500);
 
 document.getElementById('answer').addEventListener("keydown", (e) => {
   if (e.key == "Enter") {

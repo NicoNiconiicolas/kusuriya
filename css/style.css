@@ -1,6 +1,7 @@
 html{
 	overflow: hidden;
 	font-family: arial;
+	user-select: none;
 }
 
 body{
@@ -10,12 +11,153 @@ body{
 
 h1{
 	margin: 0;
+	font-size: 1.6em;
 	color: #FFF;
-	background: #752;
+	background: #222;
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;
-	font-size: 1.8em;
 	padding: 5px;
+}
+
+p{
+	font-size: 0.8em;
+	font-weight: bold;
+}
+
+button{
+	color: white;
+	background: #333;
+	border-color: #3A3A3A;
+	font-size: 1.1em;
+	border-radius: 5px;
+}
+
+#question, #goodAnswer{
+	display: inline-block;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 25px;
+	padding-right: 25px;
+	border-radius: 10px;
+	margin: auto;
+	color: white;
+	position: relative;
+	top: 15vh;
+	font-size: 3em;
+	background: #222;
+}
+
+#goodAnswer{
+	top: 35vh;
+	font-size: 2em;	
+}
+
+#goodAnswer:hover{
+	cursor: pointer;
+}
+
+#answerbox{
+	top: 20vh;
+	width: 33vw;
+	height: 5vh;
+	margin: auto;
+	position: relative;
+}
+
+#answer{
+	border-radius: 10px;
+	text-align: center;
+	height: 6vh;
+	width: 100%;
+	font-size: 2em;
+	padding: 10px;
+}
+
+#won{
+	display: none;
+	width: 100px;
+	height: 100px;
+	border: 4px solid #2A2A2A;
+	border-radius: 100%;
+	background: url('../img/ingredients/bagblueberry2.png') 50% 50% / 66% 66% no-repeat, #FFE;
+	margin: auto;
+	position: relative;
+	top: 25vh;
+}
+
+#wonText{
+	position: relative;
+	bottom: 15vh;
+	background: white;
+	font-weight: bold;
+	font-size: 1.6em;
+}
+
+#youMade{
+	display: none;
+	width: 150px;
+	height: 150px;
+	border: 4px solid #2A2A2A;
+	border-radius: 100%;
+	background: url('../img/goods/red3.png') 50% 50% / 66% 66% no-repeat, #FFE;
+	margin: auto;
+	position: absolute;
+	top: 35vh;
+	left: 44vw;
+	font-size: 2em;
+	font-weight: bold;
+	color: black;
+	text-shadow: 2px 2px #FFE, -2px -2px #FFE, -2px 2px #FFE, 2px -2px #FFE;
+}
+
+#potionName{
+	position: relative;
+	bottom: 15vh;
+	background: white;
+	width: 200%;
+}
+
+#price{
+	border: 2px solid #EEC;
+	position: relative;
+	top: 8vh;
+	border-radius: 10px;
+	font-size: 1.1em!important;
+	background: #FFE;
+}
+
+#combo{
+	text-align: left;
+	display: inline-block;
+	padding: 10px;
+	background: #222;
+	border: 2px solid #2A2A2A;
+	position: absolute;
+	color: white;
+	top: 100px;
+	right: 0;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+#progressBar{
+	background: #222;
+	border: 2px solid #2A2A2A;
+	margin: auto;
+	margin-top: 25px;
+	width: 75%;
+	height: 60px;
+	border-radius: 5px;
+}
+
+
+#progress{
+	transition: 0.5s;
+	width: 0%;
+	height: 54px;
+	background: white;
+	border: 3px solid lightgrey;
+	border-radius: 5px;
 }
 
 #bg{
@@ -30,12 +172,11 @@ h1{
 	color: white;
 	position: absolute;
 	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	grid-template-areas: "shop synth exploration";
+	grid-template-areas: "shop synth exploration gestion";
 	bottom: 0;
 	width: 100vw;
 	height: 10vh;
-	background: #752;
+	background: #222;
 }
 
 .menu-el{
@@ -45,7 +186,7 @@ h1{
 	padding-top: 3vh;
 	padding-bottom: 3vh;
 	font-size: 1.5em;
-	border-left: 1px solid #A85;
+	border-left: 1px solid #333;
 }
 
 .menu-el:first-child{
@@ -53,33 +194,78 @@ h1{
 }
 
 .menu-el:hover{
-	background: #863;
+	background: #333;
 }
 
-#box{
+#box, #box2{
 	background: #FFE;
 	border-radius: 10px;
 	border: 4px #BBA ridge;
 	margin: auto;
 	margin-top: 50px;
-	width: 80vw;
+	width: 70vw;
 	height: 70vh;
+}
+
+#box2{
+	overflow: auto;
 }
 
 #stall{
 	display: grid;
 	grid-template-columns: auto auto auto;
-	margin-left: 1vw;
-	margin-right: 1vw;
+	padding-left: 1vw;
+	padding-right: 1vw;
 	margin-top: 1vh;
 	width: 100%;
 	height: 63vh;
 }
 
+#catalog{
+	overflow: auto;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	color: black;
+	width: 100%;
+}
+
+.bar{
+	width: auto;
+	padding: 15px;
+	border: ridge 1px #666;
+}
+
+.bar:nth-child(3n+1){
+	background: #AA8;
+}
+
+.bar:nth-child(3n+2){
+	background: #CCA;
+}
+
+.bar:nth-child(3n){
+	background: #EEC;
+}
+
+#money{
+	border-left: solid #A85 1px;
+	font-size: 1.6em;
+	padding: 5px;
+}
+
+#grid{
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	color: #FFF;
+	background: #222;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
 .case{
 	width: 92%;
 	height: 92%;
-	background: #EEB;
+	background: #EEC;
 }
 
 .obj{
@@ -87,8 +273,44 @@ h1{
 	height: 100%;
 }
 
-@media (max-width: 768px){
+@media (min-width : 501px) and (max-width: 768px){
 	#bg{
 		background: url('../img/panya.png') 50% 0% / 200% 100% no-repeat;
+	}
+
+	#box, #box2{
+		width: 95vw;
+	}
+
+	#youMade{
+		left: 38vw;
+	}
+
+	#answerbox{
+		width: 66vw;
+	}
+
+}
+
+@media (max-width: 500px){
+	#bg{
+		background: url('../img/panya.png') 50% 0% / 200% 100% no-repeat;
+	}
+
+	#box, #box2{
+		width: 98vw;
+	}
+
+	#youMade{
+		left: 30.5vw;
+	}
+
+	#answer{
+		font-size: 2em;
+		height: 4vh;
+	}
+
+	#answerbox{
+		width: 66vw;
 	}
 }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>convertisseur</title>
+	<style type="text/css">
+		textarea{
+			width: 50%;
+			height: 50vh;
+		}
+
+		button{
+			padding: 15px;
+			font-size: 1.5em;
+		}
+	</style>
+</head>
+<body>
+	<center><textarea id='text' placeholder='copiez le contenu du fichier exporter de anki ici'></textarea></center>
+	<center><br><button onclick='convert()'>convertir</button></center>
+</body>
+<script type="text/javascript" src='js/filesaver.js'></script>
+<script type="text/javascript">
+	var str = [];
+    var part = [];
+    var part1 = '';
+    var part2 = '';
+    var i = 0;
+	var array = [];
+	var question = [];
+	var answer = [];
+	function go(text){
+		array = text.split('\n');
+		for(i=0;i<array.length-1;i++){
+			var index = array[i].indexOf(',');
+			question.push("\""+array[i].slice(0, index)+"\"");
+			var str = array[i].slice(index+1)
+			answer.push(str);
+		}
+		var product = "ans=["+answer+"];\n"+"quest=["+question+"];";
+
+		var deck = new Blob([product], {type: "text/plain;charset=utf-8"});
+        saveAs(deck, "deck.js");
+	}
+
+	function convert(){
+		var text = document.getElementById('text');
+     	var send = "";
+     	if(text.value != ""){
+     	str = text.value.split('\n');
+     	for(let a = 0; a < str.length; a++ ){
+        	part[0] = str[a].split(/\s(.+)/)[0];  //everything before the first space
+        	part[1] = str[a].split(/\s(.+)/)[1];  //everything after the first space
+        	if(part[0] && part[1] !=''){
+        	  part[0] = part[0].replace(/,/g , '/');
+        	  part[0] = part[0].replace(/"/g , "\'");
+        	  send += part[0]+',"';
+        	  part[1] = part[1].replace(/"/g , "\'");
+        	  part[1] = part[1].replace(/・/g , ",");
+        	  part[1] = part[1].replace(/\//g, ',');
+        	  part[1] = part[1].replace(/、/g, ',');
+        	  part[1] = part[1].replace(/;/g, ',');
+        	  part[1] = part[1].replace(/\|/g, ',');
+        	  part[1] = part[1].replace(/\\/g, ',');
+        	  part[1] = part[1].replace(/\s/g, ',');
+        	  send += part[1]+'"\n';
+        	  }
+     	 	};
+       		text.value = "";
+       		alert(send);
+       		go(send);
+    	}else{
+    		alert("Champ Vide !")
+	    }
+	}
+</script>
+</html>

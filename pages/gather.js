@@ -14,8 +14,7 @@ let questions = [];
 let ans = [];
 let answers = [];
 var deck = document.createElement('script');
-deck.src = 'deck/deck.js';
-document.getElementsByTagName('body')[0].appendChild(deck);
+deck.src = getCookie('deck');
 
 document.getElementById('bg').style.backgroundImage = 'url("img/forest.jpg")';
 let combo = 0;
@@ -24,7 +23,6 @@ let progression = 0;
 let nQuestion = 0;
 let wrongA = [];
 let wrongQ = [];
-setTimeout(function(){initQuestion()}, 500);
 
 document.getElementById('answer').addEventListener("keydown", (e) => {
   if (e.key == "Enter") {
@@ -32,3 +30,4 @@ document.getElementById('answer').addEventListener("keydown", (e) => {
   	document.getElementById('answer').value = "";
   }
 });
+document.getElementsByTagName('body')[0].appendChild(deck);

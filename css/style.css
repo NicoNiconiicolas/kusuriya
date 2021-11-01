@@ -32,6 +32,10 @@ button{
 	border-radius: 5px;
 }
 
+h2{
+	margin: 5px;
+}
+
 #status{
 	margin-top: 5px;
 	display: inline-block;
@@ -60,7 +64,7 @@ button{
 
 .okButton{
 	display: inline-block;
-	padding: 7px;
+	padding: 5px;
 	border-radius: 10px;
 	background: #333;
 	color: white;

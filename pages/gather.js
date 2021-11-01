@@ -3,7 +3,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<audio id='wrong' src='sfx/wrong.mp3'></audio>"+
 "<audio id='prize' src='sfx/prize.mp3'></audio>"+
 "<div id='progressBar'><div id='progress'></div></div>"+
-"<div id='won'><span id='wonText'>Baies en Vrac</span></div>"+
+"<div id='hoho'><span id='wonText'>Sac de Baies</span><div id='won'></div></div>"+
 "<div id='question'>n/a</div>"+
 "<div id='answerbox'><input id='answer' autofocus></input></div>"+
 "<div id='goodAnswer'>n/a</div>"+

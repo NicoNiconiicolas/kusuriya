@@ -15,8 +15,8 @@ let ans = [];
 let answers = [];
 var deck = document.createElement('script');
 deck.src = getCookie('deck');
-
-document.getElementById('bg').style.backgroundImage = 'url("img/forest.jpg")';
+var bgn = Math.floor(Math.random()*5+1);
+document.getElementById('bg').style.backgroundImage = 'url("img/bg'+bgn+'.png")';
 let combo = 0;
 let multiplicateur = 1;
 let progression = 0;

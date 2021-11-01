@@ -55,7 +55,7 @@ function add(item){
 
 		case 'red1':
 		price = Math.floor(Math.random()*110)+115;
-		pName = "Lessive";
+		pName = "Lessive liquide";
 		break
 
 		case 'blue3':
@@ -89,7 +89,7 @@ function add(item){
 		break
 
 		case 'wine':
-		price = Math.floor(Math.random()*15000)+10000;
+		price = Math.floor(Math.random()*5000)+5000;
 		pName = "Remède universel";
 		break
 	}
@@ -100,9 +100,9 @@ function add(item){
 				setCookie("slot"+i+"_value", price, 3650)
 				document.getElementById('potionName').innerHTML = pName;
 				document.getElementById('nprice').innerHTML = price;
-				document.getElementById('youMade').style.display = 'block'
+				document.getElementById('super').style.display = 'block'
 				document.getElementById('youMade').style.backgroundImage = "url('img/goods/"+item+".png')";
-				setTimeout(function(){document.getElementById('youMade').style.display = 'none';}, 2750)
+				setTimeout(function(){document.getElementById('super').style.display = 'none';}, 3750)
 				slot[i] = item;
 				break
 			}else{
@@ -659,13 +659,15 @@ function updateDeck(){
 	}
 }
 
+function updateJLPT(n){
+	setCookie('deck', 'deck/'+n+'.js', 3650);
+	alert('Deck chargé !');
+}
+
 function firstLoan(){
 	var d = new Date();
 	var today = d.getDay();
-	if(today == 0){
-		today = 7;
-	}
-	var nextloan = 7 - today + 1;
+	var nextloan = 6 - today + 1;
 	var totalLoan = nextloan * 500;
 	setCookie("toPay", totalLoan, 3650);
 	setCookie("isPaid", false, 3650);

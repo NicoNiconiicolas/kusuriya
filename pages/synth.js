@@ -1,7 +1,7 @@
 document.getElementsByTagName('body')[0].innerHTML +=""+
 "<audio id='prize' src='sfx/prize.mp3'></audio>"+
-"<audio id='sfx' src='sfx/correct.mp3'></audio>"+
-"<div id='youMade'><span id='potionName'>Nom de potion</span><p id='price'><span id='nprice'>0</span> $</p></div>"+
+"<audio id='sfx' src='sfx/bip.mp3'></audio>"+
+"<div id='super'><span id='potionName'>Nom de potion</span><div id='youMade'></div><br><p id='price'><span id='nprice'>0</span> $</p></div>"+
 "<div id='box2'>"+
 "<h1>Catalogue</h1>"+
 "<div id='catalog'>"+

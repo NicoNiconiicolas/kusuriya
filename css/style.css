@@ -20,7 +20,7 @@ h1{
 }
 
 p{
-	font-size: 0.8em;
+	font-size: 0.6em;
 	font-weight: bold;
 }
 
@@ -242,7 +242,7 @@ h2{
 	display: inline-block;
 	padding-top: 3vh;
 	padding-bottom: 3vh;
-	font-size: 1.5em;
+	font-size: 1.2em;
 	border-left: 1px solid #333;
 }
 
@@ -351,7 +351,7 @@ h2{
 
 @media (max-width: 500px){
 	#bg{
-		background: url('../img/panya.png') 50% 0% / 200% 100% no-repeat;
+		background: url('../img/panya.png') 50% 0% / 250% 100% no-repeat;
 	}
 
 	#box, #box2{
@@ -369,5 +369,27 @@ h2{
 
 	#answerbox{
 		width: 66vw;
+	}
+
+	#progressBar{
+		height: 7vh;
+	}
+
+	#progress{
+		height: 6vh;
+	}
+
+	#question{
+		font-size: 2em;
+	}
+
+	#goodAnswer{
+		font-size: 1.5em;
+		top: 28vh;
+	}
+
+	#combo{
+		font-size: 0.8em;
+		top: 14vh;
 	}
 }

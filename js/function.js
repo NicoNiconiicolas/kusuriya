@@ -506,12 +506,12 @@ function gacha(){
 			document.getElementById('wonText').innerHTML = 'Sac de Raisins';
 			synth('raisin1');
 		}
-		document.getElementById('won').style.display = 'block';
+		document.getElementById('hoho').style.display = 'block';
 		document.getElementById('question').style.display = 'none';
 		document.getElementById('answerbox').style.display = 'none';
 		document.getElementById('goodAnswer').style.display = 'none';
 		document.getElementById('prize').play();
-		setTimeout(function(){progression = 0;document.getElementById('won').style.display = 'none';document.getElementById('question').style.display = 'inline-block';document.getElementById('goodAnswer').style.display = 'inline-block';document.getElementById('answerbox').style.display = 'block';document.getElementById('progress').style.width = "0%";}, 3000);
+		setTimeout(function(){progression = 0;document.getElementById('hoho').style.display = 'none';document.getElementById('question').style.display = 'inline-block';document.getElementById('goodAnswer').style.display = 'inline-block';document.getElementById('answerbox').style.display = 'block';document.getElementById('progress').style.width = "0%";}, 3000);
 		document.getElementById('answer').focus();
 	}
 }

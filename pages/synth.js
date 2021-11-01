@@ -23,7 +23,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 	"<div class='bar'><p>Anti-poison</p><p>requis : <br>2x raisins en vrac</p><p>valeur : 125$ ~ 325$</p><img src='img/goods/purple3.png' width='50px'><br><br><button onclick='synth(\"purple3\")'>synthétiser</button></div>"+
 	"<div class='bar'><p>Parfum lavande</p><p>requis : <br>2x raisins savoureux</p><p>valeur : 333$ ~ 600$</p><img src='img/goods/purple2.png' width='50px'><br><br><button onclick='synth(\"purple2\")'>synthétiser</button></div>"+
 	"<div class='bar'><p>Liqueur bonbon</p><p>requis : <br>2x raisins parfaits</p><p>valeur : 1 250$ ~ 2 500$</p><img src='img/goods/purple1.png' width='50px'><br><br><button onclick='synth(\"purple1\")'>synthétiser</button></div>"+
-	"<div class='bar'><p>Remède universel</p><p>requis : <br>2x baies parfaites<br>2x myrtilles parfaites<br>2x raisins parfaits</p><p>valeur : 10 000$ ~ 25 000$</p><img src='img/goods/wine.png' width='50px'><br><br><button onclick='synth(\"wine\")'>synthétiser</button></div>"+
+	"<div class='bar'><p>Remède universel</p><p>requis : <br>2x baies parfaites<br>2x myrtilles parfaites<br>2x raisins parfaits</p><p>valeur : 5 000$ ~ 10 000$</p><img src='img/goods/wine.png' width='50px'><br><br><button onclick='synth(\"wine\")'>synthétiser</button></div>"+
 "</div>"+
 "</div>";
 showPossess();

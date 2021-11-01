@@ -38,7 +38,7 @@
 			var str = array[i].slice(index+1)
 			answer.push(str);
 		}
-		var product = "ans=["+answer+"];\n"+"quest=["+question+"];";
+		var product = "ans=["+answer+"];\n"+"quest=["+question+"];\ninitQuestion();";
 
 		var deck = new Blob([product], {type: "text/plain;charset=utf-8"});
         saveAs(deck, "deck.js");
@@ -68,7 +68,6 @@
         	  }
      	 	};
        		text.value = "";
-       		alert(send);
        		go(send);
     	}else{
     		alert("Champ Vide !")

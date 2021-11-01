@@ -183,7 +183,7 @@ function synth(obj){
 			sfx.play();
 		}else{
 			var missing = 2 - need;
-			alert('il vous manque les ingrédients suivants : '+missing+' baie(s) en vrac')
+			alert('il vous manque les ingrédients suivants : '+missing+' sace de baies')
 		}
 		break
 
@@ -215,7 +215,7 @@ function synth(obj){
 			sfx.play();
 		}else{
 			var missing = 2 - need;
-			alert('il vous manque les ingrédients suivants : '+missing+' myrtille(s) en vrac')
+			alert('il vous manque les ingrédients suivants : '+missing+' sac de myrtilles')
 		}
 		break
 
@@ -247,7 +247,7 @@ function synth(obj){
 			sfx.play();
 		}else{
 			var missing = 2 - need;
-			alert('il vous manque les ingrédients suivants : '+missing+' raisin(s) en vrac')
+			alert('il vous manque les ingrédients suivants : '+missing+' sac de raisins')
 		}
 		break
 
@@ -279,7 +279,7 @@ function synth(obj){
 				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
-				alert('il vous manque les ingrédients suivants : x'+missing+' baie(s) en vrac')
+				alert('il vous manque les ingrédients suivants : x'+missing+' sac de baies')
 			}
 		}else{
 			alert('Aucun emplacement libre');
@@ -374,7 +374,7 @@ function synth(obj){
 				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
-				alert('il vous manque les ingrédients suivants : x'+missing+' myrtille(s) en vrac')
+				alert('il vous manque les ingrédients suivants : x'+missing+' sac de myrtilles')
 			}
 		}else{
 			alert('Aucun emplacement libre');
@@ -431,7 +431,7 @@ function synth(obj){
 				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
-				alert('il vous manque les ingrédients suivants : x'+missing+' raisin(s) en vrac')
+				alert('il vous manque les ingrédients suivants : x'+missing+' sac de raisins')
 			}
 		}else{
 			alert('Aucun emplacement libre');
@@ -495,15 +495,15 @@ function gacha(){
 		var random = Math.floor(Math.random()*100)+1;
 		if(random <= 50){
 			document.getElementById('won').style.backgroundImage = "url('img/ingredients/bagberry.png')";
-			document.getElementById('wonText').innerHTML = 'Baies en vrac';
+			document.getElementById('wonText').innerHTML = 'Sac de Baies';
 			synth('baie1');
 		}else if(random > 50 && random <= 85){
 			document.getElementById('won').style.backgroundImage = "url('img/ingredients/bagblueberry.png')";
-			document.getElementById('wonText').innerHTML = 'Myrtilles en vrac';
+			document.getElementById('wonText').innerHTML = 'Sac de Myrtilles';
 			synth('blueberry1');
 		}else{
 			document.getElementById('won').style.backgroundImage = "url('img/ingredients/bagraisin.png')";
-			document.getElementById('wonText').innerHTML = 'Raisins en vrac';
+			document.getElementById('wonText').innerHTML = 'Sac de Raisins';
 			synth('raisin1');
 		}
 		document.getElementById('won').style.display = 'block';

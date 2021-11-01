@@ -359,7 +359,7 @@ h2{
 
 @media (max-width: 500px){
 	#bg{
-		background: url('../img/panya.png') 50% 0% / 250% 100% no-repeat;
+		background: url('../img/panya.png') 50% 0% / 275% 100% no-repeat;
 	}
 
 	#box, #box2{
@@ -399,5 +399,9 @@ h2{
 	#combo{
 		font-size: 0.8em;
 		top: 14vh;
+	}
+
+	#paid{
+		font-size: 1.2em;
 	}
 }

@@ -5,15 +5,51 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>薬屋</title>
-<script type="text/javascript" src='js/function.js'></script>
+<script id='func' type="text/javascript" src='js/function.js'></script>
 <script type="text/javascript" src='js/nikolib.js'></script>
 </head>
 <body id='bg'>
+	<div id='lang'>
+		<div id='box'>
+			<h1>Choose your language</h1>
+			<div id='langButtons'>
+				<div class='langB' onclick='setLang(0)'>English</div>
+				<br><br><div class='langB' onclick='setLang(1)'>Français</div>
+			</div>
+		</div>
+	</div>
 </body>
 <script>
+
+	//controler
+	var p = $_GET('p');
+	var page = document.createElement('script');
+	var menu = document.createElement('script');
+	var getLang = getCookie('lang');
+	switch(p){
+		case null:
+		p = "shop";
+		
+		case "shop":case "synth":case "gather":case"gestion":
+		break
+
+		default:
+		p = "shop";
+	}
+	if(getLang == 0 || getLang == undefined){
+		page.src = 'pages/'+p+'En.js';
+		menu.src = 'model/menuEn.js';
+	}else{
+		page.src = 'pages/'+p+'.js';
+		menu.src = 'model/menu.js';
+	}
+	document.getElementsByTagName('body')[0].appendChild(page);
+</script>
+<script>
 	// si cookies n'existent pas crée une nouvelle partie
+		let lang = document.getElementById('lang');
 	if(document.cookie == ""){
-		alert('Nouvelle partie');
+		lang.style.display = 'block';
 		setCookie("slot1", "empty", 3650);
 		setCookie("slot2", "empty", 3650);
 		setCookie("slot3", "empty", 3650);
@@ -58,22 +94,8 @@
 	slot[7] = getCookie('slot7');
 	slot[8] = getCookie('slot8');
 	slot[9] = getCookie('slot9');
-
-	//controller des pages
-	var p = $_GET('p');
-	var page = document.createElement('script');
-	switch(p){
-		case null:
-		p = "shop";
-		
-		case "shop":case "synth":case "gather":case"gestion":
-		break
-
-		default:
-		p = "shop";
+	if(getLang != ""){
+		document.getElementsByTagName('body')[0].appendChild(menu);
 	}
-	page.src = 'pages/'+p+'.js';
-	document.getElementsByTagName('body')[0].appendChild(page);
 </script>
-<script src='model/menu.js'></script>
 </html>

@@ -36,6 +36,33 @@ h2{
 	margin: 5px;
 }
 
+#lang{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	display: none;
+	background: white;
+}
+
+#langButtons{
+	margin-top: 20vh;
+}
+
+.langB{
+	display: inline-block;
+	padding: 10px;
+	background: #222;
+	border-radius: 5px;
+	color: white;
+	font-size: 2em;
+}
+
+.langB:hover{
+	background: #151515;
+	cursor: pointer;
+}
+
 #hoho{
 	display: none;
 	width: 100vw;
@@ -148,6 +175,7 @@ h2{
 #super{
 	display: none;
 	position: absolute;
+	top: 0;
 	width: 100vw;
 	height: 100vh;
 	margin: auto;

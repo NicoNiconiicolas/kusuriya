@@ -17,7 +17,7 @@
 	</style>
 </head>
 <body>
-	<center><textarea id='text' placeholder='copiez le contenu du fichier exporter de anki ici'></textarea></center>
+	<center><textarea id='text' placeholder='export your deck in plain text from anki(PC) then copy&paste the content of your .csv file here'></textarea></center>
 	<center><br><button onclick='convert()'>convertir</button></center>
 </body>
 <script type="text/javascript" src='js/filesaver.js'></script>
@@ -38,10 +38,22 @@
 			var str = array[i].slice(index+1)
 			answer.push(str);
 		}
+		if(question[0] == "\"Question\""){
+			answer.shift();
+			question.shift();
+		}
 		var product = "ans=["+answer+"];\n"+"quest=["+question+"];\ninitQuestion();";
 
 		var deck = new Blob([product], {type: "text/plain;charset=utf-8"});
         saveAs(deck, "deck.js");
+        str = [];
+        part = [];
+        part1 = [];
+        part2 = [];
+        i = 0;
+        array = [];
+        question = [];
+        answer = [];
 	}
 
 	function convert(){
@@ -58,6 +70,7 @@
         	  send += part[0]+',"';
         	  part[1] = part[1].replace(/"/g , "\'");
         	  part[1] = part[1].replace(/・/g , ",");
+        	  part[1] = part[1].replace(/, /g , ",");
         	  part[1] = part[1].replace(/\//g, ',');
         	  part[1] = part[1].replace(/、/g, ',');
         	  part[1] = part[1].replace(/;/g, ',');
@@ -70,7 +83,7 @@
        		text.value = "";
        		go(send);
     	}else{
-    		alert("Champ Vide !")
+    		alert("Empty field !")
 	    }
 	}
 </script>

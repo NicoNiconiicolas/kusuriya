@@ -3,11 +3,11 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<audio id='wrong' src='sfx/wrong.mp3'></audio>"+
 "<audio id='prize' src='sfx/prize.mp3'></audio>"+
 "<div id='progressBar'><div id='progress'></div></div>"+
-"<div id='hoho'><span id='wonText'>Sac de Baies</span><div id='won'></div></div>"+
+"<div id='hoho'><span id='wonText'>Berries Bag</span><div id='won'></div></div>"+
 "<div id='question'>n/a</div>"+
 "<div id='answerbox'><input id='answer' autofocus></input></div>"+
 "<div id='goodAnswer'>n/a</div>"+
-"<div id='combo'>carte(s) vue(s) : <span id='cards'>"+getCookie('cardsToday')+"</span><br>combo(s) : <span id='ncombo'>0</span><br>multiplicateur : x<span id='multiple'>1</span></div>";
+"<div id='combo'>viewed card(s) : <span id='cards'>"+getCookie('cardsToday')+"</span><br>combo(s) : <span id='ncombo'>0</span><br>multiplier : x<span id='multiple'>1</span></div>";
 
 let quest = [];
 let questions = [];
@@ -31,7 +31,7 @@ let wasWrong = false;
 checkCards();
 
 document.addEventListener("keydown", (e) => {
-  if (e.key == "Enter") {
+  if (e.key == "Enter"){
   	checkAnswer();
   	document.getElementById('answer').value = "";
   }

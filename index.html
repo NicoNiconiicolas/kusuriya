@@ -48,7 +48,7 @@
 <script>
 	// si cookies n'existent pas crée une nouvelle partie
 		let lang = document.getElementById('lang');
-	if(document.cookie == ""){
+	if(getCookie('lang') == ""){
 		lang.style.display = 'block';
 		setCookie("slot1", "empty", 3650);
 		setCookie("slot2", "empty", 3650);

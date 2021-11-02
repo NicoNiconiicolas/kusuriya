@@ -1,3 +1,4 @@
+
 function goto(page){
 	location.href='index.html?p='+page;
 }
@@ -38,6 +39,7 @@ function isInvFull(){
 }
 
 function add(item){
+	var lang = getCookie('lang');
 	var loop = true;
 	var i = 1;
 	var price = 0;
@@ -45,32 +47,52 @@ function add(item){
 	switch(item){
 		case 'red3':
 		price = Math.floor(Math.random()*15)+10;
-		pName = "Limonade fruitée";
+		if(lang == 0){
+			pName = "Fruity soda";
+		}else{
+			pName = "Limonade fruitée";
+		}
 		break
 
 		case 'red2':
 		price = Math.floor(Math.random()*25)+50;
-		pName = "Sirop pour la toux";
+		if(lang == 0){
+			pName = "Cough syrup";
+		}else{
+			pName = "Sirop pour la toux";
+		}
 		break
 
 		case 'red1':
 		price = Math.floor(Math.random()*110)+115;
-		pName = "Lessive liquide";
+		pName = "Mayonnaise";
 		break
 
 		case 'blue3':
 		price = Math.floor(Math.random()*66)+33;
-		pName = "Lubrifiant";
+		if(lang == 0){
+			pName = "Liquid laundry";
+		}else{
+			pName = "Lessive liquide";
+		}
 		break
 
 		case 'blue2':
 		price = Math.floor(Math.random()*150)+150;
-		pName = "Liquide de refroidissement";
+		if(lang == 0){
+			pName = "Cooling liquid";
+		}else{
+			pName = "Liquide de refroidissement";
+		}
 		break
 
 		case 'blue1':
 		price = Math.floor(Math.random()*500)+500;
-		pName = "Solution acide";
+		if(lang == 0){
+			pName = "Acid solution";
+		}else{
+			pName = "Solution acide";
+		}
 		break
 
 		case 'purple3':
@@ -80,17 +102,29 @@ function add(item){
 
 		case 'purple2':
 		price = Math.floor(Math.random()*267)+333;
-		pName = "Parfum Lavande";
+		if(lang == 0){
+			pName = "Lavender perfume";
+		}else{
+			pName = "Parfum Lavande";
+		}
 		break
 
 		case 'purple1':
 		price = Math.floor(Math.random()*1250)+1250;
-		pName = "Liqueur bonbon";
+		if(lang == 0){
+			pName = "Candy liquor";
+		}else{
+			pName = "Liqueur bonbon";
+		}
 		break
 
 		case 'wine':
 		price = Math.floor(Math.random()*5000)+5000;
-		pName = "Remède universel";
+		if(lang == 0){
+			pName = "Universal remedy";
+		}else{
+			pName = "Remède universel";
+		}
 		break
 	}
 	while(loop = true){
@@ -140,6 +174,7 @@ function trySell(focus){
 					var whichSell = Math.floor(Math.random()*sellList.length);
 					soldCount ++;
 					gains += parseInt(getCookie('slot'+sellList[whichSell]+'_value'));
+					item = getCookie('slot'+sellList[whichSell]);
 					sell(sellList[whichSell]);
 					sellList.splice(whichSell,1);
 				}else{
@@ -151,6 +186,87 @@ function trySell(focus){
 		if(gains != 0){
 			if(focus == false){
 				alert(soldCount+" article(s) vendu(s) pour "+gains+"$");
+			}else{
+				var lang = getCookie('lang');
+				switch(item){
+					case 'red3':
+					if(lang == 0){
+						pName = "Fruity soda";
+					}else{
+						pName = "Limonade fruitée";
+					}
+					break
+
+					case 'red2':
+					if(lang == 0){
+						pName = "Cough syrup";
+					}else{
+						pName = "Sirop pour la toux";
+					}
+					break
+
+					case 'red1':
+					pName = "Mayonnaise";
+					break
+
+					case 'blue3':
+					if(lang == 0){
+						pName = "Liquid laundry";
+					}else{
+						pName = "Lessive liquide";
+					}
+					break
+
+					case 'blue2':
+					if(lang == 0){
+						pName = "Cooling liquid";
+					}else{
+						pName = "Liquide de refroidissement";
+					}
+					break
+
+					case 'blue1':
+					if(lang == 0){
+						pName = "Acid solution";
+					}else{
+						pName = "Solution acide";
+					}
+					break
+
+					case 'purple3':
+					pName = "Anti-poison";
+					break
+
+					case 'purple2':
+					if(lang == 0){
+						pName = "Lavender perfume";
+					}else{
+						pName = "Parfum Lavande";
+					}
+					break
+
+					case 'purple1':
+					if(lang == 0){
+						pName = "Candy liquor";
+					}else{
+						pName = "Liqueur bonbon";
+					}
+					break
+
+					case 'wine':
+					if(lang == 0){
+						pName = "Universal remedy";
+					}else{
+						pName = "Remède universel";
+					}
+					break
+				}
+				document.getElementById('potionName').innerHTML = pName;
+				document.getElementById('price').style.color = 'green';
+				document.getElementById('nprice').innerHTML = "+ "+gains;
+				document.getElementById('super').style.display = 'block';
+				document.getElementById('youMade').style.backgroundImage = "url('img/goods/"+item+".png')";
+				setTimeout(function(){document.getElementById('super').style.display = 'none';}, 3750)
 			}
 		}
 	}
@@ -164,9 +280,11 @@ function sell(nslot){
 	setCookie('slot'+nslot, 'empty', 3650);
 	empty(nslot);
 	document.getElementById('sfx').play();
+	showInv();
 }
 
 function synth(obj){
+	var lang = getCookie('lang');
 	var sfx = document.getElementById('sfx');
 	switch(obj){
 		case 'baie1':
@@ -183,7 +301,11 @@ function synth(obj){
 			sfx.play();
 		}else{
 			var missing = 2 - need;
-			alert('il vous manque les ingrédients suivants : '+missing+' sace de baies')
+			if(lang == 0){
+				alert('missing ingredient(s) : x'+missing+' bag of berries')
+			}else{
+				alert('il vous manque les ingrédients suivants : x'+missing+' sace de baies')
+			}
 		}
 		break
 
@@ -197,7 +319,11 @@ function synth(obj){
 			sfx.play();
 		}else{
 			var missing = 2 - need;
-			alert('il vous manque les ingrédients suivants : '+missing+' baie(s) délicieuse(s)')
+			if(lang == 0){
+				alert('missing ingredient(s) : x'+missing+' delicious berries')
+			}else{
+				alert('il vous manque les ingrédients suivants : x'+missing+' baie(s) délicieuse(s)')
+			}
 		}
 		break
 
@@ -215,7 +341,11 @@ function synth(obj){
 			sfx.play();
 		}else{
 			var missing = 2 - need;
-			alert('il vous manque les ingrédients suivants : '+missing+' sac de myrtilles')
+			if(lang == 0){
+				alert('missing ingredient(s) : x'+missing+' bag of blueberries')
+			}else{
+				alert('il vous manque les ingrédients suivants : '+missing+' sac de myrtilles')
+			}
 		}
 		break
 
@@ -229,7 +359,11 @@ function synth(obj){
 			sfx.play();
 		}else{
 			var missing = 2 - need;
-			alert('il vous manque les ingrédients suivants : '+missing+' myrtille(s) envoûtante(s)')
+			if(lang == 0){
+				alert('missing ingredient(s) : x'+missing+' enchanting blueberries')
+			}else{
+				alert('il vous manque les ingrédients suivants : '+missing+' myrtille(s) envoûtante(s)')
+			}
 		}
 		break
 
@@ -247,7 +381,11 @@ function synth(obj){
 			sfx.play();
 		}else{
 			var missing = 2 - need;
-			alert('il vous manque les ingrédients suivants : '+missing+' sac de raisins')
+			if(lang == 0){
+				alert('missing ingredient(s) : x'+missing+' bag of grapes')
+			}else{
+				alert('il vous manque les ingrédients suivants : '+missing+' sac de raisins')
+			}
 		}
 		break
 
@@ -261,7 +399,11 @@ function synth(obj){
 			sfx.play();
 		}else{
 			var missing = 2 - need;
-			alert('il vous manque les ingrédients suivants : '+missing+' raisin(s) savoureu(x)')
+			if(lang == 0){
+				alert('missing ingredient(s) : x'+missing+' succulent grapes')
+			}else{
+				alert('il vous manque les ingrédients suivants : '+missing+' raisin(s) savoureu(x)')
+			}
 		}
 		break
 
@@ -279,10 +421,18 @@ function synth(obj){
 				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
-				alert('il vous manque les ingrédients suivants : x'+missing+' sac de baies')
+				if(lang == 0){
+					alert('missing ingredient(s) : x'+missing+' bag of berries')
+				}else{
+					alert('il vous manque les ingrédients suivants : x'+missing+' sac de baies')
+				}
 			}
 		}else{
-			alert('Aucun emplacement libre');
+			if(lang == 0){
+				alert('no avaible slot');
+			}else{
+				alert('Aucun emplacement libre');
+			}
 		}
 		break
 
@@ -298,10 +448,18 @@ function synth(obj){
 				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
-				alert('il vous manque les ingrédients suivants : x'+missing+' baie(s) délicieuse(s)')
+				if(lang == 0){
+					alert('missing ingredient(s) : x'+missing+' delicious berries')
+				}else{
+					alert('il vous manque les ingrédients suivants : x'+missing+' baie(s) délicieuse(s)')
+				}
 			}
 		}else{
-			alert('Aucun emplacement libre');
+			if(lang == 0){
+				alert('no avaible slot');
+			}else{
+				alert('Aucun emplacement libre');
+			}
 		}
 		break 
 
@@ -317,10 +475,18 @@ function synth(obj){
 				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
-				alert('il vous manque les ingrédients suivants : x'+missing+' baies parfaites')
+				if(lang == 0){
+					alert('missing ingredient(s) : x'+missing+' perfect berries')
+				}else{
+					alert('il vous manque les ingrédients suivants : x'+missing+' baies parfaites')
+				}
 			}
 		}else{
-			alert('Aucun emplacement libre');
+			if(lang == 0){
+				alert('no avaible slot');
+			}else{
+				alert('Aucun emplacement libre');
+			}
 		}
 		break 
 
@@ -336,10 +502,18 @@ function synth(obj){
 				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
-				alert('il vous manque les ingrédients suivants : x'+missing+' myrtilles parfaites')
+				if(lang == 0){
+					alert('missing ingredient(s) : x'+missing+' perfect blueberries')
+				}else{
+					alert('il vous manque les ingrédients suivants : x'+missing+' myrtilles parfaites')
+				}
 			}
 		}else{
-			alert('Aucun emplacement libre');
+			if(lang == 0){
+				alert('no avaible slot');
+			}else{
+				alert('Aucun emplacement libre');
+			}
 		}
 		break
 
@@ -355,10 +529,18 @@ function synth(obj){
 				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
-				alert('il vous manque les ingrédients suivants : x'+missing+' myrtille(s) envoûtante(s)')
+				if(lang == 0){
+					alert('missing ingredient(s) : x'+missing+' enchanting blueberries')
+				}else{
+					alert('il vous manque les ingrédients suivants : x'+missing+' myrtille(s) envoûtante(s)')
+				}
 			}
 		}else{
-			alert('Aucun emplacement libre');
+			if(lang == 0){
+				alert('no avaible slot');
+			}else{
+				alert('Aucun emplacement libre');
+			}
 		}
 		break
 
@@ -374,10 +556,18 @@ function synth(obj){
 				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
-				alert('il vous manque les ingrédients suivants : x'+missing+' sac de myrtilles')
+				if(lang == 0){
+					alert('missing ingredient(s) : x'+missing+' bag of blueberries')
+				}else{
+					alert('il vous manque les ingrédients suivants : x'+missing+' sac de myrtilles')
+				}
 			}
 		}else{
-			alert('Aucun emplacement libre');
+			if(lang == 0){
+				alert('no avaible slot');
+			}else{
+				alert('Aucun emplacement libre');
+			}
 		}
 		break
 		
@@ -393,10 +583,18 @@ function synth(obj){
 				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
-				alert('il vous manque les ingrédients suivants : x'+missing+' raisins parfaits')
+				if(lang == 0){
+					alert('missing ingredient(s) : x'+missing+' perfect grapes')
+				}else{
+					alert('il vous manque les ingrédients suivants : x'+missing+' raisins parfaits')
+				}
 			}
 		}else{
-			alert('Aucun emplacement libre');
+			if(lang == 0){
+				alert('no avaible slot');
+			}else{
+				alert('Aucun emplacement libre');
+			}
 		}
 		break
 
@@ -412,10 +610,18 @@ function synth(obj){
 				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
-				alert('il vous manque les ingrédients suivants : x'+missing+' raisin(s) savoureu(x)')
+				if(lang == 0){
+					alert('missing ingredient(s) : x'+missing+' succulent grapes')
+				}else{
+					alert('il vous manque les ingrédients suivants : x'+missing+' raisin(s) savoureu(x)')
+				}
 			}
 		}else{
-			alert('Aucun emplacement libre');
+			if(lang == 0){
+				alert('no avaible slot');
+			}else{
+				alert('Aucun emplacement libre');
+			}
 		}
 		break 
 
@@ -431,10 +637,18 @@ function synth(obj){
 				setCookie('lastTime', getTime(), 3650);
 			}else{
 				var missing = 2 - need;
-				alert('il vous manque les ingrédients suivants : x'+missing+' sac de raisins')
+				if(lang == 0){
+					alert('missing ingredient(s) : x'+missing+' bag of grapes')
+				}else{
+					alert('il vous manque les ingrédients suivants : x'+missing+' sac de raisins')
+				}
 			}
 		}else{
-			alert('Aucun emplacement libre');
+			if(lang == 0){
+				alert('no avaible slot');
+			}else{
+				alert('Aucun emplacement libre');
+			}
 		}
 		break
 		
@@ -455,23 +669,27 @@ function synth(obj){
 				document.getElementById('prize').play();
 				setCookie('lastTime', getTime(), 3650);
 			}else{
-				var msg = "il vous manque les ingrédients suivants : ";
+				var msg = "missing ingredient(s) : ";
 				if(need1 < 2){
 					var missing = 2 - need1;
-					msg += '\nx'+missing+' baie(s) parfaites';
+					msg += '\nx'+missing+' perfect berries';
 				}
 				if(need2 < 2){
 					var missing = 2 - need2;
-					msg += '\nx'+missing+' myrtilles(s) parfaites';
+					msg += '\nx'+missing+' perfect blueberries';
 				}
 				if(need3 < 2){
 					var missing = 2 - need3;
-					msg += '\nx'+missing+' raisins parfaits';
+					msg += '\nx'+missing+' perfect grapes';
 				}
 				alert(msg);
 			}
 		}else{
-			alert('Aucun emplacement libre');
+			if(lang == 0){
+				alert('no avaible slot');
+			}else{
+				alert('Aucun emplacement libre');
+			}
 		}
 		break
 		
@@ -491,19 +709,32 @@ function showPossess(){
 }
 
 function gacha(){
+	var lang = getCookie('lang');
 	if(progression >= 100){
 		var random = Math.floor(Math.random()*100)+1;
 		if(random <= 50){
 			document.getElementById('won').style.backgroundImage = "url('img/ingredients/bagberry.png')";
-			document.getElementById('wonText').innerHTML = 'Sac de Baies';
+			if(lang == 0){
+				document.getElementById('wonText').innerHTML = 'Bag of Berries';
+			}else{
+				document.getElementById('wonText').innerHTML = 'Sac de Baies';
+			}
 			synth('baie1');
 		}else if(random > 50 && random <= 85){
 			document.getElementById('won').style.backgroundImage = "url('img/ingredients/bagblueberry.png')";
-			document.getElementById('wonText').innerHTML = 'Sac de Myrtilles';
+			if(lang == 0){
+				document.getElementById('wonText').innerHTML = 'Bag of Blueberries';
+			}else{
+				document.getElementById('wonText').innerHTML = 'Sac de myrtilles';
+			}
 			synth('blueberry1');
 		}else{
 			document.getElementById('won').style.backgroundImage = "url('img/ingredients/bagraisin.png')";
-			document.getElementById('wonText').innerHTML = 'Sac de Raisins';
+			if(lang == 0){
+				document.getElementById('wonText').innerHTML = 'Bag of Grapes';
+			}else{
+				document.getElementById('wonText').innerHTML = 'Sac de Raisins';
+			}
 			synth('raisin1');
 		}
 		document.getElementById('hoho').style.display = 'block';
@@ -522,7 +753,7 @@ function bar(perc){
 }
 
 function initQuestion(fail){
-	console.log('10 new questions');
+	console.log('15 new questions');
 	if(fail == false){
 		lastQ2 = questions[questions.length-1]
 		lastA2 = answers[answers.length-1]
@@ -541,7 +772,7 @@ function initQuestion(fail){
 	for (i = 0; i < max; ++i){
     	values.push(i);
 	}
-	for(i = 0; i < 10; ++i){
+	for(i = 0; i < 15; ++i){
 		var n = values.splice(Math.random()*values.length,1)[0];
 		questions.push(quest[n]);
 		answers.push(ans[n]);
@@ -650,18 +881,32 @@ function failedInit(){
 }
 
 function updateDeck(){
+	var lang = getCookie('lang');
 	var url = document.getElementById('deckLink').value;
 	if(url == ''){
-		alert('champ vide');
+		if(lang == 0){
+			alert('empty field');
+		}else{
+			alert('champ vide');
+		}
 	}else{
 		setCookie('deck', url, 3650);
-		alert('Deck chargé ! \n\n(pour peu que votre lien soit valide)');
+		if(lang == 0){
+			alert('Deck loaded ! \n\n(if your link is valid)');
+		}else{
+			alert('Deck chargé ! \n\n(pour peu que votre lien soit valide)');
+		}
 	}
 }
 
 function updateJLPT(n){
+	var lang = getCookie('lang');
 	setCookie('deck', 'deck/'+n+'.js', 3650);
-	alert('Deck chargé !');
+	if(lang == 0){
+		alert('Deck loaded !');
+	}else{
+		alert('Deck chargé !');
+	}
 }
 
 function firstLoan(){
@@ -676,11 +921,15 @@ function firstLoan(){
 }
 
 function checkLoan(){
+	var lang = getCookie('lang');
 	var now = Math.floor(new Date().getTime()/1000/60/60/24/7);
 	if(now > parseInt(getCookie('nextLoan'))){
 		if(getCookie('isPaid') == 'false'){
-			alert('/!\\ Game over /!\\\nRaison: Factures impayées\nDébut d\'une nouvelle partie');
-			alert('Nouvelle partie');
+			if(lang == 0){
+				alert('/!\\ Game over /!\\\nReason: Unpaid bills\nNew game will start');
+			}else{
+				alert('/!\\ Game over /!\\\nRaison: Factures impayées\nDébut d\'une nouvelle partie');
+			}
 			setCookie("slot1", "empty", 3650);
 			setCookie("slot2", "empty", 3650);
 			setCookie("slot3", "empty", 3650);
@@ -709,7 +958,6 @@ function checkLoan(){
 			setCookie("raisin1", 0, 3650);
 			setCookie("raisin2", 0, 3650);
 			setCookie("raisin3", 0, 3650);
-			setCookie("deck", "deck/deck.js", 3650);
 			firstLoan();
 			var slot = [];
 			slot[1] = getCookie('slot1');
@@ -725,14 +973,23 @@ function checkLoan(){
 			setCookie('nextloan', now, 3650);
 			setCookie('isPaid', false, 3650);
 			setCookie("toPay", 7000, 3650);
-			alert('Le paiement de vos factures ont bien été reçues !');
+			if(lang == 0){
+				alert('Payment of your bills has been received for this week !');
+			}else{
+				alert('Le paiement de vos factures ont bien été reçues pour cette semaine !');
+			}
 		}
 	}
 }
 
 function pay(){
+	var lang = getCookie('lang');
 	if(getCookie('balance') < getCookie('toPay')){
-		alert('fonds insufisants');
+		if(lang == 0){
+			alert('insufficient funds');
+		}else{
+			alert('fonds insufisants');
+		}
 	}else{
 		document.getElementById('sfx').play();
 		setCookie('balance', parseInt(getCookie('balance'))-parseInt(getCookie('toPay')), 3650)
@@ -743,15 +1000,24 @@ function pay(){
 }
 
 function showLoan(){
+	var lang = getCookie('lang');
 	if(parseInt(getCookie('toPay')) == 0){
 		document.getElementById('payer').style.display = 'none';
 	}
 	var $paid = document.getElementById('paid');
 	if(getCookie('isPaid') == 'true'){
-		$paid.innerHTML = "　payé";
+		if(lang == 0){
+			$paid.innerHTML = "　paid";
+		}else{
+			$paid.innerHTML = "　payé";
+		}
 		$paid.style.color = 'green';
 	}else{
-		$paid.innerHTML = "　impayé";
+		if(lang == 0){
+			$paid.innerHTML = "　unpaid";
+		}else{
+			$paid.innerHTML = "　impayé";
+		}
 		$paid.style.color = 'red';
 	}
 	document.getElementById('toPay').innerHTML = getCookie('toPay');
@@ -767,4 +1033,9 @@ function checkCards(){
 
 function today(){
 	return Math.round(new Date().getTime()/1000/60/60/24);
+}
+
+function setLang(lang){
+	setCookie('lang' , lang, 3650);
+	window.location = 'index.html';
 }

@@ -890,6 +890,7 @@ function updateDeck(){
 			alert('champ vide');
 		}
 	}else{
+		setCookie('cookieDeck', false, 3650);
 		setCookie('deck', url, 3650);
 		if(lang == 0){
 			alert('Deck loaded ! \n\n(if your link is valid)');
@@ -901,6 +902,7 @@ function updateDeck(){
 
 function updateJLPT(n){
 	var lang = getCookie('lang');
+	setCookie('cookieDeck', false, 3650);
 	setCookie('deck', 'deck/'+n+'.js', 3650);
 	if(lang == 0){
 		alert('Deck loaded !');
@@ -1038,4 +1040,55 @@ function today(){
 function setLang(lang){
 	setCookie('lang' , lang, 3650);
 	window.location = 'index.html';
+}
+
+function loadDeck(n){
+	var str = "";
+	var loop = true;
+	var i = 1;
+	while(loop){
+		if(getCookie('deck'+n+'_'+i) != ""){
+			i++;
+		}else{
+			var total = i-1;
+			loop = false;
+		}
+	}
+	i=0
+	loop = true;
+	while(loop){
+		i++;
+		str += getCookie('deck'+n+'_'+i);
+		if(i == total){
+			loop = false;
+		}
+	}
+	str = str.replace(/\$/g, ';');
+	final = str.split(';', 3);
+	finalCookieDeck();
+}
+
+function chooseCookieDeck(n){
+	var lang = getCookie('lang');
+	if(getCookie('deck'+n+'_1') != ""){
+		setCookie('cookieDeck', true, 3650);
+		setCookie('deck', n, 3650);
+		if(lang == 0){
+			alert("Deck loaded !");
+		}else{
+			alert("Deck chargé !");
+		}
+	}else{
+		if(lang == 0){
+			alert("This deck slot is empty !\nClick on 'New Deck' button to create one");
+		}else{
+			alert("Cet emplacement de Deck est vide !\n Cliquer sur le bouton 'Nouveau Deck' pour en créer un");
+		}
+	}
+}
+
+function finalCookieDeck(){
+	eval(final[0]);
+	eval(final[1]);
+	setTimeout(function(){initQuestion();},0);
 }

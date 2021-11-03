@@ -47,7 +47,15 @@
 </script>
 <script>
 	// si cookies n'existent pas crée une nouvelle partie
-		let lang = document.getElementById('lang');
+	if(getCookie('cookieDeck') == ""){
+		setCookie('cookieDeck', false, 3650);
+	}
+	if(getCookie('deck1_name') == ""){
+		setCookie('deck1_name', "vide", 3650);
+		setCookie('deck2_name', "vide", 3650);
+		setCookie('deck3_name', "vide", 3650);
+	}
+	let lang = document.getElementById('lang');
 	if(getCookie('lang') == ""){
 		lang.style.display = 'block';
 		setCookie("slot1", "empty", 3650);

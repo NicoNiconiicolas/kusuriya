@@ -6,8 +6,12 @@
 	<title>convertisseur</title>
 	<style type="text/css">
 		textarea{
-			width: 50%;
+			width: 75%;
 			height: 50vh;
+		}
+
+		input{
+			width: 75%;
 		}
 
 		button{
@@ -17,12 +21,30 @@
 	</style>
 </head>
 <body>
-	<center><textarea id='text' placeholder='export your deck in plain text from anki(PC) then copy&paste the content of your .csv file here'></textarea></center>
-	<center><br><button onclick='convert()'>convertir</button></center>
+	<center><input id='title' placeholder="new deck's name"></input></center>
+	<center><textarea id='text' placeholder='export your deck in plain text from anki(PC) then copy&paste the content of your .txt file here'></textarea></center>
+	<center><br><button id='txt1' onclick='convert(0)'></button></center>
+	<center><h3 id='txt2'></h3></center>
+	<center><button onclick='convert(1)'>deck 1</button> <button onclick='convert(2)'>deck 2</button> <button onclick='convert(3)'>deck 3</button></center>
 </body>
 <script type="text/javascript" src='js/filesaver.js'></script>
+<script type="text/javascript" src='js/nikolib.js'></script>
 <script type="text/javascript">
+	var lang = getCookie('lang');
+	if(lang == 1){
+		document.getElementById('txt1').innerHTML = "convertir & télécharger";
+		document.getElementById('txt2').innerHTML = "convertir et sauvegarder sur l'emplacement :";
+	}else{
+		document.getElementById('txt1').innerHTML = "convert & download";
+		document.getElementById('txt2').innerHTML = "convert and save on slot :";
+	}
+	var title = "";
+	var final = [];
+	var mode = 0;
+	var type = "";
 	var str = [];
+	var group = 0;
+	var string = "";
     var part = [];
     var part1 = '';
     var part2 = '';
@@ -30,7 +52,9 @@
 	var array = [];
 	var question = [];
 	var answer = [];
+	var product = "";
 	function go(text){
+		title = document.getElementById('title').value;
 		array = text.split('\n');
 		for(i=0;i<array.length-1;i++){
 			var index = array[i].indexOf(',');
@@ -42,21 +66,27 @@
 			answer.shift();
 			question.shift();
 		}
-		var product = "ans=["+answer+"];\n"+"quest=["+question+"];\ninitQuestion();";
-
-		var deck = new Blob([product], {type: "text/plain;charset=utf-8"});
-        saveAs(deck, "deck.js");
+		if(title == ""){
+        		title = "deck"+mode;
+        	}
+		product = "ans=["+answer+"];\n"+"quest=["+question+"];\ninitQuestion();";
+		if(mode == 0){
+			var deck = new Blob([product], {type: "text/plain;charset=utf-8"});
+        	saveAs(deck, title+".js");
+        }else{
+        	cookieDeck(product);
+        }
         str = [];
         part = [];
         part1 = [];
         part2 = [];
         i = 0;
         array = [];
-        question = [];
-        answer = [];
+        window.location = 'index.html?p=gestion';
 	}
 
-	function convert(){
+	function convert(nmode){
+		mode = nmode;
 		var text = document.getElementById('text');
      	var send = "";
      	if(text.value != ""){
@@ -81,10 +111,60 @@
         	  }
      	 	};
        		text.value = "";
-       		go(send);
+       		go(send, mode);
     	}else{
     		alert("Empty field !")
 	    }
+	}
+
+	function cookieDeck(p){
+		setCookie('deck'+mode+'_name', title, 3650);
+		if(getCookie('deck'+mode+'_1') != ""){
+			var loop = true;
+			var i = 1;
+			while(loop){
+				if(getCookie('deck'+mode+'_'+i) != ""){
+					i++;
+				}else{
+					var total = i-1;
+					loop = false;
+				}
+			}
+			i = 1;
+			loop = true;
+			while(loop){
+				delCookie('deck'+mode+'_'+i);
+				i++;
+				if(i >= total){
+					loop = false;
+				}
+			}
+		}
+		var string = p;
+		var mult = 0;
+		var index = 0;
+		var str1 = "";
+		string = string.replace(/\s/g, '');
+		string = string.replace(/;/g, '$');
+		group = Math.floor(string.length/1800)+1;
+		for(i=1; i < group; i++){
+		console.log(i);
+			mult = i;
+			index = 1800*i;
+			if(i == 1){
+				str1 = string.substring(0, index);
+				setCookie('deck'+mode+'_'+i, str1, 3650);
+				console.log(str1);
+			}else{
+				str1 = string.substring(index-1800, index);
+				setCookie('deck'+mode+'_'+i, str1, 3650);
+				console.log(str1);
+			}
+		}		
+				console.log(i);
+				str1 = string.substring(index);
+				setCookie('deck'+mode+'_'+i, str1, 3650);
+				console.log(str1);	
 	}
 </script>
 </html>

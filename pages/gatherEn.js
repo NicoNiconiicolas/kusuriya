@@ -7,7 +7,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<div id='question'>n/a</div>"+
 "<div id='answerbox'><input id='answer' autofocus></input></div>"+
 "<div id='goodAnswer'>n/a</div>"+
-"<div id='combo'>viewed card(s) : <span id='cards'>"+getCookie('cardsToday')+"</span><br>combo(s) : <span id='ncombo'>0</span><br>multiplier : x<span id='multiple'>1</span></div>";
+"<div id='combo'>correct answer(s) : <span id='cards'>"+getCookie('cardsToday')+"</span><br>combo(s) : <span id='ncombo'>0</span><br>multiplier : x<span id='multiple'>1</span></div>";
 
 let final = [];
 let quest = [];

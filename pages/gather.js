@@ -9,12 +9,17 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<div id='goodAnswer'>n/a</div>"+
 "<div id='combo'>carte(s) vue(s) : <span id='cards'>"+getCookie('cardsToday')+"</span><br>combo(s) : <span id='ncombo'>0</span><br>multiplicateur : x<span id='multiple'>1</span></div>";
 
+let final = [];
 let quest = [];
 let questions = [];
 let ans = [];
 let answers = [];
-var deck = document.createElement('script');
-deck.src = getCookie('deck');
+if(getCookie('cookieDeck') == "false"){
+  var deck = document.createElement('script');
+  deck.src = getCookie('deck');
+}else{
+  loadDeck(parseInt(getCookie('deck')));
+}
 var bgn = Math.floor(Math.random()*5+1);
 document.getElementById('bg').style.backgroundImage = 'url("img/bg'+bgn+'.png")';
 let combo = 0;
@@ -36,4 +41,6 @@ document.addEventListener("keydown", (e) => {
   	document.getElementById('answer').value = "";
   }
 });
-document.getElementsByTagName('body')[0].appendChild(deck);
+if(getCookie('cookieDeck') == "false"){
+  document.getElementsByTagName('body')[0].appendChild(deck);
+}

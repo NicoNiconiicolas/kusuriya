@@ -659,12 +659,12 @@ function synth(obj){
 			var need2 = parseInt(getCookie('blueberry3'));
 			var need3 = parseInt(getCookie('raisin3'));
 			if(need1 >= 2 && need2 >= 2 && need3 >= 2){
-				setCookie("blueberry1", parseInt(getCookie('baie3'))-2, 3650);
-				document.getElementById('blueberry1').innerHTML = getCookie('baie3');
-				setCookie("blueberry1", parseInt(getCookie('blueberry3'))-2, 3650);
-				document.getElementById('blueberry1').innerHTML = getCookie('blueberry3');
-				setCookie("blueberry1", parseInt(getCookie('raisin3'))-2, 3650);
-				document.getElementById('blueberry1').innerHTML = getCookie('raisin3');
+				setCookie("baie3", parseInt(getCookie('baie3'))-2, 3650);
+				document.getElementById('baie3').innerHTML = getCookie('baie3');
+				setCookie("blueberry3", parseInt(getCookie('blueberry3'))-2, 3650);
+				document.getElementById('blueberry3').innerHTML = getCookie('blueberry3');
+				setCookie("raisin3", parseInt(getCookie('raisin3'))-2, 3650);
+				document.getElementById('raisin3').innerHTML = getCookie('raisin3');
 				add('wine');
 				document.getElementById('prize').play();
 				setCookie('lastTime', getTime(), 3650);

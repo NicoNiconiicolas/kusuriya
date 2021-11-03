@@ -790,8 +790,6 @@ function newQuestion(){
 }
 
 function checkAnswer(){
-	setCookie('cardsToday', parseInt(getCookie('cardsToday'))+1, 3650);
-	document.getElementById('cards').innerHTML = getCookie('cardsToday');
 	var correct = false;
 	var user = document.getElementById('answer').value;
 	var comp = answers[nQuestion].split(',');
@@ -815,6 +813,8 @@ function checkAnswer(){
 			multiplicateur = 3;
 			break
 		}
+		setCookie('cardsToday', parseInt(getCookie('cardsToday'))+1, 3650);
+		document.getElementById('cards').innerHTML = getCookie('cardsToday');
 		document.getElementById('ncombo').innerHTML = combo;
 		progression = progression + 10*multiplicateur;
 		if(progression > 100){

@@ -990,7 +990,7 @@ function checkLoan(){
 
 function pay(){
 	var lang = getCookie('lang');
-	if(getCookie('balance') < getCookie('toPay')){
+	if(parseInt(getCookie('balance')) < parseInt(getCookie('toPay'))){
 		if(lang == 0){
 			alert('insufficient funds');
 		}else{

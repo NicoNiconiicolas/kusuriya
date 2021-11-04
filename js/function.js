@@ -1034,7 +1034,7 @@ function checkCards(){
 }
 
 function today(){
-	return new Date().getTime()/1000/60/60/24;
+	return Math.floor(new Date().getTime()/1000/60/60/24);
 }
 
 function setLang(lang){

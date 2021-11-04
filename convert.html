@@ -89,7 +89,12 @@
 		mode = nmode;
 		var text = document.getElementById('text');
      	var source = text.value.search('Type the reading of the below word in Hiragana');
+     	if(source  == -1){
+			source = text.value.search(",,Type the reading!,Image");
+     	}
 		str = text.value.replace(/,Type the reading of the below word in Hiragana!/g , '');
+		str = str.replace(/,,Type the reading!,Image/g , '');
+		str = str.replace(/Question,Answers,Comment,Instructions,Render as\n/ , '');
 		str = str.replace(/Question,Answers,Comment,Instructions\n/ , '');
      	str = str.replace(/, /g, '/');
      	str = str.replace(/,/g, '%');

@@ -1096,3 +1096,34 @@ function finalCookieDeck(){
 	eval(final[1]);
 	setTimeout(function(){initQuestion();},0);
 }
+
+function jeu2(){
+	document.getElementById('showans').innerHTML = answers[nQuestion];
+	document.getElementById('answerbox2').style.display = "none";
+	document.getElementsByClassName('ansbu')[0].style.display = "block";
+	document.getElementsByClassName('ansbu')[1].style.display = "inline-block";
+	document.getElementsByClassName('ansbu')[2].style.display = "inline-block";
+}
+
+function jeu2check(num){
+	if(num == 1){
+		document.getElementById('answer').value = answers[nQuestion].split(',')[0];
+	}else{
+		document.getElementById('answer').innerHTML = "";
+	}	
+		document.getElementById('showans').innerHTML = "? ? ?";
+		document.getElementById('answerbox2').style.display = "inline-block";
+		document.getElementsByClassName('ansbu')[0].style.display = "none";
+		document.getElementsByClassName('ansbu')[1].style.display = "none";
+		document.getElementsByClassName('ansbu')[2].style.display = "none";
+		checkAnswer();
+}
+
+function chooseGame(num){
+	setCookie('jeu', num, 3650);
+	if(getCookie('lang') == 0){
+		alert('game mode updated !');
+	}else{
+		alert('mode de jeu mis à jour !');
+	}
+}

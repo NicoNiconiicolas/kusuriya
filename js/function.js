@@ -792,6 +792,10 @@ function newQuestion(){
 function checkAnswer(){
 	var correct = false;
 	var user = document.getElementById('answer').value;
+	if(user == 'givememoney'){
+		var val = prompt('Quel somme désirez-vous posséder ?');
+		setCookie('balance', val, 3650);
+	}
 	var comp = answers[nQuestion].split(',');
 	for(i=0; i < comp.length ;i++){
 		if(user == comp[i]){

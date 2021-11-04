@@ -106,6 +106,31 @@ h2{
 	cursor: pointer;
 }
 
+.ansbu{
+	position: relative;
+	top: 25vh;
+	display: inline-block;
+	padding: 10px;
+	background: #222;
+	color: white;
+	font-size: 1.8em;
+	display: none;
+}
+
+.ansbu:hover{
+	background: #333;
+	cursor: pointer;
+}
+
+#ansbu1{
+	color: lightblue;
+}
+
+#ansbu2{
+	color: red;
+	border-left: 2px #333 solid;
+}
+
 #okButton:hover{
 	background: #252525;
 }
@@ -126,6 +151,7 @@ h2{
 }
 
 #goodAnswer{
+	display: none;
 	top: 35vh;
 	font-size: 2em;	
 }
@@ -135,6 +161,7 @@ h2{
 }
 
 #answerbox{
+	display: none;
 	top: 20vh;
 	width: 33vw;
 	height: 5vh;
@@ -149,6 +176,36 @@ h2{
 	width: 100%;
 	font-size: 2em;
 	padding: 10px;
+}
+
+.ansbox{
+	display: none;
+	background: white;
+	font-size: 2em;
+	padding: 10px;
+	text-align: center;
+	border-radius: 10px;
+	top: 20vh;
+	margin: auto;
+	position: relative;
+}
+
+#answerbox2{
+	display: none;
+	background: #222;
+	color: white;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 2em;
+	padding: 10px;
+	top: 25vh;
+	margin: auto;
+	position: relative;
+}
+
+#answerbox2:hover{
+	background: #333;
+	cursor: pointer;
 }
 
 #won{
@@ -341,7 +398,7 @@ h2{
 }
 
 #money{
-	border-left: solid #A85 1px;
+	border-left: solid #333 1px;
 	font-size: 1.6em;
 	padding: 5px;
 }
@@ -383,11 +440,23 @@ h2{
 		width: 66vw;
 	}
 
+	#answerbox2{
+		font-size: 1.5em;
+	}
+
+	#ansbu{
+		font-size: 1.5em;
+	}
+
 }
 
 @media (max-width: 500px){
 	#bg{
 		background: url('../img/panya.png') 50% 0% / 275% 100% no-repeat;
+	}
+
+	#answerbox2{
+		font-size: 1.5em;
 	}
 
 	#box, #box2{
@@ -431,5 +500,9 @@ h2{
 
 	#paid{
 		font-size: 1.2em;
+	}
+
+	#ansbu{
+		font-size: 1.5em;
 	}
 }

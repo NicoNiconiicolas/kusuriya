@@ -1107,6 +1107,10 @@ function finalCookieDeck(){
 
 function jeu2(){
 	document.getElementById('showans').innerHTML = answers[nQuestion];
+	document.getElementById('showans').onclick = function(){window.open('https://jisho.org/search/'+questions[nQuestion], '_blank');};
+	document.getElementById('showans').style.cursor = 'pointer';
+	document.getElementById('showans').onmouseover = function(){document.getElementById('showans').style.background = '#EEE'};
+	document.getElementById('showans').onmouseout = function(){document.getElementById('showans').style.background = 'white'};
 	document.getElementById('answerbox2').style.display = "none";
 	document.getElementsByClassName('ansbu')[0].style.display = "block";
 	document.getElementsByClassName('ansbu')[1].style.display = "inline-block";
@@ -1119,6 +1123,11 @@ function jeu2check(num){
 	}else{
 		document.getElementById('answer').innerHTML = "";
 	}	
+		document.getElementById('showans').style.background = 'white';
+		document.getElementById('showans').onmouseover = '';
+		document.getElementById('showans').onmouseout = '';
+		document.getElementById('showans').style.cursor = 'default';
+		document.getElementById('showans').onclick = "";
 		document.getElementById('showans').innerHTML = "? ? ?";
 		document.getElementById('answerbox2').style.display = "inline-block";
 		document.getElementsByClassName('ansbu')[0].style.display = "none";

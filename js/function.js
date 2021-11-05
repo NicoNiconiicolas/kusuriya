@@ -740,9 +740,17 @@ function gacha(){
 		document.getElementById('hoho').style.display = 'block';
 		document.getElementById('question').style.display = 'none';
 		document.getElementById('answerbox').style.display = 'none';
+		document.getElementById('answerbox2').style.display = 'none';
+		document.getElementsByClassName('ansbox')[0].style.display = 'none';
+		document.getElementsByClassName('ansbox')[1].style.display = 'none';
+		document.getElementsByClassName('ansbox')[2].style.display = 'none';
 		document.getElementById('goodAnswer').style.display = 'none';
 		document.getElementById('prize').play();
-		setTimeout(function(){progression = 0;document.getElementById('hoho').style.display = 'none';document.getElementById('question').style.display = 'inline-block';document.getElementById('goodAnswer').style.display = 'inline-block';document.getElementById('answerbox').style.display = 'block';document.getElementById('progress').style.width = "0%";}, 3000);
+		if(getCookie('jeu') == 1){
+			setTimeout(function(){progression = 0;document.getElementById('hoho').style.display = 'none';document.getElementById('question').style.display = 'inline-block';document.getElementById('goodAnswer').style.display = 'inline-block';document.getElementById('answerbox').style.display = 'block';document.getElementById('progress').style.width = "0%";}, 3000);
+		}else{
+			setTimeout(function(){progression = 0;document.getElementById('hoho').style.display = 'none';document.getElementById('question').style.display = 'inline-block';document.getElementsByClassName('ansbox')[0].style.display = 'block';document.getElementsByClassName('ansbox')[1].style.display = 'inline-block';document.getElementsByClassName('ansbox')[2].style.display = 'inline-block';document.getElementById('answerbox2').style.display = 'inline-block';document.getElementById('progress').style.width = "0%";}, 3000);
+		}
 		document.getElementById('answer').focus();
 	}
 }

@@ -23,6 +23,8 @@
 <body>
 	<center><input id='title' placeholder="new deck's name"></input></center>
 	<center><textarea id='text' placeholder='export your deck in plain text from anki(PC) then copy&paste the content of your .txt file here'></textarea></center>
+	<center><h3>Spaces are separators :</h3></center>
+	<center><button id='space0' onclick='setSpace(0)'>Yes</button> <button id='space1' onclick='setSpace(1)'>No</button><br><br><hr></center>
 	<center><br><button id='txt1' onclick='convert(0)'></button></center>
 	<center><h3 id='txt2'></h3></center>
 	<center><button onclick='convert(1)'>deck 1</button> <button onclick='convert(2)'>deck 2</button> <button onclick='convert(3)'>deck 3</button></center>
@@ -38,6 +40,7 @@
 		document.getElementById('txt1').innerHTML = "convert & download";
 		document.getElementById('txt2').innerHTML = "convert and save on slot :";
 	}
+	var space = 0;
 	var title = "";
 	var final = [];
 	var mode = 0;
@@ -59,8 +62,8 @@
 		for(i=0;i<array.length-1;i++){
 			var index = array[i].indexOf(',');
 			question.push("\""+array[i].slice(0, index)+"\"");
-			var str = array[i].slice(index+1)
-			answer.push(str);
+			var str = array[i].slice(index+1);
+			answer.push(str.replace(/%/g, ','));
 		}
 		if(question[0] == "\"Question\""){
 			answer.shift();
@@ -129,7 +132,11 @@
         	  part[1] = part[1].replace(/;/g, ',');
         	  part[1] = part[1].replace(/\|/g, ',');
         	  part[1] = part[1].replace(/\\/g, ',');
-        	  part[1] = part[1].replace(/\s/g, ',');
+        	  if(space == 1){
+				part[1] = part[1].replace(/\s/g, ' ');
+        	  }else{
+				part[1] = part[1].replace(/\s/g, ',');
+        	  }
         	  send += part[1]+'"\n';
         	  }
      	 	};
@@ -158,7 +165,7 @@
 			while(loop){
 				delCookie('deck'+mode+'_'+i);
 				i++;
-				if(i >= total){
+				if(i > total){
 					loop = false;
 				}
 			}
@@ -167,7 +174,11 @@
 		var mult = 0;
 		var index = 0;
 		var str1 = "";
-		string = string.replace(/\s/g, '');
+		if(space == 1){
+			string = string.replace(/\s/g, ' ');
+		}else{
+			string = string.replace(/\s/g, '');
+		}
 		string = string.replace(/;/g, '$');
 		group = Math.floor(string.length/1800)+1;
 		for(i=1; i < group; i++){
@@ -189,5 +200,20 @@
 				setCookie('deck'+mode+'_'+i, str1, 3650);
 				console.log(str1);	
 	}
+
+	function setSpace(n){
+		if(n == 0){
+			space = 0;
+			document.getElementById('space0').style.background = 'violet';
+			document.getElementById('space1').style.background = '#e9e9ed';
+		}else{
+			space = 1;
+			document.getElementById('space1').style.background = 'violet';
+			document.getElementById('space0').style.background = '#e9e9ed';
+		}
+	}
+	document.getElementById('space0').style.cursor = 'pointer';
+	document.getElementById('space1').style.cursor = 'pointer';
+	setSpace(0);
 </script>
 </html>

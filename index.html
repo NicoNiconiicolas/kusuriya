@@ -50,6 +50,12 @@
 	if(getCookie('cookieDeck') == ""){
 		setCookie('cookieDeck', false, 3650);
 	}
+	if(getCookie('week') == ""){
+		setCookie('week', 1, 3650);
+	}
+	if(getCookie('difficulty') == ""){
+		setCookie('difficulty', 0, 3650);
+	}
 	if(getCookie('jeu') == ""){
 		setCookie('jeu', 1, 3650);
 	}
@@ -93,6 +99,9 @@
 		setCookie("cardsToday", 0, 3650);
 		setCookie("day", today(), 3650);
 		firstLoan();
+	}else{
+		checkCards();
+		checkLoan();
 	}
 	// charge les cookies dans des variables à chaque changement de page
 	var slot = [];

@@ -44,7 +44,6 @@ let lastQ2 = "";
 let wrongA = [];
 let wrongQ = [];
 let wasWrong = false;
-checkCards();
 
 document.addEventListener("keydown", (e) => {
   if (e.key == "Enter"){

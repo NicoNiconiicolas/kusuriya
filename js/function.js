@@ -41,12 +41,17 @@ function isInvFull(){
 function add(item){
 	var lang = getCookie('lang');
 	var loop = true;
+	var tax = parseInt(getCookie('taxval'));
 	var i = 1;
 	var price = 0;
 	var pName = "";
 	switch(item){
 		case 'red3':
 		price = Math.floor(Math.random()*15)+10;
+		if(getCookie('tax1') == '3'){
+			var minus =Math.floor(price/100*tax);
+			price = price-minus;
+		}
 		if(lang == 0){
 			pName = "Fruity soda";
 		}else{
@@ -56,6 +61,10 @@ function add(item){
 
 		case 'red2':
 		price = Math.floor(Math.random()*25)+50;
+		if(getCookie('tax1') == '2'){
+			var minus =Math.floor(price/100*tax);
+			price = price-minus;
+		}
 		if(lang == 0){
 			pName = "Cough syrup";
 		}else{
@@ -65,11 +74,19 @@ function add(item){
 
 		case 'red1':
 		price = Math.floor(Math.random()*110)+115;
+		if(getCookie('tax1') == '1'){
+			var minus =Math.floor(price/100*tax);
+			price = price-minus;
+		}
 		pName = "Mayonnaise";
 		break
 
 		case 'blue3':
 		price = Math.floor(Math.random()*66)+33;
+		if(getCookie('tax2') == '3'){
+			var minus =Math.floor(price/100*tax);
+			price = price-minus;
+		}
 		if(lang == 0){
 			pName = "Liquid laundry";
 		}else{
@@ -79,6 +96,10 @@ function add(item){
 
 		case 'blue2':
 		price = Math.floor(Math.random()*150)+150;
+		if(getCookie('tax2') == '2'){
+			var minus =Math.floor(price/100*tax);
+			price = price-minus;
+		}
 		if(lang == 0){
 			pName = "Cooling liquid";
 		}else{
@@ -87,7 +108,11 @@ function add(item){
 		break
 
 		case 'blue1':
-		price = Math.floor(Math.random()*500)+500;
+		price = Math.floor(Math.random()*200)+500;
+		if(getCookie('tax2') == '1'){
+			var minus =Math.floor(price/100*tax);
+			price = price-minus;
+		}
 		if(lang == 0){
 			pName = "Acid solution";
 		}else{
@@ -97,11 +122,19 @@ function add(item){
 
 		case 'purple3':
 		price = Math.floor(Math.random()*200)+125;
+		if(getCookie('tax3') == '3'){
+			var minus =Math.floor(price/100*tax);
+			price = price-minus;
+		}
 		pName = "Anti-poison";
 		break
 
 		case 'purple2':
 		price = Math.floor(Math.random()*267)+333;
+		if(getCookie('tax3') == '2'){
+			var minus =Math.floor(price/100*tax);
+			price = price-minus;
+		}
 		if(lang == 0){
 			pName = "Lavender perfume";
 		}else{
@@ -111,6 +144,10 @@ function add(item){
 
 		case 'purple1':
 		price = Math.floor(Math.random()*1250)+1250;
+		if(getCookie('tax3') == '1'){
+			var minus =Math.floor(price/100*tax);
+			price = price-minus;
+		}
 		if(lang == 0){
 			pName = "Candy liquor";
 		}else{
@@ -304,7 +341,7 @@ function synth(obj){
 			if(lang == 0){
 				alert('missing ingredient(s) : x'+missing+' bag of berries')
 			}else{
-				alert('il vous manque les ingrédients suivants : x'+missing+' sace de baies')
+				alert('il vous manque les ingrédients suivants : x'+missing+' sac de baies')
 			}
 		}
 		break
@@ -806,7 +843,7 @@ function checkAnswer(){
 	}
 	var comp = answers[nQuestion].split(',');
 	for(i=0; i < comp.length ;i++){
-		if(user == comp[i]){
+		if(user == comp[i].replace(/’/g, "'")){
 			correct = true;
 		}
 	}
@@ -924,6 +961,10 @@ function updateJLPT(n){
 }
 
 function firstLoan(){
+	if(getCookie('difficulty') == '1'){
+		setTax();
+	}
+	newCommand();
 	var d = new Date();
 	var today = d.getDay();
 	var nextloan = 6 - today + 1;
@@ -944,6 +985,7 @@ function checkLoan(){
 			}else{
 				alert('/!\\ Game over /!\\\nRaison: Factures impayées\nDébut d\'une nouvelle partie');
 			}
+			setCookie("week", 1, 3650);
 			setCookie("slot1", "empty", 3650);
 			setCookie("slot2", "empty", 3650);
 			setCookie("slot3", "empty", 3650);
@@ -984,9 +1026,19 @@ function checkLoan(){
 			slot[8] = getCookie('slot8');
 			slot[9] = getCookie('slot9');
 		}else{
-			setCookie('nextloan', now, 3650);
+			var actualBill = parseInt(getCookie('toPay'));
+			if(actualBill < 3500){
+				actualBill = 3500;
+			}
+			setCookie("week", parseInt(getCookie('week'))+1, 3650);
+			var newBill = actualBill/0.5;
+			setCookie('nextLoan', now, 3650);
 			setCookie('isPaid', false, 3650);
-			setCookie("toPay", 7000, 3650);
+			if(getCookie('difficulty') == '1'){
+				setCookie("toPay", newBill, 3650);
+			}else{
+				setCookie("toPay", 3500, 3650);
+			}
 			if(lang == 0){
 				alert('Payment of your bills has been received for this week !');
 			}else{
@@ -1008,7 +1060,6 @@ function pay(){
 		document.getElementById('sfx').play();
 		setCookie('balance', parseInt(getCookie('balance'))-parseInt(getCookie('toPay')), 3650)
 		setCookie('isPaid', true, 3650);
-		setCookie("toPay", 0, 3650);
 		showLoan();
 	}
 }
@@ -1042,6 +1093,24 @@ function checkCards(){
 	if(parseInt(getCookie('day')) < today()){
 		setCookie('day', today(), 3650);
 		setCookie('cardsToday', 0, 3650);
+		if(parseInt(getCookie('difficulty')) == 1){
+			setCookie('baie1', 0, 3650);
+			setCookie('baie2', 0, 3650);
+			setCookie('baie3', 0, 3650);
+			setCookie('blueberry1', 0, 3650);
+			setCookie('blueberry2', 0, 3650);
+			setCookie('blueberry3', 0, 3650);
+			setCookie('raisin1', 0, 3650);
+			setCookie('raisin2', 0, 3650);
+			setCookie('raisin3', 0, 3650);
+			setTax();
+			newCommand();
+			if(getCookie('lang') == 0){
+				alert('A new day is starting !\n・All your ingredients have suddenly rotten ...\n・New taxes has changed')
+			}else{
+				alert('Un nouveau jour commence !\n・Tous vos ingrédients ont soudainement pourris...\n・Les taxes ont changées')
+			}
+		}
 	}
 }
 
@@ -1143,4 +1212,364 @@ function chooseGame(num){
 	}else{
 		alert('mode de jeu mis à jour !');
 	}
+}
+
+function setDifficulty(n){
+	setCookie('difficulty', n, 3650);
+	if(n == 1){
+		setTax();
+		if(getCookie('lang') == 0){
+			alert("Game's difficulty updated !\nPrepare to suffer...");
+		}else{
+			alert("Difficulté du jeu mis à jour !\nPrépare-toi à souffrir...");
+		}
+	}else{
+		setCookie('tax1', 0, 3650);
+		setCookie('tax2', 0, 3650);
+		setCookie('tax3', 0, 3650);
+		if(getCookie('lang') == 0){
+			alert("Game's difficulty updated !\nWell, well, looks like a certain person changed his mind and wants to come back to cry baby difficulty...");
+		}else{
+			alert("Difficulté du jeu mis à jour !\nTiens, tiens, regardez qui revient en rampant...");
+		}
+	}
+}
+
+function setTax(){
+	setCookie('taxval', Math.floor(Math.random()*50+25), 3650);
+	setCookie('tax1', Math.floor(Math.random()*3+1), 3650);
+	setCookie('tax2', Math.floor(Math.random()*3+1), 3650);
+	setCookie('tax3', Math.floor(Math.random()*3+1), 3650);
+	console.log(getCookie('tax1'));
+	console.log(getCookie('tax2'));
+	console.log(getCookie('tax3'));
+}
+
+function showTax(){
+	var tax1 = getCookie('tax1');
+	var tax2 = getCookie('tax2');
+	var tax3 = getCookie('tax3');
+	var tax = getCookie('taxval');
+
+	switch(tax1){
+		case '1':
+		document.getElementById('t11').innerHTML = tax;
+		break
+
+		case '2':
+		document.getElementById('t12').innerHTML = tax;
+		break
+
+		case '3':
+		document.getElementById('t13').innerHTML = tax;
+		break
+	}
+
+	switch(tax2){
+		case '1':
+		document.getElementById('t21').innerHTML = tax;
+		break
+
+		case '2':
+		document.getElementById('t22').innerHTML = tax;
+		break
+
+		case '3':
+		document.getElementById('t23').innerHTML = tax;
+		break
+	}
+
+	switch(tax3){
+		case '1':
+		document.getElementById('t31').innerHTML = tax;
+		break
+
+		case '2':
+		document.getElementById('t32').innerHTML = tax;
+		break
+
+		case '3':
+		document.getElementById('t33').innerHTML = tax;
+		break
+	}
+}
+
+function sellStock(name){
+	var total = parseInt(getCookie(name));
+	var val = 0;
+	var iName = "";
+	var iImg = "";
+	switch(name){
+		case 'baie1':
+		val = 5;
+		iName = "Sac de Baies";
+		iImg = "bagberry";
+		break
+
+		case 'baie2':
+		val = 25;
+		iName = "Baies délicieuses";
+		iImg = "bagberry2";
+		break
+
+		case 'baie3':
+		val = 57;
+		iName = "Baies délicieuses";
+		iImg = "berry";
+		break
+
+		case 'blueberry1':
+		val = 16;
+		iName = "Sac de Myrtilles";
+		iImg = "bagblueberry";
+		break
+
+		case 'blueberry2':
+		val = 75;
+		iName = "Myrtilles Envoûtantes";
+		iImg = "bagblueberry";
+		break
+
+		case 'blueberry3':
+		val = 250;
+		iName = "Myrtilles Parfaites";
+		iImg = "blueberry";
+		break
+
+		case 'raisin1':
+		val = 62;
+		iName = "Sac de Raisins";
+		iImg = "bagraisin";
+		break
+
+		case 'raisin2':
+		val = 166;
+		iName = "Raisins Savoureux";
+		iImg = "bagraisin2";
+		break
+
+		case 'raisin3':
+		val = 625;
+		iName = "Raisins Parfaits";
+		iImg = "raisin";
+		break
+	}
+	setCookie(name, 0, 3650);
+	setCookie('balance', parseInt(getCookie('balance')) + val*total, 3650);
+	document.getElementById('kaching').play();
+	document.getElementById('potionName').innerHTML = iName;
+	document.getElementById('nprice').innerHTML = val*total;
+	document.getElementById('super').style.display = 'block'
+	document.getElementById('youMade').style.backgroundImage = "url('img/ingredients/"+iImg+".png')";
+	setTimeout(function(){document.getElementById('super').style.display = 'none';}, 2000)
+	showPossess();
+}
+
+function endCommand(n){
+	var total = getCookie('c'+n+'n');
+	var name = document.getElementById('name'+n).innerHTML;
+	var val = 0;
+	var money = 0;
+	var res = "";
+	switch(name){
+		case "Sac de baies":
+		val = 13;
+		res = 'baie1';
+		break
+
+		case "Sac de raisins":
+		val = 163;
+		res = 'raisin1';
+		break
+
+		case "Sac de myrtilles":
+		val = 50;
+		res = 'blueberry1';
+		break
+
+		case "Baies délicieuses":
+		val = 38;
+		res = 'baie2';
+		break
+
+		case "Myrtilles envoûtantes":
+		val = 150;
+		res = 'blueberry2';
+		break
+
+		case "Raisins savoureux":
+		val = 300;
+		res = 'raisin2';
+		break
+
+		case "Baies parfaites":
+		val = 113;
+		res = 'baie3';
+		break
+
+		case "Myrtilles parfaites":
+		val = 350;
+		res = 'blueberry3';
+		break
+
+		case "Raisins parfaits":
+		val = 1250;
+		res = 'raisin3';
+		break
+	}
+	if(parseInt(getCookie(res)) >= total){
+			money = val * total * 2;
+			setCookie(res, parseInt(getCookie(res)) - total);
+			setCookie('balance', parseInt(getCookie('balance')) + money);
+			document.getElementById('sfx').play();
+			setCookie('c'+n+'done', true, 3650);
+			document.getElementById('balance').innerHTML = getCookie('balance');
+		}else{
+			if(getCookie('lang') == '0'){
+				alert('insufficient ingredients !');
+			}else{
+				alert('ingrédients insuffisants !');
+			}
+		}
+	showCommand();
+}
+
+function showCommand(){
+	//var money1 = val1 * total;
+	var name1 = getCookie('c1w');
+	var name2 = getCookie('c2w');
+	var name3 = getCookie('c3w');
+	var num1 = getCookie('c1n');
+	var num2 = getCookie('c2n');
+	var num3 = getCookie('c3n');
+	var val1 = 0;
+	var val2 = 0;
+	var val3 = 0;
+	var iImg1 = "";
+	var iImg2 = "";
+	var iImg3 = "";
+	document.getElementById('value1').innerHTML = num1;
+	document.getElementById('value2').innerHTML = num2;
+	document.getElementById('value3').innerHTML = num3;
+
+	switch(name1){
+		case '1':
+		name1 = "Sac de baies";
+		iImg1 = "bagberry";
+		val1 = 13;
+		break
+
+		case '2':
+		name1 = "Baies délicieuses";
+		iImg1 = "bagberry2";
+		val1 = 38;
+		break
+
+		case '3':
+		name1 = "Baies parfaites";
+		iImg1 = "berry";
+		val1 = 113;
+		break
+	}
+	switch(name2){
+		case '1':
+		name2 = "Sac de myrtilles";
+		iImg2 = "bagblueberry";
+		val2 = 50;
+		break
+
+		case '2':
+		name2 = "Myrtilles envoûtantes";
+		iImg2 = "bagblueberry2";
+		val2 = 150;
+		break
+
+		case '3':
+		name2 = "Myrtilles parfaites";
+		iImg2 = "blueberry";
+		val2 = 350;
+		break
+	}
+	switch(name3){
+		case '1':
+		name3 = "Sac de raisins";
+		iImg3 = "bagraisin";
+		val3 = 163;
+		break
+
+		case '2':
+		name3 = "Raisins savoureux";
+		iImg3 = "bagraisin2";
+		val3 = 300;
+		break
+
+		case '3':
+		name3 = "Raisins parfaits";
+		iImg3 = "raisin";
+		val3 = 1250;
+		break
+	}
+	var money1 = val1 * num1 * 2;
+	var money2 = val2 * num2 * 2;
+	var money3 = val3 * num3 * 2;
+	document.getElementById('mon1').innerHTML = money1;
+	document.getElementById('mon2').innerHTML = money2;
+	document.getElementById('mon3').innerHTML = money3;
+	document.getElementById('name1').innerHTML = name1;
+	document.getElementById('name2').innerHTML = name2;
+	document.getElementById('name3').innerHTML = name3;
+	document.getElementById('img1').src = 'img/ingredients/'+iImg1+'.png';
+	document.getElementById('img2').src = 'img/ingredients/'+iImg2+'.png';
+	document.getElementById('img3').src = 'img/ingredients/'+iImg3+'.png';
+
+	if(getCookie('c1done') == 'true'){
+		document.getElementById('b1').removeAttribute('onclick');
+		if(getCookie('lang') == '0'){
+			document.getElementById('b1').innerHTML = "completed";
+		}else{
+			document.getElementById('b1').innerHTML = "validé";
+		}
+		document.getElementById('b1').style.background = "white";
+		document.getElementById('b1').style.color = "black";
+		document.getElementById('b1').style.cursor = "default";
+	}
+
+	if(getCookie('c2done') == 'true'){
+		document.getElementById('b2').removeAttribute('onclick');
+		if(getCookie('lang') == '0'){
+			document.getElementById('b2').innerHTML = "completed";
+		}else{
+			document.getElementById('b2').innerHTML = "validé";
+		}
+		document.getElementById('b2').style.background = "white";
+		document.getElementById('b2').style.color = "black";
+		document.getElementById('b2').style.cursor = "default";
+	}
+
+	if(getCookie('c3done') == 'true'){
+		document.getElementById('b3').removeAttribute('onclick');
+		if(getCookie('lang') == '0'){
+			document.getElementById('b3').innerHTML = "completed";
+		}else{
+			document.getElementById('b3').innerHTML = "validé";
+		}
+		document.getElementById('b3').style.background = "white";
+		document.getElementById('b3').style.color = "black";
+		document.getElementById('b3').style.cursor = "default";
+	}
+}
+
+function newCommand(){
+	var n1 = Math.floor(Math.random()*10+5);
+	var n2 = Math.floor(Math.random()*5+5);
+	var n3 = Math.floor(Math.random()*3+1);
+	setCookie('c1w', Math.floor(Math.random()*3+1), 3650);
+	setCookie('c2w', Math.floor(Math.random()*3+1), 3650);
+	setCookie('c3w', Math.floor(Math.random()*3+1), 3650);
+	setCookie('c1n', n1, 3650);
+	setCookie('c2n', n2, 3650);
+	setCookie('c3n', n3, 3650);
+	setCookie('c1done', false, 3650);
+	setCookie('c2done', false, 3650);
+	setCookie('c3done', false, 3650);
 }

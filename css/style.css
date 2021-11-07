@@ -30,6 +30,11 @@ button{
 	border-color: #3A3A3A;
 	font-size: 1.1em;
 	border-radius: 5px;
+	cursor: pointer;
+}
+
+button:hover{
+	background: #252525;
 }
 
 h2{
@@ -89,7 +94,6 @@ h2{
 	border-left: none;
 	position: relative;
 	left: -10px;
-	top: 1px;
 }
 
 #deckLink{
@@ -131,7 +135,7 @@ h2{
 	border-left: 2px #333 solid;
 }
 
-#okButton:hover{
+.okButton:hover{
 	background: #252525;
 }
 

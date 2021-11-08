@@ -47,6 +47,11 @@
 </script>
 <script>
 	// si cookies n'existent pas crée une nouvelle partie
+
+	if(getCookie('c1w') == ""){
+		newCommand();
+	}
+
 	if(getCookie('cookieDeck') == ""){
 		setCookie('cookieDeck', false, 3650);
 	}

@@ -841,6 +841,48 @@ function checkAnswer(){
 		var val = prompt('Quel somme désirez-vous posséder ?');
 		setCookie('balance', val, 3650);
 	}
+	if(user == 'resetgame'){
+		setCookie("week", 1, 3650);
+			setCookie("slot1", "empty", 3650);
+			setCookie("slot2", "empty", 3650);
+			setCookie("slot3", "empty", 3650);
+			setCookie("slot4", "empty", 3650);
+			setCookie("slot5", "empty", 3650);
+			setCookie("slot6", "empty", 3650);
+			setCookie("slot7", "empty", 3650);
+			setCookie("slot8", "empty", 3650);
+			setCookie("slot9", "empty", 3650);
+			setCookie("slot1_value", 0, 3650);
+			setCookie("slot2_value", 0, 3650);
+			setCookie("slot3_value", 0, 3650);
+			setCookie("slot4_value", 0, 3650);
+			setCookie("slot5_value", 0, 3650);
+			setCookie("slot6_value", 0, 3650);
+			setCookie("slot7_value", 0, 3650);
+			setCookie("slot8_value", 0, 3650);
+			setCookie("slot9_value", 0, 3650);
+			setCookie("balance", 0, 3650);
+			setCookie("baie1", 0, 3650);
+			setCookie("baie2", 0, 3650);
+			setCookie("baie3", 0, 3650);
+			setCookie("blueberry1", 0, 3650);
+			setCookie("blueberry2", 0, 3650);
+			setCookie("blueberry3", 0, 3650);
+			setCookie("raisin1", 0, 3650);
+			setCookie("raisin2", 0, 3650);
+			setCookie("raisin3", 0, 3650);
+			firstLoan();
+			var slot = [];
+			slot[1] = getCookie('slot1');
+			slot[2] = getCookie('slot2');
+			slot[3] = getCookie('slot3');
+			slot[4] = getCookie('slot4');
+			slot[5] = getCookie('slot5');
+			slot[6] = getCookie('slot6');
+			slot[7] = getCookie('slot7');
+			slot[8] = getCookie('slot8');
+			slot[9] = getCookie('slot9');
+	}
 	var comp = answers[nQuestion].split(',');
 	for(i=0; i < comp.length ;i++){
 		if(user == comp[i].replace(/’/g, "'")){
@@ -964,7 +1006,6 @@ function firstLoan(){
 	if(getCookie('difficulty') == '1'){
 		setTax();
 	}
-	newCommand();
 	var d = new Date();
 	var today = d.getDay();
 	var nextloan = 6 - today + 1;
@@ -1066,7 +1107,7 @@ function pay(){
 
 function showLoan(){
 	var lang = getCookie('lang');
-	if(parseInt(getCookie('toPay')) == 0){
+	if(getCookie('isPaid') == "true"){
 		document.getElementById('payer').style.display = 'none';
 	}
 	var $paid = document.getElementById('paid');
@@ -1227,12 +1268,20 @@ function setDifficulty(n){
 		setCookie('tax1', 0, 3650);
 		setCookie('tax2', 0, 3650);
 		setCookie('tax3', 0, 3650);
+		var d = new Date();
+		var today = d.getDay();
+		var nextloan = 6 - today + 1;
+		var totalLoan = nextloan * 500;
+		setCookie("toPay", totalLoan, 3650);
+		document.getElementById('toPay').innerHTML = getCookie('toPay');
 		if(getCookie('lang') == 0){
 			alert("Game's difficulty updated !\nWell, well, looks like a certain person changed his mind and wants to come back to cry baby difficulty...");
 		}else{
 			alert("Difficulté du jeu mis à jour !\nTiens, tiens, regardez qui revient en rampant...");
 		}
 	}
+	setCookie('week', 1, 3650);
+	document.getElementById('week').innerHTML = "1";
 }
 
 function setTax(){
@@ -1240,9 +1289,6 @@ function setTax(){
 	setCookie('tax1', Math.floor(Math.random()*3+1), 3650);
 	setCookie('tax2', Math.floor(Math.random()*3+1), 3650);
 	setCookie('tax3', Math.floor(Math.random()*3+1), 3650);
-	console.log(getCookie('tax1'));
-	console.log(getCookie('tax2'));
-	console.log(getCookie('tax3'));
 }
 
 function showTax(){

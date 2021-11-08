@@ -885,7 +885,7 @@ function checkAnswer(){
 	}
 	var comp = answers[nQuestion].split(',');
 	for(i=0; i < comp.length ;i++){
-		if(user.ignoreCase == comp[i].replace(/’/g, "'").ignoreCase){
+		if(user == comp[i].replace(/’/g, "'")){
 			correct = true;
 		}
 	}
@@ -1072,7 +1072,7 @@ function checkLoan(){
 				actualBill = 3500;
 			}
 			setCookie("week", parseInt(getCookie('week'))+1, 3650);
-			var newBill = actualBill/0.5;
+			var newBill = actualBill*1.5;
 			setCookie('nextLoan', now, 3650);
 			setCookie('isPaid', false, 3650);
 			if(getCookie('difficulty') == '1'){

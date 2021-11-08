@@ -885,7 +885,7 @@ function checkAnswer(){
 	}
 	var comp = answers[nQuestion].split(',');
 	for(i=0; i < comp.length ;i++){
-		if(user == comp[i].replace(/’/g, "'")){
+		if(user.ignoreCase == comp[i].replace(/’/g, "'").ignoreCase){
 			correct = true;
 		}
 	}

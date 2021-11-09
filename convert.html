@@ -198,8 +198,25 @@
 				console.log(i);
 				str1 = string.substring(index);
 				setCookie('deck'+mode+'_'+i, str1, 3650);
-				console.log(str1);	
-	}
+				if(document.cookie.length > 25000){
+					setCookie('deck'+mode+'_name', "vide", 3650);
+					loop = true;
+					i = 1;
+					while(loop){
+						if(getCookie('deck'+mode+'_'+i) != ""){
+							delCookie('deck'+mode+'_'+i);
+							i++;
+						}else{
+							loop = false;
+							if(getCookie('lang') == '1'){
+								alert('Dépassement de la limite raisonnable du total de données sauvegardées simultanément par le navigateur sur ce site');
+							}else{
+								alert('Exceeding the reasonable limit of total data saved simultaneously by the browser for this website');
+							}
+						}
+					}
+				}
+		}
 
 	function setSpace(n){
 		if(n == 0){

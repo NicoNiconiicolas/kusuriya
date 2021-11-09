@@ -114,9 +114,9 @@ function add(item){
 			price = price-minus;
 		}
 		if(lang == 0){
-			pName = "Acid solution";
+			pName = "Holy water";
 		}else{
-			pName = "Solution acide";
+			pName = "Eau bénite";
 		}
 		break
 
@@ -264,9 +264,9 @@ function trySell(focus){
 
 					case 'blue1':
 					if(lang == 0){
-						pName = "Acid solution";
+						pName = "Holy water";
 					}else{
-						pName = "Solution acide";
+						pName = "Eau bénite";
 					}
 					break
 
@@ -311,7 +311,8 @@ function trySell(focus){
 
 function sell(nslot){
 	var currentMoney = parseInt(getCookie('balance'));
-	setCookie('balance', currentMoney+parseInt(getCookie('slot'+nslot+"_value")), 3650);
+	var newbal = currentMoney+parseInt(getCookie('slot'+nslot+"_value"));
+	setCookie('balance', newbal, 3650);
 	document.getElementById('obj'+nslot).title = "";
 	setCookie('slot'+nslot+"_value", 0, 3650);
 	setCookie('slot'+nslot, 'empty', 3650);

@@ -155,14 +155,6 @@ function add(item){
 		}
 		break
 
-		case 'wine':
-		price = Math.floor(Math.random()*5000)+5000;
-		if(lang == 0){
-			pName = "Universal remedy";
-		}else{
-			pName = "Remède universel";
-		}
-		break
 	}
 	while(loop = true){
 		if(i != 10){
@@ -290,13 +282,6 @@ function trySell(focus){
 					}
 					break
 
-					case 'wine':
-					if(lang == 0){
-						pName = "Universal remedy";
-					}else{
-						pName = "Remède universel";
-					}
-					break
 				}
 				document.getElementById('potionName').innerHTML = pName;
 				document.getElementById('price').style.color = 'green';
@@ -680,47 +665,6 @@ function synth(obj){
 				}else{
 					alert('il vous manque les ingrédients suivants : x'+missing+' sac de raisins')
 				}
-			}
-		}else{
-			if(lang == 0){
-				alert('no avaible slot');
-			}else{
-				alert('Aucun emplacement libre');
-			}
-		}
-		break
-		
-		case 'wine':
-		var full = isInvFull();
-		if(full == true){
-			var need1 = parseInt(getCookie('baie3'));
-			var need2 = parseInt(getCookie('blueberry3'));
-			var need3 = parseInt(getCookie('raisin3'));
-			if(need1 >= 2 && need2 >= 2 && need3 >= 2){
-				setCookie("baie3", parseInt(getCookie('baie3'))-2, 3650);
-				document.getElementById('baie3').innerHTML = getCookie('baie3');
-				setCookie("blueberry3", parseInt(getCookie('blueberry3'))-2, 3650);
-				document.getElementById('blueberry3').innerHTML = getCookie('blueberry3');
-				setCookie("raisin3", parseInt(getCookie('raisin3'))-2, 3650);
-				document.getElementById('raisin3').innerHTML = getCookie('raisin3');
-				add('wine');
-				document.getElementById('prize').play();
-				setCookie('lastTime', getTime(), 3650);
-			}else{
-				var msg = "missing ingredient(s) : ";
-				if(need1 < 2){
-					var missing = 2 - need1;
-					msg += '\nx'+missing+' perfect berries';
-				}
-				if(need2 < 2){
-					var missing = 2 - need2;
-					msg += '\nx'+missing+' perfect blueberries';
-				}
-				if(need3 < 2){
-					var missing = 2 - need3;
-					msg += '\nx'+missing+' perfect grapes';
-				}
-				alert(msg);
 			}
 		}else{
 			if(lang == 0){
@@ -1342,7 +1286,11 @@ function showTax(){
 }
 
 function sellStock(name){
-	var total = parseInt(getCookie(name));
+	if(name != "oeuf"){
+		var total = parseInt(getCookie(name));
+	}else{
+		var total = 1;
+	}
 	var val = 0;
 	var iName = "";
 	var iImg = "";
@@ -1400,16 +1348,78 @@ function sellStock(name){
 		iName = "Raisins Parfaits";
 		iImg = "raisin";
 		break
+
+		case 'oeuf':
+		val = Math.floor(Math.random()*7777);
+		iName = "Oeuf lotterie";
+		iImg = "oeuf";
+		break
 	}
-	setCookie(name, 0, 3650);
-	setCookie('balance', parseInt(getCookie('balance')) + val*total, 3650);
-	document.getElementById('kaching').play();
-	document.getElementById('potionName').innerHTML = iName;
-	document.getElementById('nprice').innerHTML = val*total;
-	document.getElementById('super').style.display = 'block'
-	document.getElementById('youMade').style.backgroundImage = "url('img/ingredients/"+iImg+".png')";
-	setTimeout(function(){document.getElementById('super').style.display = 'none';}, 2000)
-	showPossess();
+	if(name != "oeuf"){
+		setCookie(name, 0, 3650);
+	}else{
+		var need1 = parseInt(getCookie('baie3'));
+		var need2 = parseInt(getCookie('blueberry3'));
+		var need3 = parseInt(getCookie('raisin3'));
+		if(need1 >= 2 && need2 >= 2 && need3 >= 2){
+			setCookie("baie3", parseInt(getCookie('baie3'))-2, 3650);
+			document.getElementById('baie3').innerHTML = getCookie('baie3');
+			setCookie("blueberry3", parseInt(getCookie('blueberry3'))-2, 3650);
+			document.getElementById('blueberry3').innerHTML = getCookie('blueberry3');
+			setCookie("raisin3", parseInt(getCookie('raisin3'))-2, 3650);
+			document.getElementById('raisin3').innerHTML = getCookie('raisin3');
+			setCookie('balance', parseInt(getCookie('balance')) + val*total, 3650);
+			document.getElementById('kaching').play();
+			document.getElementById('potionName').innerHTML = iName;
+			document.getElementById('nprice').innerHTML = val*total;
+			document.getElementById('super').style.display = 'block'
+			document.getElementById('youMade').style.backgroundColor = '#EDE';
+			document.getElementById('youMade').style.backgroundImage = "url('img/ingredients/"+iImg+".png')";
+			setTimeout(function(){document.getElementById('super').style.display = 'none';}, 2000)
+			showPossess();
+		}else{
+			if(getCookie('lang') == "0"){
+				var msg = "missing ingredient(s) : ";
+				if(need1 < 2){
+					var missing = 2 - need1;
+					msg += '\nx'+missing+' perfect berries';
+				}
+				if(need2 < 2){
+					var missing = 2 - need2;
+					msg += '\nx'+missing+' perfect blueberries';
+				}
+				if(need3 < 2){
+					var missing = 2 - need3;
+					msg += '\nx'+missing+' perfect grapes';
+				}
+			}else{
+				var msg = "ingrédient(s) manquant : ";
+				if(need1 < 2){
+					var missing = 2 - need1;
+					msg += '\nx'+missing+' Baies parfaites';
+				}
+				if(need2 < 2){
+					var missing = 2 - need2;
+					msg += '\nx'+missing+' Myrtilles parfaites';
+				}
+				if(need3 < 2){
+					var missing = 2 - need3;
+					msg += '\nx'+missing+' Raisins parfaits';
+				}
+			}
+			alert(msg);
+		}
+	}
+	if(name != "oeuf"){
+		setCookie('balance', parseInt(getCookie('balance')) + val*total, 3650);
+		document.getElementById('kaching').play();
+		document.getElementById('potionName').innerHTML = iName;
+		document.getElementById('nprice').innerHTML = val*total;
+		document.getElementById('super').style.display = 'block'
+		document.getElementById('youMade').style.backgroundImage = "url('img/ingredients/"+iImg+".png')";
+		setTimeout(function(){document.getElementById('super').style.display = 'none';}, 2000)
+		showPossess();
+	}
 }
 
 function endCommand(n){
@@ -1466,8 +1476,8 @@ function endCommand(n){
 	}
 	if(parseInt(getCookie(res)) >= total){
 			money = val * total * 2;
-			setCookie(res, parseInt(getCookie(res)) - total, 3650);
-			setCookie('balance', parseInt(getCookie('balance')) + money, 3650);
+			setCookie(res, parseInt(getCookie(res)) - total);
+			setCookie('balance', parseInt(getCookie('balance')) + money);
 			document.getElementById('sfx').play();
 			setCookie('c'+n+'done', true, 3650);
 			document.getElementById('balance').innerHTML = getCookie('balance');
@@ -1501,57 +1511,93 @@ function showCommand(){
 
 	switch(name1){
 		case '1':
-		name1 = "Sac de baies";
+		if(getCookie('lang') == "0"){
+			name1 = "Bag of berries";
+		}else{
+			name1 = "Sac de baies";
+		}
 		iImg1 = "bagberry";
 		val1 = 13;
 		break
 
 		case '2':
-		name1 = "Baies délicieuses";
+		if(getCookie('lang') == "0"){
+			name1 = "Delicious berries";
+		}else{
+			name1 = "Baies délicieuses";
+		}
 		iImg1 = "bagberry2";
 		val1 = 38;
 		break
 
 		case '3':
-		name1 = "Baies parfaites";
+		if(getCookie('lang') == "0"){
+			name1 = "Perfect berries";
+		}else{
+			name1 = "Baies parfaites";
+		}
 		iImg1 = "berry";
 		val1 = 113;
 		break
 	}
 	switch(name2){
 		case '1':
-		name2 = "Sac de myrtilles";
+		if(getCookie('lang') == "0"){
+			name2 = "Bag of blueberries";
+		}else{
+			name2 = "Sac de myrtilles";
+		}
 		iImg2 = "bagblueberry";
 		val2 = 50;
 		break
 
 		case '2':
-		name2 = "Myrtilles envoûtantes";
+		if(getCookie('lang') == "0"){
+			name2 = "Enchanting blueberries";
+		}else{
+			name2 = "Myrtilles envoûtantes";
+		}
 		iImg2 = "bagblueberry2";
 		val2 = 150;
 		break
 
 		case '3':
-		name2 = "Myrtilles parfaites";
+		if(getCookie('lang') == "0"){
+			name2 = "Perfect blueberries";
+		}else{
+			name2 = "Myrtilles parfaites";
+		}
 		iImg2 = "blueberry";
 		val2 = 350;
 		break
 	}
 	switch(name3){
 		case '1':
-		name3 = "Sac de raisins";
+		if(getCookie('lang') == "0"){
+			name3 = "Bag of grapes";
+		}else{
+			name3 = "Sac de raisins";
+		}
 		iImg3 = "bagraisin";
 		val3 = 163;
 		break
 
 		case '2':
-		name3 = "Raisins savoureux";
+		if(getCookie('lang') == "0"){
+			name3 = "Succulent grapes";
+		}else{
+			name3 = "Raisins savoureux";
+		}
 		iImg3 = "bagraisin2";
 		val3 = 300;
 		break
 
 		case '3':
-		name3 = "Raisins parfaits";
+		if(getCookie('lang') == "0"){
+			name3 = "Perfect grapes";
+		}else{
+			name3 = "Raisins parfaits";
+		}
 		iImg3 = "raisin";
 		val3 = 1250;
 		break

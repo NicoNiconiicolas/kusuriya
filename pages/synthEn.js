@@ -23,7 +23,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 	"<div class='bar'><p>Anti-poison</p><p>required : <br>2x bag of grapes</p><p>value : 125$ ~ 325$</p><img src='img/goods/purple3.png' width='50px'><br><br><button onclick='synth(\"purple3\")'>synthetise</button></div>"+
 	"<div class='bar'><p>Lavender perfume</p><p>required : <br>2x succulent grapes</p><p>value : 333$ ~ 600$</p><img src='img/goods/purple2.png' width='50px'><br><br><button onclick='synth(\"purple2\")'>synthetise</button></div>"+
 	"<div class='bar'><p>Candy liquor</p><p>required : <br>2x perfect grapes</p><p>value : 1 250$ ~ 2 500$</p><img src='img/goods/purple1.png' width='50px'><br><br><button onclick='synth(\"purple1\")'>synthetise</button></div>"+
-	"<div class='bar'><p>Universal remedy</p><p>required : <br>2x Perfect berries<br>2x perfect blueberries<br>2x perfect grapes</p><p>value : 5 000$ ~ 10 000$</p><img src='img/goods/wine.png' width='50px'><br><br><button onclick='synth(\"wine\")'>synthetise</button></div>"+
+	"<div class='bar'><p>Lottery egg</p><p>required : <br>2x perfect berries<br>2x perfect blueberries<br>2x perfect grapes</p><p>value : 0$ ~ 7 777$</p><img src='img/ingredients/oeuf.png' width='50px'><br><br><button onclick='sellStock(\"oeuf\")'>synthetise</button></div>"+
 "</div>"+
 "</div>";
 showPossess();

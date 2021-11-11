@@ -3,13 +3,13 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<div id='box2'>"+
 "<h1>Commandes du jour</h1>"+
 "<div id='catalog'>"+
-"<div class='bar'><span id='name1'>ingrédient</span><br><hr>payement : <span id='mon1'>0</span> $<br>quantité : x<span id='value1'>0</span><br><br><img id='img1' src='img/ingredients/bagberry.png' width='50px'><br><br><button id='b1' onclick='endCommand(1)'>valider</button><br><br></div>"+
-"<div class='bar'><span id='name2'>ingrédient</span><br><hr>payement : <span id='mon2'>0</span> $<br>quantité : x<span id='value2'>0</span><br><br><img id='img2' src='img/ingredients/bagberry.png' width='50px'><br><br><button id='b2' onclick='endCommand(2)'>valider</button><br><br></div>"+
-"<div class='bar'><span id='name3'>ingrédient</span><br><hr>payement : <span id='mon3'>0</span> $<br>quantité : x<span id='value3'>0</span><br><br><img id='img3' src='img/ingredients/bagberry.png' width='50px'><br><br><button id='b3' onclick='endCommand(3)'>valider</button><br><br></div>"+
+"<div class='bar'><span id='name1'>ingrédient</span><br><hr>payement : <span id='mon1'>0</span> §<br>quantité : x<span id='value1'>0</span><br><br><img id='img1' src='img/ingredients/bagberry.png' width='50px'><br><br><button id='b1' onclick='endCommand(1)'>valider</button><br><br></div>"+
+"<div class='bar'><span id='name2'>ingrédient</span><br><hr>payement : <span id='mon2'>0</span> §<br>quantité : x<span id='value2'>0</span><br><br><img id='img2' src='img/ingredients/bagberry.png' width='50px'><br><br><button id='b2' onclick='endCommand(2)'>valider</button><br><br></div>"+
+"<div class='bar'><span id='name3'>ingrédient</span><br><hr>payement : <span id='mon3'>0</span> §<br>quantité : x<span id='value3'>0</span><br><br><img id='img3' src='img/ingredients/bagberry.png' width='50px'><br><br><button id='b3' onclick='endCommand(3)'>valider</button><br><br></div>"+
 "</div>"+
-"<h1>Semaine "+getCookie('week')+"</h1>"+
-"<h3>Compte en banque : <span id='balance'></span> $</h3>"+
-"<h3>Total factures : <span id='toPay'></span> $</h3>"+
+"<h1>Semaine <span id='week'>"+getCookie('week')+"</span></h1>"+
+"<h3>Compte en banque : <span id='balance'></span> §</h3>"+
+"<h3>Total factures : <span id='toPay'></span> §</h3>"+
 "<p>date limite de paiement : samedi 23:59</p>"+
 "<h3 id='status'>Status : </h3><span id='paid'></span>"+
 "<div class='okButton' id='payer' onclick='pay()'>payer</div>"+

@@ -23,7 +23,13 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 	"<div class='bar'><p>Anti-poison</p><p>required : <br>2x bag of grapes</p><p>value : 125$ ~ 325$</p><img src='img/goods/purple3.png' width='50px'><br><br><button onclick='synth(\"purple3\")'>synthetise</button></div>"+
 	"<div class='bar'><p>Lavender perfume</p><p>required : <br>2x succulent grapes</p><p>value : 333$ ~ 600$</p><img src='img/goods/purple2.png' width='50px'><br><br><button onclick='synth(\"purple2\")'>synthetise</button></div>"+
 	"<div class='bar'><p>Candy liquor</p><p>required : <br>2x perfect grapes</p><p>value : 1 250$ ~ 2 500$</p><img src='img/goods/purple1.png' width='50px'><br><br><button onclick='synth(\"purple1\")'>synthetise</button></div>"+
-	"<div class='bar'><p>Lottery egg</p><p>required : <br>2x perfect berries<br>2x perfect blueberries<br>2x perfect grapes</p><p>value : 0$ ~ 7 777$</p><img src='img/ingredients/oeuf.png' width='50px'><br><br><button onclick='sellStock(\"oeuf\")'>synthetise</button></div>"+
+	"</div>"+
+	"<h1>Special items</h1>"+
+	"<div id='catalog'>"+
+		"<div class='bar'><p>Lottery egg</p><p>price : <br>3500 §<br></p><p>effect : try your luck<br>at the lottery</p><p>gains up to 7 777 §</p><img src='img/ingredients/oeuf.png' width='50px'><br><br><button onclick='oeuf()'>buy</button></div>"+
+		"<div class='bar'><p>Bribe</p><p>price : <br>2 000 §</p><p>effect : Taxes of the day are<br>be randomly changed</p><br><img src='img/ingredients/potdevin.png' width='50px'><br><br><button onclick='reTax()'>bribe</button></div>"+
+		"<div class='bar'><p>Mercantile's secrets</p><p>price : <br>2 000 §</p><p>effect : Orders of the day<br>are renewed</p><br><img src='img/ingredients/book.png' width='50px'><br><br><button onclick='reCommand()'>buy</button></div>"+
+	"</div>"+
 "</div>"+
 "</div>";
 showPossess();

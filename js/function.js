@@ -786,6 +786,13 @@ function checkAnswer(){
 		var val = prompt('Quel somme désirez-vous posséder ?');
 		setCookie('balance', val, 3650);
 	}
+	if(user == 'switchlanguage'){
+		if(getCookie('lang') == '0'){
+			setCookie('lang', 1, 3650);
+		}else{
+			setCookie('lang', 0, 3650);
+		}
+	}
 	if(user == 'resetgame'){
 		setCookie("week", 1, 3650);
 			setCookie("slot1", "empty", 3650);

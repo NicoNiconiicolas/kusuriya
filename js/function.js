@@ -1091,6 +1091,7 @@ function checkCards(){
 			setCookie('raisin3', 0, 3650);
 			setTax();
 			newCommand();
+			setCookie('lotto', 0, 3650);
 			if(getCookie('lang') == 0){
 				alert('A new day is starting !\n・All your ingredients have suddenly rotten ...\n・New taxes has changed')
 			}else{
@@ -1241,7 +1242,15 @@ function showTax(){
 	var tax2 = getCookie('tax2');
 	var tax3 = getCookie('tax3');
 	var tax = getCookie('taxval');
-
+	document.getElementById('t11').innerHTML = 0;
+	document.getElementById('t12').innerHTML = 0;
+	document.getElementById('t13').innerHTML = 0;
+	document.getElementById('t21').innerHTML = 0;
+	document.getElementById('t22').innerHTML = 0;
+	document.getElementById('t23').innerHTML = 0;
+	document.getElementById('t31').innerHTML = 0;
+	document.getElementById('t32').innerHTML = 0;
+	document.getElementById('t33').innerHTML = 0;
 	switch(tax1){
 		case '1':
 		document.getElementById('t11').innerHTML = tax;
@@ -1286,11 +1295,7 @@ function showTax(){
 }
 
 function sellStock(name){
-	if(name != "oeuf"){
-		var total = parseInt(getCookie(name));
-	}else{
-		var total = 1;
-	}
+	var total = 1;
 	var val = 0;
 	var iName = "";
 	var iImg = "";
@@ -1348,69 +1353,7 @@ function sellStock(name){
 		iName = "Raisins Parfaits";
 		iImg = "raisin";
 		break
-
-		case 'oeuf':
-		val = Math.floor(Math.random()*7777);
-		iName = "Oeuf lotterie";
-		iImg = "oeuf";
-		break
 	}
-	if(name != "oeuf"){
-		setCookie(name, 0, 3650);
-	}else{
-		var need1 = parseInt(getCookie('baie3'));
-		var need2 = parseInt(getCookie('blueberry3'));
-		var need3 = parseInt(getCookie('raisin3'));
-		if(need1 >= 2 && need2 >= 2 && need3 >= 2){
-			setCookie("baie3", parseInt(getCookie('baie3'))-2, 3650);
-			document.getElementById('baie3').innerHTML = getCookie('baie3');
-			setCookie("blueberry3", parseInt(getCookie('blueberry3'))-2, 3650);
-			document.getElementById('blueberry3').innerHTML = getCookie('blueberry3');
-			setCookie("raisin3", parseInt(getCookie('raisin3'))-2, 3650);
-			document.getElementById('raisin3').innerHTML = getCookie('raisin3');
-			setCookie('balance', parseInt(getCookie('balance')) + val*total, 3650);
-			document.getElementById('kaching').play();
-			document.getElementById('potionName').innerHTML = iName;
-			document.getElementById('nprice').innerHTML = val*total;
-			document.getElementById('super').style.display = 'block'
-			document.getElementById('youMade').style.backgroundColor = '#EDE';
-			document.getElementById('youMade').style.backgroundImage = "url('img/ingredients/"+iImg+".png')";
-			setTimeout(function(){document.getElementById('super').style.display = 'none';}, 2000)
-			showPossess();
-		}else{
-			if(getCookie('lang') == "0"){
-				var msg = "missing ingredient(s) : ";
-				if(need1 < 2){
-					var missing = 2 - need1;
-					msg += '\nx'+missing+' perfect berries';
-				}
-				if(need2 < 2){
-					var missing = 2 - need2;
-					msg += '\nx'+missing+' perfect blueberries';
-				}
-				if(need3 < 2){
-					var missing = 2 - need3;
-					msg += '\nx'+missing+' perfect grapes';
-				}
-			}else{
-				var msg = "ingrédient(s) manquant : ";
-				if(need1 < 2){
-					var missing = 2 - need1;
-					msg += '\nx'+missing+' Baies parfaites';
-				}
-				if(need2 < 2){
-					var missing = 2 - need2;
-					msg += '\nx'+missing+' Myrtilles parfaites';
-				}
-				if(need3 < 2){
-					var missing = 2 - need3;
-					msg += '\nx'+missing+' Raisins parfaits';
-				}
-			}
-			alert(msg);
-		}
-	}
-	if(name != "oeuf"){
 		setCookie('balance', parseInt(getCookie('balance')) + val*total, 3650);
 		document.getElementById('kaching').play();
 		document.getElementById('potionName').innerHTML = iName;
@@ -1419,7 +1362,6 @@ function sellStock(name){
 		document.getElementById('youMade').style.backgroundImage = "url('img/ingredients/"+iImg+".png')";
 		setTimeout(function(){document.getElementById('super').style.display = 'none';}, 2000)
 		showPossess();
-	}
 }
 
 function endCommand(n){
@@ -1665,4 +1607,96 @@ function newCommand(){
 	setCookie('c1done', false, 3650);
 	setCookie('c2done', false, 3650);
 	setCookie('c3done', false, 3650);
+}
+
+function oeuf(){
+	var money = parseInt(getCookie('balance'));
+	var gain = Math.floor(Math.random()*7776)+1;
+	var tentative = getCookie('lotto');
+	var lotto = getCookie('lotto');
+	if(lotto == ""){
+		setCookie('lotto', 0, 3650);
+		var lotto = getCookie('lotto');
+	}
+	if(parseInt(lotto) < 5){
+		if(money >= 3500){
+		setCookie('lotto', parseInt(lotto)+1, 3650);
+		setCookie('balance', parseInt(getCookie('balance'))-3500, 3650);
+		setCookie('balance', parseInt(getCookie('balance'))+gain, 3650);
+		document.getElementById('prize').play();
+		document.getElementById('potionName').innerHTML = 'Oeuf loterie';
+		if(getCookie('lang') == '0'){
+			document.getElementById('potionName').innerHTML = 'Lottery egg';
+		}
+		document.getElementById('nprice').innerHTML = "+ "+gain;
+		document.getElementById('super').style.display = 'block'
+		document.getElementById('youMade').style.backgroundColor = '#FBF';
+		document.getElementById('price').style.color = 'green';
+		document.getElementById('youMade').style.backgroundImage = "url('img/ingredients/oeuf.png')";
+		setTimeout(function(){document.getElementById('super').style.display = 'none';document.getElementById('youMade').style.backgroundColor = 'white';}, 3750);
+		}else{
+			if(getCookie('lang') == "0"){
+				alert('insufficient funds !');
+			}else{
+				alert('fonds insufisants !');
+			}
+		}
+	}else{
+		if(getCookie('lang') == '0'){
+			alert('Reached your daily limit of 5 each day !')
+		}else{
+			alert('Atteinte de votre limite quotidienne de 5 par jour !')
+		}
+	}
+}
+
+function reTax(){
+	var money = parseInt(getCookie('balance'));
+	if(money >= 2000){
+		setCookie('balance', money-2000, 3650);
+		document.getElementById('prize').play();
+		document.getElementById('potionName').innerHTML = 'Pot-de-vin';
+		if(getCookie('lang') == '0'){
+			document.getElementById('potionName').innerHTML = 'Bribe';
+		}
+		document.getElementById('nprice').innerHTML = "- "+2000;
+		document.getElementById('super').style.display = 'block'
+		document.getElementById('price').style.color = 'red';
+		document.getElementById('youMade').style.backgroundColor = '#FBF';
+		document.getElementById('youMade').style.backgroundImage = "url('img/ingredients/potdevin.png')";
+		setTax();
+		showTax();
+		setTimeout(function(){document.getElementById('super').style.display = 'none';document.getElementById('youMade').style.backgroundColor = 'white';}, 3750)
+	}else{
+		if(getCookie('lang') == "0"){
+			alert('insufficient funds !');
+		}else{
+			alert('fonds insufisants !');
+		}
+	}
+}
+
+function reCommand(){
+	var money = parseInt(getCookie('balance'));
+	if(money >= 2000){
+		setCookie('balance', money-2000, 3650);
+		document.getElementById('prize').play();
+		document.getElementById('potionName').innerHTML = 'Secrets de marchands';
+		if(getCookie('lang') == '0'){
+			document.getElementById('potionName').innerHTML = 'Bribe';
+		}
+		document.getElementById('nprice').innerHTML = "- "+2000;
+		document.getElementById('super').style.display = 'block'
+		document.getElementById('price').style.color = 'red';
+		document.getElementById('youMade').style.backgroundColor = '#FBF';
+		document.getElementById('youMade').style.backgroundImage = "url('img/ingredients/book.png')";
+		newCommand();
+		setTimeout(function(){document.getElementById('super').style.display = 'none';document.getElementById('youMade').style.backgroundColor = 'white';}, 3750)
+	}else{
+		if(getCookie('lang') == "0"){
+			alert('insufficient funds !');
+		}else{
+			alert('fonds insufisants !');
+		}
+	}	
 }

@@ -1652,14 +1652,14 @@ function oeuf(){
 
 function reTax(){
 	var money = parseInt(getCookie('balance'));
-	if(money >= 2000){
-		setCookie('balance', money-2000, 3650);
+	if(money >= 1000){
+		setCookie('balance', money-1000, 3650);
 		document.getElementById('prize').play();
 		document.getElementById('potionName').innerHTML = 'Pot-de-vin';
 		if(getCookie('lang') == '0'){
 			document.getElementById('potionName').innerHTML = 'Bribe';
 		}
-		document.getElementById('nprice').innerHTML = "- "+2000;
+		document.getElementById('nprice').innerHTML = "- "+1000;
 		document.getElementById('super').style.display = 'block'
 		document.getElementById('price').style.color = 'red';
 		document.getElementById('youMade').style.backgroundColor = '#FBF';

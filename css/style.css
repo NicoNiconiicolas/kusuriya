@@ -432,6 +432,10 @@ h2{
 		background: url('../img/panya.png') 50% 0% / 200% 100% no-repeat;
 	}
 
+	#showans{
+		font-size: 1.4em;
+	}
+
 	#box, #box2{
 		width: 95vw;
 	}
@@ -508,5 +512,9 @@ h2{
 
 	#ansbu{
 		font-size: 1.5em;
+	}
+
+	#showans{
+		font-size: 1.4em;
 	}
 }

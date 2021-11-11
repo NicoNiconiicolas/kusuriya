@@ -1302,7 +1302,7 @@ function showTax(){
 }
 
 function sellStock(name){
-	var total = 1;
+	var total = parseInt(document.getElementById(name).innerHTML);
 	var val = 0;
 	var iName = "";
 	var iImg = "";
@@ -1362,6 +1362,7 @@ function sellStock(name){
 		break
 	}
 		setCookie('balance', parseInt(getCookie('balance')) + val*total, 3650);
+		setCookie(name, 0, 3650);
 		document.getElementById('kaching').play();
 		document.getElementById('potionName').innerHTML = iName;
 		document.getElementById('nprice').innerHTML = val*total;

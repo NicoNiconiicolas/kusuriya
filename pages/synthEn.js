@@ -1,6 +1,7 @@
 document.getElementsByTagName('body')[0].innerHTML +=""+
 "<audio id='prize' src='sfx/prize.mp3'></audio>"+
 "<audio id='sfx' src='sfx/bip.mp3'></audio>"+
+"<audio id='kaching' src='sfx/kaching.mp3'></audio>"+
 "<div id='super'><span id='potionName'>Potion's name</span><div id='youMade'></div><br><p id='price'><span id='nprice'>0</span> $</p></div>"+
 "<div id='box2'>"+
 "<h1>Catalog</h1>"+

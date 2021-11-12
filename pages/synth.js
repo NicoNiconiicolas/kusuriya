@@ -29,7 +29,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 	"<div id='catalog'>"+
 		"<div class='bar'><p>Oeuf loterie</p><p>coût : <br>3500 §<br></p><p>effet : tenter sa chance<br>à la loterie</p><p>gains jusqu'à 7 777 §</p><img src='img/ingredients/oeuf.png' width='50px'><br><br><button onclick='oeuf()'>acheter</button></div>"+
 		"<div class='bar'><p>Pot-de-vin</p><p>coût : <br>1 000 §</p><p>effet : Taxes du jour sont<br>à nouveau jetées au sort</p><br><img src='img/ingredients/potdevin.png' width='50px'><br><br><button onclick='reTax()'>soudoyer</button></div>"+
-		"<div class='bar'><p>Secrets de marchands</p><p>coût : <br>2 000 §</p><p>effet : Commandes du jour<br>sont renouvelées</p><br><img src='img/ingredients/book.png' width='50px'><br><br><button onclick='reCommand()'>acheter</button></div>"+
+		"<div class='bar'><p>Secrets de marchands</p><p>coût : <br>1 000 §</p><p>effet : Commandes du jour<br>sont renouvelées</p><br><img src='img/ingredients/book.png' width='50px'><br><br><button onclick='reCommand()'>acheter</button></div>"+
 	"</div>"+
 "</div>";
 showPossess();

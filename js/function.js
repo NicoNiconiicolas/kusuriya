@@ -52,6 +52,10 @@ function add(item){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
 		}
+		if(getCookie('tax1p') == '3'){
+			var plus =Math.floor(price/100*tax);
+			price = price+plus;
+		}
 		if(lang == 0){
 			pName = "Fruity soda";
 		}else{
@@ -64,6 +68,10 @@ function add(item){
 		if(getCookie('tax1') == '2'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
+		}
+		if(getCookie('tax1p') == '2'){
+			var plus =Math.floor(price/100*tax);
+			price = price+plus;
 		}
 		if(lang == 0){
 			pName = "Cough syrup";
@@ -78,6 +86,10 @@ function add(item){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
 		}
+		if(getCookie('tax1p') == '1'){
+			var plus =Math.floor(price/100*tax);
+			price = price+plus;
+		}
 		pName = "Mayonnaise";
 		break
 
@@ -86,6 +98,10 @@ function add(item){
 		if(getCookie('tax2') == '3'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
+		}
+		if(getCookie('tax2p') == '3'){
+			var plus =Math.floor(price/100*tax);
+			price = price+plus;
 		}
 		if(lang == 0){
 			pName = "Liquid laundry";
@@ -100,6 +116,10 @@ function add(item){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
 		}
+		if(getCookie('tax2p') == '2'){
+			var plus =Math.floor(price/100*tax);
+			price = price+plus;
+		}
 		if(lang == 0){
 			pName = "Cooling liquid";
 		}else{
@@ -112,6 +132,10 @@ function add(item){
 		if(getCookie('tax2') == '1'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
+		}
+		if(getCookie('tax2p') == '1'){
+			var plus =Math.floor(price/100*tax);
+			price = price+plus;
 		}
 		if(lang == 0){
 			pName = "Holy water";
@@ -126,6 +150,10 @@ function add(item){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
 		}
+		if(getCookie('tax3p') == '3'){
+			var plus =Math.floor(price/100*tax);
+			price = price+plus;
+		}
 		pName = "Anti-poison";
 		break
 
@@ -134,6 +162,10 @@ function add(item){
 		if(getCookie('tax3') == '2'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
+		}
+		if(getCookie('tax3p') == '2'){
+			var plus =Math.floor(price/100*tax);
+			price = price+plus;
 		}
 		if(lang == 0){
 			pName = "Lavender perfume";
@@ -147,6 +179,10 @@ function add(item){
 		if(getCookie('tax3') == '1'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
+		}
+		if(getCookie('tax3p') == '1'){
+			var plus =Math.floor(price/100*tax);
+			price = price+plus;
 		}
 		if(lang == 0){
 			pName = "Candy liquor";
@@ -1058,8 +1094,9 @@ function pay(){
 			alert('fonds insufisants');
 		}
 	}else{
+		bal = bal-pay;
 		document.getElementById('sfx').play();
-		setCookie('balance', bal-val, 3650)
+		setCookie('balance', bal, 3650);
 		setCookie('isPaid', true, 3650);
 		showLoan();
 	}
@@ -1247,64 +1284,178 @@ function setDifficulty(n){
 
 function setTax(){
 	setCookie('taxval', Math.floor(Math.random()*50+25), 3650);
-	setCookie('tax1', Math.floor(Math.random()*3+1), 3650);
-	setCookie('tax2', Math.floor(Math.random()*3+1), 3650);
-	setCookie('tax3', Math.floor(Math.random()*3+1), 3650);
+	
+	var val = [1, 2, 3];
+	var tax1 = val.splice(Math.random()*val.length,1)[0];
+	setCookie('tax1', tax1, 3650);
+	var tax1p = val.splice(Math.random()*val.length,1)[0];
+	setCookie('tax1p', tax1p, 3650);
+
+	val = [1, 2, 3];
+	var tax2 = val.splice(Math.random()*val.length,1)[0];
+	setCookie('tax2', tax2, 3650);
+	var tax2p = val.splice(Math.random()*val.length,1)[0];
+	setCookie('tax2p', tax2p, 3650);
+	
+	val = [1, 2, 3];
+	var tax3 = val.splice(Math.random()*val.length,1)[0];
+	setCookie('tax3', tax3, 3650);
+	var tax3p = val.splice(Math.random()*val.length,1)[0];
+	setCookie('tax3p', tax3p, 3650);
 }
 
 function showTax(){
 	var tax1 = getCookie('tax1');
 	var tax2 = getCookie('tax2');
 	var tax3 = getCookie('tax3');
+	var tax1p = getCookie('tax1p');
+	var tax2p = getCookie('tax2p');
+	var tax3p = getCookie('tax3p');
 	var tax = getCookie('taxval');
-	document.getElementById('t11').innerHTML = 0;
-	document.getElementById('t12').innerHTML = 0;
-	document.getElementById('t13').innerHTML = 0;
-	document.getElementById('t21').innerHTML = 0;
-	document.getElementById('t22').innerHTML = 0;
-	document.getElementById('t23').innerHTML = 0;
-	document.getElementById('t31').innerHTML = 0;
-	document.getElementById('t32').innerHTML = 0;
-	document.getElementById('t33').innerHTML = 0;
+	var t11 = document.getElementById('t11');
+	t11.innerHTML = '0%';
+	t11.style.color = 'black';
+	var t12 = document.getElementById('t12');
+	t12.innerHTML = '0%';
+	t12.style.color = 'black';
+	var t13 = document.getElementById('t13');
+	t13.innerHTML = '0%';
+	t13.style.color = 'black';
+	var t21 = document.getElementById('t21');
+	t21.innerHTML = '0%';
+	t21.style.color = 'black';
+	var t22 = document.getElementById('t22');
+	t22.innerHTML = '0%';
+	t22.style.color = 'black';
+	var t23 = document.getElementById('t23');
+	t23.innerHTML = '0%';
+	t23.style.color = 'black';
+	var t31 = document.getElementById('t31');
+	t31.innerHTML = '0%';
+	t31.style.color = 'black';
+	var t32 = document.getElementById('t32');
+	t32.innerHTML = '0%';
+	t32.style.color = 'black';
+	var t33 = document.getElementById('t33');
+	t33.innerHTML = '0%';
+	t33.style.color = 'black';
 	switch(tax1){
 		case '1':
-		document.getElementById('t11').innerHTML = tax;
+		var doc = document.getElementById('t11');
+		doc.innerHTML = '- '+tax+'%';
+		doc.style.color = 'red';
 		break
 
 		case '2':
-		document.getElementById('t12').innerHTML = tax;
+		var doc = document.getElementById('t12');
+		doc.innerHTML = '- '+tax+'%';
+		doc.style.color = 'red';
 		break
 
 		case '3':
-		document.getElementById('t13').innerHTML = tax;
+		var doc = document.getElementById('t13');
+		doc.innerHTML = '- '+tax+'%';
+		doc.style.color = 'red';
 		break
 	}
 
 	switch(tax2){
 		case '1':
-		document.getElementById('t21').innerHTML = tax;
+		var doc = document.getElementById('t21');
+		doc.innerHTML = '- '+tax+'%';
+		doc.style.color = 'red';
 		break
 
 		case '2':
-		document.getElementById('t22').innerHTML = tax;
+		var doc = document.getElementById('t22');
+		doc.innerHTML = '- '+tax+'%';
+		doc.style.color = 'red';
 		break
 
 		case '3':
-		document.getElementById('t23').innerHTML = tax;
+		var doc = document.getElementById('t23');
+		doc.innerHTML = '- '+tax+'%';
+		doc.style.color = 'red';
 		break
 	}
 
 	switch(tax3){
 		case '1':
-		document.getElementById('t31').innerHTML = tax;
+		var doc = document.getElementById('t31');
+		doc.innerHTML = '- '+tax+'%';
+		doc.style.color = 'red';
 		break
 
 		case '2':
-		document.getElementById('t32').innerHTML = tax;
+		var doc = document.getElementById('t32');
+		doc.innerHTML = '- '+tax+'%';
+		doc.style.color = 'red';
 		break
 
 		case '3':
-		document.getElementById('t33').innerHTML = tax;
+		var doc = document.getElementById('t33');
+		doc.innerHTML = '- '+tax+'%';
+		doc.style.color = 'red';
+		break
+	}
+
+	switch(tax1p){
+		case '1':
+		var doc = document.getElementById('t11');
+		doc.innerHTML = '+ '+tax+'%';
+		doc.style.color = 'green';
+		break
+
+		case '2':
+		var doc = document.getElementById('t12');
+		doc.innerHTML = '+ '+tax+'%';
+		doc.style.color = 'green';
+		break
+
+		case '3':
+		var doc = document.getElementById('t13');
+		doc.innerHTML = '+ '+tax+'%';
+		doc.style.color = 'green';
+		break
+	}
+
+	switch(tax2p){
+		case '1':
+		var doc = document.getElementById('t21');
+		doc.innerHTML = '+ '+tax+'%';
+		doc.style.color = 'green';
+		break
+
+		case '2':
+		var doc = document.getElementById('t22');
+		doc.innerHTML = '+ '+tax+'%';
+		doc.style.color = 'green';
+		break
+
+		case '3':
+		var doc = document.getElementById('t23');
+		doc.innerHTML = '+ '+tax+'%';
+		doc.style.color = 'green';
+		break
+	}
+
+	switch(tax3p){
+		case '1':
+		var doc = document.getElementById('t31');
+		doc.innerHTML = '+ '+tax+'%';
+		doc.style.color = 'green';
+		break
+
+		case '2':
+		var doc = document.getElementById('t32');
+		doc.innerHTML = '+ '+tax+'%';
+		doc.style.color = 'green';
+		break
+
+		case '3':
+		var doc = document.getElementById('t33');
+		doc.innerHTML = '+ '+tax+'%';
+		doc.style.color = 'green';
 		break
 	}
 }
@@ -1671,21 +1822,22 @@ function oeuf(){
 
 function reTax(){
 	var money = parseInt(getCookie('balance'));
-	if(money >= 1000){
-		setCookie('balance', money-1000, 3650);
+	if(money >= 2500){
+		money = money - 2500;
+		setCookie('balance', money, 3650);
 		document.getElementById('prize').play();
 		document.getElementById('potionName').innerHTML = 'Pot-de-vin';
 		if(getCookie('lang') == '0'){
 			document.getElementById('potionName').innerHTML = 'Bribe';
 		}
-		document.getElementById('nprice').innerHTML = "- "+1000;
-		document.getElementById('super').style.display = 'block'
+		document.getElementById('nprice').innerHTML = "- "+2500;
+		document.getElementById('super').style.display = 'block';
 		document.getElementById('price').style.color = 'red';
 		document.getElementById('youMade').style.backgroundColor = '#FBF';
 		document.getElementById('youMade').style.backgroundImage = "url('img/ingredients/potdevin.png')";
 		setTax();
 		showTax();
-		setTimeout(function(){document.getElementById('super').style.display = 'none';document.getElementById('youMade').style.backgroundColor = 'white';}, 3750)
+		setTimeout(function(){document.getElementById('super').style.display = 'none';document.getElementById('youMade').style.backgroundColor = 'white';}, 3750);
 	}else{
 		if(getCookie('lang') == "0"){
 			alert('insufficient funds !');

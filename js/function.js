@@ -1603,8 +1603,8 @@ function showCommand(){
 }
 
 function newCommand(){
-	var n1 = Math.floor(Math.random()*10+5);
-	var n2 = Math.floor(Math.random()*5+5);
+	var n1 = Math.floor(Math.random()*5+3);
+	var n2 = Math.floor(Math.random()*5+2);
 	var n3 = Math.floor(Math.random()*3+1);
 	setCookie('c1w', Math.floor(Math.random()*3+1), 3650);
 	setCookie('c2w', Math.floor(Math.random()*3+1), 3650);
@@ -1686,14 +1686,14 @@ function reTax(){
 
 function reCommand(){
 	var money = parseInt(getCookie('balance'));
-	if(money >= 2000){
-		setCookie('balance', money-2000, 3650);
+	if(money >= 1000){
+		setCookie('balance', money-1000, 3650);
 		document.getElementById('prize').play();
 		document.getElementById('potionName').innerHTML = 'Secrets de marchands';
 		if(getCookie('lang') == '0'){
 			document.getElementById('potionName').innerHTML = 'Bribe';
 		}
-		document.getElementById('nprice').innerHTML = "- "+2000;
+		document.getElementById('nprice').innerHTML = "- "+1000;
 		document.getElementById('super').style.display = 'block'
 		document.getElementById('price').style.color = 'red';
 		document.getElementById('youMade').style.backgroundColor = '#FBF';

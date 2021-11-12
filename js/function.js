@@ -316,9 +316,10 @@ function synth(obj){
 
 		case 'baie2':
 		var need = parseInt(getCookie('baie1'));
+		var b2 = parseInt(getCookie('baie2'));
 		if(need >= 2){
-			setCookie("baie1", parseInt(getCookie('baie1'))-2, 3650);
-			setCookie("baie2", parseInt(getCookie('baie2'))+1, 3650);
+			setCookie("baie1", need-2, 3650);
+			setCookie("baie2", b2+1, 3650);
 			document.getElementById('baie1').innerHTML = getCookie("baie1");
 			document.getElementById('baie2').innerHTML = getCookie("baie2");
 			sfx.play();
@@ -334,9 +335,10 @@ function synth(obj){
 
 		case 'baie3':
 		var need = parseInt(getCookie('baie2'));
+		var b3 = parseInt(getCookie('baie3'));
 		if(need >= 2){
-			setCookie("baie2", parseInt(getCookie('baie2'))-2, 3650);
-			setCookie("baie3", parseInt(getCookie('baie3'))+1, 3650);
+			setCookie("baie2", need-2, 3650);
+			setCookie("baie3", b3+1, 3650);
 			document.getElementById('baie2').innerHTML = getCookie("baie2");
 			document.getElementById('baie3').innerHTML = getCookie("baie3");
 			sfx.play();
@@ -356,9 +358,10 @@ function synth(obj){
 
 		case 'blueberry2':
 		var need = parseInt(getCookie('blueberry1'));
+		var bb2 = parseInt(getCookie('blueberry1'));
 		if(need >= 2){
-			setCookie("blueberry1", parseInt(getCookie('blueberry1'))-2, 3650);
-			setCookie("blueberry2", parseInt(getCookie('blueberry2'))+1, 3650);
+			setCookie("blueberry1", need-2, 3650);
+			setCookie("blueberry2", bb2+1, 3650);
 			document.getElementById('blueberry1').innerHTML = getCookie("blueberry1");
 			document.getElementById('blueberry2').innerHTML = getCookie("blueberry2");
 			sfx.play();
@@ -374,9 +377,10 @@ function synth(obj){
 
 		case 'blueberry3':
 		var need = parseInt(getCookie('blueberry2'));
+		var bb3 = parseInt(getCookie('blueberry3')),
 		if(need >= 2){
-			setCookie("blueberry2", parseInt(getCookie('blueberry2'))-2, 3650);
-			setCookie("blueberry3", parseInt(getCookie('blueberry3'))+1, 3650);
+			setCookie("blueberry2", need-2, 3650);
+			setCookie("blueberry3", bb3+1, 3650);
 			document.getElementById('blueberry2').innerHTML = getCookie("blueberry2");
 			document.getElementById('blueberry3').innerHTML = getCookie("blueberry3");
 			sfx.play();
@@ -396,9 +400,10 @@ function synth(obj){
 
 		case 'raisin2':
 		var need = parseInt(getCookie('raisin1'));
+		var r2 = parseInt(getCookie('raisin2'));
 		if(need >= 2){
-			setCookie("raisin1", parseInt(getCookie('raisin1'))-2, 3650);
-			setCookie("raisin2", parseInt(getCookie('raisin2'))+1, 3650);
+			setCookie("raisin1", need-2, 3650);
+			setCookie("raisin2", r2+1, 3650);
 			document.getElementById('raisin1').innerHTML = getCookie("raisin1");
 			document.getElementById('raisin2').innerHTML = getCookie("raisin2");
 			sfx.play();
@@ -414,9 +419,10 @@ function synth(obj){
 
 		case 'raisin3':
 		var need = parseInt(getCookie('raisin2'));
+		var r3 = parseInt(getCookie('raisin3'));
 		if(need >= 2){
-			setCookie("raisin2", parseInt(getCookie('raisin2'))-2, 3650);
-			setCookie("raisin3", parseInt(getCookie('raisin3'))+1, 3650);
+			setCookie("raisin2", need-2, 3650);
+			setCookie("raisin3", r3+1, 3650);
 			document.getElementById('raisin2').innerHTML = getCookie("raisin2");
 			document.getElementById('raisin3').innerHTML = getCookie("raisin3");
 			sfx.play();
@@ -437,7 +443,7 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('baie1'));
 			if(need >= 2){
-				setCookie("baie1", parseInt(getCookie('baie1'))-2, 3650);
+				setCookie("baie1", need-2, 3650);
 				document.getElementById('baie1').innerHTML = getCookie('baie1');
 				add('red3');
 				document.getElementById('prize').play();
@@ -464,7 +470,7 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('baie2'));
 			if(need >= 2){
-				setCookie("baie2", parseInt(getCookie('baie2'))-2, 3650);
+				setCookie("baie2", need-2, 3650);
 				document.getElementById('baie2').innerHTML = getCookie('baie2');
 				add('red2');
 				document.getElementById('prize').play();
@@ -491,7 +497,7 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('baie3'));
 			if(need >= 2){
-				setCookie("baie3", parseInt(getCookie('baie3'))-2, 3650);
+				setCookie("baie3", need-2, 3650);
 				document.getElementById('baie3').innerHTML = getCookie('baie3');
 				add('red1');
 				document.getElementById('prize').play();
@@ -518,7 +524,7 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('blueberry3'));
 			if(need >= 2){
-				setCookie("blueberry3", parseInt(getCookie('blueberry3'))-2, 3650);
+				setCookie("blueberry3", need-2, 3650);
 				document.getElementById('blueberry3').innerHTML = getCookie('blueberry3');
 				add('blue1');
 				document.getElementById('prize').play();
@@ -545,7 +551,7 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('blueberry2'));
 			if(need >= 2){
-				setCookie("blueberry2", parseInt(getCookie('blueberry2'))-2, 3650);
+				setCookie("blueberry2", need-2, 3650);
 				document.getElementById('blueberry2').innerHTML = getCookie('blueberry2');
 				add('blue2');
 				document.getElementById('prize').play();
@@ -572,7 +578,7 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('blueberry1'));
 			if(need >= 2){
-				setCookie("blueberry1", parseInt(getCookie('blueberry1'))-2, 3650);
+				setCookie("blueberry1", need-2, 3650);
 				document.getElementById('blueberry1').innerHTML = getCookie('blueberry1');
 				add('blue3');
 				document.getElementById('prize').play();
@@ -599,7 +605,7 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('raisin3'));
 			if(need >= 2){
-				setCookie("raisin3", parseInt(getCookie('raisin3'))-2, 3650);
+				setCookie("raisin3", need-2, 3650);
 				document.getElementById('raisin3').innerHTML = getCookie('raisin3');
 				add('purple1');
 				document.getElementById('prize').play();
@@ -626,7 +632,7 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('raisin2'));
 			if(need >= 2){
-				setCookie("raisin2", parseInt(getCookie('raisin2'))-2, 3650);
+				setCookie("raisin2", need-2, 3650);
 				document.getElementById('raisin2').innerHTML = getCookie('raisin2');
 				add('purple2');
 				document.getElementById('prize').play();
@@ -653,7 +659,7 @@ function synth(obj){
 		if(full == true){
 			var need = parseInt(getCookie('raisin1'));
 			if(need >= 2){
-				setCookie("raisin1", parseInt(getCookie('raisin1'))-2, 3650);
+				setCookie("raisin1", need-2, 3650);
 				document.getElementById('raisin1').innerHTML = getCookie('raisin1');
 				add('purple3');
 				document.getElementById('prize').play();
@@ -1043,7 +1049,9 @@ function checkLoan(){
 
 function pay(){
 	var lang = getCookie('lang');
-	if(parseInt(getCookie('balance')) < parseInt(getCookie('toPay'))){
+	var bal = parseInt(getCookie('balance'));
+	var pay = parseInt(getCookie('toPay'));
+	if(bal < pay){
 		if(lang == 0){
 			alert('insufficient funds');
 		}else{
@@ -1051,7 +1059,7 @@ function pay(){
 		}
 	}else{
 		document.getElementById('sfx').play();
-		setCookie('balance', parseInt(getCookie('balance'))-parseInt(getCookie('toPay')), 3650)
+		setCookie('balance', bal-val, 3650)
 		setCookie('isPaid', true, 3650);
 		showLoan();
 	}
@@ -1304,6 +1312,7 @@ function showTax(){
 function sellStock(name){
 	var total = parseInt(document.getElementById(name).innerHTML);
 	var val = 0;
+	var bal = parseInt(getCookie('balance'));
 	var iName = "";
 	var iImg = "";
 	switch(name){
@@ -1361,7 +1370,8 @@ function sellStock(name){
 		iImg = "raisin";
 		break
 	}
-		setCookie('balance', parseInt(getCookie('balance')) + val*total, 3650);
+		bal = bal+val*total;
+		setCookie('balance', bal, 3650);
 		setCookie(name, 0, 3650);
 		document.getElementById('kaching').play();
 		document.getElementById('potionName').innerHTML = iName;
@@ -1376,6 +1386,7 @@ function endCommand(n){
 	var total = getCookie('c'+n+'n');
 	var name = document.getElementById('name'+n).innerHTML;
 	var val = 0;
+	var bal = parseInt(getCookie('balance'));
 	var money = 0;
 	var res = "";
 	switch(name){
@@ -1427,7 +1438,7 @@ function endCommand(n){
 	if(parseInt(getCookie(res)) >= total){
 			money = val * total * 2;
 			setCookie(res, parseInt(getCookie(res)) - total);
-			setCookie('balance', parseInt(getCookie('balance')) + money);
+			setCookie('balance', bal + money);
 			document.getElementById('sfx').play();
 			setCookie('c'+n+'done', true, 3650);
 			document.getElementById('balance').innerHTML = getCookie('balance');
@@ -1629,8 +1640,8 @@ function oeuf(){
 	if(parseInt(lotto) < 5){
 		if(money >= 3500){
 		setCookie('lotto', parseInt(lotto)+1, 3650);
-		setCookie('balance', parseInt(getCookie('balance'))-3500, 3650);
-		setCookie('balance', parseInt(getCookie('balance'))+gain, 3650);
+		money = money-3500+gain;
+		setCookie('balance', money, 3650);
 		document.getElementById('prize').play();
 		document.getElementById('potionName').innerHTML = 'Oeuf loterie';
 		if(getCookie('lang') == '0'){

@@ -16,6 +16,6 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 	"</div>"+
 "</div>";
 document.getElementById('sfx').volume = 0.5;
-setTimeout(function(){trySell(false)}, 2000);
+setTimeout(function(){trySell(false)}, 1000);
 showInv();
 setInterval(function(){trySell(true); showInv();}, 60000);

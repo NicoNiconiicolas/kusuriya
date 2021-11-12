@@ -121,6 +121,13 @@
 	slot[9] = getCookie('slot9');
 	if(getLang != ""){
 		document.getElementsByTagName('body')[0].appendChild(menu);
+		if(getCookie('tuto') == ""){
+			if(getCookie('lang') == '1'){
+				window.location = 'tuto.html';
+			}else{
+				window.location = 'tutoEn.html';
+			}
+		}
 	}
 </script>
 </html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tutorial</title>
+	<style>
+		button{
+			font-size: 1.5em;
+		}
+		h3{
+			font-weight: normal;
+			margin: auto;
+			margin-top: 10px;
+			width: 60%;
+		}
+
+		body{
+			text-align: center;
+		}
+
+		div{
+			margin: auto;
+			border: solid 4px #333;
+			border-radius: 15px;
+			width: 70%;
+			height: 75vh;
+		}
+
+		#img4{
+			height: 40vh;
+		}
+
+		@media (max-width : 499px){
+
+			div{
+				width: 100%;
+				height: 40vh;
+			}
+
+			#img4{
+				height: 20vh;
+			}
+
+			h3{
+				width: 80%;
+			}
+		}
+
+		@media (min-width : 500px) and (max-width : 900px){
+
+			div{
+				width: 80%;
+				height: 50vh;
+			}
+
+			#img4{
+				height: 20vh;
+			}
+
+			h3{
+				width: 66%;
+			}
+		}
+	</style>
+	<script src='js/nikolib.js'></script>
+</head>
+<body>
+		<h1 id='t1'>Kyu vous présente : <br>Un tutoriel moche</h1>
+		<hr>
+		<h2>Principe de base :</h2>
+		<h3>Cette application web à pour but de booster les sessions de révisions de flashcards en utilisant le pouvoir de la motivation généré par un environnement ludique et blablabla...</h3>
+		<h3>Le fonctionnement du jeu est simple :</h3>
+		<br>
+
+		<div id='img1'></div>
+		<h2>Boutique :</h2>
+		<h3>Après avoir été synthétisées c'est ici que les produits sont placées en attente d'être vendues</h3>
+		<br>
+		<div id='img2'></div>
+		<h2>Catalogue :</h2>
+		<h3>C'est ici que la magie s'opère, on raffine ses ingrédients pour en augmenter leurs qualité afin de créer des produits de plus grande valeur. </h3>
+		<br>
+		<div id='img3'></div>
+		<h2>Objets spéciaux</h2>
+		<h3>Quelques objets ayant des effets spécifiques peuvent également être achetés avec de l'argent</h3>
+		<br>
+		<div id='img4'></div>
+		<h2>Exploration : </h2>
+		<h3>Ici on révise dans le style Kotoba (écrir réponse exact) ou Anki (boutons bonne/mauvaise réponse) selon sa préférence. Les bonnes réponses remplissent la barre de progression, quand elle atteint 100% on obtient un ingrédient de base parmis les 3 variétés existantes : baie, myrtille et raisin</h3>
+		<br>
+		<div id='img5'></div>
+		<h2>Gestion : </h2>
+		<h3>On retrouve ici :<br><br>1. Les commandes du jour<br> simplement des commandes d'ingrédients avec un payement intéressant</h3>
+		<br>
+		<h3>2. La facture de la semaine<br>un montant à payer avant chaque dimanche 0:00 UTC<br>(1h00 du matin heure française)</h3>
+		<br>
+		<div id='img6'></div>
+		<h3>3. Gestion des decks<br>ici on choisit avec quel deck on va étudier<br>・ un des decks JLPT provenant de Kotoba<br>・ un deck personnel enregistré sur le navigateur<br>・ via un lien renvoyant vers un deck converti et mis en ligne au préalable	<br><br>Le bouton "Nouveau deck" permet de convertir un deck exporté depuis Kotoba ou Anki version PC (exporté en "cartes avec texte clair"). Après la conversion le deck sera soit enregistré dans l'emplacement de deck de votre choix soit téléchargé en vue d'être mis en ligne via un site tier.<br>Prenez bien soin de choisir choisir si les espaces dans les champs réponse seront traités comme séparateur pour les réponses multiples ou non</h3>
+		<h3>4. Style de révision<br> Changez le style de révision selon votre préférence ou ce qui est le plus adapté à vos decks</h3>
+		<br>
+		<h3>5. Difficulté du jeu<br>Facile : La facture ne dépasse jamais 3500§ | pas de taxes | les ingrédients ne pourrissent pas<br><br>Défi : Chaque semaine la facture est plus cher de 50 % | 25% à 75% de taxes pour un produit de chaque gamme | Chaque jour à 0:00 UTC tous les ingrédients pourrissent</h3>
+		<br>
+		<div id='img7'></div>
+		<br>
+		<button onclick='setCookie("tuto", 1, 3650);window.location ="index.html"'>J'ai tout lu et je suis prêt !</button>
+		<br>
+		<br>
+		<button onclick='setCookie("tuto", 1, 3650);window.location ="index.html"'>J'ai rien lu et je prends le risque d'être totalement paumé</button>
+</body>
+<script>
+	document.getElementById('img1').style.background = "url('img/tuto/shema.png') 0 0 / 100% 100% no-repeat";
+	document.getElementById('img2').style.background = "url('img/tuto/1_fr.png') 0 0 / 100% 100% no-repeat";
+	document.getElementById('img3').style.background = "url('img/tuto/2_fr.png') 0 0 / 100% 100% no-repeat";
+	document.getElementById('img4').style.background = "url('img/tuto/3_fr.png') 0 0 / 100% 100% no-repeat";
+	document.getElementById('img5').style.background = "url('img/tuto/4_fr.png') 0 0 / 100% 100% no-repeat";
+	document.getElementById('img6').style.background = "url('img/tuto/5_fr.png') 0 0 / 100% 100% no-repeat";
+	document.getElementById('img7').style.background = "url('img/tuto/6_fr.png') 0 0 / 100% 100% no-repeat";
+</script>
+</html>

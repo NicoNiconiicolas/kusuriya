@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tutorial</title>
+	<style>
+		button{
+			font-size: 1.5em;
+		}
+		h3{
+			font-weight: normal;
+			margin: auto;
+			margin-top: 10px;
+			width: 60%;
+		}
+
+		body{
+			text-align: center;
+		}
+
+		div{
+			margin: auto;
+			border: solid 4px #333;
+			border-radius: 15px;
+			width: 70%;
+			height: 75vh;
+		}
+
+		#img4{
+			height: 40vh;
+		}
+
+		@media (max-width : 499px){
+
+			div{
+				width: 100%;
+				height: 40vh;
+			}
+
+			#img4{
+				height: 20vh;
+			}
+
+			h3{
+				width: 80%;
+			}
+		}
+
+		@media (min-width : 500px) and (max-width : 900px){
+
+			div{
+				width: 80%;
+				height: 50vh;
+			}
+
+			#img4{
+				height: 20vh;
+			}
+
+			h3{
+				width: 66%;
+			}
+		}
+	</style>
+	<script src='js/nikolib.js'></script>
+</head>
+<body>
+		<h1 id='t1'>Kyu presents : <br>An ugly tutorial</h1>
+		<hr>
+		<h2>About this website :</h2>
+		<h3>This web application's goal is to boost your flashcards revisions by using the power of motivation obtained through an game like environment and blablabla...</h3>
+		<h3>How the game works :</h3>
+		<br>
+
+		<div id='img1'></div>
+		<h2>Shop :</h2>
+		<h3>Synthetised products will be placed here while waiting to be sold</h3>
+		<br>
+		<div id='img2'></div>
+		<h2>Catalog :</h2>
+		<h3>Upgrade your ingredients quality in order to create products with a better value.</h3>
+		<br>
+		<div id='img3'></div>
+		<h2>Special items</h2>
+		<h3>Some items with particular effects can be bought with money</h3>
+		<br>
+		<div id='img4'></div>
+		<h2>Exploration : </h2>
+		<h3>Here you can review you cards in Kotoba style (write exact answer) or Anki style (correct/wrong answer buttons). Good answers fills the progression bar, when it reaches 100% you'll get a basic ingredient among the 3 existing varieties : berry, blueberry and grape</h3>
+		<br>
+		<div id='img5'></div>
+		<h2>Management : </h2>
+		<h3>Here we have :<br><br>1. Today's orders<br> simply orders for ingredients with a nice payout</h3>
+		<br>
+		<h3>2. Weekly bill<br>You have to pay your bill each before sunday 0:00 UTC</h3>
+		<br>
+		<div id='img6'></div>
+		<h3>3. Decks management<br>Here you choose which deck to review<br>・ one of the JLPT decks coming from Kotoba<br>・ a custom deck previously saved on your browser<br>・ through a link redirecting directly to a converted deck hosted on another website<br><br>With "New deck" button you can convert any deck exported from Kotoba or Anki PC version (exported in "cards in plain text"). Depending your choice converted deck will be saved in the deck slot of your choice or downloaded in order to be uploaded on another website later<br>Take care to choose how the spaces will be processed in the answer field, by default spaces are will be considered as separators for multiples answers</h3>
+		<h3>4. Reviewing style<br> Change the reviewing style to get along your tastes or what is more suited for your deck</h3>
+		<br>
+		<h3>5. Game's difficulty<br>Easy : Bill never exceed 3500§ | no taxes | ingredients doesn't rot<br><br>Challenge : Each week bill is 50% more than last week's bill | 25% to 75% taxes for a product of each set | Everyday at 0:00 UTC all ingredients rot</h3>
+		<br>
+		<div id='img7'></div>
+		<br>
+		<button onclick='setCookie("tuto", 1, 3650);window.location ="index.html"'>I've read it all and i'm ready !</button>
+		<br>
+		<br>
+		<button onclick='setCookie("tuto", 1, 3650);window.location ="index.html"'>Too much text, i take the risk to be totally lost</button>
+</body>
+<script>
+	document.getElementById('img1').style.background = "url('img/tuto/shemaEn.png') 0 0 / 100% 100% no-repeat";
+	document.getElementById('img2').style.background = "url('img/tuto/1_fr.png') 0 0 / 100% 100% no-repeat";
+	document.getElementById('img3').style.background = "url('img/tuto/2_fr.png') 0 0 / 100% 100% no-repeat";
+	document.getElementById('img4').style.background = "url('img/tuto/3_fr.png') 0 0 / 100% 100% no-repeat";
+	document.getElementById('img5').style.background = "url('img/tuto/4_fr.png') 0 0 / 100% 100% no-repeat";
+	document.getElementById('img6').style.background = "url('img/tuto/5_fr.png') 0 0 / 100% 100% no-repeat";
+	document.getElementById('img7').style.background = "url('img/tuto/6_fr.png') 0 0 / 100% 100% no-repeat";
+</script>
+</html>

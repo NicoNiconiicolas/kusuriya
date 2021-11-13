@@ -1264,8 +1264,11 @@ function setDifficulty(n){
 		}
 	}else{
 		setCookie('tax1', 0, 3650);
+		setCookie('tax1p', 0, 3650);
 		setCookie('tax2', 0, 3650);
+		setCookie('tax2p', 0, 3650);
 		setCookie('tax3', 0, 3650);
+		setCookie('tax3p', 0, 3650);
 		var d = new Date();
 		var today = d.getDay();
 		var nextloan = 6 - today + 1;

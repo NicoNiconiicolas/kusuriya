@@ -1015,7 +1015,6 @@ function checkLoan(){
 	var lang = getCookie('lang');
 	var now = Math.floor(new Date().getTime()/1000/60/60/24+3)/7;
 	now = Math.floor(now);
-	alert(parseInt(getCookie('nextLoan')));
 	if(now > parseInt(getCookie('nextLoan'))){
 		if(getCookie('isPaid') == 'false'){
 			if(lang == 0){

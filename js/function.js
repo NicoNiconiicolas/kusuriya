@@ -1007,12 +1007,16 @@ function firstLoan(){
 	setCookie("toPay", totalLoan, 3650);
 	setCookie("isPaid", false, 3650);
 	var now = Math.floor(new Date().getTime()/1000/60/60/24+3)/7;
+	now = Math.floor(now);
 	setCookie("nextLoan", now, 3650);
 }
 
 function checkLoan(){
 	var lang = getCookie('lang');
 	var now = Math.floor(new Date().getTime()/1000/60/60/24+3)/7;
+	now = Math.floor(now);
+	alert(now);
+	alert(parseInt(getCookie('nextLoan')));
 	if(now > parseInt(getCookie('nextLoan'))){
 		if(getCookie('isPaid') == 'false'){
 			if(lang == 0){

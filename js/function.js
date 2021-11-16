@@ -1068,7 +1068,7 @@ function checkLoan(){
 				actualBill = 3500;
 			}
 			setCookie("week", parseInt(getCookie('week'))+1, 3650);
-			var newBill = actualBill*1.5;
+			var newBill = actualBill*2;
 			setCookie('nextLoan', now, 3650);
 			setCookie('isPaid', false, 3650);
 			if(getCookie('difficulty') == '1'){

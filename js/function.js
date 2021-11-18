@@ -394,7 +394,7 @@ function synth(obj){
 
 		case 'blueberry2':
 		var need = parseInt(getCookie('blueberry1'));
-		var bb2 = parseInt(getCookie('blueberry1'));
+		var bb2 = parseInt(getCookie('blueberry2'));
 		if(need >= 2){
 			setCookie("blueberry1", need-2, 3650);
 			setCookie("blueberry2", bb2+1, 3650);

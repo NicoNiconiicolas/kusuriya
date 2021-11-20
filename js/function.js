@@ -320,7 +320,7 @@ function trySell(focus){
 
 				}
 				document.getElementById('potionName').innerHTML = pName;
-				document.getElementById('price').style.color = 'green';
+				document.getElementById('price').style.color = 'royalblue';
 				document.getElementById('nprice').innerHTML = "+ "+gains;
 				document.getElementById('super').style.display = 'block';
 				document.getElementById('youMade').style.backgroundImage = "url('img/goods/"+item+".png')";
@@ -1116,14 +1116,14 @@ function showLoan(){
 		}else{
 			$paid.innerHTML = "　payé";
 		}
-		$paid.style.color = 'green';
+		$paid.style.color = 'royalblue';
 	}else{
 		if(lang == 0){
 			$paid.innerHTML = "　unpaid";
 		}else{
 			$paid.innerHTML = "　impayé";
 		}
-		$paid.style.color = 'red';
+		$paid.style.color = 'darkred';
 	}
 	document.getElementById('toPay').innerHTML = getCookie('toPay');
 	document.getElementById('balance').innerHTML = getCookie('balance');
@@ -1348,19 +1348,19 @@ function showTax(){
 		case '1':
 		var doc = document.getElementById('t11');
 		doc.innerHTML = '- '+tax+'%';
-		doc.style.color = 'red';
+		doc.style.color = 'darkred';
 		break
 
 		case '2':
 		var doc = document.getElementById('t12');
 		doc.innerHTML = '- '+tax+'%';
-		doc.style.color = 'red';
+		doc.style.color = 'darkred';
 		break
 
 		case '3':
 		var doc = document.getElementById('t13');
 		doc.innerHTML = '- '+tax+'%';
-		doc.style.color = 'red';
+		doc.style.color = 'darkred';
 		break
 	}
 
@@ -1368,19 +1368,19 @@ function showTax(){
 		case '1':
 		var doc = document.getElementById('t21');
 		doc.innerHTML = '- '+tax+'%';
-		doc.style.color = 'red';
+		doc.style.color = 'darkred';
 		break
 
 		case '2':
 		var doc = document.getElementById('t22');
 		doc.innerHTML = '- '+tax+'%';
-		doc.style.color = 'red';
+		doc.style.color = 'darkred';
 		break
 
 		case '3':
 		var doc = document.getElementById('t23');
 		doc.innerHTML = '- '+tax+'%';
-		doc.style.color = 'red';
+		doc.style.color = 'darkred';
 		break
 	}
 
@@ -1388,19 +1388,19 @@ function showTax(){
 		case '1':
 		var doc = document.getElementById('t31');
 		doc.innerHTML = '- '+tax+'%';
-		doc.style.color = 'red';
+		doc.style.color = 'darkred';
 		break
 
 		case '2':
 		var doc = document.getElementById('t32');
 		doc.innerHTML = '- '+tax+'%';
-		doc.style.color = 'red';
+		doc.style.color = 'darkred';
 		break
 
 		case '3':
 		var doc = document.getElementById('t33');
 		doc.innerHTML = '- '+tax+'%';
-		doc.style.color = 'red';
+		doc.style.color = 'darkred';
 		break
 	}
 
@@ -1408,19 +1408,19 @@ function showTax(){
 		case '1':
 		var doc = document.getElementById('t11');
 		doc.innerHTML = '+ '+tax+'%';
-		doc.style.color = 'green';
+		doc.style.color = 'royalblue';
 		break
 
 		case '2':
 		var doc = document.getElementById('t12');
 		doc.innerHTML = '+ '+tax+'%';
-		doc.style.color = 'green';
+		doc.style.color = 'royalblue';
 		break
 
 		case '3':
 		var doc = document.getElementById('t13');
 		doc.innerHTML = '+ '+tax+'%';
-		doc.style.color = 'green';
+		doc.style.color = 'royalblue';
 		break
 	}
 
@@ -1428,19 +1428,19 @@ function showTax(){
 		case '1':
 		var doc = document.getElementById('t21');
 		doc.innerHTML = '+ '+tax+'%';
-		doc.style.color = 'green';
+		doc.style.color = 'royalblue';
 		break
 
 		case '2':
 		var doc = document.getElementById('t22');
 		doc.innerHTML = '+ '+tax+'%';
-		doc.style.color = 'green';
+		doc.style.color = 'royalblue';
 		break
 
 		case '3':
 		var doc = document.getElementById('t23');
 		doc.innerHTML = '+ '+tax+'%';
-		doc.style.color = 'green';
+		doc.style.color = 'royalblue';
 		break
 	}
 
@@ -1448,19 +1448,19 @@ function showTax(){
 		case '1':
 		var doc = document.getElementById('t31');
 		doc.innerHTML = '+ '+tax+'%';
-		doc.style.color = 'green';
+		doc.style.color = 'royalblue';
 		break
 
 		case '2':
 		var doc = document.getElementById('t32');
 		doc.innerHTML = '+ '+tax+'%';
-		doc.style.color = 'green';
+		doc.style.color = 'royalblue';
 		break
 
 		case '3':
 		var doc = document.getElementById('t33');
 		doc.innerHTML = '+ '+tax+'%';
-		doc.style.color = 'green';
+		doc.style.color = 'royalblue';
 		break
 	}
 }
@@ -1806,7 +1806,7 @@ function oeuf(){
 		document.getElementById('nprice').innerHTML = "+ "+gain;
 		document.getElementById('super').style.display = 'block'
 		document.getElementById('youMade').style.backgroundColor = '#FBF';
-		document.getElementById('price').style.color = 'green';
+		document.getElementById('price').style.color = 'royalblue';
 		document.getElementById('youMade').style.backgroundImage = "url('img/ingredients/oeuf.png')";
 		setTimeout(function(){document.getElementById('super').style.display = 'none';document.getElementById('youMade').style.backgroundColor = 'white';}, 3750);
 		}else{
@@ -1837,7 +1837,7 @@ function reTax(){
 		}
 		document.getElementById('nprice').innerHTML = "- "+2500;
 		document.getElementById('super').style.display = 'block';
-		document.getElementById('price').style.color = 'red';
+		document.getElementById('price').style.color = 'darkred';
 		document.getElementById('youMade').style.backgroundColor = '#FBF';
 		document.getElementById('youMade').style.backgroundImage = "url('img/ingredients/potdevin.png')";
 		setTax();
@@ -1863,7 +1863,7 @@ function reCommand(){
 		}
 		document.getElementById('nprice').innerHTML = "- "+1000;
 		document.getElementById('super').style.display = 'block'
-		document.getElementById('price').style.color = 'red';
+		document.getElementById('price').style.color = 'darkred';
 		document.getElementById('youMade').style.backgroundColor = '#FBF';
 		document.getElementById('youMade').style.backgroundImage = "url('img/ingredients/book.png')";
 		newCommand();

@@ -1593,8 +1593,8 @@ function endCommand(n){
 	}
 	if(parseInt(getCookie(res)) >= total){
 			money = val * total * 2;
-			setCookie(res, parseInt(getCookie(res)) - total);
-			setCookie('balance', bal + money);
+			setCookie(res, parseInt(getCookie(res)) - total, 3650);
+			setCookie('balance', bal + money, 3650);
 			document.getElementById('sfx').play();
 			setCookie('c'+n+'done', true, 3650);
 			document.getElementById('balance').innerHTML = getCookie('balance');

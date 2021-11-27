@@ -57,14 +57,14 @@ h2{
 .langB{
 	display: inline-block;
 	padding: 10px;
-	background: #222;
+	background: #868;
 	border-radius: 5px;
 	color: white;
 	font-size: 2em;
 }
 
 .langB:hover{
-	background: #151515;
+	background: #333;
 	cursor: pointer;
 }
 
@@ -422,7 +422,7 @@ h2{
 .case{
 	width: 92%;
 	height: 92%;
-	background: #EEC;
+	background: #E6CCFF;
 }
 
 .obj{

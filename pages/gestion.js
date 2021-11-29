@@ -10,7 +10,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<h1>Semaine <span id='week'>"+getCookie('week')+"</span></h1>"+
 "<h3>Compte en banque : <span id='balance'></span> §</h3>"+
 "<h3>Total factures : <span id='toPay'></span> §</h3>"+
-"<p>date limite de paiement : samedi 23:59</p>"+
+"<p>date limite de paiement : dimanche 23:59</p>"+
 "<h3 id='status'>Status : </h3><span id='paid'></span>"+
 "<div class='okButton' id='payer' onclick='pay()'>payer</div>"+
 "<h1>Gestion des decks</h1><br>"+

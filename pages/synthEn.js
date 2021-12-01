@@ -28,7 +28,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 	"<h1>Special items</h1>"+
 	"<div id='catalog'>"+
 		"<div class='bar'><p>Lottery egg</p><p>price : <br>3500 §<br></p><p>effect : try your luck<br>at the lottery</p><p>gains up to 7 777 §</p><img src='img/ingredients/oeuf.png' width='50px'><br><br><button onclick='oeuf()'>buy</button></div>"+
-		"<div class='bar'><p>Bribe</p><p>price : <br>2 500 §</p><p>effect : Prices of the market<br> randomly changed</p><br><img src='img/ingredients/potdevin.png' width='50px'><br><br><button onclick='reTax()'>bribe</button></div>"+
+		"<div class='bar'><p>Bribe</p><p>price : <br>500 §</p><p>effect : Prices of the market<br> randomly changed</p><br><img src='img/ingredients/potdevin.png' width='50px'><br><br><button onclick='reTax()'>bribe</button></div>"+
 		"<div class='bar'><p>Mercantile's secrets</p><p>price : <br>1 000 §</p><p>effect : Orders of the day<br>are renewed</p><br><img src='img/ingredients/book.png' width='50px'><br><br><button onclick='reCommand()'>buy</button></div>"+
 	"</div>"+
 "</div>"+

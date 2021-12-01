@@ -1827,15 +1827,15 @@ function oeuf(){
 
 function reTax(){
 	var money = parseInt(getCookie('balance'));
-	if(money >= 2500){
-		money = money - 2500;
+	if(money >= 500){
+		money = money - 500;
 		setCookie('balance', money, 3650);
 		document.getElementById('prize').play();
 		document.getElementById('potionName').innerHTML = 'Pot-de-vin';
 		if(getCookie('lang') == '0'){
 			document.getElementById('potionName').innerHTML = 'Bribe';
 		}
-		document.getElementById('nprice').innerHTML = "- "+2500;
+		document.getElementById('nprice').innerHTML = "- "+500;
 		document.getElementById('super').style.display = 'block';
 		document.getElementById('price').style.color = 'darkred';
 		document.getElementById('youMade').style.backgroundColor = '#FBF';

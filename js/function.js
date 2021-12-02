@@ -922,7 +922,11 @@ function checkAnswer(){
 	}
 	document.getElementById('multiple').innerHTML = multiplicateur;
 	document.getElementById('goodAnswer').innerHTML = questions[nQuestion]+" --> "+answers[nQuestion];
-	document.getElementById('goodAnswer').onclick = function(){window.open('https://jisho.org/search/'+questions[nQuestion-1], '_blank');};
+	if(getCookie('dico') == "jisho"){
+		document.getElementById('goodAnswer').onclick = function(){window.open('https://jisho.org/search/'+questions[nQuestion-1], '_blank');};
+	}else{
+		document.getElementById('goodAnswer').onclick = function(){window.open('https://dictionary.writtenchinese.com/#sk='+questions[nQuestion-1]+'&svt=pinyin', '_blank');};
+	}
 	nQuestion ++;
 	newQuestion();
 }
@@ -1217,7 +1221,11 @@ function finalCookieDeck(){
 
 function jeu2(){
 	document.getElementById('showans').innerHTML = answers[nQuestion];
-	document.getElementById('showans').onclick = function(){window.open('https://jisho.org/search/'+questions[nQuestion], '_blank');};
+	if(getCookie('dico') == "jisho"){
+		document.getElementById('showans').onclick = function(){window.open('https://jisho.org/search/'+questions[nQuestion], '_blank');};
+	}else{
+		document.getElementById('showans').onclick = function(){window.open('https://dictionary.writtenchinese.com/#sk='+questions[nQuestion]+'&svt=pinyin', '_blank');};
+	}
 	document.getElementById('showans').style.cursor = 'pointer';
 	document.getElementById('showans').onmouseover = function(){document.getElementById('showans').style.background = '#EEE'};
 	document.getElementById('showans').onmouseout = function(){document.getElementById('showans').style.background = 'white'};
@@ -1875,4 +1883,17 @@ function reCommand(){
 			alert('fonds insufisants !');
 		}
 	}	
+}
+
+function setDico(dico){
+	if(dico == "jisho"){
+		setCookie('dico', "jisho", 3650);
+	}else{
+		setCookie('dico', "writtenchinese", 3650);
+	}
+	if(getCookie('lang') == "0"){
+		alert("Updated !");
+	}else{
+		alert("Mis à jour !");
+	}
 }

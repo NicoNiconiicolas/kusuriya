@@ -25,6 +25,8 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<div class='okButton' onclick='chooseGame(1)'>Kotoba</div> <div class='okButton' onclick='chooseGame(2)'>Anki</div>"+
 "<h3>Difficulté du jeu :</h3>"+
 "<div class='okButton' onclick='setDifficulty(0)'>Facile</div> <div class='okButton' onclick='setDifficulty(1)'>Défi</div><br><br>"+
+"<h3>Dictionnaire utilisé :</h3>"+
+"<div class='okButton' onclick='setDico(\"jisho\")'>Jisho</div> <div class='okButton' onclick='setDico(\"writtenchinese\")'>Writtenchinese</div><br><br>"+
 "</div>";
 
 showLoan();

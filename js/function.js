@@ -1540,7 +1540,8 @@ function sellStock(name){
 		document.getElementById('kaching').play();
 		document.getElementById('potionName').innerHTML = iName;
 		document.getElementById('nprice').innerHTML = val*total;
-		document.getElementById('super').style.display = 'block'
+		document.getElementById('super').style.display = 'block';
+		document.getElementById('price').style.color = 'royalblue';
 		document.getElementById('youMade').style.backgroundImage = "url('img/ingredients/"+iImg+".png')";
 		setTimeout(function(){document.getElementById('super').style.display = 'none';}, 2000)
 		showPossess();
@@ -1851,6 +1852,7 @@ function reTax(){
 		setTax();
 		showTax();
 		setTimeout(function(){document.getElementById('super').style.display = 'none';document.getElementById('youMade').style.backgroundColor = 'white';}, 3750);
+		
 	}else{
 		if(getCookie('lang') == "0"){
 			alert('insufficient funds !');

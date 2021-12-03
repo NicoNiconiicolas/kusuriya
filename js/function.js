@@ -1539,7 +1539,7 @@ function sellStock(name){
 		setCookie(name, 0, 3650);
 		document.getElementById('kaching').play();
 		document.getElementById('potionName').innerHTML = iName;
-		document.getElementById('nprice').innerHTML = val*total;
+		document.getElementById('nprice').innerHTML = "+ "+val*total;
 		document.getElementById('super').style.display = 'block';
 		document.getElementById('price').style.color = 'royalblue';
 		document.getElementById('youMade').style.backgroundImage = "url('img/ingredients/"+iImg+".png')";

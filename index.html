@@ -48,6 +48,10 @@
 <script>
 	// si cookies n'existent pas crée une nouvelle partie
 
+	if(getCookie('comComp') == ""){
+		setCookie('comComp', 0, 3650);
+	}
+
 	if(getCookie('c1w') == ""){
 		newCommand();
 	}

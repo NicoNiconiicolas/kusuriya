@@ -1615,6 +1615,21 @@ function endCommand(n){
 			}
 		}
 	showCommand();
+	setCookie('comComp', parseInt(getCookie('comComp'))+1, 3650);
+	if(getCookie('comComp') == 3){
+		setCookie('balance', parseInt(getCookie('balance'))+500, 3650);	
+		setCookie('comComp', 0, 3650);
+		if(getCookie('lang') == '0'){
+			document.getElementById('potionName').innerHTML = 'Bonus Commandes Complètes';
+		}else{
+			document.getElementById('potionName').innerHTML = 'All Complete Bonus';
+		}
+		document.getElementById('nprice').innerHTML = "+ 500";
+		document.getElementById('price').style.color = 'royalblue';
+		document.getElementById('super').style.display = "block";
+		setTimeout(function(){document.getElementById('super').style.display = 'none';}, 2000)
+		document.getElementById('balance').innerHTML = getCookie('balance');
+	}
 }
 
 function showCommand(){

@@ -1624,6 +1624,7 @@ function endCommand(n){
 		}else{
 			document.getElementById('potionName').innerHTML = 'All Complete Bonus';
 		}
+		document.getElementById('prize').play();
 		document.getElementById('nprice').innerHTML = "+ 500";
 		document.getElementById('price').style.color = 'royalblue';
 		document.getElementById('super').style.display = "block";

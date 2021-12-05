@@ -12,7 +12,7 @@ h1{
 	margin: 0;
 	font-size: 1.6em;
 	color: #FFF;
-	background: #868;
+	background: #77B;
 	border-top-left-radius: 5px;
 	padding: 5px;
 }
@@ -57,7 +57,7 @@ h2{
 .langB{
 	display: inline-block;
 	padding: 10px;
-	background: #868;
+	background: #77B;
 	border-radius: 5px;
 	color: white;
 	font-size: 2em;
@@ -107,7 +107,7 @@ h2{
 	border-radius: 10px;
 	background: #444;
 	color: white;
-	border: 2px #333 solid;
+	border: 2px #335 solid;
 	cursor: pointer;
 }
 
@@ -116,7 +116,7 @@ h2{
 	top: 25vh;
 	display: inline-block;
 	padding: 10px;
-	background: #333;
+	background: #335;
 	color: white;
 	font-size: 1.8em;
 	display: none;
@@ -152,7 +152,7 @@ h2{
 	position: relative;
 	top: 15vh;
 	font-size: 3em;
-	background: #333;
+	background: #335;
 }
 
 #goodAnswer{
@@ -198,7 +198,7 @@ h2{
 
 #answerbox2{
 	display: none;
-	background: #333;
+	background: #335;
 	color: white;
 	border-radius: 10px;
 	text-align: center;
@@ -286,7 +286,7 @@ h2{
 	text-align: left;
 	display: inline-block;
 	padding: 10px;
-	background: #333;
+	background: #335;
 	border: 2px solid #2A2A2A;
 	position: absolute;
 	color: white;
@@ -297,7 +297,7 @@ h2{
 }
 
 #progressBar{
-	background: #333;
+	background: #335;
 	border: 2px solid #2A2A2A;
 	margin: auto;
 	margin-top: 25px;
@@ -325,14 +325,13 @@ h2{
 }
 
 #footer{
-	color: white;
 	position: absolute;
 	display: grid;
 	grid-template-areas: "shop synth exploration gestion";
 	bottom: 0;
 	width: 100vw;
 	height: 10vh;
-	background: #333;
+	background: #99E;
 }
 
 .menu-el{
@@ -342,7 +341,7 @@ h2{
 	padding-top: 3vh;
 	padding-bottom: 3vh;
 	font-size: 1.2em;
-	border-left: 1px solid #444;
+	border-left: 1px solid #88D;
 }
 
 .menu-el:first-child{
@@ -350,14 +349,14 @@ h2{
 }
 
 .menu-el:hover{
-	background: #444;
+	background: #336;
 }
 
 
 #box, #box2{
 	background: #edf;
 	border-radius: 10px;
-	border: 4px #e6ccff solid;
+	border: 4px #AAE solid;
 	margin: auto;
 	margin-top: 50px;
 	width: 70vw;
@@ -405,7 +404,7 @@ h2{
 }
 
 #money{
-	background: #868;
+	background: #77B;
 	border-left: solid #979 1px;
 	font-size: 1.6em;
 	padding: 5px;
@@ -415,7 +414,7 @@ h2{
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	color: #FFF;
-	background: #333;
+	background: #336;
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;
 }
@@ -423,11 +422,11 @@ h2{
 .case{
 	width: 92%;
 	height: 92%;
-	background: #E6CCFF;
+	background: #AAE;
 }
 
 .obj{
-	background: #e6ccff;
+	background: #AAE;
 	width: 100%;
 	height: 100%;
 }

@@ -31,7 +31,7 @@ if(getCookie('cookieDeck') == "false"){
 }else{
   loadDeck(parseInt(getCookie('deck')));
 }
-var bgn = Math.floor(Math.random()*2+1);
+var bgn = Math.floor(Math.random()*1+1);
 document.getElementById('bg').style.backgroundImage = 'url("img/bg'+bgn+'.png")';
 let combo = 0;
 let multiplicateur = 1;

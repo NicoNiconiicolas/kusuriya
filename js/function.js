@@ -1864,14 +1864,14 @@ function reTax(){
 
 function reCommand(){
 	var money = parseInt(getCookie('balance'));
-	if(money >= 1000){
-		setCookie('balance', money-1000, 3650);
+	if(money >= 500){
+		setCookie('balance', money-500, 3650);
 		document.getElementById('prize').play();
 		document.getElementById('potionName').innerHTML = 'Secrets de marchands';
 		if(getCookie('lang') == '0'){
 			document.getElementById('potionName').innerHTML = 'Bribe';
 		}
-		document.getElementById('nprice').innerHTML = "- "+1000;
+		document.getElementById('nprice').innerHTML = "- "+500;
 		document.getElementById('super').style.display = 'block'
 		document.getElementById('price').style.color = 'darkred';
 		document.getElementById('youMade').style.backgroundColor = '#FBF';

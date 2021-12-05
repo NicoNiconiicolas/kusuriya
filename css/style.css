@@ -64,7 +64,7 @@ h2{
 }
 
 .langB:hover{
-	background: #979;
+	background: #88C;
 	cursor: pointer;
 }
 
@@ -219,7 +219,7 @@ h2{
 	height: 100px;
 	border: 4px solid #2A2A2A;
 	border-radius: 100%;
-	background: url('../img/ingredients/bagblueberry2.png') 50% 50% / 66% 66% no-repeat, #FFE;
+	background: url('../img/ingredients/bagblueberry2.png') 50% 50% / 66% 66% no-repeat, #eef;
 	margin: auto;
 	position: relative;
 	top: 25vh;
@@ -249,7 +249,7 @@ h2{
 	height: 150px;
 	border: 4px solid #2A2A2A;
 	border-radius: 100%;
-	background: url('../img/v.png') 50% 50% / 66% 66% no-repeat, #FFE;
+	background: url('../img/v.png') 50% 50% / 66% 66% no-repeat, #eef;
 	margin: auto;
 	position: absolute;
 	top: 30vh;
@@ -273,10 +273,10 @@ h2{
 	border: 2px solid #EEC;
 	border-radius: 10px;
 	font-size: 1.6em;
-	background: #FFE;
+	background: #eef;
 	font-weight: bold;
 	color: black;
-	text-shadow: 2px 2px #FFE, -2px -2px #FFE, -2px 2px #FFE, 2px -2px #FFE;
+	text-shadow: 2px 2px #eef, -2px -2px #eef, -2px 2px #eef, 2px -2px #eef;
 	padding: 10px;
 }
 
@@ -354,7 +354,7 @@ h2{
 
 
 #box, #box2{
-	background: #edf;
+	background: #eef;
 	border-radius: 10px;
 	border: 4px #AAE solid;
 	margin: auto;

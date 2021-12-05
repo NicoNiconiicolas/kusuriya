@@ -903,7 +903,7 @@ function checkAnswer(){
 		document.getElementById('ncombo').innerHTML = combo;
 		progression = progression + 10*multiplicateur;
 		if(progression > 100){
-			bar(100);
+			bar(98.9);
 		}else{
 			bar(progression);
 		}

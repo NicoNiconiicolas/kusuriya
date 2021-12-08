@@ -99,7 +99,7 @@ function add(item){
 		break
 
 		case 'red1':
-		price = Math.floor(Math.random()*75)+150;
+		price = Math.floor(Math.random()*75)+300;
 		if(getCookie('tax1') == '1'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -112,7 +112,7 @@ function add(item){
 		break
 
 		case 'blue3':
-		price = Math.floor(Math.random()*50)+100;
+		price = Math.floor(Math.random()*75)+150;
 		if(getCookie('tax2') == '3'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -129,7 +129,7 @@ function add(item){
 		break
 
 		case 'blue2':
-		price = Math.floor(Math.random()*100)+225;
+		price = Math.floor(Math.random()*100)+500;
 		if(getCookie('tax2') == '2'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -146,7 +146,7 @@ function add(item){
 		break
 
 		case 'blue1':
-		price = Math.floor(Math.random()*200)+325;
+		price = Math.floor(Math.random()*150)+1200;
 		if(getCookie('tax2') == '1'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -163,7 +163,7 @@ function add(item){
 		break
 
 		case 'purple3':
-		price = Math.floor(Math.random()*400)+400;
+		price = Math.floor(Math.random()*100)+200;
 		if(getCookie('tax3') == '3'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -176,7 +176,7 @@ function add(item){
 		break
 
 		case 'purple2':
-		price = Math.floor(Math.random()*800)+800;
+		price = Math.floor(Math.random()*600)+600;
 		if(getCookie('tax3') == '2'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -193,7 +193,7 @@ function add(item){
 		break
 
 		case 'purple1':
-		price = Math.floor(Math.random()*1500)+1500;
+		price = Math.floor(Math.random()*1000)+2500;
 		if(getCookie('tax3') == '1'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -1463,55 +1463,55 @@ function sellStock(name){
 	var iImg = "";
 	switch(name){
 		case 'baie1':
-		val = 5;
+		val = 12;
 		iName = "Sac de Baies";
 		iImg = "bagberry";
 		break
 
 		case 'baie2':
-		val = 25;
+		val = 50;
 		iName = "Baies délicieuses";
 		iImg = "bagberry2";
 		break
 
 		case 'baie3':
-		val = 57;
+		val = 150;
 		iName = "Baies délicieuses";
 		iImg = "berry";
 		break
 
 		case 'blueberry1':
-		val = 16;
+		val = 75;
 		iName = "Sac de Myrtilles";
 		iImg = "bagblueberry";
 		break
 
 		case 'blueberry2':
-		val = 75;
+		val = 225;
 		iName = "Myrtilles Envoûtantes";
 		iImg = "bagblueberry";
 		break
 
 		case 'blueberry3':
-		val = 250;
+		val = 600;
 		iName = "Myrtilles Parfaites";
 		iImg = "blueberry";
 		break
 
 		case 'raisin1':
-		val = 62;
+		val = 100;
 		iName = "Sac de Raisins";
 		iImg = "bagraisin";
 		break
 
 		case 'raisin2':
-		val = 166;
+		val = 300;
 		iName = "Raisins Savoureux";
 		iImg = "bagraisin2";
 		break
 
 		case 'raisin3':
-		val = 625;
+		val = 1250;
 		iName = "Raisins Parfaits";
 		iImg = "raisin";
 		break

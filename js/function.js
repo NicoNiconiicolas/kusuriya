@@ -1027,7 +1027,7 @@ function firstLoan(){
 	var d = new Date();
 	var today = d.getDay();
 	var nextloan = 6 - today + 1;
-	var totalLoan = nextloan * 500;
+	var totalLoan = nextloan * 1000;
 	setCookie("toPay", totalLoan, 3650);
 	setCookie("isPaid", false, 3650);
 	var now = Math.floor(new Date().getTime()/1000/60/60/24+3)/7;
@@ -1088,8 +1088,8 @@ function checkLoan(){
 			slot[9] = getCookie('slot9');
 		}else{
 			var actualBill = parseInt(getCookie('toPay'));
-			if(actualBill < 3500){
-				actualBill = 3500;
+			if(actualBill < 7000){
+				actualBill = 7000;
 			}
 			setCookie("week", parseInt(getCookie('week'))+1, 3650);
 			var newBill = actualBill*2;
@@ -1539,47 +1539,47 @@ function endCommand(n){
 	var res = "";
 	switch(name){
 		case "Sac de baies":
-		val = 13;
+		val = 25;
 		res = 'baie1';
 		break
 
 		case "Sac de raisins":
-		val = 163;
+		val = 150;
 		res = 'raisin1';
 		break
 
 		case "Sac de myrtilles":
-		val = 50;
+		val = 113;
 		res = 'blueberry1';
 		break
 
 		case "Baies délicieuses":
-		val = 38;
+		val = 100;
 		res = 'baie2';
 		break
 
 		case "Myrtilles envoûtantes":
-		val = 150;
+		val = 300;
 		res = 'blueberry2';
 		break
 
 		case "Raisins savoureux":
-		val = 300;
+		val = 600;
 		res = 'raisin2';
 		break
 
 		case "Baies parfaites":
-		val = 113;
+		val = 188;
 		res = 'baie3';
 		break
 
 		case "Myrtilles parfaites":
-		val = 350;
+		val = 675;
 		res = 'blueberry3';
 		break
 
 		case "Raisins parfaits":
-		val = 1250;
+		val = 1750;
 		res = 'raisin3';
 		break
 	}

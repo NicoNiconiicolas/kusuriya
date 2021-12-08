@@ -3,6 +3,20 @@ function goto(page){
 	location.href='index.html?p='+page;
 }
 
+function updateFulldeck(bool){
+	var lang = getCookie('lang');
+	if(bool == true){
+		setCookie('fulldeck', 'true', 3650);
+	}else{
+		setCookie('fulldeck', 'false', 3650);
+	}
+	if(lang == '0'){
+		alert('updated !');
+	}else{
+		alert('mis à jour !');
+	}
+}
+
 function showInv(){
 	document.getElementById('balance').innerHTML = getCookie('balance');
 	for(i=1 ; i <= 9; i++){
@@ -51,7 +65,7 @@ function add(item){
 	var pName = "";
 	switch(item){
 		case 'red3':
-		price = Math.floor(Math.random()*15)+10;
+		price = Math.floor(Math.random()*25)+25;
 		if(getCookie('tax1') == '3'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -68,7 +82,7 @@ function add(item){
 		break
 
 		case 'red2':
-		price = Math.floor(Math.random()*25)+50;
+		price = Math.floor(Math.random()*50)+100;
 		if(getCookie('tax1') == '2'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -85,7 +99,7 @@ function add(item){
 		break
 
 		case 'red1':
-		price = Math.floor(Math.random()*110)+115;
+		price = Math.floor(Math.random()*75)+150;
 		if(getCookie('tax1') == '1'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -98,7 +112,7 @@ function add(item){
 		break
 
 		case 'blue3':
-		price = Math.floor(Math.random()*66)+33;
+		price = Math.floor(Math.random()*50)+100;
 		if(getCookie('tax2') == '3'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -115,7 +129,7 @@ function add(item){
 		break
 
 		case 'blue2':
-		price = Math.floor(Math.random()*150)+150;
+		price = Math.floor(Math.random()*100)+225;
 		if(getCookie('tax2') == '2'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -132,7 +146,7 @@ function add(item){
 		break
 
 		case 'blue1':
-		price = Math.floor(Math.random()*200)+500;
+		price = Math.floor(Math.random()*200)+325;
 		if(getCookie('tax2') == '1'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -149,7 +163,7 @@ function add(item){
 		break
 
 		case 'purple3':
-		price = Math.floor(Math.random()*200)+125;
+		price = Math.floor(Math.random()*400)+400;
 		if(getCookie('tax3') == '3'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -162,7 +176,7 @@ function add(item){
 		break
 
 		case 'purple2':
-		price = Math.floor(Math.random()*267)+333;
+		price = Math.floor(Math.random()*800)+800;
 		if(getCookie('tax3') == '2'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -179,7 +193,7 @@ function add(item){
 		break
 
 		case 'purple1':
-		price = Math.floor(Math.random()*1250)+1250;
+		price = Math.floor(Math.random()*1500)+1500;
 		if(getCookie('tax3') == '1'){
 			var minus =Math.floor(price/100*tax);
 			price = price-minus;
@@ -789,7 +803,6 @@ function bar(perc){
 }
 
 function initQuestion(fail){
-	console.log('15 new questions');
 	if(fail == false){
 		lastQ2 = questions[questions.length-1]
 		lastA2 = answers[answers.length-1]
@@ -808,7 +821,12 @@ function initQuestion(fail){
 	for (i = 0; i < max; ++i){
     	values.push(i);
 	}
-	for(i = 0; i < 15; ++i){
+	if(getCookie('fulldeck') == 'false'){
+		var numberofquestions = 15;
+	}else{
+		var numberofquestions = max;
+	}
+	for(i = 0; i < numberofquestions; ++i){
 		var n = values.splice(Math.random()*values.length,1)[0];
 		questions.push(quest[n]);
 		answers.push(ans[n]);
@@ -1005,9 +1023,7 @@ function updateJLPT(n){
 }
 
 function firstLoan(){
-	if(getCookie('difficulty') == '1'){
-		setTax();
-	}
+	setTax();
 	var d = new Date();
 	var today = d.getDay();
 	var nextloan = 6 - today + 1;
@@ -1079,11 +1095,7 @@ function checkLoan(){
 			var newBill = actualBill*2;
 			setCookie('nextLoan', now, 3650);
 			setCookie('isPaid', false, 3650);
-			if(getCookie('difficulty') == '1'){
-				setCookie("toPay", newBill, 3650);
-			}else{
-				setCookie("toPay", 3500, 3650);
-			}
+			setCookie("toPay", newBill, 3650);
 			if(lang == 0){
 				alert('Payment of your bills has been received for this week !');
 			}else{
@@ -1141,24 +1153,22 @@ function checkCards(){
 	if(parseInt(getCookie('day')) < today()){
 		setCookie('day', today(), 3650);
 		setCookie('cardsToday', 0, 3650);
-		if(parseInt(getCookie('difficulty')) == 1){
-			setCookie('baie1', 0, 3650);
-			setCookie('baie2', 0, 3650);
-			setCookie('baie3', 0, 3650);
-			setCookie('blueberry1', 0, 3650);
-			setCookie('blueberry2', 0, 3650);
-			setCookie('blueberry3', 0, 3650);
-			setCookie('raisin1', 0, 3650);
-			setCookie('raisin2', 0, 3650);
-			setCookie('raisin3', 0, 3650);
-			setTax();
-			newCommand();
-			setCookie('lotto', 0, 3650);
-			if(getCookie('lang') == 0){
-				alert('A new day is starting !\n・All your ingredients have suddenly rotten ...\n・New taxes has changed')
-			}else{
-				alert('Un nouveau jour commence !\n・Tous vos ingrédients ont soudainement pourris...\n・Les taxes ont changées')
-			}
+		setCookie('baie1', 0, 3650);
+		setCookie('baie2', 0, 3650);
+		setCookie('baie3', 0, 3650);
+		setCookie('blueberry1', 0, 3650);
+		setCookie('blueberry2', 0, 3650);
+		setCookie('blueberry3', 0, 3650);
+		setCookie('raisin1', 0, 3650);
+		setCookie('raisin2', 0, 3650);
+		setCookie('raisin3', 0, 3650);
+		setTax();
+		newCommand();
+		setCookie('lotto', 0, 3650);
+		if(getCookie('lang') == 0){
+			alert('A new day is starting !\n・All your ingredients have suddenly rotten ...\n・New taxes has changed')
+		}else{
+			alert('Un nouveau jour commence !\n・Tous vos ingrédients ont soudainement pourris...\n・Les taxes ont changées')
 		}
 	}
 }
@@ -1261,42 +1271,10 @@ function jeu2check(num){
 function chooseGame(num){
 	setCookie('jeu', num, 3650);
 	if(getCookie('lang') == 0){
-		alert('game mode updated !');
+		alert('updated !');
 	}else{
-		alert('mode de jeu mis à jour !');
+		alert('mis à jour !');
 	}
-}
-
-function setDifficulty(n){
-	setCookie('difficulty', n, 3650);
-	if(n == 1){
-		setTax();
-		if(getCookie('lang') == 0){
-			alert("Game's difficulty updated !\nPrepare to suffer...");
-		}else{
-			alert("Difficulté du jeu mis à jour !\nPrépare-toi à souffrir...");
-		}
-	}else{
-		setCookie('tax1', 0, 3650);
-		setCookie('tax1p', 0, 3650);
-		setCookie('tax2', 0, 3650);
-		setCookie('tax2p', 0, 3650);
-		setCookie('tax3', 0, 3650);
-		setCookie('tax3p', 0, 3650);
-		var d = new Date();
-		var today = d.getDay();
-		var nextloan = 6 - today + 1;
-		var totalLoan = nextloan * 500;
-		setCookie("toPay", totalLoan, 3650);
-		document.getElementById('toPay').innerHTML = getCookie('toPay');
-		if(getCookie('lang') == 0){
-			alert("Game's difficulty updated !\nWell, well, looks like a certain person changed his mind and wants to come back to cry baby difficulty...");
-		}else{
-			alert("Difficulté du jeu mis à jour !\nTiens, tiens, regardez qui revient en rampant...");
-		}
-	}
-	setCookie('week', 1, 3650);
-	document.getElementById('week').innerHTML = "1";
 }
 
 function setTax(){

@@ -7,7 +7,11 @@ function showInv(){
 	document.getElementById('balance').innerHTML = getCookie('balance');
 	for(i=1 ; i <= 9; i++){
 		if(slot[i] != "empty"){
-			document.getElementById("obj"+i).style.background = "url(img/goods/"+slot[i]+".png) 50% 50% no-repeat";
+			if(window.innerWidth < 500){
+				document.getElementById("obj"+i).style.background = "url(img/goods/"+slot[i]+".png) 50% 50% / 65% 80% no-repeat";
+			}else{
+				document.getElementById("obj"+i).style.background = "url(img/goods/"+slot[i]+".png) 50% 50% no-repeat";
+			}
 			document.getElementById("obj"+i).title = getCookie('slot'+i+'_value')+"$";
 		}else{
 			document.getElementById("obj"+i).style.background = "";
@@ -1620,9 +1624,9 @@ function endCommand(n){
 		setCookie('balance', parseInt(getCookie('balance'))+500, 3650);	
 		setCookie('comComp', 0, 3650);
 		if(getCookie('lang') == '0'){
-			document.getElementById('potionName').innerHTML = 'Bonus Commandes Complètes';
-		}else{
 			document.getElementById('potionName').innerHTML = 'All Complete Bonus';
+		}else{
+			document.getElementById('potionName').innerHTML = 'Bonus Commandes Complètes';
 		}
 		document.getElementById('prize').play();
 		document.getElementById('nprice').innerHTML = "+ 500";
@@ -1654,9 +1658,9 @@ function showCommand(){
 	switch(name1){
 		case '1':
 		if(getCookie('lang') == "0"){
-			name1 = "Bag of berries";
+			name1 = "Bag of<br>berries";
 		}else{
-			name1 = "Sac de baies";
+			name1 = "Sac de<br>baies";
 		}
 		iImg1 = "bagberry";
 		val1 = 13;
@@ -1664,9 +1668,9 @@ function showCommand(){
 
 		case '2':
 		if(getCookie('lang') == "0"){
-			name1 = "Delicious berries";
+			name1 = "Delicious<br>berries";
 		}else{
-			name1 = "Baies délicieuses";
+			name1 = "Baies<br>délicieuses";
 		}
 		iImg1 = "bagberry2";
 		val1 = 38;
@@ -1674,9 +1678,9 @@ function showCommand(){
 
 		case '3':
 		if(getCookie('lang') == "0"){
-			name1 = "Perfect berries";
+			name1 = "Perfect<br>berries";
 		}else{
-			name1 = "Baies parfaites";
+			name1 = "Baies<br>parfaites";
 		}
 		iImg1 = "berry";
 		val1 = 113;
@@ -1685,9 +1689,9 @@ function showCommand(){
 	switch(name2){
 		case '1':
 		if(getCookie('lang') == "0"){
-			name2 = "Bag of blueberries";
+			name2 = "Bag of<br>blueberries";
 		}else{
-			name2 = "Sac de myrtilles";
+			name2 = "Sac de<br>myrtilles";
 		}
 		iImg2 = "bagblueberry";
 		val2 = 50;
@@ -1695,9 +1699,9 @@ function showCommand(){
 
 		case '2':
 		if(getCookie('lang') == "0"){
-			name2 = "Enchanting blueberries";
+			name2 = "Enchanting<br>blueberries";
 		}else{
-			name2 = "Myrtilles envoûtantes";
+			name2 = "Myrtilles<br>envoûtantes";
 		}
 		iImg2 = "bagblueberry2";
 		val2 = 150;
@@ -1705,9 +1709,9 @@ function showCommand(){
 
 		case '3':
 		if(getCookie('lang') == "0"){
-			name2 = "Perfect blueberries";
+			name2 = "Perfect<br>blueberries";
 		}else{
-			name2 = "Myrtilles parfaites";
+			name2 = "Myrtilles<br>parfaites";
 		}
 		iImg2 = "blueberry";
 		val2 = 350;
@@ -1716,9 +1720,9 @@ function showCommand(){
 	switch(name3){
 		case '1':
 		if(getCookie('lang') == "0"){
-			name3 = "Bag of grapes";
+			name3 = "Bag of<br>grapes";
 		}else{
-			name3 = "Sac de raisins";
+			name3 = "Sac de<br>raisins";
 		}
 		iImg3 = "bagraisin";
 		val3 = 163;
@@ -1726,9 +1730,9 @@ function showCommand(){
 
 		case '2':
 		if(getCookie('lang') == "0"){
-			name3 = "Succulent grapes";
+			name3 = "Succulent<br>grapes";
 		}else{
-			name3 = "Raisins savoureux";
+			name3 = "Raisins<br>savoureux";
 		}
 		iImg3 = "bagraisin2";
 		val3 = 300;
@@ -1736,9 +1740,9 @@ function showCommand(){
 
 		case '3':
 		if(getCookie('lang') == "0"){
-			name3 = "Perfect grapes";
+			name3 = "Perfect<br>grapes";
 		}else{
-			name3 = "Raisins parfaits";
+			name3 = "Raisins<br>parfaits";
 		}
 		iImg3 = "raisin";
 		val3 = 1250;

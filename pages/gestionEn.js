@@ -5,9 +5,9 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<div id='box2'>"+
 "<h1>Orders of the day</h1>"+
 "<div id='catalog'>"+
-"<div class='bar'><span id='name1'>ingredient</span><br><hr>payment : <span id='mon1'>0</span> §<br>quantity : x<span id='value1'>0</span><br><br><img id='img1' src='img/ingredients/bagberry.png' width='50px'><br><br><button id='b1' onclick='endCommand(1)'>complete</button><br><br></div>"+
-"<div class='bar'><span id='name2'>ingredient</span><br><hr>payment : <span id='mon2'>0</span> §<br>quantity : x<span id='value2'>0</span><br><br><img id='img2' src='img/ingredients/bagberry.png' width='50px'><br><br><button id='b2' onclick='endCommand(2)'>complete</button><br><br></div>"+
-"<div class='bar'><span id='name3'>ingredient</span><br><hr>payment : <span id='mon3'>0</span> §<br>quantity : x<span id='value3'>0</span><br><br><img id='img3' src='img/ingredients/bagberry.png' width='50px'><br><br><button id='b3' onclick='endCommand(3)'>complete</button><br><br></div>"+
+"<div class='bar'><span id='name1'>ingredient</span><br><hr>payment :<br><span id='mon1'>0</span> §<hr>quantity :<br>x<span id='value1'>0</span><br><br><img id='img1' src='img/ingredients/bagberry.png' width='50px'><br><br><button id='b1' onclick='endCommand(1)'>complete</button><br><br></div>"+
+"<div class='bar'><span id='name2'>ingredient</span><br><hr>payment :<br><span id='mon2'>0</span> §<hr>quantity :<br>x<span id='value2'>0</span><br><br><img id='img2' src='img/ingredients/bagberry.png' width='50px'><br><br><button id='b2' onclick='endCommand(2)'>complete</button><br><br></div>"+
+"<div class='bar'><span id='name3'>ingredient</span><br><hr>payment :<br><span id='mon3'>0</span> §<hr>quantity :<br>x<span id='value3'>0</span><br><br><img id='img3' src='img/ingredients/bagberry.png' width='50px'><br><br><button id='b3' onclick='endCommand(3)'>complete</button><br><br></div>"+
 "</div>"+
 "<h1>Week <span id='week'>"+getCookie('week')+"</span></h1>"+
 "<h3>Bank account : <span id='balance'></span> §</h3>"+
@@ -20,7 +20,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "　<div class='okButton' onclick='updateDeck()'>load</div><br>"+
 "<br><div class='okButton' onclick='updateJLPT(\"N5\")'>N5</div> <div class='okButton' onclick='updateJLPT(\"N4\")'>N4</div> <div class='okButton' onclick='updateJLPT(\"N3\")'>N3</div> <div class='okButton' onclick='updateJLPT(\"N2\")'>N2</div> <div class='okButton' onclick='updateJLPT(\"N1\")'>N1</div><br><br>"+
 "<div class='okButton' onclick='updateJLPT(\"hiragana\")'>hiragana</div> <div class='okButton' onclick='updateJLPT(\"katakana\")'>katakana</div> <div class='okButton' onclick='updateJLPT(\"kana\")'>kana</div>"+
-"<br><br><div class='okButton' id='deck1' onclick='chooseCookieDeck(1)'>deck 1</div> <div class='okButton' id='deck2' onclick='chooseCookieDeck(2)'>deck 2</div> <div class='okButton' id='deck3' onclick='chooseCookieDeck(3)'>deck 3</div>"+
+"<br><br><br><div class='okButton' id='deck1' onclick='chooseCookieDeck(1)'>deck 1</div> <div class='okButton' id='deck2' onclick='chooseCookieDeck(2)'>deck 2</div> <div class='okButton' id='deck3' onclick='chooseCookieDeck(3)'>deck 3</div>"+
 "<br><br><div class='okButton' onclick='window.location=\"convert.html\"'>New Deck</div>"+
 "<br><br><h1>Options</h1>"+
 "<h3>Revision style :</h3>"+

@@ -1605,35 +1605,35 @@ function endCommand(n){
 		break
 	}
 	if(parseInt(getCookie(res)) >= total){
-			money = val * total * 2;
-			setCookie(res, parseInt(getCookie(res)) - total, 3650);
-			setCookie('balance', bal + money, 3650);
-			document.getElementById('sfx').play();
-			setCookie('c'+n+'done', true, 3650);
-			document.getElementById('balance').innerHTML = getCookie('balance');
-		}else{
-			if(getCookie('lang') == '0'){
-				alert('insufficient ingredients !');
-			}else{
-				alert('ingrédients insuffisants !');
-			}
-		}
-	showCommand();
-	setCookie('comComp', parseInt(getCookie('comComp'))+1, 3650);
-	if(getCookie('comComp') == 3){
-		setCookie('balance', parseInt(getCookie('balance'))+500, 3650);	
-		setCookie('comComp', 0, 3650);
-		if(getCookie('lang') == '0'){
-			document.getElementById('potionName').innerHTML = 'All Complete Bonus';
-		}else{
-			document.getElementById('potionName').innerHTML = 'Bonus Commandes Complètes';
-		}
-		document.getElementById('prize').play();
-		document.getElementById('nprice').innerHTML = "+ 500";
-		document.getElementById('price').style.color = 'royalblue';
-		document.getElementById('super').style.display = "block";
-		setTimeout(function(){document.getElementById('super').style.display = 'none';}, 2000)
+		money = val * total * 2;
+		setCookie(res, parseInt(getCookie(res)) - total, 3650);
+		setCookie('balance', bal + money, 3650);
+		document.getElementById('sfx').play();
+		setCookie('c'+n+'done', true, 3650);
 		document.getElementById('balance').innerHTML = getCookie('balance');
+		showCommand();
+		setCookie('comComp', parseInt(getCookie('comComp'))+1, 3650);
+		if(getCookie('comComp') == 3){
+			setCookie('balance', parseInt(getCookie('balance'))+500, 3650);	
+			setCookie('comComp', 0, 3650);
+			if(getCookie('lang') == '0'){
+				document.getElementById('potionName').innerHTML = 'All Complete Bonus';
+			}else{
+				document.getElementById('potionName').innerHTML = 'Bonus Commandes Complètes';
+			}
+			document.getElementById('prize').play();
+			document.getElementById('nprice').innerHTML = "+ 500";
+			document.getElementById('price').style.color = 'royalblue';
+			document.getElementById('super').style.display = "block";
+			setTimeout(function(){document.getElementById('super').style.display = 'none';}, 2000)
+			document.getElementById('balance').innerHTML = getCookie('balance');
+		}
+	}else{
+		if(getCookie('lang') == '0'){
+			alert('insufficient ingredients !');
+		}else{
+			alert('ingrédients insuffisants !');
+		}
 	}
 }
 

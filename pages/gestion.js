@@ -25,8 +25,9 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<br><br><h1>Options</h1>"+
 "<h3>Style de révision :</h3>"+
 "<div class='okButton' onclick='chooseGame(1)'>Kotoba</div> <div class='okButton' onclick='chooseGame(2)'>Anki</div>"+
-"<h3>Difficulté du jeu :</h3>"+
-"<div class='okButton' onclick='setDifficulty(0)'>Facile</div> <div class='okButton' onclick='setDifficulty(1)'>Défi</div><br><br>"+
+"<h3>Sélection des questions :</h3>"+
+"<div class='okButton' onclick='updateFulldeck(true)'>Deck Entier</div> <div class='okButton' onclick='updateFulldeck(false)'>15 Aléatoires</div><br><br>"+
+"</div>";
 "<h3>Dictionnaire utilisé :</h3>"+
 "<div class='okButton' onclick='setDico(\"jisho\")'>Jisho</div> <div class='okButton' onclick='setDico(\"writtenchinese\")'>Writtenchinese</div><br><br>"+
 "</div>";

@@ -48,8 +48,12 @@
 <script>
 	// si cookies n'existent pas crée une nouvelle partie
 
+	if(getCookie('fulldeck') == ""){
+		setCookie('fulldeck', 'false', 3650);
+	}
+
 	if(getCookie('comComp') == ""){
-		setCookie('comComp', 0, 3650);
+		setCookie('comComp', '0', 3650);
 	}
 
 	if(getCookie('c1w') == ""){
@@ -66,8 +70,8 @@
 	if(getCookie('week') == ""){
 		setCookie('week', 1, 3650);
 	}
-	if(getCookie('difficulty') == ""){
-		setCookie('difficulty', 0, 3650);
+	if(getCookie('difficulty') != ""){
+		delCookie('difficulty');
 	}
 	if(getCookie('jeu') == ""){
 		setCookie('jeu', 1, 3650);

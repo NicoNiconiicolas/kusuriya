@@ -1554,6 +1554,7 @@ function sellStock(name){
 function endCommand(n){
 	var total = getCookie('c'+n+'n');
 	var name = document.getElementById('name'+n).innerHTML;
+	name = name.replace(/<br>/g, ' ');
 	var val = 0;
 	var bal = parseInt(getCookie('balance'));
 	var money = 0;

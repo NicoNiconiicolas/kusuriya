@@ -10,7 +10,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<br class='ansbox'><div id='answerbox2' onclick='jeu2()'>voir la réponse</div>"+
 "<br class='ansbu'><div class='ansbu' id='ansbu1' onclick='jeu2check(1)'>correcte</div><div class='ansbu' id='ansbu2' onclick='jeu2check(2)'>incorrecte</div>"+
 "<div id='goodAnswer'>n/a</div>"+
-"<div id='combo'>correct answer(s) : <span id='cards'>"+getCookie('cardsToday')+"</span><br>combo(s) : <span id='ncombo'>0</span><br>multiplier : x<span id='multiple'>1</span></div>";
+"<div id='combo'>correct answer(s) : <span id='cards'>"+getCookie('cardsToday')+"</span><br>combo(s) : <span id='ncombo'>0</span>|ratio : <span id='perc'>100%</span><br>multiplier : x<span id='multiple'>1</span></div>";
 if(getCookie('jeu') == '1'){
   document.getElementById('answerbox').style.display = 'block';
   document.getElementById('goodAnswer').style.display = 'inline-block';
@@ -20,6 +20,8 @@ if(getCookie('jeu') == '1'){
   document.getElementsByClassName('ansbox')[2].style.display = 'block';
   document.getElementById('answerbox2').style.display = 'inline-block';
 }
+let totalseen = 0;
+let totalcorrect = 0;
 let final = [];
 let quest = [];
 let questions = [];

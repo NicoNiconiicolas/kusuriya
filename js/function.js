@@ -920,6 +920,8 @@ function checkAnswer(){
 			multiplicateur = 3;
 			break
 		}
+		totalseen++;
+		totalcorrect++;
 		setCookie('cardsToday', parseInt(getCookie('cardsToday'))+1, 3650);
 		document.getElementById('cards').innerHTML = getCookie('cardsToday');
 		document.getElementById('ncombo').innerHTML = combo;
@@ -932,6 +934,7 @@ function checkAnswer(){
 		document.getElementById('goodAnswer').style.color = '#9CF';
 		document.getElementById('correct').play();
 	}else{
+		totalseen++;
 		multiplicateur = 1;
 		combo = 0;
 		document.getElementById('ncombo').innerHTML = combo;
@@ -942,6 +945,8 @@ function checkAnswer(){
 		wrongQ.push(forLaterQ);
 		wrongA.push(forLaterA);
 	}
+	var ratio = Math.round(totalcorrect/totalseen*100);
+	document.getElementById('perc').innerHTML = ratio+'%';
 	document.getElementById('multiple').innerHTML = multiplicateur;
 	document.getElementById('goodAnswer').innerHTML = questions[nQuestion]+" --> "+answers[nQuestion];
 	if(getCookie('dico') == "jisho"){
@@ -1604,7 +1609,7 @@ function endCommand(n){
 			document.getElementById('nprice').innerHTML = "+ 500";
 			document.getElementById('price').style.color = 'royalblue';
 			document.getElementById('super').style.display = "block";
-			setTimeout(function(){document.getElementById('super').style.display = 'none';}, 2000)
+			setTimeout(function(){document.getElementById('super').style.display = 'none';}, 3750)
 			document.getElementById('balance').innerHTML = getCookie('balance');
 		}
 	}else{

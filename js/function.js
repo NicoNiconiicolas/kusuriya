@@ -1647,7 +1647,7 @@ function showCommand(){
 			name1 = "Sac de<br>baies";
 		}
 		iImg1 = "bagberry";
-		val1 = 13;
+		val1 = 25;
 		break
 
 		case '2':
@@ -1657,7 +1657,7 @@ function showCommand(){
 			name1 = "Baies<br>délicieuses";
 		}
 		iImg1 = "bagberry2";
-		val1 = 38;
+		val1 = 75;
 		break
 
 		case '3':
@@ -1667,7 +1667,7 @@ function showCommand(){
 			name1 = "Baies<br>parfaites";
 		}
 		iImg1 = "berry";
-		val1 = 113;
+		val1 = 188;
 		break
 	}
 	switch(name2){
@@ -1678,7 +1678,7 @@ function showCommand(){
 			name2 = "Sac de<br>myrtilles";
 		}
 		iImg2 = "bagblueberry";
-		val2 = 50;
+		val2 = 113;
 		break
 
 		case '2':
@@ -1688,7 +1688,7 @@ function showCommand(){
 			name2 = "Myrtilles<br>envoûtantes";
 		}
 		iImg2 = "bagblueberry2";
-		val2 = 150;
+		val2 = 300;
 		break
 
 		case '3':
@@ -1698,7 +1698,7 @@ function showCommand(){
 			name2 = "Myrtilles<br>parfaites";
 		}
 		iImg2 = "blueberry";
-		val2 = 350;
+		val2 = 675;
 		break
 	}
 	switch(name3){
@@ -1709,7 +1709,7 @@ function showCommand(){
 			name3 = "Sac de<br>raisins";
 		}
 		iImg3 = "bagraisin";
-		val3 = 163;
+		val3 = 150;
 		break
 
 		case '2':
@@ -1719,7 +1719,7 @@ function showCommand(){
 			name3 = "Raisins<br>savoureux";
 		}
 		iImg3 = "bagraisin2";
-		val3 = 300;
+		val3 = 600;
 		break
 
 		case '3':
@@ -1729,7 +1729,7 @@ function showCommand(){
 			name3 = "Raisins<br>parfaits";
 		}
 		iImg3 = "raisin";
-		val3 = 1250;
+		val3 = 1750;
 		break
 	}
 	var money1 = val1 * num1 * 2;

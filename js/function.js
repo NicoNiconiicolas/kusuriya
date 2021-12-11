@@ -1589,7 +1589,7 @@ function endCommand(n){
 		break
 	}
 	if(parseInt(getCookie(res)) >= total){
-		money = val * total * 2;
+		money = val * total;
 		setCookie(res, parseInt(getCookie(res)) - total, 3650);
 		setCookie('balance', bal + money, 3650);
 		document.getElementById('sfx').play();
@@ -1732,9 +1732,9 @@ function showCommand(){
 		val3 = 1750;
 		break
 	}
-	var money1 = val1 * num1 * 2;
-	var money2 = val2 * num2 * 2;
-	var money3 = val3 * num3 * 2;
+	var money1 = val1 * num1;
+	var money2 = val2 * num2;
+	var money3 = val3 * num3;
 	document.getElementById('mon1').innerHTML = money1;
 	document.getElementById('mon2').innerHTML = money2;
 	document.getElementById('mon3').innerHTML = money3;

@@ -1559,7 +1559,7 @@ function endCommand(n){
 		break
 
 		case "Baies délicieuses":
-		val = 100;
+		val = 75;
 		res = 'baie2';
 		break
 

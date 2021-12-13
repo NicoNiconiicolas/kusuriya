@@ -217,6 +217,7 @@ function add(item){
 				setCookie("slot"+i+"_value", price, 3650)
 				document.getElementById('potionName').innerHTML = pName;
 				document.getElementById('nprice').innerHTML = price;
+				document.getElementById('price').style.color = 'royalblue';
 				document.getElementById('super').style.display = 'block'
 				document.getElementById('youMade').style.backgroundImage = "url('img/goods/"+item+".png')";
 				setTimeout(function(){document.getElementById('super').style.display = 'none';}, 3750)

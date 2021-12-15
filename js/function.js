@@ -1171,6 +1171,7 @@ function checkCards(){
 		setTax();
 		newCommand();
 		setCookie('lotto', 0, 3650);
+		setCookie('comComp', 0, 3650);
 		if(getCookie('lang') == 0){
 			alert('A new day is starting !\n・All your ingredients have suddenly rotten ...\n・New taxes has changed')
 		}else{

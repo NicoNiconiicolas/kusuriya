@@ -28,13 +28,13 @@
 	var getLang = getCookie('lang');
 	switch(p){
 		case null:
-		p = "shop";
+		p = "gestion";
 		
-		case "shop":case "synth":case "gather":case"gestion":
+		case "gather":case"gestion":
 		break
 
 		default:
-		p = "shop";
+		p = "gestion";
 	}
 	if(getLang == 0 || getLang == undefined){
 		page.src = 'pages/'+p+'En.js';
@@ -52,14 +52,6 @@
 		setCookie('fulldeck', 'false', 3650);
 	}
 
-	if(getCookie('comComp') == ""){
-		setCookie('comComp', '0', 3650);
-	}
-
-	if(getCookie('c1w') == ""){
-		newCommand();
-	}
-
 	if(getCookie('dico') == ""){
 		setCookie('dico', "jisho", 3650);
 	}
@@ -67,79 +59,29 @@
 	if(getCookie('cookieDeck') == ""){
 		setCookie('cookieDeck', false, 3650);
 	}
-	if(getCookie('week') == ""){
-		setCookie('week', 1, 3650);
-	}
-	if(getCookie('difficulty') != ""){
-		delCookie('difficulty');
-	}
+
 	if(getCookie('jeu') == ""){
 		setCookie('jeu', 1, 3650);
 	}
+
 	if(getCookie('deck1_name') == ""){
 		setCookie('deck1_name', "vide", 3650);
 		setCookie('deck2_name', "vide", 3650);
 		setCookie('deck3_name', "vide", 3650);
 	}
+
 	let lang = document.getElementById('lang');
 	if(getCookie('lang') == ""){
 		lang.style.display = 'block';
-		setCookie("slot1", "empty", 3650);
-		setCookie("slot2", "empty", 3650);
-		setCookie("slot3", "empty", 3650);
-		setCookie("slot4", "empty", 3650);
-		setCookie("slot5", "empty", 3650);
-		setCookie("slot6", "empty", 3650);
-		setCookie("slot7", "empty", 3650);
-		setCookie("slot8", "empty", 3650);
-		setCookie("slot9", "empty", 3650);
-		setCookie("slot1_value", 0, 3650);
-		setCookie("slot2_value", 0, 3650);
-		setCookie("slot3_value", 0, 3650);
-		setCookie("slot4_value", 0, 3650);
-		setCookie("slot5_value", 0, 3650);
-		setCookie("slot6_value", 0, 3650);
-		setCookie("slot7_value", 0, 3650);
-		setCookie("slot8_value", 0, 3650);
-		setCookie("slot9_value", 0, 3650);
-		setCookie("balance", 0, 3650);
-		setCookie("baie1", 0, 3650);
-		setCookie("baie2", 0, 3650);
-		setCookie("baie3", 0, 3650);
-		setCookie("blueberry1", 0, 3650);
-		setCookie("blueberry2", 0, 3650);
-		setCookie("blueberry3", 0, 3650);
-		setCookie("raisin1", 0, 3650);
-		setCookie("raisin2", 0, 3650);
-		setCookie("raisin3", 0, 3650);
 		setCookie("deck", "deck/N5.js", 3650);
 		setCookie("cardsToday", 0, 3650);
 		setCookie("day", today(), 3650);
 		firstLoan();
 	}else{
 		checkCards();
-		checkLoan();
 	}
-	// charge les cookies dans des variables à chaque changement de page
-	var slot = [];
-	slot[1] = getCookie('slot1');
-	slot[2] = getCookie('slot2');
-	slot[3] = getCookie('slot3');
-	slot[4] = getCookie('slot4');
-	slot[5] = getCookie('slot5');
-	slot[6] = getCookie('slot6');
-	slot[7] = getCookie('slot7');
-	slot[8] = getCookie('slot8');
-	slot[9] = getCookie('slot9');
 	if(getLang != ""){
 		document.getElementsByTagName('body')[0].appendChild(menu);
-		if(getCookie('tuto') == ""){
-			if(getCookie('lang') == '1'){
-				window.location = 'tuto.html';
-			}else{
-				window.location = 'tutoEn.html';
-			}
-		}
 	}
 </script>
 </html>

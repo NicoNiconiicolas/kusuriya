@@ -16,6 +16,3 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<h3>Dictionnaire utilisé :</h3>"+
 "<div class='okButton' onclick='setDico(\"jisho\")'>Jisho</div> <div class='okButton' onclick='setDico(\"writtenchinese\")'>Writtenchinese</div><br><br>"+
 "</div>";
-
-showLoan();
-showCommand();

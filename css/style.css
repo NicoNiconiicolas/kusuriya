@@ -82,7 +82,6 @@ h2{
 .ansbu{
 	position: relative;
 	top: 30vh;
-	display: inline-block;
 	padding: 10px;
 	background: #535;
 	color: white;
@@ -101,7 +100,7 @@ h2{
 
 #ansbu2{
 	color: red;
-	border-left: 2px #77B solid;
+	border-left: 2px #424 solid;
 }
 
 .okButton:hover{
@@ -208,7 +207,7 @@ h2{
 #footer{
 	position: fixed;
 	display: grid;
-	grid-template-areas: "exploration gestion";
+	grid-template-areas: "deck gestion";
 	bottom: 0;
 	width: 100vw;
 	height: 10vh;
@@ -222,13 +221,13 @@ h2{
 	padding-top: 3vh;
 	padding-bottom: 3vh;
 	font-size: 1.2em;
-	border-left: 1px solid #88D;
+	border-left: 1px solid #222;
 }
 
 #box, #box2{
 	background: #efefef;
 	border-radius: 10px;
-	border: 4px #AAE solid;
+	border: 4px #424 ridge;
 	margin: auto;
 	margin-top: 25px;
 	width: 70vw;

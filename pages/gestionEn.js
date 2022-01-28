@@ -11,8 +11,10 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<h3>Revision style :</h3>"+
 "<div class='okButton' onclick='chooseGame(1)'>Kotoba</div> <div class='okButton' onclick='chooseGame(2)'>Anki</div>"+
 "<h3>Questions selection :</h3>"+
-"<div class='okButton' onclick='updateFulldeck(true)'>Whole Deck</div> <div class='okButton' onclick='updateFulldeck(false)'>15 Random</div><br><br>"+
-"</div>";
+"<div class='okButton' onclick='updateFulldeck(1)'>Full Deck Random</div> <div class='okButton' onclick='updateFulldeck(2)'>Full Deck Ordered</div><br><br><div class='okButton' onclick='updateFulldeck(3)'>15 Random</div><br><br>"+
+"<div id='startid'><h2>Starting card</h2><input id='inputid' placeholder='#1' type='text'></input> <button onclick='choosestart()'>ok</button></div><br><br>"+
 "<h3>Used dictionnary :</h3>"+
 "<div class='okButton' onclick='setDico(\"jisho\")'>Jisho</div> <div class='okButton' onclick='setDico(\"writtenchinese\")'>Writtenchinese</div><br><br>"+
 "</div>";
+
+checkrandomnessmenu();

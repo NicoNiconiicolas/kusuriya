@@ -22,11 +22,29 @@ p{
 	font-weight: bold;
 }
 
+#startid input{
+	width: 33vw;
+	padding: 5px;
+}
+
+#startid{
+	display: none;
+}
+
+#cardId{
+	display: none;
+	position: absolute;
+	color: ghostwhite;
+	background: #424;
+	padding: 10px;
+}
+
 #b1, #b2, #b3{
 	font-size: 1em;
 }
 
 h2{
+	font-size: 1.3em;
 	margin: 5px;
 }
 
@@ -41,6 +59,11 @@ h2{
 
 #langButtons{
 	margin-top: 20vh;
+}
+
+button{
+	padding-bottom: 4px;
+	font-size: 1.1em;
 }
 
 .langB{
@@ -97,7 +120,7 @@ h2{
 }
 
 .okButton:hover{
-	background: #323;
+	background: #424;
 }
 
 #question, #goodAnswer{

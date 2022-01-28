@@ -18,11 +18,16 @@
 			padding: 15px;
 			font-size: 1.5em;
 		}
+
+		#file-input{
+			font-size: 1em;
+		}
 	</style>
 </head>
 <body>
 	<center><input id='title' placeholder="new deck's name"></input></center>
-	<center><textarea id='text' placeholder='export your deck in plain text from anki(PC) then copy&paste the content of your .txt file here'></textarea></center>
+	<center><textarea id='text' placeholder='export your deck in plain text from Anki(PC) or KotobaWeb then select that file'></textarea></center>
+	<center><input type='file' id='file-input'></center>
 	<center><h3>Spaces are separators :</h3></center>
 	<center><button id='space0' onclick='setSpace(0)'>Yes</button> <button id='space1' onclick='setSpace(1)'>No</button><br><br><hr></center>
 	<center><br><button id='txt1' onclick='convert(0)'></button></center>
@@ -231,6 +236,26 @@
 	}
 	document.getElementById('space0').style.cursor = 'pointer';
 	document.getElementById('space1').style.cursor = 'pointer';
+	document.getElementById('file-input').addEventListener('change', readSingleFile, false);
 	setSpace(0);
+
+	function readSingleFile(e) {
+	  var file = e.target.files[0];
+	  if (!file) {
+	    return;
+	  }
+	  var reader = new FileReader();
+	  reader.onload = function(e) {
+	    var contents = e.target.result;
+	  	document.getElementById('text').value = "";
+	  	document.getElementById('text').value = contents;
+	  };
+	  reader.readAsText(file);
+	  var filename = document.getElementById('file-input').value.replace(/^.*[\\\/]/, '');
+	  filename = filename.replace(".txt", '');
+	  document.getElementById('title').value = filename;
+	  null;
+	}
+	
 </script>
 </html>

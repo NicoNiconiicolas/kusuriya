@@ -1,7 +1,7 @@
 document.getElementsByTagName('body')[0].innerHTML +=""+
 "<audio id='correct' src='sfx/correct.mp3'></audio>"+
 "<audio id='wrong' src='sfx/wrong.mp3'></audio>"+
-"<audio id='prize' src='sfx/prize.mp3'></audio>"+
+"<div id='cardId'>#<span id='cid'>1</span></div>"+
 "<div id='question'>n/a</div>"+
 "<div id='answerbox'><input id='answer' autofocus></input></div>"+
 "<br class='ansbox'><div class='ansbox' id='showans'>? ? ?</div>"+
@@ -44,6 +44,8 @@ let lastQ2 = "";
 let wrongA = [];
 let wrongQ = [];
 let wasWrong = false;
+let memo = [];
+checkrandomness();
 
 document.addEventListener("keydown", (e) => {
   if (e.key == "Enter"){

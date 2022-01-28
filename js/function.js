@@ -5,10 +5,24 @@ function goto(page){
 
 function updateFulldeck(bool){
 	var lang = getCookie('lang');
-	if(bool == true){
+	if(bool == 1){
+		// full deck random
 		setCookie('fulldeck', 'true', 3650);
+		setCookie('randomness', 'false', 3650);
+		document.getElementById('startid').style.display = 'none';
+		setCookie("startnum", '1', 3650);
+	}else if(bool == 2){
+		// full deck ordre
+		setCookie('fulldeck', 'true', 3650);
+		setCookie('randomness', 'true', 3650);
+		setCookie("startnum", '1', 3650);
+		document.getElementById('startid').style.display = 'inline';
 	}else{
+		// 15 random
 		setCookie('fulldeck', 'false', 3650);
+		setCookie('randomness', 'false', 3650);
+		setCookie("startnum", '1', 3650);
+		document.getElementById('startid').style.display = 'none';
 	}
 	if(lang == '0'){
 		alert('updated !');
@@ -45,18 +59,31 @@ function initQuestion(fail){
 	}else{
 		var numberofquestions = max;
 	}
-	for(i = 0; i < numberofquestions; ++i){
-		var n = values.splice(Math.random()*values.length,1)[0];
-		questions.push(quest[n]);
-		answers.push(ans[n]);
+
+	if(getCookie('randomness') == 'true'){
+		answers = ans;
+		questions = quest;
+		numberofquestions = max;
+		nQuestion = parseInt(getCookie('startnum'))-1;
+	}else{
+		for(i = 0; i < numberofquestions; ++i){
+			var n = values.splice(Math.random()*values.length,1)[0];
+			questions.push(quest[n]);
+			answers.push(ans[n]);
+			if(getCookie('randomness') == 'true'){
+				nQuestion = parseInt(getCookie('startnum'))-1;
+			}else{
+				nQuestion = 1;
+			}
+		}
 	}
-		nQuestion = 1;
 	newQuestion();
 }
 
 function newQuestion(){
 	if(questions[nQuestion] != undefined){
 		document.getElementById('question').innerHTML = questions[nQuestion];
+		document.getElementById('cid').innerHTML = nQuestion+1;
 	}else{
 		failedInit();
 	}
@@ -71,6 +98,28 @@ function checkAnswer(){
 		}else{
 			setCookie('lang', 0, 3650);
 		}
+		return;
+	}
+
+	if(user == '*'){
+		for(x = 0 ; memo.length >= x ; x++){
+			var prememo = questions[nQuestion]+"　"+answers[nQuestion];
+			if(memo[x] != prememo){
+				memo.push(prememo);
+				return
+			}else{
+				return
+			}
+		}
+	}
+
+	if(user == '!'){
+		var show = '';
+		for(x = 0 ; memo.length > x ; x++){
+			show += memo[x]+'\n';
+		}
+		alert(show);
+		return
 	}
 	
 	var comp = answers[nQuestion].split(',');
@@ -317,4 +366,22 @@ function setDico(dico){
 	}else{
 		alert("Mis à jour !");
 	}
+}
+
+function checkrandomness(){
+	if(getCookie('randomness') == 'true'){
+		document.getElementById('cardId').style.display = 'block';
+	}
+}
+
+function checkrandomnessmenu(){
+	if(getCookie('randomness') == 'true'){
+		document.getElementById('startid').style.display = 'inline';
+	}
+}
+
+function choosestart(){
+	var number = document.getElementById('inputid').value;
+	setCookie("startnum", number, 3650);
+	document.getElementById('inputid').value = '';
 }

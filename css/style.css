@@ -46,14 +46,14 @@ h2{
 .langB{
 	display: inline-block;
 	padding: 10px;
-	background: #77B;
+	background: #535;
 	border-radius: 5px;
 	color: white;
 	font-size: 2em;
 }
 
 .langB:hover{
-	background: #88C;
+	background: #424;
 	cursor: pointer;
 }
 
@@ -228,7 +228,7 @@ h2{
 	margin: auto;
 	margin-top: 25px;
 	width: 70vw;
-	height: 80vh;
+	height: 74vh;
 }
 
 #box2{

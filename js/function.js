@@ -105,9 +105,12 @@ function checkAnswer(){
 		return
 	}
 
-	if(user == '*'){
+	if(user == '」'){
 		for(x = 0 ; memo.length >= x ; x++){
-			var prememo = questions[nQuestion]+"　"+answers[nQuestion];
+			var prememo = questions[nQuestion-1]+"　"+answers[nQuestion-1];
+			if(prememo == "　"){
+				return
+			}
 			if(memo[x] != prememo){
 				memo.push(prememo);
 				return
@@ -117,7 +120,7 @@ function checkAnswer(){
 		}
 	}
 
-	if(user == '!'){
+	if(user == '￥'){
 		var show = '';
 		for(x = 0 ; memo.length > x ; x++){
 			show += memo[x]+'\n';

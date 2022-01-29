@@ -105,7 +105,7 @@ function checkAnswer(){
 		return
 	}
 
-	if(user == '」'){
+	if(user == '」' || user == '$'){
 		for(x = 0 ; memo.length >= x ; x++){
 			var prememo = questions[nQuestion-1]+"　"+answers[nQuestion-1];
 			if(prememo == "　"){
@@ -120,7 +120,7 @@ function checkAnswer(){
 		}
 	}
 
-	if(user == '￥'){
+	if(user == '￥' || user == '*'){
 		var show = '';
 		for(x = 0 ; memo.length > x ; x++){
 			show += memo[x]+'\n';

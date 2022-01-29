@@ -4,30 +4,34 @@ function goto(page){
 }
 
 function updateFulldeck(bool){
-	var lang = getCookie('lang');
 	if(bool == 1){
 		// full deck random
 		setCookie('fulldeck', 'true', 3650);
-		setCookie('randomness', 'false', 3650);
+		setCookie('randomness', 'true', 3650);
+		document.getElementById('fullrandom').style.color = 'orange';
+		document.getElementById('fullordered').style.color = 'lightgrey';
+		document.getElementById('random').style.color = 'lightgrey';
 		document.getElementById('startid').style.display = 'none';
 		setCookie("startnum", '1', 3650);
 	}else if(bool == 2){
 		// full deck ordre
 		setCookie('fulldeck', 'true', 3650);
-		setCookie('randomness', 'true', 3650);
+		setCookie('randomness', 'false', 3650);
 		setCookie("startnum", '1', 3650);
+		document.getElementById('fullrandom').style.color = 'lightgrey';
+		document.getElementById('fullordered').style.color = 'orange';
+		document.getElementById('random').style.color = 'lightgrey';
+		document.getElementById('inputid').placeholder = getCookie('startnum');
 		document.getElementById('startid').style.display = 'inline';
 	}else{
 		// 15 random
 		setCookie('fulldeck', 'false', 3650);
-		setCookie('randomness', 'false', 3650);
+		setCookie('randomness', 'true', 3650);
 		setCookie("startnum", '1', 3650);
+		document.getElementById('fullrandom').style.color = 'lightgrey';
+		document.getElementById('fullordered').style.color = 'lightgrey';
+		document.getElementById('random').style.color = 'orange';
 		document.getElementById('startid').style.display = 'none';
-	}
-	if(lang == '0'){
-		alert('updated !');
-	}else{
-		alert('mis à jour !');
 	}
 }
 
@@ -60,7 +64,7 @@ function initQuestion(fail){
 		var numberofquestions = max;
 	}
 
-	if(getCookie('randomness') == 'true'){
+	if(getCookie('randomness') == 'false'){
 		answers = ans;
 		questions = quest;
 		numberofquestions = max;
@@ -70,7 +74,7 @@ function initQuestion(fail){
 			var n = values.splice(Math.random()*values.length,1)[0];
 			questions.push(quest[n]);
 			answers.push(ans[n]);
-			if(getCookie('randomness') == 'true'){
+			if(getCookie('randomness') == 'false'){
 				nQuestion = parseInt(getCookie('startnum'))-1;
 			}else{
 				nQuestion = 1;
@@ -98,7 +102,7 @@ function checkAnswer(){
 		}else{
 			setCookie('lang', 0, 3650);
 		}
-		return;
+		return
 	}
 
 	if(user == '*'){
@@ -148,14 +152,14 @@ function checkAnswer(){
 		setCookie('cardsToday', parseInt(getCookie('cardsToday'))+1, 3650);
 		document.getElementById('cards').innerHTML = getCookie('cardsToday');
 		document.getElementById('ncombo').innerHTML = combo;
-		document.getElementById('goodAnswer').style.color = '#9CF';
+		document.getElementById('goodAnswer').style.color = 'yellow';
 		document.getElementById('correct').play();
 	}else{
 		totalseen++;
 		multiplicateur = 1;
 		combo = 0;
 		document.getElementById('ncombo').innerHTML = combo;
-		document.getElementById('goodAnswer').style.color = '#F99';
+		document.getElementById('goodAnswer').style.color = 'orange';
 		document.getElementById('wrong').play();
 		var forLaterQ = questions[nQuestion];
 		var forLaterA = answers[nQuestion];
@@ -214,7 +218,6 @@ function failedInit(){
 }
 
 function updateDeck(){
-	var lang = getCookie('lang');
 	var url = document.getElementById('deckLink').value;
 	if(url == ''){
 		if(lang == 0){
@@ -225,23 +228,19 @@ function updateDeck(){
 	}else{
 		setCookie('cookieDeck', false, 3650);
 		setCookie('deck', url, 3650);
-		if(lang == 0){
-			alert('Deck loaded ! \n\n(if your link is valid)');
-		}else{
-			alert('Deck chargé ! \n\n(pour peu que votre lien soit valide)');
-		}
+		document.getElementById('deckLink').value = '';
+		document.getElementById('deckLink').placeholder = url;
 	}
 }
 
 function updateJLPT(n){
-	var lang = getCookie('lang');
 	setCookie('cookieDeck', false, 3650);
 	setCookie('deck', 'deck/'+n+'.js', 3650);
-	if(lang == 0){
-		alert('Deck loaded !');
-	}else{
-		alert('Deck chargé !');
-	}
+	document.getElementById('deckLink').placeholder = "deck/"+n+".js";
+}
+
+function upcolor(){
+	this.style.color = 'purple';
 }
 
 function checkCards(){
@@ -291,11 +290,7 @@ function chooseCookieDeck(n){
 	if(getCookie('deck'+n+'_1') != ""){
 		setCookie('cookieDeck', true, 3650);
 		setCookie('deck', n, 3650);
-		if(lang == 0){
-			alert("Deck loaded !");
-		}else{
-			alert("Deck chargé !");
-		}
+		document.getElementById('deckLink').placeholder = n;
 	}else{
 		if(lang == 0){
 			alert("This deck slot is empty !\nClick on 'New Deck' button to create one");
@@ -348,34 +343,35 @@ function jeu2check(num){
 
 function chooseGame(num){
 	setCookie('jeu', num, 3650);
-	if(getCookie('lang') == 0){
-		alert('updated !');
+	if(num == 1){
+		document.getElementById('kotoba').style.color = 'orange';
+		document.getElementById('anki').style.color = 'lightgrey';
 	}else{
-		alert('mis à jour !');
+		document.getElementById('anki').style.color = 'orange';
+		document.getElementById('kotoba').style.color = 'lightgrey';
 	}
 }
 
 function setDico(dico){
 	if(dico == "jisho"){
 		setCookie('dico', "jisho", 3650);
+		document.getElementById('dicojisho').style.color = 'orange';
+		document.getElementById('dicochinese').style.color = 'lightgrey';
 	}else{
 		setCookie('dico', "writtenchinese", 3650);
-	}
-	if(getCookie('lang') == "0"){
-		alert("Updated !");
-	}else{
-		alert("Mis à jour !");
+		document.getElementById('dicojisho').style.color = 'lightgrey';
+		document.getElementById('dicochinese').style.color = 'orange';
 	}
 }
 
 function checkrandomness(){
-	if(getCookie('randomness') == 'true'){
+	if(getCookie('randomness') == 'false'){
 		document.getElementById('cardId').style.display = 'block';
 	}
 }
 
 function checkrandomnessmenu(){
-	if(getCookie('randomness') == 'true'){
+	if(getCookie('randomness') == 'false'){
 		document.getElementById('startid').style.display = 'inline';
 	}
 }
@@ -383,5 +379,40 @@ function checkrandomnessmenu(){
 function choosestart(){
 	var number = document.getElementById('inputid').value;
 	setCookie("startnum", number, 3650);
+	document.getElementById('inputid').placeholder = getCookie('startnum');
 	document.getElementById('inputid').value = '';
+}
+
+function checkcolors(){
+	if(getCookie('jeu') == '1'){
+		document.getElementById('kotoba').style.color = 'orange';
+		document.getElementById('anki').style.color = 'lightgrey';	
+	}else{
+		document.getElementById('kotoba').style.color = 'lightgrey';
+		document.getElementById('anki').style.color = 'orange';
+	}
+
+	if(getCookie('dico') == 'jisho'){
+		document.getElementById('dicojisho').style.color = 'orange';
+		document.getElementById('dicochinese').style.color = 'lightgrey';
+	}else{
+		document.getElementById('dicojisho').style.color = 'lightgrey';
+		document.getElementById('dicochinese').style.color = 'orange';
+	}
+
+	if(getCookie('fulldeck') == 'true'){
+		if(getCookie('randomness') == 'true'){
+			document.getElementById('fullrandom').style.color = 'orange';
+			document.getElementById('fullordered').style.color = 'lightgrey';
+			document.getElementById('random').style.color = 'lightgrey';
+		}else{
+			document.getElementById('fullrandom').style.color = 'lightgrey';
+			document.getElementById('fullordered').style.color = 'orange';
+			document.getElementById('random').style.color = 'lightgrey';
+		}
+	}else{
+		document.getElementById('fullrandom').style.color = 'lightgrey';
+		document.getElementById('fullordered').style.color = 'lightgrey';
+		document.getElementById('random').style.color = 'orange';
+	}
 }

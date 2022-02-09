@@ -21,14 +21,33 @@
 
 		#file-input{
 			font-size: 1em;
+			height: 15vh;
+			position: absolute;
+  			top: 5vh;
+  			left: 12.5vw;
+  			opacity: 0;
+  			width: 69.5vw;
+  			height: 67%;
+  			display: block;
+  			cursor: pointer;
+		}
+
+		label{
+			background: #ee82ee;
+			cursor: pointer;
+			width: 76%;
+			height: 15vh;
+			display: block;
+			color: white;
+			font-family: 'consolas';
 		}
 	</style>
 </head>
 <body>
 	<center><input id='title' placeholder="new deck's name"></input></center>
-	<center><textarea id='text' placeholder='export your deck in plain text from Anki(PC) or KotobaWeb then select that file'></textarea></center>
-	<center><input type='file' id='file-input'></center>
-	<center><h3>Spaces are separators :</h3></center>
+	<center><textarea id='text' placeholder='export your deck in plain text from Anki(PC) or KotobaWeb then select/drag that file'></textarea></center>
+	<center><label for='file-input'>drag your file here...<input type='file' id='file-input'></label></center>
+	<center><h3>Spaces are separators</h3></center>
 	<center><button id='space0' onclick='setSpace(0)'>Yes</button> <button id='space1' onclick='setSpace(1)'>No</button><br><br><hr></center>
 	<center><br><button id='txt1' onclick='convert(0)'></button></center>
 	<center><h3 id='txt2'></h3></center>
@@ -185,17 +204,17 @@
 			string = string.replace(/\s/g, '');
 		}
 		string = string.replace(/;/g, '$');
-		group = Math.floor(string.length/1800)+1;
+		group = Math.floor(string.length/1600)+1;
 		for(i=1; i < group; i++){
 		console.log(i);
 			mult = i;
-			index = 1800*i;
+			index = 1600*i;
 			if(i == 1){
 				str1 = string.substring(0, index);
 				setCookie('deck'+mode+'_'+i, str1, 3650);
 				console.log(str1);
 			}else{
-				str1 = string.substring(index-1800, index);
+				str1 = string.substring(index-1600, index);
 				setCookie('deck'+mode+'_'+i, str1, 3650);
 				console.log(str1);
 			}

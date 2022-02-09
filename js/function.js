@@ -105,6 +105,21 @@ function checkAnswer(){
 		return
 	}
 
+	if(user == '/j'){
+		window.open('https://jisho.org/search/'+questions[nQuestion-1], '_blank');
+		return
+	}
+
+	if(user == '/w'){
+		window.open('https://www.weblio.jp/content/'+questions[nQuestion-1], '_blank');
+		return
+	}
+
+	if(user == '/r'){
+		window.open('https://budouen.github.io/reibun/?w='+questions[nQuestion-1], '_blank');
+		return
+	}
+
 	if(user == '」' || user == '$'){
 		for(x = 0 ; memo.length >= x ; x++){
 			var prememo = questions[nQuestion-1]+"　"+answers[nQuestion-1];

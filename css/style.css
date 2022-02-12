@@ -152,6 +152,7 @@ button{
 #goodAnswer{
 	display: none;
 	top: 40vh;
+	left: 0.5vw;
 	font-size: 2em;	
 }
 

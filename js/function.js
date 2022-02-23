@@ -8,7 +8,7 @@ function updateFulldeck(bool){
 		// full deck random
 		setCookie('fulldeck', 'true', 3650);
 		setCookie('randomness', 'true', 3650);
-		document.getElementById('fullrandom').style.color = 'orange';
+		document.getElementById('fullrandom').style.color = 'skyblue';
 		document.getElementById('fullordered').style.color = 'lightgrey';
 		document.getElementById('random').style.color = 'lightgrey';
 		document.getElementById('startid').style.display = 'none';
@@ -19,7 +19,7 @@ function updateFulldeck(bool){
 		setCookie('randomness', 'false', 3650);
 		setCookie("startnum", '1', 3650);
 		document.getElementById('fullrandom').style.color = 'lightgrey';
-		document.getElementById('fullordered').style.color = 'orange';
+		document.getElementById('fullordered').style.color = 'skyblue';
 		document.getElementById('random').style.color = 'lightgrey';
 		document.getElementById('inputid').placeholder = getCookie('startnum');
 		document.getElementById('startid').style.display = 'inline';
@@ -30,7 +30,7 @@ function updateFulldeck(bool){
 		setCookie("startnum", '1', 3650);
 		document.getElementById('fullrandom').style.color = 'lightgrey';
 		document.getElementById('fullordered').style.color = 'lightgrey';
-		document.getElementById('random').style.color = 'orange';
+		document.getElementById('random').style.color = 'skyblue';
 		document.getElementById('startid').style.display = 'none';
 	}
 }
@@ -177,7 +177,7 @@ function checkAnswer(){
 		multiplicateur = 1;
 		combo = 0;
 		document.getElementById('ncombo').innerHTML = combo;
-		document.getElementById('goodAnswer').style.color = 'orange';
+		document.getElementById('goodAnswer').style.color = 'skyblue';
 		document.getElementById('wrong').play();
 		var forLaterQ = questions[nQuestion];
 		var forLaterA = answers[nQuestion];
@@ -362,10 +362,10 @@ function jeu2check(num){
 function chooseGame(num){
 	setCookie('jeu', num, 3650);
 	if(num == 1){
-		document.getElementById('kotoba').style.color = 'orange';
+		document.getElementById('kotoba').style.color = 'skyblue';
 		document.getElementById('anki').style.color = 'lightgrey';
 	}else{
-		document.getElementById('anki').style.color = 'orange';
+		document.getElementById('anki').style.color = 'skyblue';
 		document.getElementById('kotoba').style.color = 'lightgrey';
 	}
 }
@@ -373,12 +373,12 @@ function chooseGame(num){
 function setDico(dico){
 	if(dico == "jisho"){
 		setCookie('dico', "jisho", 3650);
-		document.getElementById('dicojisho').style.color = 'orange';
+		document.getElementById('dicojisho').style.color = 'skyblue';
 		document.getElementById('dicochinese').style.color = 'lightgrey';
 	}else{
 		setCookie('dico', "writtenchinese", 3650);
 		document.getElementById('dicojisho').style.color = 'lightgrey';
-		document.getElementById('dicochinese').style.color = 'orange';
+		document.getElementById('dicochinese').style.color = 'skyblue';
 	}
 }
 
@@ -403,34 +403,34 @@ function choosestart(){
 
 function checkcolors(){
 	if(getCookie('jeu') == '1'){
-		document.getElementById('kotoba').style.color = 'orange';
+		document.getElementById('kotoba').style.color = 'skyblue';
 		document.getElementById('anki').style.color = 'lightgrey';	
 	}else{
 		document.getElementById('kotoba').style.color = 'lightgrey';
-		document.getElementById('anki').style.color = 'orange';
+		document.getElementById('anki').style.color = 'skyblue';
 	}
 
 	if(getCookie('dico') == 'jisho'){
-		document.getElementById('dicojisho').style.color = 'orange';
+		document.getElementById('dicojisho').style.color = 'skyblue';
 		document.getElementById('dicochinese').style.color = 'lightgrey';
 	}else{
 		document.getElementById('dicojisho').style.color = 'lightgrey';
-		document.getElementById('dicochinese').style.color = 'orange';
+		document.getElementById('dicochinese').style.color = 'skyblue';
 	}
 
 	if(getCookie('fulldeck') == 'true'){
 		if(getCookie('randomness') == 'true'){
-			document.getElementById('fullrandom').style.color = 'orange';
+			document.getElementById('fullrandom').style.color = 'skyblue';
 			document.getElementById('fullordered').style.color = 'lightgrey';
 			document.getElementById('random').style.color = 'lightgrey';
 		}else{
 			document.getElementById('fullrandom').style.color = 'lightgrey';
-			document.getElementById('fullordered').style.color = 'orange';
+			document.getElementById('fullordered').style.color = 'skyblue';
 			document.getElementById('random').style.color = 'lightgrey';
 		}
 	}else{
 		document.getElementById('fullrandom').style.color = 'lightgrey';
 		document.getElementById('fullordered').style.color = 'lightgrey';
-		document.getElementById('random').style.color = 'orange';
+		document.getElementById('random').style.color = 'skyblue';
 	}
 }

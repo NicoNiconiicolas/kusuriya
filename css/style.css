@@ -105,7 +105,7 @@ button{
 }
 
 .okButton:hover{
-	color: orange!important;
+	color: skyblue!important;
 }
 
 .ansbu{
@@ -128,7 +128,7 @@ button{
 }
 
 #ansbu2{
-	color: orange;
+	color: skyblue;
 	border-left: 2px #212 solid;
 }
 
@@ -257,8 +257,7 @@ button{
 }
 
 .menu-el:hover{
-	box-shadow: inset 12px 12px 32px orangered;
-	background: #E26D05;
+	background: skyblue;
 }
 
 #box, #box2{

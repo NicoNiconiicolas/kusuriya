@@ -171,5 +171,6 @@ function readSingleFile(e) {
       document.getElementById('text').value = contents;
     };
     reader.readAsText(file);
+    null;
     setTimeout(convert, 100);
   }

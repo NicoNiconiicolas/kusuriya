@@ -7,6 +7,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<div class='okButton' onclick='updateJLPT(\"hiragana\")'>hiragana</div> <div class='okButton' onclick='updateJLPT(\"katakana\")'>katakana</div> <div class='okButton' onclick='updateJLPT(\"kana\")'>kana</div>"+
 "<br><br><br><div class='okButton' onclick='window.location=\"convert.html\"'>Nouveau Deck</div>"+
 "<br><br><div class='okButton' id='deck1' onclick='chooseCookieDeck(1)'>"+getCookie('deck1_name')+"</div> <div class='okButton' id='deck2' onclick='chooseCookieDeck(2)'>"+getCookie('deck2_name')+"</div> <div class='okButton' id='deck3' onclick='chooseCookieDeck(3)'>"+getCookie('deck3_name')+"</div>"+
+"<br><br><div class='okButton' onclick='goto(\"gather&dd=y\")'>drag&drop</div><br>"+
 "<br><br><h1>Options</h1>"+
 "<h3>Style de révision :</h3>"+
 "<div id='kotoba' class='okButton' onclick='chooseGame(1)'>Kotoba</div> <div id='anki' class='okButton' onclick='chooseGame(2)'>Anki</div>"+

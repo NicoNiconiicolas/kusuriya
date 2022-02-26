@@ -1,6 +1,8 @@
 document.getElementsByTagName('body')[0].innerHTML +=""+
 "<audio id='correct' src='sfx/correct.mp3'></audio>"+
 "<audio id='wrong' src='sfx/wrong.mp3'></audio>"+
+"<center><label id='dd' for='file-input'>drag your file here...<input type='file' id='file-input'></label></center>"+
+"<textarea id='text' placeholder='export your deck in plain text from Anki(PC) or KotobaWeb then select/drag that file'></textarea>"+
 "<div id='cardId'>#<span id='cid'>1</span></div>"+
 "<div id='question'>n/a</div>"+
 "<div id='answerbox'><input id='answer' autofocus></input></div>"+
@@ -18,18 +20,40 @@ if(getCookie('jeu') == '1'){
   document.getElementsByClassName('ansbox')[2].style.display = 'block';
   document.getElementById('answerbox2').style.display = 'inline-block';
 }
-let totalseen = 0;
-let totalcorrect = 0;
-let final = [];
-let quest = [];
-let questions = [];
-let ans = [];
-let answers = [];
+var totalseen = 0;
+var totalcorrect = 0;
+var final = [];
+var quest = [];
+var questions = [];
+var ans = [];
+var answers = [];
+
+if($_GET('dd') != 'y'){
 if(getCookie('cookieDeck') == "false"){
   var deck = document.createElement('script');
   deck.src = getCookie('deck');
 }else{
-  loadDeck(parseInt(getCookie('deck')));
+   loadDeck(parseInt(getCookie('deck')));
+  }
+}else{
+  var space = 1;
+  var title = "";
+  var final = [];
+  var mode = 0;
+  var type = "";
+  var str = [];
+  var group = 0;
+  var string = "";
+  var part = [];
+  var part1 = '';
+  var part2 = '';
+  var i = 0;
+  var array = [];
+  var question = [];
+  var answer = [];
+  var product = "";
+  document.getElementsByTagName('label')[0].style.display = 'block';
+  document.getElementById('file-input').addEventListener('change', readSingleFile, false);
 }
 var bgn = Math.floor(Math.random()*1+1);
 document.getElementById('bg').style.backgroundImage = 'url("img/bg'+bgn+'.png")';
@@ -53,6 +77,98 @@ document.addEventListener("keydown", (e) => {
   	document.getElementById('answer').value = "";
   }
 });
-if(getCookie('cookieDeck') == "false"){
+if(getCookie('cookieDeck') == "false" && $_GET('dd') != 'y'){
   document.getElementsByTagName('body')[0].appendChild(deck);
 }
+
+//converter functions
+function go(text){
+    array = text.split('\n');
+    for(i=0;i<array.length-1;i++){
+      var index = array[i].indexOf(',');
+      question.push("\""+array[i].slice(0, index)+"\"");
+      var str = array[i].slice(index+1);
+      answer.push(str.replace(/%/g, ','));
+    }
+    if(question[0] == "\"Question\""){
+      answer.shift();
+      question.shift();
+    }
+    product = "ans=["+answer+"];\n"+"quest=["+question+"];\ninitQuestion();";
+    eval(product);
+    document.getElementsByTagName('label')[0].style.display = 'none';
+  }
+
+  function convert(){
+    mode = 0
+    var text = document.getElementById('text');
+      var source = text.value.search('Type the reading of the below word in Hiragana');
+      if(source  == -1){
+      source = text.value.search(",,Type the reading!,Image");
+      }
+    str = text.value.replace(/,Type the reading of the below word in Hiragana!/g , '');
+    str = str.replace(/,,Type the reading!,Image/g , '');
+    str = str.replace(/Question,Answers,Comment,Instructions,Render as\n/ , '');
+    str = str.replace(/Question,Answers,Comment,Instructions\n/ , '');
+      str = str.replace(/, /g, '/');
+      str = str.replace(/,/g, '%');
+      var send = "";
+      if(text.value != ""){
+      str = str.split('\n');
+      if(str[str.length-1] == ""){
+          var longueur = str.length-1;
+        }else{
+          var longueur = str.length;
+        }
+      for(let a = 0; a < longueur; a++ ){
+        if(source !=-1){
+          part[0] = str[a].split(/,(.+)/)[0];
+            part[0] = str[a].split(/%(.+)/)[0];
+            part[1] = str[a].split(/%(.+)/)[1];
+            part[1] = part[1].split(/%(.+)/)[0];
+            str[a] = part[0]+" "+part[1];
+        }
+          part[0] = str[a].split(/\s(.+)/)[0];  //everything before the first space
+          part[1] = str[a].split(/\s(.+)/)[1];  //everything after the first space
+            if(part[0] && part[1] !=''){
+          part[0] = part[0].replace(/,/ , ' ');
+          part[1] = part[1].replace(/"/g, '');
+            part[0] = part[0].replace(/"/g , "\'");
+            send += part[0]+',"';
+            part[1] = part[1].replace(/"/g , "\'");
+            part[1] = part[1].replace(/・/g , ",");
+            part[1] = part[1].replace(/, /g , ",");
+            part[1] = part[1].replace(/\//g, ',');
+            part[1] = part[1].replace(/、/g, ',');
+            part[1] = part[1].replace(/;/g, ',');
+            part[1] = part[1].replace(/\|/g, ',');
+            part[1] = part[1].replace(/\\/g, ',');
+            if(space == 1){
+        part[1] = part[1].replace(/\s/g, ' ');
+            }else{
+        part[1] = part[1].replace(/\s/g, ',');
+            }
+            send += part[1]+'"\n';
+            }
+        };
+          text.value = "";
+          go(send, mode);
+      }else{
+        alert("Empty field !");
+      }
+  }
+
+function readSingleFile(e) {
+    var file = e.target.files[0];
+    if (!file) {
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var contents = e.target.result;
+      document.getElementById('text').value = "";
+      document.getElementById('text').value = contents;
+    };
+    reader.readAsText(file);
+    setTimeout(convert, 100);
+  }

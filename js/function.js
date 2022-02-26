@@ -152,19 +152,6 @@ function checkAnswer(){
 	}
 	if(correct == true){
 		combo ++;
-		switch(combo){
-			case 3:
-			multiplicateur = 1.5;
-			break
-
-			case 6:
-			multiplicateur = 2;
-			break
-
-			case 10:
-			multiplicateur = 3;
-			break
-		}
 		totalseen++;
 		totalcorrect++;
 		setCookie('cardsToday', parseInt(getCookie('cardsToday'))+1, 3650);
@@ -174,7 +161,6 @@ function checkAnswer(){
 		document.getElementById('correct').play();
 	}else{
 		totalseen++;
-		multiplicateur = 1;
 		combo = 0;
 		document.getElementById('ncombo').innerHTML = combo;
 		document.getElementById('goodAnswer').style.color = 'skyblue';
@@ -186,7 +172,6 @@ function checkAnswer(){
 	}
 	var ratio = Math.round(totalcorrect/totalseen*100);
 	document.getElementById('perc').innerHTML = ratio+'%';
-	document.getElementById('multiple').innerHTML = multiplicateur;
 	document.getElementById('goodAnswer').innerHTML = questions[nQuestion]+" --> "+answers[nQuestion];
 	if(getCookie('dico') == "jisho"){
 		document.getElementById('goodAnswer').onclick = function(){window.open('https://jisho.org/search/'+questions[nQuestion-1], '_blank');};

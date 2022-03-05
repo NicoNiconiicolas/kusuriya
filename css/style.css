@@ -12,7 +12,7 @@ h1{
 	margin: 0;
 	font-size: 1.6em;
 	color: #FFF;
-	background: #424;
+	background: #433;
 	border-top-left-radius: 5px;
 	padding: 5px;
 }
@@ -28,7 +28,7 @@ label{
 	z-index: 999;
 	display: none;
 	left: 12.5vw;
-	background: #535;
+	background: #433;
 	cursor: pointer;
 	border-radius: 10px;
 	width: 76%;
@@ -72,7 +72,7 @@ label{
 	display: none;
 	position: absolute;
 	color: ghostwhite;
-	background: #212;
+	background: #433;
 	padding: 10px;
 }
 
@@ -106,14 +106,14 @@ button{
 .langB{
 	display: inline-block;
 	padding: 10px;
-	background: #535;
+	background: #433;
 	border-radius: 5px;
 	color: ghostwhite;
 	font-size: 2em;
 }
 
 .langB:hover{
-	background: #424;
+	background: #433;
 	cursor: pointer;
 }
 
@@ -126,7 +126,7 @@ button{
 	display: inline-block;
 	padding: 5px;
 	border-radius: 10px;
-	background: #535;
+	background: #433;
 	color: lightgrey;
 	border-bottom: 2px #878 solid;
 	border-right: 2px #878 solid;
@@ -134,21 +134,21 @@ button{
 }
 
 .okButton:hover{
-	color: skyblue!important;
+	color: #B99!important;
 }
 
 .ansbu{
 	position: relative;
 	top: 30vh;
 	padding: 10px;
-	background: #424;
+	background: #433;
 	color: ghostwhite;
 	font-size: 1.8em;
 	display: none;
 }
 
 .ansbu:hover{
-	background: #212;
+	background: #433;
 	cursor: pointer;
 }
 
@@ -157,8 +157,8 @@ button{
 }
 
 #ansbu2{
-	color: skyblue;
-	border-left: 2px #212 solid;
+	color: #644;
+	border-left: 2px #433 solid;
 }
 
 #question, #goodAnswer{
@@ -173,7 +173,7 @@ button{
 	position: relative;
 	top: 20vh;
 	font-size: 3em;
-	background: #535;
+	background: #433;
 	border-bottom: ridge 1px dimgrey;
 	border-right: ridge 2px dimgrey;
 }
@@ -223,7 +223,7 @@ button{
 
 #answerbox2{
 	display: none;
-	background: #424;
+	background: #433;
 	color: ghostwhite;
 	border-radius: 10px;
 	text-align: center;
@@ -235,7 +235,7 @@ button{
 }
 
 #answerbox2:hover{
-	background: #212;
+	background: #433;
 	cursor: pointer;
 }
 
@@ -243,7 +243,7 @@ button{
 	text-align: left;
 	display: inline-block;
 	padding: 5px;
-	background: #424;
+	background: #433;
 	border: 2px solid #2A2A2A;
 	position: absolute;
 	color: ghostwhite;
@@ -262,15 +262,15 @@ button{
 }
 
 #footer{
-	box-shadow: inset 12px 12px 32px #323;
-	border-top: 4px ridge #323;
+	box-shadow: inset 12px 12px 32px #433;
+	border-top: 4px ridge #433;
 	position: fixed;
 	display: grid;
 	grid-template-areas: "deck gestion";
 	bottom: 0;
 	width: 100vw;
 	height: 10vh;
-	background: #424;
+	background: #433;
 	border-top-left-radius: 25%;
 	border-top-right-radius: 25%;
 }
@@ -282,11 +282,11 @@ button{
 	padding-top: 3vh;
 	padding-bottom: 3vh;
 	font-size: 1.2em;
-	border-left: 1px solid #212;
+	border-left: 1px solid #433;
 }
 
 .menu-el:hover{
-	background: skyblue;
+	background: #644;
 }
 
 #box, #box2{

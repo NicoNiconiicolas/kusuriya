@@ -12,7 +12,7 @@ h1{
 	margin: 0;
 	font-size: 1.6em;
 	color: #FFF;
-	background: #644;
+	background: steelblue;
 	border-top-left-radius: 5px;
 	padding: 5px;
 }
@@ -28,7 +28,7 @@ label{
 	z-index: 999;
 	display: none;
 	left: 12.5vw;
-	background: #644;
+	background: steelblue;
 	cursor: pointer;
 	border-radius: 10px;
 	width: 76%;
@@ -72,7 +72,7 @@ label{
 	display: none;
 	position: absolute;
 	color: ghostwhite;
-	background: #644;
+	background: steelblue;
 	padding: 10px;
 }
 
@@ -106,14 +106,14 @@ button{
 .langB{
 	display: inline-block;
 	padding: 10px;
-	background: #644;
+	background: steelblue;
 	border-radius: 5px;
 	color: ghostwhite;
 	font-size: 2em;
 }
 
 .langB:hover{
-	background: #644;
+	background: steelblue;
 	cursor: pointer;
 }
 
@@ -126,29 +126,29 @@ button{
 	display: inline-block;
 	padding: 5px;
 	border-radius: 10px;
-	background: #644;
+	background: steelblue;
 	color: lightgrey;
-	border-bottom: 2px #878 solid;
-	border-right: 2px #878 solid;
+	border-bottom: 2px skyblue solid;
+	border-right: 2px skyblue solid;
 	cursor: pointer;
 }
 
 .okButton:hover{
-	color: #C99!important;
+	color: skyblue!important;
 }
 
 .ansbu{
 	position: relative;
 	top: 30vh;
 	padding: 10px;
-	background: #644;
+	background: steelblue;
 	color: ghostwhite;
 	font-size: 1.8em;
 	display: none;
 }
 
 .ansbu:hover{
-	background: #644;
+	background: steelblue;
 	cursor: pointer;
 }
 
@@ -173,9 +173,9 @@ button{
 	position: relative;
 	top: 20vh;
 	font-size: 3em;
-	background: #644;
-	border-bottom: ridge 1px dimgrey;
-	border-right: ridge 2px dimgrey;
+	background: steelblue;
+	border-bottom: ridge 1px skyblue;
+	border-right: ridge 2px skyblue;
 }
 
 #goodAnswer{
@@ -223,7 +223,7 @@ button{
 
 #answerbox2{
 	display: none;
-	background: #644;
+	background: steelblue;
 	color: ghostwhite;
 	border-radius: 10px;
 	text-align: center;
@@ -235,7 +235,7 @@ button{
 }
 
 #answerbox2:hover{
-	background: #644;
+	background: steelblue;
 	cursor: pointer;
 }
 
@@ -243,8 +243,8 @@ button{
 	text-align: left;
 	display: inline-block;
 	padding: 5px;
-	background: #644;
-	border: 2px solid #2A2A2A;
+	background: steelblue;
+	border: 1px solid skyblue;
 	position: absolute;
 	color: ghostwhite;
 	top: 2vh;
@@ -258,19 +258,19 @@ button{
 	margin: 0;
 	width: 100vw;
 	height: 100vh;
-	background: url('../img/bg1.png') repeat;
+	background: white;
 }
 
 #footer{
-	box-shadow: inset 12px 12px 32px #644;
-	border-top: 4px ridge #644;
+	box-shadow: inset 12px 12px 32px steelblue;
+	border-top: 4px ridge steelblue;
 	position: fixed;
 	display: grid;
 	grid-template-areas: "deck gestion";
 	bottom: 0;
 	width: 100vw;
 	height: 10vh;
-	background: #644;
+	background: steelblue;
 	border-top-left-radius: 25%;
 	border-top-right-radius: 25%;
 }
@@ -282,11 +282,11 @@ button{
 	padding-top: 3vh;
 	padding-bottom: 3vh;
 	font-size: 1.2em;
-	border-left: 1px solid #644;
+	border-left: 1px solid steelblue;
 }
 
 .menu-el:hover{
-	background: #755;
+	background: skyblue;
 }
 
 #box, #box2{

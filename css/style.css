@@ -153,12 +153,12 @@ button{
 }
 
 #ansbu1{
-	color: yellow;
+	color: hotpink;
 }
 
 #ansbu2{
-	color: orange;
-	border-left: 2px #533 solid;
+	color: skyblue;
+	border-left: 1px #333 solid;
 }
 
 #question, #goodAnswer{

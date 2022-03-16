@@ -157,7 +157,7 @@ function checkAnswer(){
 		setCookie('cardsToday', parseInt(getCookie('cardsToday'))+1, 3650);
 		document.getElementById('cards').innerHTML = getCookie('cardsToday');
 		document.getElementById('ncombo').innerHTML = combo;
-		document.getElementById('goodAnswer').style.color = 'yellow';
+		document.getElementById('goodAnswer').style.color = '#EEA0AB';
 		document.getElementById('correct').play();
 	}else{
 		totalseen++;

@@ -153,7 +153,7 @@ button{
 }
 
 #ansbu1{
-	color: hotpink;
+	color: lawngreen;
 }
 
 #ansbu2{
@@ -258,7 +258,7 @@ button{
 	margin: 0;
 	width: 100vw;
 	height: 100vh;
-	background: white;
+	background: url('../img/bg1.jpg');
 }
 
 #footer{
@@ -282,7 +282,6 @@ button{
 	padding-top: 3vh;
 	padding-bottom: 3vh;
 	font-size: 1.2em;
-	border-left: 1px solid steelblue;
 }
 
 .menu-el:hover{
@@ -305,6 +304,10 @@ button{
 
 
 @media (min-width : 501px) and (max-width: 768px){
+
+	#bg{
+		background: url('../img/bg1.jpg') 40% 0%;
+	}
 
 	#showans{
 		font-size: 1.4em;
@@ -329,6 +332,10 @@ button{
 }
 
 @media (max-width: 500px){
+
+	#bg{
+		background: url('../img/bg1.jpg') 40% 0%;
+	}
 
 	#deckLink{
 		width: 60vw;

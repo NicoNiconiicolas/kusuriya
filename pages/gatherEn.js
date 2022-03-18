@@ -1,4 +1,5 @@
 document.getElementsByTagName('body')[0].innerHTML +=""+
+"<meta http-equiv='Cache-control' content='no-cache'>"+
 "<audio id='correct' src='sfx/correct.mp3'></audio>"+
 "<audio id='wrong' src='sfx/wrong.mp3'></audio>"+
 "<center><label id='dd' for='file-input'>drag your file here...<input type='file' id='file-input'></label></center>"+
@@ -10,7 +11,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<br class='ansbox'><div id='answerbox2' onclick='jeu2()'>voir la réponse</div>"+
 "<br class='ansbu'><div class='ansbu' id='ansbu1' onclick='jeu2check(1)'>correcte</div><div class='ansbu' id='ansbu2' onclick='jeu2check(2)'>incorrecte</div>"+
 "<div id='goodAnswer'>n/a</div>"+
-"<div id='combo'>correct answer(s) : <span id='cards'>"+getCookie('cardsToday')+"</span><br>combo(s) : <span id='ncombo'>0</span>|ratio : <span id='perc'>100%</span><br>multiplier : x<span id='multiple'>1</span></div>";
+"<div id='combo'>correct answer(s) : <span id='cards'>"+getCookie('cardsToday')+"</span><br>correct ratio : <span id='perc'>100%</span><br>multiplier : x<span id='multiple'>1</span></div>";
 if(getCookie('jeu') == '1'){
   document.getElementById('answerbox').style.display = 'block';
   document.getElementById('goodAnswer').style.display = 'inline-block';
@@ -29,12 +30,8 @@ var ans = [];
 var answers = [];
 
 if($_GET('dd') != 'y'){
-if(getCookie('cookieDeck') == "false"){
   var deck = document.createElement('script');
   deck.src = getCookie('deck');
-}else{
-   loadDeck(parseInt(getCookie('deck')));
-  }
 }else{
   var space = 1;
   var title = "";
@@ -55,8 +52,7 @@ if(getCookie('cookieDeck') == "false"){
   document.getElementsByTagName('label')[0].style.display = 'block';
   document.getElementById('file-input').addEventListener('change', readSingleFile, false);
 }
-var bgn = Math.floor(Math.random()*1+1);
-document.getElementById('bg').style.backgroundImage = 'url("img/bg'+bgn+'.png")';
+document.getElementById('bg').style.backgroundImage = 'url("img/bg1.jpg")';
 let combo = 0;
 let multiplicateur = 1;
 let progression = 0;
@@ -77,7 +73,7 @@ document.addEventListener("keydown", (e) => {
   	document.getElementById('answer').value = "";
   }
 });
-if(getCookie('cookieDeck') == "false" && $_GET('dd') != 'y'){
+if($_GET('dd') != 'y'){
   document.getElementsByTagName('body')[0].appendChild(deck);
 }
 

@@ -11,8 +11,8 @@ body{
 h1{
 	margin: 0;
 	font-size: 1.6em;
-	color: #FFF;
-	background: steelblue;
+	color: white;
+	background: #333;
 	border-top-left-radius: 5px;
 	padding: 5px;
 }
@@ -28,7 +28,7 @@ label{
 	z-index: 999;
 	display: none;
 	left: 12.5vw;
-	background: steelblue;
+	background: #333;
 	cursor: pointer;
 	border-radius: 10px;
 	width: 76%;
@@ -72,7 +72,7 @@ label{
 	display: none;
 	position: absolute;
 	color: ghostwhite;
-	background: steelblue;
+	background: #333;
 	padding: 10px;
 }
 
@@ -106,14 +106,14 @@ button{
 .langB{
 	display: inline-block;
 	padding: 10px;
-	background: steelblue;
+	background: #333;
 	border-radius: 5px;
 	color: ghostwhite;
 	font-size: 2em;
 }
 
 .langB:hover{
-	background: steelblue;
+	background: brown;
 	cursor: pointer;
 }
 
@@ -126,39 +126,39 @@ button{
 	display: inline-block;
 	padding: 5px;
 	border-radius: 10px;
-	background: steelblue;
+	background: #333;
 	color: lightgrey;
-	border-bottom: 2px skyblue solid;
-	border-right: 2px skyblue solid;
+	border-bottom: 2px #555 solid;
+	border-right: 2px #555 solid;
 	cursor: pointer;
 }
 
 .okButton:hover{
-	color: skyblue!important;
+	color: brown!important;
 }
 
 .ansbu{
 	position: relative;
 	top: 30vh;
 	padding: 10px;
-	background: steelblue;
+	background: #333;
 	color: ghostwhite;
 	font-size: 1.8em;
 	display: none;
 }
 
 .ansbu:hover{
-	background: steelblue;
+	background: #333;
 	cursor: pointer;
 }
 
 #ansbu1{
-	color: lawngreen;
+	color: deepskyblue;
 }
 
 #ansbu2{
-	color: skyblue;
-	border-left: 1px #333 solid;
+	color: red;
+	border-left: 1px #444 solid;
 }
 
 #question, #goodAnswer{
@@ -173,9 +173,9 @@ button{
 	position: relative;
 	top: 20vh;
 	font-size: 3em;
-	background: steelblue;
-	border-bottom: ridge 1px skyblue;
-	border-right: ridge 2px skyblue;
+	background: #333;
+	border-bottom: ridge 1px dimgrey;
+	border-right: ridge 2px dimgrey;
 }
 
 #goodAnswer{
@@ -223,7 +223,7 @@ button{
 
 #answerbox2{
 	display: none;
-	background: steelblue;
+	background: #333;
 	color: ghostwhite;
 	border-radius: 10px;
 	text-align: center;
@@ -235,7 +235,7 @@ button{
 }
 
 #answerbox2:hover{
-	background: steelblue;
+	background: #333;
 	cursor: pointer;
 }
 
@@ -243,8 +243,8 @@ button{
 	text-align: left;
 	display: inline-block;
 	padding: 5px;
-	background: steelblue;
-	border: 1px solid skyblue;
+	background: #333;
+	border: 1px solid dimgrey;
 	position: absolute;
 	color: ghostwhite;
 	top: 2vh;
@@ -262,15 +262,15 @@ button{
 }
 
 #footer{
-	box-shadow: inset 12px 12px 32px steelblue;
-	border-top: 4px ridge steelblue;
+	box-shadow: inset 12px 12px 32px #333;
+	border-top: 4px ridge #333;
 	position: fixed;
 	display: grid;
 	grid-template-areas: "deck gestion";
 	bottom: 0;
 	width: 100vw;
 	height: 10vh;
-	background: steelblue;
+	background: #333;
 	border-top-left-radius: 25%;
 	border-top-right-radius: 25%;
 }
@@ -282,10 +282,11 @@ button{
 	padding-top: 3vh;
 	padding-bottom: 3vh;
 	font-size: 1.2em;
+	transition: background 0.2s;
 }
 
 .menu-el:hover{
-	background: skyblue;
+	background: brown;
 }
 
 #box, #box2{

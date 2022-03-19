@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cartory</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src='js/func.js'></script>
+	<script src='js/filesaver.js'></script>
+</head>
+<body>
+	<div id='main'>
+		<div id='d&d'>
+			<label for='file-input'><br><br><br><br>load a deck...<input type='file' id='file-input'></label>
+			<button id='nd' onclick="initQuestion()">new deck</button>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	let curr = 'none'; 
+	let deleted = [];
+	let comment = [];
+	let ans = [];
+	let quest = [];
+	function readSingleFile(e){
+	  var file = e.target.files[0];
+	  if (!file) {
+	    return;
+	  }
+	  var reader = new FileReader();
+	  reader.onload = function(e){
+	    var contents = e.target.result;
+	  	eval(contents);
+	  };
+	  reader.readAsText(file);
+	  var filename = document.getElementById('file-input').value.replace(/^.*[\\\/]/, '');
+	  filename = filename.replace(".txt", '');
+	  null;
+	  //contents = contenu du fichier
+	  // filename = nom du fichier
+	  document.getElementById('d&d').style.display = 'none';
+	}
+
+	function initQuestion(){
+		var send = "selected card : <span id='current'>none</span>　│　total cards : <span id='totcards'>0</span><br><table><tr><td><button onclick='unsel()'>unselect</button></td><td><button onclick='mod()'>modify</button></td><td><button onclick='del()'>delete</button></td></tr><tr><td><button onclick='createcard()'>new card</button></td><td><button onclick='exp()'>export</button></td><td><button onclick='seedel()'>see deleted</button></td></tr><tr><td><input id='que' placeholder='question...'></td><td><input id='an' placeholder='answer...'></td><td><textarea id='comm' placeholder='comments...'></textarea></td></tr><tr></table><table id='realtable'><th>question</th><th>answer</th><th>comments</th></tr>";
+		for(x = 0 ; x < quest.length; x++){
+			send += '<tr onclick="select(`'+x+'`)" id="'+x+'" class="line"><td id="q'+x+'">'+quest[x]+'</td><td id="a'+x+'">'+ans[x]+'</td><td id="c'+x+'">'+comment[x]+'</td></tr>';
+		}
+		send += '</table>'
+		document.getElementById('main').innerHTML = send;
+		document.getElementById('totcards').innerHTML = quest.length;
+	}
+
+	function select(num){
+		curr = num;
+		document.getElementById('comm').value = document.getElementById('c'+num).innerHTML;
+		document.getElementById('que').value = document.getElementById('q'+num).innerHTML;
+		document.getElementById('an').value = document.getElementById('a'+num).innerHTML;
+		document.getElementById('current').innerHTML = '#'+curr;
+		scrollTo(0,0);
+	}
+
+	function unsel(){
+		curr = 'none';
+		document.getElementById('comm').value = '';
+		document.getElementById('que').value = '';
+		document.getElementById('an').value = '';
+		document.getElementById('current').innerHTML = curr;
+	}
+
+	function del(){
+		if(curr != 'none'){
+			var qq = quest.splice(curr,1);
+			var anan = ans.splice(curr,1);
+			var coco = comment.splice(curr,1);
+			deleted += qq+"　"+anan+"　"+coco+"\n";
+			initQuestion();
+			curr = 'none';
+		}else{
+			alert('No card selected');
+		}
+	}
+
+	function seedel(){
+		alert(deleted);
+	}
+
+	function mod(){
+		if(curr != 'none'){
+			var newq = document.getElementById('que').value;
+			var newa = document.getElementById('an').value;
+			var newc = document.getElementById('comm').value;
+			if(newq != "" && newa != ""){
+				quest.splice(curr,1,newq);
+				ans.splice(curr,1,newa);
+				comment.splice(curr,1,newc);
+			document.getElementById('q'+curr).innerHTML = newq;
+			document.getElementById('a'+curr).innerHTML = newa;
+			document.getElementById('c'+curr).innerHTML = newc;
+			curr = 'none';
+			}else{
+				alert("Question & Answer fields are required")
+			}
+		}else{
+			alert("No card selected");
+		}
+	}
+
+	function createcard(){
+		var newq = document.getElementById('que').value;
+		var newa = document.getElementById('an').value;
+		var newc = document.getElementById('comm').value;
+		if(newq != "" && newa != ""){
+			quest.push(newq);
+			ans.push(newa);
+			comment.push(newc);
+			initQuestion();
+		}else{
+			alert("Question & Answer fileds are required")
+		}
+	}
+
+	function exp(){
+		var sendquest = "quest=[";
+		var sendans = "ans=[";
+		var sendcomment = "comment=[";
+		var max = quest.length;
+		for(x=0 ; x < max ; x++){
+			if(x == 0){
+				sendquest += '`'+quest[x]+'`';
+			}else{
+				sendquest += ',`'+quest[x]+'`';
+			}
+		}
+		for(x=0 ; x < max ; x++){
+			if(x == 0){
+				sendans += '`'+ans[x]+'`';
+			}else{
+				sendans += ',`'+ans[x]+'`';
+			}
+		}
+		for(x=0 ; x < max ; x++){
+			if(comment[x] == undefined){
+				comment[x] = "";
+			}
+			if(x == 0){
+				sendcomment += '`'+comment[x]+'`';
+			}else{
+				sendcomment += ',`'+comment[x]+'`';
+			}
+		}
+		sendquest += "];";
+		sendans += "];";
+		sendcomment += "];";
+		var send = sendquest+"\n"+sendans+"\n"+sendcomment+"\ninitQuestion();";
+		var newdeck = new Blob([send], {type: "text/plain;charset=utf-8"});
+        saveAs(newdeck, "newdeck.js");	
+	}
+
+
+	document.getElementById('file-input').addEventListener('change', readSingleFile, false);
+</script>
+</html>

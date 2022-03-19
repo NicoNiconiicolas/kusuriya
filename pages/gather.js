@@ -28,32 +28,15 @@ var quest = [];
 var questions = [];
 var ans = [];
 var answers = [];
+var comment = [];
 
 if($_GET('dd') != 'y'){
    var deck = document.createElement('script');
    deck.src = getCookie('deck');
 }else{
-  var space = 1;
-  var title = "";
-  var final = [];
-  var mode = 0;
-  var type = "";
-  var str = [];
-  var group = 0;
-  var string = "";
-  var part = [];
-  var part1 = '';
-  var part2 = '';
-  var i = 0;
-  var array = [];
-  var question = [];
-  var answer = [];
-  var product = "";
   document.getElementsByTagName('label')[0].style.display = 'block';
   document.getElementById('file-input').addEventListener('change', readSingleFile, false);
 }
-let multiplicateur = 1;
-let progression = 0;
 let nQuestion = 0;
 let lastQ = "";
 let lastA = "";
@@ -76,81 +59,81 @@ if($_GET('dd') != 'y'){
 }
 
 //converter functions
-function go(text){
-    array = text.split('\n');
-    for(i=0;i<array.length-1;i++){
-      var index = array[i].indexOf(',');
-      question.push("\""+array[i].slice(0, index)+"\"");
-      var str = array[i].slice(index+1);
-      answer.push(str.replace(/%/g, ','));
-    }
-    if(question[0] == "\"Question\""){
-      answer.shift();
-      question.shift();
-    }
-    product = "ans=["+answer+"];\n"+"quest=["+question+"];\ninitQuestion();";
-    eval(product);
-    document.getElementsByTagName('label')[0].style.display = 'none';
-  }
+// function go(text){
+//     array = text.split('\n');
+//     for(i=0;i<array.length-1;i++){
+//       var index = array[i].indexOf(',');
+//       question.push("\""+array[i].slice(0, index)+"\"");
+//       var str = array[i].slice(index+1);
+//       answer.push(str.replace(/%/g, ','));
+//     }
+//     if(question[0] == "\"Question\""){
+//       answer.shift();
+//       question.shift();
+//     }
+//     product = "ans=["+answer+"];\n"+"quest=["+question+"];\ninitQuestion();";
+//     eval(product);
+    
+//   }
 
-  function convert(){
-    mode = 0
-    var text = document.getElementById('text');
-      var source = text.value.search('Type the reading of the below word in Hiragana');
-      if(source  == -1){
-      source = text.value.search(",,Type the reading!,Image");
-      }
-    str = text.value.replace(/,Type the reading of the below word in Hiragana!/g , '');
-    str = str.replace(/,,Type the reading!,Image/g , '');
-    str = str.replace(/Question,Answers,Comment,Instructions,Render as\n/ , '');
-    str = str.replace(/Question,Answers,Comment,Instructions\n/ , '');
-      str = str.replace(/, /g, '/');
-      str = str.replace(/,/g, '%');
-      var send = "";
-      if(text.value != ""){
-      str = str.split('\n');
-      if(str[str.length-1] == ""){
-          var longueur = str.length-1;
-        }else{
-          var longueur = str.length;
-        }
-      for(let a = 0; a < longueur; a++ ){
-        if(source !=-1){
-          part[0] = str[a].split(/,(.+)/)[0];
-            part[0] = str[a].split(/%(.+)/)[0];
-            part[1] = str[a].split(/%(.+)/)[1];
-            part[1] = part[1].split(/%(.+)/)[0];
-            str[a] = part[0]+" "+part[1];
-        }
-          part[0] = str[a].split(/\s(.+)/)[0];  //everything before the first space
-          part[1] = str[a].split(/\s(.+)/)[1];  //everything after the first space
-            if(part[0] && part[1] !=''){
-          part[0] = part[0].replace(/,/ , ' ');
-          part[1] = part[1].replace(/"/g, '');
-            part[0] = part[0].replace(/"/g , "\'");
-            send += part[0]+',"';
-            part[1] = part[1].replace(/"/g , "\'");
-            part[1] = part[1].replace(/・/g , ",");
-            part[1] = part[1].replace(/, /g , ",");
-            part[1] = part[1].replace(/\//g, ',');
-            part[1] = part[1].replace(/、/g, ',');
-            part[1] = part[1].replace(/;/g, ',');
-            part[1] = part[1].replace(/\|/g, ',');
-            part[1] = part[1].replace(/\\/g, ',');
-            if(space == 1){
-        part[1] = part[1].replace(/\s/g, ' ');
-            }else{
-        part[1] = part[1].replace(/\s/g, ',');
-            }
-            send += part[1]+'"\n';
-            }
-        };
-          text.value = "";
-          go(send, mode);
-      }else{
-        alert("Empty field !");
-      }
-  }
+//   function convert(){
+//     mode = 0
+//     var text = document.getElementById('text');
+//       var source = text.value.search('Type the reading of the below word in Hiragana');
+//       if(source  == -1){
+//       source = text.value.search(",,Type the reading!,Image");
+//       }
+//     str = text.value.replace(/,Type the reading of the below word in Hiragana!/g , '');
+//     str = str.replace(/,,Type the reading!,Image/g , '');
+//     str = str.replace(/Question,Answers,Comment,Instructions,Render as\n/ , '');
+//     str = str.replace(/Question,Answers,Comment,Instructions\n/ , '');
+//       str = str.replace(/, /g, '/');
+//       str = str.replace(/,/g, '%');
+//       var send = "";
+//       if(text.value != ""){
+//       str = str.split('\n');
+//       if(str[str.length-1] == ""){
+//           var longueur = str.length-1;
+//         }else{
+//           var longueur = str.length;
+//         }
+//       for(let a = 0; a < longueur; a++ ){
+//         if(source !=-1){
+//           part[0] = str[a].split(/,(.+)/)[0];
+//             part[0] = str[a].split(/%(.+)/)[0];
+//             part[1] = str[a].split(/%(.+)/)[1];
+//             part[1] = part[1].split(/%(.+)/)[0];
+//             str[a] = part[0]+" "+part[1];
+//         }
+//           part[0] = str[a].split(/\s(.+)/)[0];  //everything before the first space
+//           part[1] = str[a].split(/\s(.+)/)[1];  //everything after the first space
+//             if(part[0] && part[1] !=''){
+//           part[0] = part[0].replace(/,/ , ' ');
+//           part[1] = part[1].replace(/"/g, '');
+//             part[0] = part[0].replace(/"/g , "\'");
+//             send += part[0]+',"';
+//             part[1] = part[1].replace(/"/g , "\'");
+//             part[1] = part[1].replace(/・/g , ",");
+//             part[1] = part[1].replace(/, /g , ",");
+//             part[1] = part[1].replace(/\//g, ',');
+//             part[1] = part[1].replace(/、/g, ',');
+//             part[1] = part[1].replace(/;/g, ',');
+//             part[1] = part[1].replace(/\|/g, ',');
+//             part[1] = part[1].replace(/\\/g, ',');
+//             if(space == 1){
+//         part[1] = part[1].replace(/\s/g, ' ');
+//             }else{
+//         part[1] = part[1].replace(/\s/g, ',');
+//             }
+//             send += part[1]+'"\n';
+//             }
+//         };
+//           text.value = "";
+//           go(send, mode);
+//       }else{
+//         alert("Empty field !");
+//       }
+//   }
 
 function readSingleFile(e) {
     var file = e.target.files[0];
@@ -160,10 +143,11 @@ function readSingleFile(e) {
     var reader = new FileReader();
     reader.onload = function(e) {
       var contents = e.target.result;
+      eval(contents);
       document.getElementById('text').value = "";
       document.getElementById('text').value = contents;
     };
     reader.readAsText(file);
     null;
-    setTimeout(convert, 100);
+    document.getElementsByTagName('label')[0].style.display = 'none';
   }

@@ -68,6 +68,10 @@ button:hover{
   	cursor: pointer;
 }
 
+#file-input2{
+	display: none;
+}
+
 input, textarea{
 	width: 90%;
 	height: 25px;
@@ -86,4 +90,23 @@ label{
 
 label:hover{
 	background: #C00;
+}
+
+table label{
+	padding: 5px;
+	border-radius: 5px;
+	border: 2px steelblue ridge;
+	color: white;
+	background: steelblue;
+	font-family: consolas;
+	height: 20px;
+	font-size: 0.8em;
+}
+
+#transferarea{
+	height: 50vh;
+}
+
+#transbutton{
+	width: 50%;
 }

@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Cartory</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script src='js/func.js'></script>
 	<script src='js/filesaver.js'></script>
 </head>
 <body>
@@ -18,11 +17,18 @@
 </body>
 <script type="text/javascript">
 	let curr = 'none'; 
-	let deleted = [];
 	let comment = [];
 	let ans = [];
 	let quest = [];
+	let ansor = [];
+	let commentor = [];
+	let questor = [];
+	let trans = false;
+	let fortrans = [];
 	function readSingleFile(e){
+	  ansor = ans;
+	  commentor = comment;
+	  questor = quest;
 	  var file = e.target.files[0];
 	  if (!file) {
 	    return;
@@ -33,22 +39,28 @@
 	  	eval(contents);
 	  };
 	  reader.readAsText(file);
-	  var filename = document.getElementById('file-input').value.replace(/^.*[\\\/]/, '');
-	  filename = filename.replace(".txt", '');
 	  null;
 	  //contents = contenu du fichier
 	  // filename = nom du fichier
-	  document.getElementById('d&d').style.display = 'none';
+	  if(ansor != ""){
+	  	document.getElementById('d&d').style.display = 'none';
+	  }
 	}
 
 	function initQuestion(){
-		var send = "selected card : <span id='current'>none</span>　│　total cards : <span id='totcards'>0</span><br><table><tr><td><button onclick='unsel()'>unselect</button></td><td><button onclick='mod()'>modify</button></td><td><button onclick='del()'>delete</button></td></tr><tr><td><button onclick='createcard()'>new card</button></td><td><button onclick='exp()'>export</button></td><td><button onclick='seedel()'>see deleted</button></td></tr><tr><td><input id='que' placeholder='question...'></td><td><input id='an' placeholder='answer...'></td><td><textarea id='comm' placeholder='comments...'></textarea></td></tr><tr></table><table id='realtable'><th>question</th><th>answer</th><th>comments</th></tr>";
+		if(trans == false){
+		var send = "<input type='file' id='file-input2'>selected card : <span id='current'>none</span>　│　total cards : <span id='totcards'>0</span><br><table><tr><td><button onclick='unsel()'>unselect</button></td><td><button onclick='mod()'>modify</button></td><td><button onclick='del()'>delete</button></td></tr><tr><td><button onclick='createcard()'>new card</button></td><td><button onclick='exp(1)'>export</button></td><td><label id='lab2' onclick='transfer()' for='file-input2'>transfer</label></td></tr><tr><td><input id='que' placeholder='question...'></td><td><input id='an' placeholder='answer...'></td><td><textarea id='comm' placeholder='comments...'></textarea></td></tr><tr></table><table id='realtable'><th>question</th><th>answer</th><th>comments</th></tr>";
 		for(x = 0 ; x < quest.length; x++){
 			send += '<tr onclick="select(`'+x+'`)" id="'+x+'" class="line"><td id="q'+x+'">'+quest[x]+'</td><td id="a'+x+'">'+ans[x]+'</td><td id="c'+x+'">'+comment[x]+'</td></tr>';
 		}
 		send += '</table>'
 		document.getElementById('main').innerHTML = send;
 		document.getElementById('totcards').innerHTML = quest.length;
+			
+		}else{
+		send = "<textarea id='transferarea' placeholder='paste the questions you want to transfer'></textarea><br><button id='transbutton' onclick='transgo()'>transfer !</button>";
+		document.getElementById('main').innerHTML = send;
+		}
 	}
 
 	function select(num){
@@ -73,7 +85,6 @@
 			var qq = quest.splice(curr,1);
 			var anan = ans.splice(curr,1);
 			var coco = comment.splice(curr,1);
-			deleted += qq+"　"+anan+"　"+coco+"\n";
 			initQuestion();
 			curr = 'none';
 		}else{
@@ -81,8 +92,18 @@
 		}
 	}
 
-	function seedel(){
-		alert(deleted);
+	function transferconcrete(index){
+		var qq = questor.splice(index,1);
+		var anan = ansor.splice(index,1);
+		var coco = commentor.splice(index,1);
+		quest.push(qq);
+		ans.push(anan);
+		comment.push(coco);
+	}
+
+	function transfer(){
+		document.getElementById('file-input2').addEventListener('change', readSingleFile, false);
+		trans = true;
 	}
 
 	function mod(){
@@ -120,33 +141,62 @@
 		}
 	}
 
-	function exp(){
+	function exp(n){
 		var sendquest = "quest=[";
 		var sendans = "ans=[";
 		var sendcomment = "comment=[";
-		var max = quest.length;
-		for(x=0 ; x < max ; x++){
-			if(x == 0){
-				sendquest += '`'+quest[x]+'`';
-			}else{
-				sendquest += ',`'+quest[x]+'`';
+		if(n == 1){
+			var max = quest.length;
+			for(x=0 ; x < max ; x++){
+				if(x == 0){
+					sendquest += '`'+quest[x]+'`';
+				}else{
+					sendquest += ',`'+quest[x]+'`';
+				}
 			}
-		}
-		for(x=0 ; x < max ; x++){
-			if(x == 0){
-				sendans += '`'+ans[x]+'`';
-			}else{
-				sendans += ',`'+ans[x]+'`';
+			for(x=0 ; x < max ; x++){
+				if(x == 0){
+					sendans += '`'+ans[x]+'`';
+				}else{
+					sendans += ',`'+ans[x]+'`';
+				}
 			}
-		}
-		for(x=0 ; x < max ; x++){
-			if(comment[x] == undefined){
-				comment[x] = "";
+			for(x=0 ; x < max ; x++){
+				if(comment[x] == undefined){
+					comment[x] = "";
+				}
+				if(x == 0){
+					sendcomment += '`'+comment[x]+'`';
+				}else{
+					sendcomment += ',`'+comment[x]+'`';
+				}
 			}
-			if(x == 0){
-				sendcomment += '`'+comment[x]+'`';
-			}else{
-				sendcomment += ',`'+comment[x]+'`';
+
+		}else{
+			var max = questor.length;
+			for(x=0 ; x < max ; x++){
+				if(x == 0){
+					sendquest += '`'+questor[x]+'`';
+				}else{
+					sendquest += ',`'+questor[x]+'`';
+				}
+			}
+			for(x=0 ; x < max ; x++){
+				if(x == 0){
+					sendans += '`'+ansor[x]+'`';
+				}else{
+					sendans += ',`'+ansor[x]+'`';
+				}
+			}
+			for(x=0 ; x < max ; x++){
+				if(commentor[x] == undefined){
+					commentor[x] = "";
+				}
+				if(x == 0){
+					sendcomment += '`'+commentor[x]+'`';
+				}else{
+					sendcomment += ',`'+commentor[x]+'`';
+				}
 			}
 		}
 		sendquest += "];";
@@ -154,9 +204,31 @@
 		sendcomment += "];";
 		var send = sendquest+"\n"+sendans+"\n"+sendcomment+"\ninitQuestion();";
 		var newdeck = new Blob([send], {type: "text/plain;charset=utf-8"});
-        saveAs(newdeck, "newdeck.js");	
+        if(n == 1){
+        	saveAs(newdeck, "exported1.js");
+		}else{
+        	saveAs(newdeck, "exported2.js");
+		}
 	}
 
+	function transgo(){
+		var user = document.getElementById('transferarea').value;
+		totrans = user.split('\n');
+		var dim = 0
+		for(x = 0 ; x < totrans.length; x++){
+			for(y = 0 ; y < questor.length; y++){
+				{
+					if(questor[y] == totrans[x]){
+						transferconcrete(y);
+						x++;
+					}
+				}
+			}
+		}
+		exp(1);
+		exp(2);
+		window.location = 'index.html';
+	}
 
 	document.getElementById('file-input').addEventListener('change', readSingleFile, false);
 </script>

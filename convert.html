@@ -23,17 +23,17 @@
 			font-size: 1em;
 			height: 15vh;
 			position: absolute;
-  			top: 5vh;
+  			top: 15vh;
   			left: 12.5vw;
   			opacity: 0;
-  			width: 69.5vw;
+  			width: 75vw;
   			height: 67%;
   			display: block;
   			cursor: pointer;
 		}
 
 		label{
-			background: #ee82ee;
+			background: #333;
 			cursor: pointer;
 			width: 76%;
 			height: 15vh;
@@ -44,27 +44,21 @@
 	</style>
 </head>
 <body>
+	<center><h2>Anki / Kotoba ーー＞ Cartory / Cardogus</h2></center>
 	<center><input id='title' placeholder="new deck's name"></input></center>
-	<center><textarea id='text' placeholder='export your deck in plain text from Anki(PC) or KotobaWeb then select/drag that file'></textarea></center>
-	<center><label for='file-input'>drag your file here...<input type='file' id='file-input'></label></center>
-	<center><h3>Spaces are separators</h3></center>
-	<center><button id='space0' onclick='setSpace(0)'>Yes</button> <button id='space1' onclick='setSpace(1)'>No</button><br><br><hr></center>
-	<center><br><button id='txt1' onclick='convert(0)'></button></center>
-	<center><h3 id='txt2'></h3></center>
-	<center><button onclick='convert(1)'>deck 1</button> <button onclick='convert(2)'>deck 2</button> <button onclick='convert(3)'>deck 3</button></center>
+	<center><textarea id='text' placeholder='export your deck in plain text from Anki(PC) or KotobaWeb then drag that file here...'></textarea></center>
+	<center><label for='file-input'>drag your deck here...<input type='file' id='file-input'></label></center>
+	<center><br><button id='txt1' onclick='	convert(0)'></button></center>
 </body>
 <script type="text/javascript" src='js/filesaver.js'></script>
 <script type="text/javascript" src='js/nikolib.js'></script>
 <script type="text/javascript">
 	var lang = getCookie('lang');
 	if(lang == 1){
-		document.getElementById('txt1').innerHTML = "convertir & télécharger";
-		document.getElementById('txt2').innerHTML = "convertir et sauvegarder sur l'emplacement :";
+		document.getElementById('txt1').innerHTML = "convertir & exporter";
 	}else{
-		document.getElementById('txt1').innerHTML = "convert & download";
-		document.getElementById('txt2').innerHTML = "convert and save on slot :";
+		document.getElementById('txt1').innerHTML = "convert & export";
 	}
-	var space = 0;
 	var title = "";
 	var final = [];
 	var mode = 0;
@@ -77,6 +71,7 @@
     var part2 = '';
     var i = 0;
 	var array = [];
+	var comment = [];
 	var question = [];
 	var answer = [];
 	var product = "";
@@ -88,21 +83,19 @@
 			question.push("\""+array[i].slice(0, index)+"\"");
 			var str = array[i].slice(index+1);
 			answer.push(str.replace(/%/g, ','));
+			comment.push("\"\"");
 		}
 		if(question[0] == "\"Question\""){
 			answer.shift();
 			question.shift();
+			comment.shift();
 		}
 		if(title == ""){
         		title = "deck"+mode;
         	}
-		product = "ans=["+answer+"];\n"+"quest=["+question+"];\ninitQuestion();";
-		if(mode == 0){
-			var deck = new Blob([product], {type: "text/plain;charset=utf-8"});
-        	saveAs(deck, title+".js");
-        }else{
-        	cookieDeck(product);
-        }
+		product = "ans=["+answer+"];\n"+"quest=["+question+"];\ncomment=["+comment+"];\ninitQuestion();";
+		var deck = new Blob([product], {type: "text/plain;charset=utf-8"});
+        saveAs(deck, title+".js");
         str = [];
         part = [];
         part1 = [];
@@ -156,11 +149,7 @@
         	  part[1] = part[1].replace(/;/g, ',');
         	  part[1] = part[1].replace(/\|/g, ',');
         	  part[1] = part[1].replace(/\\/g, ',');
-        	  if(space == 1){
-				part[1] = part[1].replace(/\s/g, ' ');
-        	  }else{
-				part[1] = part[1].replace(/\s/g, ',');
-        	  }
+			  part[1] = part[1].replace(/\s/g, ' ');
         	  send += part[1]+'"\n';
         	  }
      	 	};
@@ -171,92 +160,7 @@
 	    }
 	}
 
-	function cookieDeck(p){
-		setCookie('deck'+mode+'_name', title, 3650);
-		if(getCookie('deck'+mode+'_1') != ""){
-			var loop = true;
-			var i = 1;
-			while(loop){
-				if(getCookie('deck'+mode+'_'+i) != ""){
-					i++;
-				}else{
-					var total = i-1;
-					loop = false;
-				}
-			}
-			i = 1;
-			loop = true;
-			while(loop){
-				delCookie('deck'+mode+'_'+i);
-				i++;
-				if(i > total){
-					loop = false;
-				}
-			}
-		}
-		var string = p;
-		var mult = 0;
-		var index = 0;
-		var str1 = "";
-		if(space == 1){
-			string = string.replace(/\s/g, ' ');
-		}else{
-			string = string.replace(/\s/g, '');
-		}
-		string = string.replace(/;/g, '$');
-		group = Math.floor(string.length/1600)+1;
-		for(i=1; i < group; i++){
-		console.log(i);
-			mult = i;
-			index = 1600*i;
-			if(i == 1){
-				str1 = string.substring(0, index);
-				setCookie('deck'+mode+'_'+i, str1, 3650);
-				console.log(str1);
-			}else{
-				str1 = string.substring(index-1600, index);
-				setCookie('deck'+mode+'_'+i, str1, 3650);
-				console.log(str1);
-			}
-		}		
-				console.log(i);
-				str1 = string.substring(index);
-				setCookie('deck'+mode+'_'+i, str1, 3650);
-				if(document.cookie.length > 25000){
-					setCookie('deck'+mode+'_name', "vide", 3650);
-					loop = true;
-					i = 1;
-					while(loop){
-						if(getCookie('deck'+mode+'_'+i) != ""){
-							delCookie('deck'+mode+'_'+i);
-							i++;
-						}else{
-							loop = false;
-							if(getCookie('lang') == '1'){
-								alert('Dépassement de la limite raisonnable du total de données sauvegardées simultanément par le navigateur sur ce site');
-							}else{
-								alert('Exceeding the reasonable limit of total data saved simultaneously by the browser for this website');
-							}
-						}
-					}
-				}
-		}
-
-	function setSpace(n){
-		if(n == 0){
-			space = 0;
-			document.getElementById('space0').style.background = 'violet';
-			document.getElementById('space1').style.background = '#e9e9ed';
-		}else{
-			space = 1;
-			document.getElementById('space1').style.background = 'violet';
-			document.getElementById('space0').style.background = '#e9e9ed';
-		}
-	}
-	document.getElementById('space0').style.cursor = 'pointer';
-	document.getElementById('space1').style.cursor = 'pointer';
 	document.getElementById('file-input').addEventListener('change', readSingleFile, false);
-	setSpace(0);
 
 	function readSingleFile(e) {
 	  var file = e.target.files[0];

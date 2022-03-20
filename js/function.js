@@ -135,18 +135,21 @@ function checkAnswer(){
 	}
 
 	if(user == '」' || user == '$'){
-		for(x = 0 ; memo.length >= x ; x++){
+		var exist = false;
+		for(x = 0 ; x <= memo.length ; x++){
 			var prememo = questions[nQuestion-1];
 			if(prememo == ""){
 				return
 			}
-			if(memo[x] != prememo){
-				memo.push(prememo);
-				return
-			}else{
-				return
+
+			if(memo[x] == prememo){
+				exist = true;
 			}
 		}
+		if(exist != true){
+			memo.push(prememo);				
+		}
+		return
 	}
 
 	if(user == '￥' || user == '*'){

@@ -1,3 +1,5 @@
+let failed = 'nope';
+let achieved = false;
 
 function goto(page){
 	location.href='index.html?p='+page;
@@ -68,7 +70,14 @@ function initQuestion(fail){
 		answers = ans;
 		questions = quest;
 		numberofquestions = max;
-		nQuestion = parseInt(getCookie('startnum'))-1;
+		if(achieved == true){
+			nQuestion = 0;
+			document.getElementById('goodAnswer').innerHTML = 'n/a';
+			document.getElementById('goodAnswer').onclick = '#';
+			document.getElementById('goodAnswer').style.color = 'ghostwhite';
+		}else{
+			nQuestion = parseInt(getCookie('startnum'))-1;
+		}
 	}else{
 		for(i = 0; i < numberofquestions; ++i){
 			var n = values.splice(Math.random()*values.length,1)[0];
@@ -85,6 +94,11 @@ function initQuestion(fail){
 }
 
 function newQuestion(){
+	if(failed == 'failed'){
+		document.getElementById('cid').style.display = 'none';
+	}else{
+		document.getElementById('cid').style.display = 'inline-block';
+	}
 	if(questions[nQuestion] != undefined){
 		document.getElementById('question').innerHTML = questions[nQuestion];
 		document.getElementById('cid').innerHTML = nQuestion+1;
@@ -122,8 +136,8 @@ function checkAnswer(){
 
 	if(user == '」' || user == '$'){
 		for(x = 0 ; memo.length >= x ; x++){
-			var prememo = questions[nQuestion-1]+"　"+answers[nQuestion-1];
-			if(prememo == "　"){
+			var prememo = questions[nQuestion-1];
+			if(prememo == ""){
 				return
 			}
 			if(memo[x] != prememo){
@@ -205,13 +219,19 @@ function failedInit(){
 		wrongQ = [];
 		wasWrong = true
 		console.log('start review of : '+questions);
+		failed = 'failed';
 		newQuestion();
 	}else{
+		if(getCookie('fulldeck') == 'true'){
+			alert('Deck is restarting...');
+			achieved = true;
+			failed = 'nope';
+		}
 		if(wasWrong == true){
 			initQuestion(true);
 			wasWrong = false;	
-		}else{
-			initQuestion(false);	
+		}else{	
+			initQuestion(false);
 		}
 	}
 }
@@ -225,7 +245,6 @@ function updateDeck(){
 			alert('champ vide');
 		}
 	}else{
-		setCookie('cookieDeck', false, 3650);
 		setCookie('deck', url, 3650);
 		document.getElementById('deckLink').value = '';
 		document.getElementById('deckLink').placeholder = url;
@@ -233,7 +252,6 @@ function updateDeck(){
 }
 
 function updateJLPT(n){
-	setCookie('cookieDeck', false, 3650);
 	setCookie('deck', 'deck/'+n+'.js', 3650);
 	document.getElementById('deckLink').placeholder = "deck/"+n+".js";
 }

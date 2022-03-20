@@ -46,13 +46,14 @@
 <body>
 	<center><h2>Anki / Kotoba ーー＞ Cartory / Cardogus</h2></center>
 	<center><input id='title' placeholder="new deck's name"></input></center>
-	<center><textarea id='text' placeholder='export your deck in plain text from Anki(PC) or KotobaWeb then drag that file here...'></textarea></center>
+	<center><textarea id='text' placeholder=''></textarea></center>
 	<center><label for='file-input'>drag your deck here...<input type='file' id='file-input'></label></center>
 	<center><br><button id='txt1' onclick='	convert(0)'></button></center>
 </body>
 <script type="text/javascript" src='js/filesaver.js'></script>
 <script type="text/javascript" src='js/nikolib.js'></script>
 <script type="text/javascript">
+	document.getElementById('text').placeholder = 'export your deck in plain text from Anki(PC) or KotobaWeb then drag it here...\n\nQuestions must not contain any space';
 	var lang = getCookie('lang');
 	if(lang == 1){
 		document.getElementById('txt1').innerHTML = "convertir & exporter";

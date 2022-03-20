@@ -2,7 +2,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<meta http-equiv='Cache-control' content='no-cache'>"+
 "<audio id='correct' src='sfx/correct.mp3'></audio>"+
 "<audio id='wrong' src='sfx/wrong.mp3'></audio>"+
-"<center><label id='dd' for='file-input'>drag your file here...<input type='file' id='file-input'></label></center>"+
+"<center><label id='dd' for='file-input'><br><br><br><br>déposez votre deck ici<input type='file' id='file-input'></label></center>"+
 "<textarea id='text' placeholder='export your deck in plain text from Anki(PC) or KotobaWeb then select/drag that file'></textarea>"+
 "<div id='cardId'>#<span id='cid'>1</span></div>"+
 "<div id='question'>n/a</div>"+

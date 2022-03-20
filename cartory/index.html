@@ -49,7 +49,7 @@
 
 	function initQuestion(){
 		if(trans == false){
-		var send = "<input type='file' id='file-input2'>selected card : <span id='current'>none</span>　│　total cards : <span id='totcards'>0</span><br><table><tr><td><button onclick='unsel()'>unselect</button></td><td><button onclick='mod()'>modify</button></td><td><button onclick='del()'>delete</button></td></tr><tr><td><button onclick='createcard()'>new card</button></td><td><button onclick='exp(1)'>export</button></td><td><label id='lab2' onclick='transfer()' for='file-input2'>transfer</label></td></tr><tr><td><input id='que' placeholder='question...'></td><td><input id='an' placeholder='answer...'></td><td><textarea id='comm' placeholder='comments...'></textarea></td></tr><tr></table><table id='realtable'><th>question</th><th>answer</th><th>comments</th></tr>";
+		var send = "<input type='file' id='file-input2'>selected card : <span id='current'>none</span>　│　total cards : <span id='totcards'>0</span><br><table><tr><td><button title='unselect current card' onclick='unsel()'>unselect</button></td><td><button onclick='mod()' title='apply the modifications to the currently selected card'>modify</button></td><td><button onclick='del()' title='delete the currently selected card'>delete</button></td></tr><tr><td><button onclick='createcard()' title='create a new card to the deck'>new card</button></td><td><button onclick='exp(1)' title='export the current deck'>export</button></td><td><label id='lab2' onclick='transfer()' for='file-input2' title='transfer cards from the current deck to a seleceted deck'>transfer</label></td></tr><tr><td><input id='que' placeholder='question...'></td><td><input id='an' placeholder='answer...'></td><td><textarea id='comm' placeholder='comments...'></textarea></td></tr><tr></table><table id='realtable'><th>question</th><th>answer</th><th>comments</th></tr>";
 		for(x = 0 ; x < quest.length; x++){
 			send += '<tr onclick="select(`'+x+'`)" id="'+x+'" class="line"><td id="q'+x+'">'+quest[x]+'</td><td id="a'+x+'">'+ans[x]+'</td><td id="c'+x+'">'+comment[x]+'</td></tr>';
 		}
@@ -58,7 +58,7 @@
 		document.getElementById('totcards').innerHTML = quest.length;
 			
 		}else{
-		send = "<textarea id='transferarea' placeholder='paste the questions you want to transfer'></textarea><br><button id='transbutton' onclick='transgo()'>transfer !</button>";
+		send = "<textarea id='transferarea' placeholder='type or copy&paste here the questions (questions only) you want to transfer as such :`\n\nquestion1\nquestion2\nquestion3'></textarea><br><button id='transbutton' onclick='transgo()'>transfer !</button>";
 		document.getElementById('main').innerHTML = send;
 		}
 	}
@@ -205,9 +205,9 @@
 		var send = sendquest+"\n"+sendans+"\n"+sendcomment+"\ninitQuestion();";
 		var newdeck = new Blob([send], {type: "text/plain;charset=utf-8"});
         if(n == 1){
-        	saveAs(newdeck, "exported1.js");
+        	saveAs(newdeck, "new_deck1.js");
 		}else{
-        	saveAs(newdeck, "exported2.js");
+        	saveAs(newdeck, "new_deck2.js");
 		}
 	}
 

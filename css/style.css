@@ -122,6 +122,10 @@ button{
 	padding: 5px;
 }
 
+#dd{
+	font-size: 1.8em;
+}
+
 .okButton{
 	display: inline-block;
 	padding: 5px;

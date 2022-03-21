@@ -44,7 +44,7 @@
 	</style>
 </head>
 <body>
-	<center><h2>Anki / Kotoba ーー＞ Cartory / Cardogus</h2></center>
+	<center><h2>Anki ーー＞ Cartory / Cardogus</h2></center>
 	<center><input id='title' placeholder="new deck's name"></input></center>
 	<center><textarea id='text' placeholder=''></textarea></center>
 	<center><label for='file-input'>drag your deck here...<input type='file' id='file-input'></label></center>
@@ -53,7 +53,7 @@
 <script type="text/javascript" src='js/filesaver.js'></script>
 <script type="text/javascript" src='js/nikolib.js'></script>
 <script type="text/javascript">
-	document.getElementById('text').placeholder = 'export your deck in plain text from Anki(PC) or KotobaWeb then drag it here...\n\nQuestions must not contain any space';
+	document.getElementById('text').placeholder = 'export your deck in plain text from Anki(PC) then drag it here...\n\nCommas in the "answer" field will be considered as separators for multiple answsers';
 	var lang = getCookie('lang');
 	if(lang == 1){
 		document.getElementById('txt1').innerHTML = "convertir & exporter";
@@ -111,10 +111,14 @@
 		var text = document.getElementById('text');
      	var source = text.value.search('Type the reading of the below word in Hiragana');
      	if(source  == -1){
+			source = text.value.search(",Type the reading!,Image");
+     	}
+     	if(source  == -1){
 			source = text.value.search(",,Type the reading!,Image");
      	}
 		str = text.value.replace(/,Type the reading of the below word in Hiragana!/g , '');
-		str = str.replace(/,,Type the reading!,Image/g , '');
+		str = text.value.replace(/,,Type the reading of the below word in Hiragana!/g , '');
+		str = str.replace(/,Type the reading!,Image/g , '');
 		str = str.replace(/Question,Answers,Comment,Instructions,Render as\n/ , '');
 		str = str.replace(/Question,Answers,Comment,Instructions\n/ , '');
      	str = str.replace(/, /g, '/');
@@ -135,8 +139,13 @@
         		part[1] = part[1].split(/%(.+)/)[0];
         		str[a] = part[0]+" "+part[1];
      		}
-        	part[0] = str[a].split(/\s(.+)/)[0];  //everything before the first space
-        	part[1] = str[a].split(/\s(.+)/)[1];  //everything after the first space
+        	part[0] = str[a].split(/\t(.+)/)[0];  //everything before the first space
+        	part[1] = str[a].split(/\t(.+)/)[1];  //everything after the first space
+        	if(part[1] == undefined){
+        		part[0] = str[a].split(/%(.+)/)[0];
+        		part[1] = str[a].split(/%(.+)/)[1];
+        		part[1] = part[1].replace("%%%Image",'');
+        	}
         	  if(part[0] && part[1] !=''){
      		  part[0] = part[0].replace(/,/ , ' ');
      		  part[1] = part[1].replace(/"/g, '');

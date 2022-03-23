@@ -45,16 +45,14 @@ function initQuestion(fail){
 	if(fail == false){
 		lastQ2 = questions[questions.length-1]
 		lastA2 = answers[answers.length-1]
+		lastC2 = recomment[recomment.length-1]
 	}
 	questions = [];
 	answers = [];
-	if(fail == true){
-		questions.push(lastQ2);
-		answers.push(lastA2);
-	}else{
-		questions.push(lastQ2);
-		answers.push(lastA2);
-	}
+	recomment = [];
+	questions.push(lastQ2);
+	answers.push(lastA2);
+	recomment.push(lastC2);
 	max = quest.length;
 	var values = [];
 	for (i = 0; i < max; ++i){
@@ -69,6 +67,7 @@ function initQuestion(fail){
 	if(getCookie('randomness') == 'false'){
 		answers = ans;
 		questions = quest;
+		recomment = comment;
 		numberofquestions = max;
 		if(achieved == true){
 			nQuestion = 0;
@@ -83,6 +82,7 @@ function initQuestion(fail){
 			var n = values.splice(Math.random()*values.length,1)[0];
 			questions.push(quest[n]);
 			answers.push(ans[n]);
+			recomment.push(comment[n]);
 			if(getCookie('randomness') == 'false'){
 				nQuestion = parseInt(getCookie('startnum'))-1;
 			}else{
@@ -180,12 +180,18 @@ function checkAnswer(){
 		document.getElementById('wrong').play();
 		var forLaterQ = questions[nQuestion];
 		var forLaterA = answers[nQuestion];
+		var forLaterC = recomment[nQuestion];
 		wrongQ.push(forLaterQ);
 		wrongA.push(forLaterA);
+		wrongC.push(forLaterC);
 	}
 	var ratio = Math.round(totalcorrect/totalseen*100);
 	document.getElementById('perc').innerHTML = ratio+'%';
-	document.getElementById('goodAnswer').innerHTML = questions[nQuestion]+" --> "+answers[nQuestion];
+	document.getElementById('goodAnswer').innerHTML = questions[nQuestion]+" => "+answers[nQuestion];
+	document.getElementById('comtitle').innerHTML = questions[nQuestion]+" => "+answers[nQuestion];
+	if(recomment[nQuestion] != undefined){
+		document.getElementById('compar').innerHTML = recomment[nQuestion].replace(/\n/g, '<br>');
+	}
 	if(getCookie('dico') == "jisho"){
 		document.getElementById('goodAnswer').onclick = function(){window.open('https://jisho.org/search/'+questions[nQuestion-1], '_blank');};
 	}else{
@@ -200,12 +206,15 @@ function failedInit(){
 	console.log(max+' failed');
 	if(max != 0){
 		lastQ = questions[questions.length-1];
-		lastA = answers[questions.length-1];
+		lastA = answers[answers.length-1];
+		lastC = recomment[recomment.length-1];
 		console.log("last question was : "+lastQ)
 		questions = [];
 		answers = [];
+		recomment = [];
 		questions.push(lastQ);
 		answers.push(lastA);
+		recomment.push(lastC);
 		var values = [];
 		for (i = 0; i < max; ++i){
 		   	values.push(i);
@@ -214,12 +223,15 @@ function failedInit(){
 			var n = values.splice(Math.random()*values.length,1)[0];
 			questions.push(wrongQ[n]);
 			answers.push(wrongA[n]);
+			recomment.push(wrongC[n]);
 		}
 		nQuestion = 1;
 		lastQ2 = wrongQ[max-1];
 		lastA2 = wrongA[max-1];
+		lastC2 = wrongC[max-1];
 		wrongA = [];
 		wrongQ = [];
+		wrongC = [];
 		wasWrong = true
 		console.log('start review of : '+questions);
 		failed = 'failed';
@@ -388,4 +400,12 @@ function checkcolors(){
 		document.getElementById('fullordered').style.color = 'lightgrey';
 		document.getElementById('random').style.color = 'brown';
 	}
+}
+
+function closecom(){
+	document.getElementById('com').style.display = 'none';
+}
+
+function opencom(){
+	document.getElementById('com').style.display = 'block';
 }

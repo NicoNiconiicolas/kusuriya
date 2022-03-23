@@ -404,8 +404,10 @@ function checkcolors(){
 
 function closecom(){
 	document.getElementById('com').style.display = 'none';
+	document.getElementById('combo').style.display = 'block';
 }
 
 function opencom(){
 	document.getElementById('com').style.display = 'block';
+	document.getElementById('combo').style.display = 'none';
 }

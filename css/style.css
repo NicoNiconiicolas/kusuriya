@@ -8,6 +8,45 @@ body{
 	text-align: center;
 }
 
+#com{
+	z-index: 999;
+	position: absolute;
+	left: 10vw;
+	width: 80vw;
+	height: 80vh;
+	background: #333;
+	color: ghostwhite;
+	top: 2vh;
+	overflow: auto;
+	display: none;
+}
+
+#com h1{
+	background: steelblue;
+	margin: 0;
+}
+
+#com button{
+	background: #444;
+	color: ghostwhite;
+	border: none;
+	width: 50px;
+	height: 50px;
+	float: right;
+	position: relative;
+	top: -50px;
+	cursor: pointer;
+}
+
+#com button:hover{
+	background: #555;
+}
+
+#com span{
+	font-size: 1.2em;
+	margin: 5px;
+}
+
 h1{
 	margin: 0;
 	font-size: 1.6em;
@@ -244,6 +283,7 @@ button{
 }
 
 #combo{
+	cursor: pointer;
 	text-align: left;
 	display: inline-block;
 	padding: 5px;
@@ -348,6 +388,17 @@ button{
 
 	h1{
 		font-size: 1.3em;
+	}
+
+	#com{
+		width: 100vw;
+		left: 0vw;
+	}
+
+	#com button{
+		width: 43px;
+		height: 43px;
+		top: -43px;
 	}
 
 	#answerbox2{

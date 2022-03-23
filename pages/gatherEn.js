@@ -71,8 +71,6 @@ function readSingleFile(e) {
     reader.onload = function(e) {
       var contents = e.target.result;
       eval(contents);
-      document.getElementById('text').value = "";
-      document.getElementById('text').value = contents;
     };
     reader.readAsText(file);
     null;

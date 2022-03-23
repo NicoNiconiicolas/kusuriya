@@ -3,7 +3,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<audio id='correct' src='sfx/correct.mp3'></audio>"+
 "<audio id='wrong' src='sfx/wrong.mp3'></audio>"+
 "<center><label id='dd' for='file-input'><br><br><br><br>drag your deck here<input type='file' id='file-input'></label></center>"+
-"<div id='com'><h1 id='comtitle'>コメント</h1><button onclick='closecom()'>X</button><br><br><br><span id='compar'></span><br><br></div>"+
+"<div id='com'><h1 id='comtitle'>コメント</h1><button onclick='closecom()'>X</button><br><span id='compar'></span><br><br></div>"+
 "<div id='cardId'>#<span id='cid'>1</span></div>"+
 "<div id='question'>n/a</div>"+
 "<div id='answerbox'><input id='answer' autofocus></input></div>"+

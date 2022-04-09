@@ -58,7 +58,7 @@
 		document.getElementById('totcards').innerHTML = quest.length;
 			
 		}else{
-		send = "<textarea id='transferarea' placeholder='type or copy&paste here the questions (questions only) you want to transfer as such :`\n\nquestion1\nquestion2\nquestion3'></textarea><br><button id='transbutton' onclick='transgo()'>transfer !</button>";
+		send = "<textarea id='transferarea' placeholder='type or copy & paste here the questions (questions only) you want to transfer as such :`\n\nquestion1\nquestion2\nquestion3'></textarea><br><button id='transbutton' onclick='transgo()'>transfer !</button>";
 		document.getElementById('main').innerHTML = send;
 		}
 	}
@@ -137,7 +137,8 @@
 			comment.push(newc);
 			initQuestion();
 		}else{
-			alert("Question & Answer fileds are required")
+			send = "<textarea id='transferarea' placeholder='type or copy&paste here the questions & answers you want to create as such :`\n\nquestion1　answer1\nquestion2　answer2\nquestion3　answer3, answer3-2'></textarea><br><button id='transbutton' onclick='masscreate()'>add cards !</button>";
+			document.getElementById('main').innerHTML = send;
 		}
 	}
 
@@ -214,7 +215,6 @@
 	function transgo(){
 		var user = document.getElementById('transferarea').value;
 		totrans = user.split('\n');
-		var dim = 0
 		for(x = 0 ; x < totrans.length; x++){
 			for(y = 0 ; y < questor.length; y++){
 				{
@@ -228,6 +228,32 @@
 		exp(1);
 		exp(2);
 		window.location = 'index.html';
+	}
+
+	function masscreate(){
+		var user = document.getElementById('transferarea').value;
+		totrans = user.split('\n');
+		for(x = 0 ; x < totrans.length; x++){
+			var supertruc = totrans[x].match(/^(\S+)\s(.*)/).slice(1);
+			supertruc[1] = supertruc[1].replace(" $", "$")
+			comm = supertruc[1].split('$');
+			createsinglemass(supertruc[0], comm[0], comm[1]);
+		}
+		exp(1);
+		window.location = 'index.html';
+	}
+
+	function createsinglemass(q, a, c){
+		var newq = q;
+		var newa = a;
+		var newc = c;
+		if(newq != "" && newa != ""){
+			quest.push(newq);
+			ans.push(newa);
+			comment.push(newc);
+		}else{
+			alert('au moins une question réponse sont nécaissaires !');
+		}
 	}
 
 	document.getElementById('file-input').addEventListener('change', readSingleFile, false);

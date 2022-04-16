@@ -5,7 +5,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<center><label id='dd' for='file-input'><br><br><br><br>drag your deck here<input type='file' id='file-input'></label></center>"+
 "<div id='com'><h1 id='comtitle'>コメント</h1><button onclick='closecom()'>X</button><br><span id='compar'></span><br><br></div>"+
 "<div id='cardId'>#<span id='cid'>1</span></div>"+
-"<div id='question'>n/a</div>"+
+"<div id='question' onclick='altgame()'>n/a</div>"+
 "<div id='answerbox'><input id='answer' autofocus></input></div>"+
 "<br class='ansbox'><div class='ansbox' id='showans'>? ? ?</div>"+
 "<br class='ansbox'><div id='answerbox2' onclick='jeu2()'>voir la réponse</div>"+

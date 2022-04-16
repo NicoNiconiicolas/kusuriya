@@ -416,3 +416,25 @@ function opencom(){
 	document.getElementById('com').style.display = 'block';
 	document.getElementById('combo').style.display = 'none';
 }
+
+function altgame(){
+	if(getCookie('jeu') == '1'){
+	  document.getElementById('answerbox').style.display = 'none';
+	  document.getElementById('goodAnswer').style.display = 'none';
+	  document.getElementsByClassName('ansbox')[0].style.display = 'block';
+	  document.getElementsByClassName('ansbox')[1].style.display = 'inline-block';
+	  document.getElementsByClassName('ansbox')[2].style.display = 'block';
+	  document.getElementById('answerbox2').style.display = 'inline-block';
+	  document.getElementById('answer').value = '';
+	  setCookie('jeu', '0', 3650);
+	}else{
+  		document.getElementsByClassName('ansbox')[0].style.display = 'none';
+  		document.getElementsByClassName('ansbox')[1].style.display = 'none';
+  		document.getElementsByClassName('ansbox')[2].style.display = 'none';
+  		document.getElementById('answerbox2').style.display = 'none';
+  		document.getElementById('answerbox').style.display = 'block';
+  		document.getElementById('goodAnswer').style.display = 'inline-block';
+  		setCookie('jeu', '1', 3650);
+  		document.getElementById('answer').value = '';
+	}
+}

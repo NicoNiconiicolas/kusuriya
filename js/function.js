@@ -134,6 +134,11 @@ function checkAnswer(){
 		return
 	}
 
+	if(user == '/miss'){
+		failedInit();
+		return
+	}
+
 	if(user == '」' || user == '$'){
 		var exist = false;
 		for(x = 0 ; x <= memo.length ; x++){

@@ -14,7 +14,7 @@ body{
 	left: 10vw;
 	width: 80vw;
 	height: 80vh;
-	background: #333;
+	background: #222;
 	color: ghostwhite;
 	top: 2vh;
 	overflow: auto;
@@ -52,7 +52,7 @@ h1{
 	margin: 0;
 	font-size: 1.6em;
 	color: white;
-	background: #333;
+	background: #222;
 	border-top-left-radius: 5px;
 	padding: 5px;
 }
@@ -68,7 +68,7 @@ label{
 	z-index: 999;
 	display: none;
 	left: 12.5vw;
-	background: #333;
+	background: #222;
 	cursor: pointer;
 	border-radius: 10px;
 	width: 76%;
@@ -112,7 +112,7 @@ label{
 	display: none;
 	position: absolute;
 	color: ghostwhite;
-	background: #333;
+	background: #222;
 	padding: 10px;
 }
 
@@ -146,7 +146,7 @@ button{
 .langB{
 	display: inline-block;
 	padding: 10px;
-	background: #333;
+	background: #222;
 	border-radius: 5px;
 	color: ghostwhite;
 	font-size: 2em;
@@ -170,7 +170,7 @@ button{
 	display: inline-block;
 	padding: 5px;
 	border-radius: 10px;
-	background: #333;
+	background: #222;
 	color: lightgrey;
 	border-bottom: 2px #555 solid;
 	border-right: 2px #555 solid;
@@ -185,14 +185,14 @@ button{
 	position: relative;
 	top: 30vh;
 	padding: 10px;
-	background: #333;
+	background: #222;
 	color: ghostwhite;
 	font-size: 1.8em;
 	display: none;
 }
 
 .ansbu:hover{
-	background: #333;
+	background: #222;
 	cursor: pointer;
 }
 
@@ -217,7 +217,7 @@ button{
 	position: relative;
 	top: 20vh;
 	font-size: 3em;
-	background: #333;
+	background: #222;
 	border-bottom: ridge 1px dimgrey;
 	border-right: ridge 2px dimgrey;
 }
@@ -271,7 +271,7 @@ button{
 
 #answerbox2{
 	display: none;
-	background: #333;
+	background: #222;
 	color: ghostwhite;
 	border-radius: 10px;
 	text-align: center;
@@ -283,7 +283,7 @@ button{
 }
 
 #answerbox2:hover{
-	background: #333;
+	background: #222;
 	cursor: pointer;
 }
 
@@ -292,7 +292,7 @@ button{
 	text-align: left;
 	display: inline-block;
 	padding: 5px;
-	background: #333;
+	background: #222;
 	border: 1px solid dimgrey;
 	position: absolute;
 	color: ghostwhite;
@@ -308,18 +308,19 @@ button{
 	width: 100vw;
 	height: 100vh;
 	background: url('../img/bg1.jpg');
+	background-size: 100% 100%;
 }
 
 #footer{
-	box-shadow: inset 12px 12px 32px #333;
-	border-top: 4px ridge #333;
+	box-shadow: inset 12px 12px 32px #222;
+	border-top: 4px ridge #222;
 	position: fixed;
 	display: grid;
 	grid-template-areas: "deck gestion";
 	bottom: 0;
 	width: 100vw;
 	height: 10vh;
-	background: #333;
+	background: #222;
 	border-top-left-radius: 25%;
 	border-top-right-radius: 25%;
 }
@@ -357,6 +358,7 @@ button{
 
 	#bg{
 		background: url('../img/bg1.jpg') 40% 0%;
+		background-size: 175% 100%;
 	}
 
 	#showans{
@@ -385,6 +387,7 @@ button{
 
 	#bg{
 		background: url('../img/bg1.jpg') 40% 0%;
+		background-size: 200% 100%;
 	}
 
 	#deckLink{

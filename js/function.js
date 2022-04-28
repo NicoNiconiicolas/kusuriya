@@ -47,6 +47,10 @@ function getTime(){
 
 function initQuestion(fail){
 	diviseur = 100/quest.length;
+	if(getCookie('fulldeck') == 'true' && getCookie('randomness') == 'false'){
+		progression = diviseur * parseInt(getCookie('startnum'))-1;
+		bar(progression);
+	}
 	if(fail == false){
 		lastQ2 = questions[questions.length-1]
 		lastA2 = answers[answers.length-1]
@@ -95,6 +99,7 @@ function initQuestion(fail){
 			}
 		}
 	}
+	setCookie('startnum', 0, 3650);
 	newQuestion();
 }
 

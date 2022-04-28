@@ -1,6 +1,7 @@
 document.getElementsByTagName('body')[0].innerHTML +=""+
 "<meta http-equiv='Cache-control' content='no-cache'>"+
 "<audio id='correct' src='sfx/correct.mp3'></audio>"+
+"<div id='progressBar'><div id='progress'></div></div>"+
 "<audio id='wrong' src='sfx/wrong.mp3'></audio>"+
 "<center><label id='dd' for='file-input'><br><br><br><br>drag your deck here<input type='file' id='file-input'></label></center>"+
 "<div id='com'><h1 id='comtitle'>コメント</h1><button onclick='closecom()'>X</button><br><span id='compar'></span><br><br></div>"+
@@ -21,6 +22,11 @@ if(getCookie('jeu') == '1'){
   document.getElementsByClassName('ansbox')[2].style.display = 'block';
   document.getElementById('answerbox2').style.display = 'inline-block';
 }
+
+if(getCookie('fulldeck') != 'true'){
+  document.getElementById('progressBar').style.display = 'none';
+}
+
 var totalseen = 0;
 var totalcorrect = 0;
 var final = [];
@@ -30,6 +36,8 @@ var ans = [];
 var comment = [];
 var answers = [];
 var recomment = [];
+var progression = 0;
+var diviseur = 0;
 
 if($_GET('dd') != 'y'){
   var deck = document.createElement('script');

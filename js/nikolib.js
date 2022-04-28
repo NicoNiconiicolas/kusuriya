@@ -51,3 +51,8 @@ function checkCookie(cname) {
 function delCookie(cname){
 	document.cookie = cname+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
+
+function importJs(path){
+  var script = document.createElement(path);
+  document.head.appendChild(script);
+}

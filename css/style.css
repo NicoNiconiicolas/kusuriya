@@ -8,6 +8,29 @@ body{
 	text-align: center;
 }
 
+#progressBar{
+	background: #335;
+	border: 2px solid #2A2A2A;
+	margin: auto;
+	margin-top: 25px;
+	width: 75%;
+	position: absolute;
+	top: 7vh;
+	left: 11%;
+	height: 60px;
+	border-radius: 5px;
+}
+
+
+#progress{
+	transition: 0.5s;
+	width: 0%;
+	height: 54px;
+	background: ghostwhite;
+	border-bottom: 3px solid lightgrey;
+	border-radius: 5px;
+}
+
 #com{
 	z-index: 999;
 	position: absolute;
@@ -153,7 +176,7 @@ button{
 }
 
 .langB:hover{
-	background: brown;
+	background: steelblue;
 	cursor: pointer;
 }
 
@@ -178,7 +201,7 @@ button{
 }
 
 .okButton:hover{
-	color: brown!important;
+	color: steelblue;!important;
 }
 
 .ansbu{
@@ -215,7 +238,6 @@ button{
 	margin: auto;
 	color: ghostwhite;
 	position: relative;
-	top: 20vh;
 	font-size: 3em;
 	background: #222;
 	border-bottom: ridge 1px dimgrey;
@@ -223,12 +245,13 @@ button{
 }
 
 #question{
+	top: 24vh;
 	cursor: pointer;
 }
 
 #goodAnswer{
 	display: none;
-	top: 40vh;
+	top: 36vh;
 	left: 0.5vw;
 	font-size: 2em;	
 }
@@ -240,9 +263,9 @@ button{
 #answerbox{
 	display: none;
 	top: 20vh;
-	width: 33vw;
+	left: 33.3%;
+	width: 32vw;
 	height: 5vh;
-	margin: auto;
 	position: relative;
 }
 
@@ -307,8 +330,7 @@ button{
 	margin: 0;
 	width: 100vw;
 	height: 100vh;
-	background: url('../img/bg1.jpg');
-	background-size: 100% 100%;
+	background: #1A1A1A;
 }
 
 #footer{
@@ -336,7 +358,7 @@ button{
 }
 
 .menu-el:hover{
-	background: brown;
+	background: steelblue;;
 }
 
 #box, #box2{
@@ -356,11 +378,6 @@ button{
 
 @media (min-width : 501px) and (max-width: 768px){
 
-	#bg{
-		background: url('../img/bg1.jpg') 40% 0%;
-		background-size: 175% 100%;
-	}
-
 	#showans{
 		font-size: 1.4em;
 	}
@@ -371,6 +388,7 @@ button{
 
 	#answerbox{
 		width: 66vw;
+		left: 14%;
 	}
 
 	#answerbox2{
@@ -385,9 +403,13 @@ button{
 
 @media (max-width: 500px){
 
-	#bg{
-		background: url('../img/bg1.jpg') 40% 0%;
-		background-size: 200% 100%;
+	#progressBar{
+		width: 75%;
+		height: 7vh;
+	}
+
+	#progress{
+		height: 6vh;
 	}
 
 	#deckLink{
@@ -424,6 +446,7 @@ button{
 
 	#answerbox{
 		width: 66vw;
+		left: 14%;
 	}
 
 	#question{
@@ -432,7 +455,7 @@ button{
 
 	#goodAnswer{
 		font-size: 1.5em;
-		top: 40vh;
+		top: 36vh;
 	}
 
 	#combo{

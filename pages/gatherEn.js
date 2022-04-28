@@ -36,7 +36,7 @@ if($_GET('dd') != 'y'){
   deck.src = getCookie('deck');
 }else{
   document.getElementsByTagName('label')[0].style.display = 'block';
-  document.getElementById('file-input').addEventListener('change', readSingleFile, false);
+  setTimeout(function(){document.getElementById('file-input').addEventListener('change', readSingleFile, false)}, 100);
 }
 let nQuestion = 0;
 let lastQ = "";

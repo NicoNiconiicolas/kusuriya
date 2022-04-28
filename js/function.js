@@ -441,6 +441,8 @@ function altgame(){
   		document.getElementsByClassName('ansbox')[1].style.display = 'none';
   		document.getElementsByClassName('ansbox')[2].style.display = 'none';
   		document.getElementById('answerbox2').style.display = 'none';
+  		document.getElementById('ansbu2').style.display = 'none';
+  		document.getElementById('ansbu1').style.display = 'none';
   		document.getElementById('answerbox').style.display = 'block';
   		document.getElementById('goodAnswer').style.display = 'inline-block';
   		setCookie('jeu', '1', 3650);

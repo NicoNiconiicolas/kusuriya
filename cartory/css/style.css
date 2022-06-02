@@ -1,6 +1,6 @@
 body{
 	margin: 0;
-	background: #333;
+	background: #000;
 	font-family: consolas;
 }
 
@@ -32,15 +32,15 @@ table{
 button{
 	padding: 5px;
 	border-radius: 5px;
-	border: 2px steelblue ridge;
+	border: 2px #800; ridge;
 	color: white;
-	background: steelblue;
+	background: #800;
 	width: 100%;
-	font-family: consolas;
+	font-family: arial;
 }
 
 button:hover{
-	background: skyblue;
+	background: #A00;
 }
 
 #nd{
@@ -79,7 +79,7 @@ input, textarea{
 
 label{
 	transition: background 0.2s;
-	background: darkred;
+	background: #111;
 	font-size: 2em;
 	display: block;
 	position: relative;
@@ -89,15 +89,15 @@ label{
 }
 
 label:hover{
-	background: #C00;
+	background: #222;
 }
 
 table label{
-	padding: 5px;
+	padding: 2px;
 	border-radius: 5px;
-	border: 2px steelblue ridge;
+	border: 1px #800 ridge;
 	color: white;
-	background: steelblue;
+	background: #800;
 	font-family: consolas;
 	height: 20px;
 	font-size: 0.8em;

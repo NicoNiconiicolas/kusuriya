@@ -1,8 +1,8 @@
 document.getElementsByTagName('body')[0].innerHTML +=""+
 "<meta http-equiv='Cache-control' content='no-cache'>"+
 "<audio id='correct' src='sfx/correct.mp3'></audio>"+
-"<div id='progressBar'><div id='progress'></div></div>"+
 "<audio id='wrong' src='sfx/wrong.mp3'></audio>"+
+"<div id='progressBar'><div id='progress'></div></div>"+
 "<center><label id='dd' for='file-input'><br><br><br><br>déposez votre deck ici<input type='file' id='file-input'></label></center>"+
 "<div id='com'><h1 id='comtitle'>コメント</h1><button onclick='closecom()'>X</button><br><span id='compar'></span><br><br></div>"+
 "<div id='cardId'>#<span id='cid'>1</span></div>"+
@@ -23,10 +23,6 @@ if(getCookie('jeu') == '1'){
   document.getElementById('answerbox2').style.display = 'inline-block';
 }
 
-if(getCookie('fulldeck') != 'true'){
-  document.getElementById('progressBar').style.display = 'none';
-}
-
 var totalseen = 0;
 var totalcorrect = 0;
 var final = [];
@@ -42,6 +38,9 @@ var diviseur = 0;
 if($_GET('dd') != 'y'){
    var deck = document.createElement('script');
    deck.src = getCookie('deck');
+   if(getCookie('fulldeck') == 'true'){
+      document.getElementById('progressBar').style.display = 'block';
+    }
 }else{
   document.getElementsByTagName('label')[0].style.display = 'block';
   setTimeout(function(){document.getElementById('file-input').addEventListener('change', readSingleFile, false)}, 100);
@@ -160,4 +159,7 @@ function readSingleFile(e) {
     reader.readAsText(file);
     null;
     document.getElementsByTagName('label')[0].style.display = 'none';
+    if(getCookie('fulldeck') == 'true'){
+      document.getElementById('progressBar').style.display = 'block';
+    }
   }

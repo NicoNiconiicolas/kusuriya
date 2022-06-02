@@ -23,10 +23,6 @@ if(getCookie('jeu') == '1'){
   document.getElementById('answerbox2').style.display = 'inline-block';
 }
 
-if(getCookie('fulldeck') != 'true'){
-  document.getElementById('progressBar').style.display = 'none';
-}
-
 var totalseen = 0;
 var totalcorrect = 0;
 var final = [];
@@ -42,6 +38,9 @@ var diviseur = 0;
 if($_GET('dd') != 'y'){
   var deck = document.createElement('script');
   deck.src = getCookie('deck');
+  if(getCookie('fulldeck') == 'true'){
+      document.getElementById('progressBar').style.display = 'block';
+    }
 }else{
   document.getElementsByTagName('label')[0].style.display = 'block';
   setTimeout(function(){document.getElementById('file-input').addEventListener('change', readSingleFile, false)}, 100);
@@ -82,5 +81,8 @@ function readSingleFile(e) {
     };
     reader.readAsText(file);
     null;
+    if(getCookie('fulldeck') == 'true'){
+      document.getElementById('progressBar').style.display = 'block';
+    }
     document.getElementsByTagName('label')[0].style.display = 'none';
   }

@@ -9,76 +9,13 @@
 <script type="text/javascript" src='js/nikolib.js'></script>
 </head>
 <body id='bg'>
-	<div id='lang'>
-		<div id='box'>
-			<h1>Choose your language</h1>
-			<div id='langButtons'>
-				<div class='langB' onclick='setLang(0)'>English</div>
-				<br><br><div class='langB' onclick='setLang(1)'>Français</div>
-			</div>
-		</div>
-	</div>
 </body>
 <script>
-
-	//controler
-	var p = $_GET('p');
 	var page = document.createElement('script');
 	var menu = document.createElement('script');
-	var getLang = getCookie('lang');
-	switch(p){
-		case null:
-		p = "gestion";
-		
-		case "gather":case"gestion":
-		break
-
-		default:
-		p = "gestion";
-	}
-	if(getLang == 0 || getLang == undefined){
-		page.src = 'pages/'+p+'En.js';
-		menu.src = 'model/menuEn.js';
-	}else{
-		page.src = 'pages/'+p+'.js';
-		menu.src = 'model/menu.js';
-	}
+	page.src = 'pages/gather.js';
+	menu.src = 'model/menu.js';
 	document.getElementsByTagName('body')[0].appendChild(page);
-</script>
-<script>
-	// si cookies n'existent pas crée une nouvelle partie
-
-	if(getCookie('fulldeck') == ""){
-		setCookie('fulldeck', 'false', 3650);
-	}
-
-	if(getCookie('randomness') == ""){
-		setCookie('randomness', 'true', 3650);
-	}
-
-	if(getCookie('startnum') == ""){
-		setCookie('startnum', '1', 3650);
-	}
-
-	if(getCookie('dico') == ""){
-		setCookie('dico', "jisho", 3650);
-	}
-
-	if(getCookie('jeu') == ""){
-		setCookie('jeu', 1, 3650);
-	}
-
-	let lang = document.getElementById('lang');
-	if(getCookie('lang') == ""){
-		lang.style.display = 'block';
-		setCookie("deck", "deck/N5.js", 3650);
-		setCookie("cardsToday", 0, 3650);
-		setCookie("day", today(), 3650);
-	}else{
-		checkCards();
-	}
-	if(getLang != ""){
-		document.getElementsByTagName('body')[0].appendChild(menu);
-	}
+	document.getElementsByTagName('body')[0].appendChild(menu);
 </script>
 </html>

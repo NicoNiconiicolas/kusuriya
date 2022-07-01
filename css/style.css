@@ -354,7 +354,7 @@ button{
 	border-top: 4px ridge #222;
 	position: fixed;
 	display: grid;
-	grid-template-areas: "gestion";
+	grid-template-areas: "deck gestion";
 	bottom: 0;
 	width: 100vw;
 	height: 10vh;
@@ -374,7 +374,7 @@ button{
 }
 
 .menu-el:hover{
-	background: steelblue;;
+	background: steelblue;
 }
 
 #box, #box2{

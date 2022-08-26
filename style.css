@@ -1,0 +1,492 @@
+html{
+	overflow: hidden;
+	font-family: consolas;
+	user-select: none;
+}
+body{
+	margin: 0;
+	text-align: center;
+}
+
+#progressBar{
+	display: none;
+	background: #335;
+	border: 2px solid #2A2A2A;
+	margin: auto;
+	margin-top: 25px;
+	width: 75%;
+	position: absolute;
+	top: 7vh;
+	left: 11%;
+	height: 60px;
+	border-radius: 5px;
+}
+
+
+#progress{
+	transition: 0.5s;
+	width: 0%;
+	height: 54px;
+	background: ghostwhite;
+	border-bottom: 3px solid lightgrey;
+	border-radius: 5px;
+}
+
+#memocont{
+	user-select: text;
+	display: block;
+}
+
+#com, #memo{
+	z-index: 999;
+	position: absolute;
+	left: 10vw;
+	width: 80vw;
+	height: 80vh;
+	background: #222;
+	color: ghostwhite;
+	top: 2vh;
+	overflow: auto;
+	display: none;
+}
+
+#com h1, #memo h1{
+	background: #C02;
+	margin: 0;
+}
+
+#com button, #memo button{
+	background: #444;
+	color: ghostwhite;
+	border: none;
+	width: 50px;
+	height: 50px;
+	float: right;
+	position: relative;
+	top: -50px;
+	cursor: pointer;
+}
+
+#com button:hover, #memo button:hover{
+	background: #555;
+}
+
+#com span, #memo span{
+	font-size: 1.2em;
+}
+
+h1{
+	margin: 0;
+	font-size: 1.6em;
+	color: white;
+	background: #222;
+	border-top-left-radius: 5px;
+	padding: 5px;
+}
+
+p{
+	font-size: 0.7em;
+	font-weight: bold;
+}
+
+label{
+	position: absolute;
+	top: 20vh;
+	z-index: 999;
+	display: none;
+	left: 12.5vw;
+	background: #222;
+	cursor: pointer;
+	border-radius: 10px;
+	width: 76%;
+	height: 50vh;
+	color: white;
+	font-family: 'consolas';
+}
+
+#text{
+	display: none;
+}
+
+#file-input{
+	position: absolute;
+	top: 0;
+ 	width: 100%;
+	height: 50vh;
+  	opacity: 0;
+ 	display: block;
+  	cursor: pointer;
+}
+
+#exploration{
+	border-top-left-radius: 25%;
+}
+
+#gestion{
+	border-top-right-radius: 25%;
+}
+
+#startid input{
+	width: 33vw;
+	padding: 5px;
+}
+
+#startid{
+	display: none;
+}
+
+#cardId{
+	border-bottom-right-radius: 5px;
+	display: none;
+	position: absolute;
+	color: ghostwhite;
+	background: #222;
+	padding: 10px;
+}
+
+#b1, #b2, #b3{
+	font-size: 1em;
+}
+
+h2{
+	font-size: 1.3em;
+	margin: 5px;
+}
+
+#lang{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	display: none;
+	background: ghostwhite;
+}
+
+#langButtons{
+	margin-top: 20vh;
+}
+
+button{
+	padding-bottom: 4px;
+	font-size: 1.1em;
+}
+
+.langB{
+	display: inline-block;
+	padding: 10px;
+	background: #222;
+	border-radius: 5px;
+	color: ghostwhite;
+	font-size: 2em;
+}
+
+.langB:hover{
+	background: #C02;
+	cursor: pointer;
+}
+
+#deckLink{
+	width: 33vw;
+	padding: 5px;
+}
+
+#dd{
+	font-size: 1.8em;
+}
+
+.okButton{
+	display: inline-block;
+	padding: 5px;
+	border-radius: 10px;
+	background: #222;
+	color: lightgrey;
+	border-bottom: 2px #555 solid;
+	border-right: 2px #555 solid;
+	cursor: pointer;
+}
+
+.okButton:hover{
+	color: #C02!important;
+}
+
+.ansbu{
+	position: relative;
+	top: 30vh;
+	padding: 10px;
+	background: #222;
+	color: ghostwhite;
+	font-size: 1.8em;
+	display: none;
+}
+
+.ansbu:hover{
+	background: #222;
+	cursor: pointer;
+}
+
+#ansbu1{
+	color: deepskyblue;
+}
+
+#ansbu2{
+	color: red;
+	border-left: 1px #444 solid;
+}
+
+#question, #goodAnswer{
+	display: inline-block;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 25px;
+	padding-right: 25px;
+	border-radius: 10px;
+	margin: auto;
+	color: ghostwhite;
+	position: relative;
+	font-size: 3em;
+	background: #222;
+	border-bottom: ridge 1px dimgrey;
+	border-right: ridge 2px dimgrey;
+}
+
+#question{
+	top: 24vh;
+	cursor: pointer;
+}
+
+#goodAnswer{
+	display: none;
+	top: 36vh;
+	left: 0.5vw;
+	font-size: 2em;	
+}
+
+#goodAnswer:hover{
+	cursor: pointer;
+}
+
+#answerbox{
+	display: none;
+	top: 20vh;
+	left: 33.3%;
+	width: 32vw;
+	height: 5vh;
+	position: relative;
+}
+
+#answer{
+	margin-top: 50px;
+	border-radius: 10px;
+	text-align: center;
+	height: 6vh;
+	width: 100%;
+	font-size: 2em;
+	padding: 10px;
+	font-family: consolas;
+}
+
+.ansbox{
+	display: none;
+	background: ghostwhite;
+	font-size: 2em;
+	padding: 10px;
+	text-align: center;
+	border-radius: 10px;
+	top: 27vh;
+	margin: auto;
+	position: relative;
+}
+
+#answerbox2{
+	display: none;
+	background: #222;
+	color: ghostwhite;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 2em;
+	padding: 10px;
+	top: 30vh;
+	margin: auto;
+	position: relative;
+}
+
+#answerbox2:hover{
+	background: #222;
+	cursor: pointer;
+}
+
+#combo{
+	cursor: pointer;
+	text-align: right;
+	display: inline-block;
+	padding: 5px;
+	background: #222;
+	border: 1px solid #444;
+	position: absolute;
+	color: ghostwhite;
+	top: 0vh;
+	right: 0vw;
+	border-bottom-left-radius: 10px;
+}
+
+.minmenu{
+	padding: 5px;
+}
+
+.minmenu:hover{
+	background: #151515;
+}
+
+.minmenu:active{
+	color: deepskyblue;
+}
+
+#bg{
+	z-index: -99;
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	background: url('../art/bg.png');
+}
+
+#footer{
+	box-shadow: inset 12px 12px 32px #222;
+	border-top: 4px ridge #222;
+	position: fixed;
+	display: grid;
+	grid-template-areas: "deck gestion";
+	bottom: 0;
+	width: 100vw;
+	height: 10vh;
+	background: #222;
+	border-top-left-radius: 25%;
+	border-top-right-radius: 25%;
+}
+
+.menu-el{
+	cursor: pointer;
+	color: ghostwhite;
+	display: inline-block;
+	padding-top: 3vh;
+	padding-bottom: 3vh;
+	font-size: 1.2em;
+	transition: background 0.2s;
+}
+
+.menu-el:hover{
+	background: #C02;
+}
+
+#box, #box2{
+	background: #efefef;
+	border-radius: 10px;
+	border: 4px lightgrey ridge;
+	margin: auto;
+	margin-top: 25px;
+	width: 70vw;
+	height: 74vh;
+}
+
+#box2{
+	overflow: auto;
+}
+
+
+@media (min-width : 501px) and (max-width: 768px){
+
+	#showans{
+		font-size: 1.4em;
+	}
+
+	#box, #box2{
+		width: 95vw;
+	}
+
+	#answerbox{
+		width: 66vw;
+		left: 14%;
+	}
+
+	#answerbox2{
+		font-size: 1.5em;
+	}
+
+	#ansbu{
+		font-size: 1.5em;
+	}
+
+}
+
+@media (max-width: 500px){
+
+	#progressBar{
+		width: 75%;
+		height: 7vh;
+	}
+
+	#progress{
+		height: 6vh;
+	}
+
+	#deckLink{
+		width: 60vw;
+	}
+
+	h1{
+		font-size: 1.3em;
+	}
+
+	#com, #memo{
+		width: 100vw;
+		left: 0vw;
+	}
+
+	#com button, #memo button{
+		width: 43px;
+		height: 43px;
+		top: -43px;
+	}
+
+	#answerbox2{
+		font-size: 1.5em;
+	}
+
+	#box, #box2{
+		width: 98vw;
+	}
+
+	#answer{
+		font-size: 2em;
+		height: 4vh;
+	}
+
+	#answerbox{
+		width: 66vw;
+		left: 14%;
+	}
+
+	#question{
+		font-size: 2em;
+	}
+
+	#goodAnswer{
+		font-size: 1.5em;
+		top: 39vh;
+	}
+
+	#combo{
+		font-size: 0.8em;
+	}
+
+	#ansbu{
+		font-size: 1.5em;
+	}
+
+	#showans{
+		font-size: 1.4em;
+	}
+
+	#answer{
+		font-size: 1.3em;
+	}
+}

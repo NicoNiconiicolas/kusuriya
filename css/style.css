@@ -51,7 +51,7 @@ body{
 }
 
 #com h1, #memo h1{
-	background: steelblue;
+	background: #C02;
 	margin: 0;
 }
 
@@ -181,7 +181,7 @@ button{
 }
 
 .langB:hover{
-	background: steelblue;
+	background: #C02;
 	cursor: pointer;
 }
 
@@ -206,7 +206,7 @@ button{
 }
 
 .okButton:hover{
-	color: steelblue!important;
+	color: #C02!important;
 }
 
 .ansbu{
@@ -346,7 +346,7 @@ button{
 	margin: 0;
 	width: 100vw;
 	height: 100vh;
-	background: url('../art/bg.jpg');
+	background: url('../art/bg.png');
 }
 
 #footer{
@@ -374,7 +374,7 @@ button{
 }
 
 .menu-el:hover{
-	background: steelblue;
+	background: #C02;
 }
 
 #box, #box2{

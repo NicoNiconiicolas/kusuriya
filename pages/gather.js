@@ -1,4 +1,5 @@
 document.getElementsByTagName('body')[0].innerHTML +=""+
+"<div id='top' onclick='goto(\"gestion\")'><div id='gestion' class='menu-el'>↩</div></div>"+
 "<meta http-equiv='Cache-control' content='no-cache'>"+
 "<audio id='correct' src='sfx/correct.mp3'></audio>"+
 "<audio id='wrong' src='sfx/wrong.mp3'></audio>"+
@@ -14,6 +15,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<br class='ansbu'><div class='ansbu' id='ansbu1' onclick='jeu2check(1)'>correct</div><div class='ansbu' id='ansbu2' onclick='jeu2check(2)'>incorrect</div>"+
 "<div id='goodAnswer'>n/a</div>"+
 "<div id='combo'><span onclick='addmemo()' class='minmenu'>「ajouter au memo」</span><span onclick='showmemo()' class='minmenu'>「voir memo」</span><span class='minmenu' onclick='opencom()'>「commentaires」</span></div>";
+
 if(getCookie('jeu') == '1'){
   document.getElementById('answerbox').style.display = 'block';
   document.getElementById('goodAnswer').style.display = 'inline-block';
@@ -37,7 +39,7 @@ var progression = 0;
 
 if($_GET('dd') != 'y'){
    var deck = document.createElement('script');
-   deck.src = getCookie('deck');
+   deck.src = "deck/"+$_GET("deck")+".js";
    if(getCookie('fulldeck') == 'true'){
       document.getElementById('progressBar').style.display = 'block';
     }

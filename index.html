@@ -21,14 +21,13 @@
 		case null:
 		p = "gestion";
 		
-		case "gather":case"gestion":
+		case"gestion":case "gather":
 		break
 
 		default:
 		p = "gestion";
 	}
 		page.src = 'pages/'+p+'.js';
-		menu.src = 'model/menu.js';
 	document.getElementsByTagName('body')[0].appendChild(page);
 </script>
 <script>
@@ -53,7 +52,6 @@
 	if(getCookie('jeu') == ""){
 		setCookie('jeu', 1, 3650);
 	}
-	document.getElementsByTagName('body')[0].appendChild(menu);
 	
 </script>
 </html>

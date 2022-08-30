@@ -1,11 +1,87 @@
 html{
-	overflow: hidden;
+	overflow-x: hidden;
 	font-family: consolas;
 	user-select: none;
 }
 body{
 	margin: 0;
 	text-align: center;
+}
+
+#bigrid{
+	overflow: hidden;
+	font-size: 1.2em;
+	margin: auto;
+	display: grid;
+	grid-template-areas:
+	'a b'
+	'c d'
+	'e f'
+	'g h'
+	'i j'
+	'k k'
+}
+
+.jlptbt{
+	background: #333!important;
+}
+
+.jlptbt:hover{
+	background: crimson!important;
+	font-weight: bold;
+}
+
+#bigrid div{
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+#N1{
+	grid-row-start: 6;
+}
+
+.allkana{
+	background: #202020!important;
+}
+
+.allkana:hover{
+	background: dodgerblue!important;
+}
+
+#custom{
+	grid-row-start: 4;
+	grid-row-end: 7;
+	display: block;
+	padding-top: 70px!important;
+	background: #111;
+}
+
+#custom:hover{
+	background: mediumpurple!important;
+}
+
+#jlpt{
+	height: 20vh;
+}
+
+#jlpt .okButton{
+	background: #113;
+	padding: 15px;
+	transition: all 0.3s;
+}
+
+#jlpt .okButton:hover{
+	background: #002;
+}
+
+#kanadeck .okButton{
+	background: #311;
+	padding: 28px;
+	transition: all 0.3s;
+}
+
+#kanadeck .okButton:hover{
+	background: #211;
 }
 
 #progressBar{
@@ -45,13 +121,13 @@ body{
 	height: 80vh;
 	background: #222;
 	color: ghostwhite;
-	top: 2vh;
+	top: 7vh;
 	overflow: auto;
 	display: none;
 }
 
 #com h1, #memo h1{
-	background: #C02;
+	background: mediumpurple;
 	margin: 0;
 }
 
@@ -80,7 +156,6 @@ h1{
 	font-size: 1.6em;
 	color: white;
 	background: #222;
-	border-top-left-radius: 5px;
 	padding: 5px;
 }
 
@@ -118,14 +193,6 @@ label{
   	cursor: pointer;
 }
 
-#exploration{
-	border-top-left-radius: 25%;
-}
-
-#gestion{
-	border-top-right-radius: 25%;
-}
-
 #startid input{
 	width: 33vw;
 	padding: 5px;
@@ -153,41 +220,9 @@ h2{
 	margin: 5px;
 }
 
-#lang{
-	width: 100vw;
-	height: 100vh;
-	position: absolute;
-	top: 0;
-	display: none;
-	background: ghostwhite;
-}
-
-#langButtons{
-	margin-top: 20vh;
-}
-
 button{
 	padding-bottom: 4px;
 	font-size: 1.1em;
-}
-
-.langB{
-	display: inline-block;
-	padding: 10px;
-	background: #222;
-	border-radius: 5px;
-	color: ghostwhite;
-	font-size: 2em;
-}
-
-.langB:hover{
-	background: #C02;
-	cursor: pointer;
-}
-
-#deckLink{
-	width: 33vw;
-	padding: 5px;
 }
 
 #dd{
@@ -195,18 +230,22 @@ button{
 }
 
 .okButton{
-	display: inline-block;
 	padding: 5px;
-	border-radius: 10px;
+	font-size: 1.1em;
+	display: inline-block;
 	background: #222;
 	color: lightgrey;
-	border-bottom: 2px #555 solid;
-	border-right: 2px #555 solid;
 	cursor: pointer;
 }
 
-.okButton:hover{
-	color: #C02!important;
+.okButton2{
+	border-bottom: 2px #555 solid;
+	border-right: 2px #555 solid;
+	border-radius: 10px;
+}
+
+.okButton2:hover{
+	color: mediumpurple;
 }
 
 .ansbu{
@@ -250,13 +289,13 @@ button{
 }
 
 #question{
-	top: 24vh;
+	top: 35vh;
 	cursor: pointer;
 }
 
 #goodAnswer{
 	display: none;
-	top: 36vh;
+	top: 47vh;
 	left: 0.5vw;
 	font-size: 2em;	
 }
@@ -267,7 +306,7 @@ button{
 
 #answerbox{
 	display: none;
-	top: 20vh;
+	top: 33vh;
 	left: 33.3%;
 	width: 32vw;
 	height: 5vh;
@@ -292,7 +331,7 @@ button{
 	padding: 10px;
 	text-align: center;
 	border-radius: 10px;
-	top: 27vh;
+	top: 47vh;
 	margin: auto;
 	position: relative;
 }
@@ -349,42 +388,38 @@ button{
 	background: url('../art/bg.png');
 }
 
-#footer{
-	box-shadow: inset 12px 12px 32px #222;
-	border-top: 4px ridge #222;
+#top{
+	cursor: pointer;
 	position: fixed;
-	display: grid;
-	grid-template-areas: "deck gestion";
-	bottom: 0;
-	width: 100vw;
-	height: 10vh;
+	top: 0;
+	width: 64px;
+	height: 64px;
 	background: #222;
-	border-top-left-radius: 25%;
-	border-top-right-radius: 25%;
+	border-bottom-right-radius: 25%;
+}
+
+#top:hover{
+	background: #333;
 }
 
 .menu-el{
-	cursor: pointer;
 	color: ghostwhite;
 	display: inline-block;
-	padding-top: 3vh;
-	padding-bottom: 3vh;
-	font-size: 1.2em;
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+	font-size: 2em;
 	transition: background 0.2s;
 }
 
-.menu-el:hover{
-	background: #C02;
-}
-
 #box, #box2{
+	display: inline-block;
 	background: #efefef;
-	border-radius: 10px;
-	border: 4px lightgrey ridge;
+	border-radius: 5px;
+	border: 2px #222 solid;
 	margin: auto;
-	margin-top: 25px;
-	width: 70vw;
-	height: 74vh;
+	margin-top: 15vh;
+	width: 48vw;
+	margin-left: 10px;
 }
 
 #box2{
@@ -400,6 +435,8 @@ button{
 
 	#box, #box2{
 		width: 95vw;
+		margin-left: -20px;
+		margin-top: 2px;
 	}
 
 	#answerbox{
@@ -428,10 +465,6 @@ button{
 		height: 6vh;
 	}
 
-	#deckLink{
-		width: 60vw;
-	}
-
 	h1{
 		font-size: 1.3em;
 	}
@@ -453,6 +486,8 @@ button{
 
 	#box, #box2{
 		width: 98vw;
+		margin-left: -2px;
+		margin-top: 2px;
 	}
 
 	#answer{
@@ -471,7 +506,7 @@ button{
 
 	#goodAnswer{
 		font-size: 1.5em;
-		top: 39vh;
+		top: 46vh;
 	}
 
 	#combo{

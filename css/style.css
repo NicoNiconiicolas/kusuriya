@@ -289,13 +289,13 @@ button{
 }
 
 #question{
-	top: 35vh;
+	top: 30vh;
 	cursor: pointer;
 }
 
 #goodAnswer{
 	display: none;
-	top: 47vh;
+	top: 30vh;
 	left: 0.5vw;
 	font-size: 2em;	
 }
@@ -306,7 +306,7 @@ button{
 
 #answerbox{
 	display: none;
-	top: 33vh;
+	top: 40vh;
 	left: 33.3%;
 	width: 32vw;
 	height: 5vh;
@@ -506,7 +506,7 @@ button{
 
 	#goodAnswer{
 		font-size: 1.5em;
-		top: 46vh;
+		top: 33vh;
 	}
 
 	#combo{

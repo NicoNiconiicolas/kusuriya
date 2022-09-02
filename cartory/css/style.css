@@ -104,9 +104,14 @@ table label{
 }
 
 #transferarea{
-	height: 50vh;
+	margin-top: 2vh;
+	height: 70vh;
+	font-size: 2em;
+	margin-bottom: 2vh;
 }
 
 #transbutton{
 	width: 50%;
+	font-size: 2em;
+	margin-bottom: 2vh;
 }

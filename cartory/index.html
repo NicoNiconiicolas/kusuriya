@@ -66,7 +66,7 @@
 		document.getElementById('totcards').innerHTML = quest.length;
 			
 		}else{
-		send = "<textarea id='transferarea' placeholder='type or copy & paste here the questions (questions only) you want to transfer as such :`\n\nquestion1\nquestion2\nquestion3'></textarea><br><button id='transbutton' onclick='transgo()'>transfer !</button>";
+		send = "<textarea id='transferarea' placeholder='type or copy & paste here the questions (questions only) you want to transfer as such :\n\nquestion1\nquestion2\nquestion3'></textarea><br><button id='transbutton' onclick='transgo()'>transfer !</button>";
 		document.getElementById('main').innerHTML = send;
 		}
 	}
@@ -96,7 +96,7 @@
 			initQuestion();
 			curr = 'none';
 		}else{
-			send = "<textarea id='transferarea' placeholder='type or copy & paste here the questions (questions only) you want to delete as such :`\n\nquestion1\nquestion2\nquestion3'></textarea><br><button id='transbutton' onclick='deletego()'>delete !</button>";
+			send = "<textarea id='transferarea' placeholder='type or copy & paste here the questions (questions only) you want to delete as such :\n\nquestion1\nquestion2\nquestion3'></textarea><br><button id='transbutton' onclick='deletego()'>delete !</button>";
 		document.getElementById('main').innerHTML = send;
 		}
 	}
@@ -152,7 +152,7 @@
 			comment.push(newc);
 			initQuestion();
 		}else{
-			send = "<textarea id='transferarea' placeholder='type or copy&paste here the questions & answers you want to create as such :`\n\nquestion1　answer1\nquestion2　answer2\nquestion3　answer3, answer3-2'></textarea><br><button id='transbutton' onclick='masscreate()'>add cards !</button>";
+			send = "<textarea id='transferarea' placeholder='type or copy&paste here the questions & answers you want to create as such :\n\nquestion1　answer1\nquestion2　answer2 $comment2\nquestion3　answer3, answer3-2 $comment3'></textarea><br><button id='transbutton' onclick='masscreate()'>add cards !</button>";
 			document.getElementById('main').innerHTML = send;
 		}
 	}
@@ -230,6 +230,9 @@
 	function transgo(){
 		var user = document.getElementById('transferarea').value;
 		totrans = user.split('\n');
+		if(totrans[totrans.length-1] == ""){
+			totrans.pop();
+		}
 		for(x = 0 ; x < totrans.length; x++){
 			for(y = 0 ; y < questor.length; y++){
 				{
@@ -248,6 +251,9 @@
 	function deletego(){
 		var user = document.getElementById('transferarea').value;
 		totrans = user.split('\n');
+		if(totrans[totrans.length-1] == ""){
+			totrans.pop();
+		}
 		for(x = 0 ; x < totrans.length; x++){
 			for(y = 0 ; y < quest.length; y++){
 				if(quest[y] == totrans[x]){
@@ -263,6 +269,9 @@
 	function masscreate(){
 		var user = document.getElementById('transferarea').value;
 		totrans = user.split('\n');
+		if(totrans[totrans.length-1] == ""){
+			totrans.pop();
+		}
 		for(x = 0 ; x < totrans.length; x++){
 			var supertruc = totrans[x].match(/^(\S+)\s(.*)/).slice(1);
 			supertruc[1] = supertruc[1].replace(" $", "$")

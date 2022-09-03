@@ -250,7 +250,7 @@ button{
 
 .ansbu{
 	position: relative;
-	top: 30vh;
+	top: 26vh;
 	padding: 10px;
 	background: #222;
 	color: ghostwhite;
@@ -344,7 +344,7 @@ button{
 	text-align: center;
 	font-size: 2em;
 	padding: 10px;
-	top: 30vh;
+	top: 28vh;
 	margin: auto;
 	position: relative;
 }

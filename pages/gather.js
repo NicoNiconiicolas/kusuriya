@@ -3,6 +3,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<meta http-equiv='Cache-control' content='no-cache'>"+
 "<audio id='correct' src='sfx/correct.mp3'></audio>"+
 "<audio id='wrong' src='sfx/wrong.mp3'></audio>"+
+"<audio id='click' src='sfx/click.mp3'></audio>"+
 "<div id='progressBar'><div id='progress'></div></div>"+
 "<center><label id='dd' for='file-input'><br><br><br><br>déposez votre deck ici<input type='file' id='file-input'></label></center>"+
 "<div id='com'><h1 id='comtitle'>コメント</h1><button onclick='closecom()'>X</button><br><span id='compar'></span><br><br></div>"+
@@ -66,6 +67,21 @@ document.addEventListener("keydown", (e) => {
   	checkAnswer();
   	document.getElementById('answer').value = "";
   }
+
+  if(e.key == 'F1'){
+    e.preventDefault();
+    addmemo();
+    click.play();
+    return
+  }
+
+  if(e.key == 'F2'){
+    e.preventDefault();
+    answer.blur();
+    showmemo();
+    return
+  }
+
 });
 if($_GET('dd') != 'y'){
   document.getElementsByTagName('body')[0].appendChild(deck);

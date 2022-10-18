@@ -140,16 +140,6 @@ function checkAnswer(){
 		failedInit();
 		return
 	}
-
-	if(user == '」' || user == '$'){
-		addmemo();
-		return
-	}
-
-	if(user == '￥' || user == '*'){
-		showmemo();
-		return
-	}
 	
 	var comp = answers[nQuestion].split(',');
 	for(i=0; i < comp.length ;i++){
@@ -191,12 +181,10 @@ function checkAnswer(){
 
 function failedInit(){
 	max = wrongA.length;
-	console.log(max+' failed');
 	if(max != 0){
 		lastQ = questions[questions.length-1];
 		lastA = answers[answers.length-1];
 		lastC = recomment[recomment.length-1];
-		console.log("last question was : "+lastQ)
 		questions = [];
 		answers = [];
 		recomment = [];
@@ -221,7 +209,6 @@ function failedInit(){
 		wrongQ = [];
 		wrongC = [];
 		wasWrong = true
-		console.log('start review of : '+questions);
 		failed = 'failed';
 		newQuestion();
 	}else{

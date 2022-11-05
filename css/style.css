@@ -133,7 +133,7 @@ body{
 }
 
 #com h1, #memo h1{
-	background: mediumpurple;
+	background: mediumvioletred;
 	margin: 0;
 }
 
@@ -328,6 +328,9 @@ button{
 	font-size: 2em;
 	padding: 10px;
 	font-family: consolas;
+	background: rgba(25,25,25,0.9);
+	border-color: #444;
+	color: ghostwhite;
 }
 
 .ansbox{

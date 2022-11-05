@@ -121,11 +121,6 @@ function checkAnswer(){
 	var correct = false;
 	var user = document.getElementById('answer').value;
 
-	if(user == '/j'){
-		window.open('https://jisho.org/search/'+questions[nQuestion-1], '_blank');
-		return
-	}
-
 	if(user == '/w'){
 		window.open('https://www.weblio.jp/content/'+questions[nQuestion-1], '_blank');
 		return
@@ -150,7 +145,7 @@ function checkAnswer(){
 	if(correct == true){
 		totalseen++;
 		totalcorrect++;
-		document.getElementById('goodAnswer').style.color = 'mediumpurple';
+		document.getElementById('goodAnswer').style.color = 'deepskyblue';
 		document.getElementById('correct').play();
 		if(getCookie('fulldeck') == 'true'){progression = progression+diviseur;}
 		bar(progression);
@@ -165,15 +160,17 @@ function checkAnswer(){
 		wrongA.push(forLaterA);
 		wrongC.push(forLaterC);
 	}
-	document.getElementById('goodAnswer').innerHTML = questions[nQuestion]+" => "+answers[nQuestion];
-	document.getElementById('comtitle').innerHTML = questions[nQuestion]+" => "+answers[nQuestion];
+	document.getElementById('goodAnswer').innerHTML = questions[nQuestion]+" : "+answers[nQuestion];
+	document.getElementById('comtitle').innerHTML = questions[nQuestion]+" : "+answers[nQuestion];
 	if(recomment[nQuestion] != undefined){
 		document.getElementById('compar').innerHTML = recomment[nQuestion].replace(/\n/g, '<br>');
 	}
 	if(getCookie('dico') == "jisho"){
 		document.getElementById('goodAnswer').onclick = function(){window.open('https://jisho.org/search/'+questions[nQuestion-1], '_blank');};
-	}else{
+	}else if(getCookie('dico') == "writtenchinese"){
 		document.getElementById('goodAnswer').onclick = function(){window.open('https://dictionary.writtenchinese.com/#sk='+questions[nQuestion-1]+'&svt=pinyin', '_blank');};
+	}else{
+		document.getElementById('goodAnswer').onclick = function(){window.open('https://jpdb.io/search?q='+questions[nQuestion-1], '_blank');};
 	}
 	nQuestion ++;
 	newQuestion();
@@ -267,8 +264,10 @@ function jeu2(){
 	document.getElementById('showans').innerHTML = answers[nQuestion];
 	if(getCookie('dico') == "jisho"){
 		document.getElementById('showans').onclick = function(){window.open('https://jisho.org/search/'+questions[nQuestion], '_blank');};
-	}else{
+	}else if(getCookie('dico') == "writtenchinese"){
 		document.getElementById('showans').onclick = function(){window.open('https://dictionary.writtenchinese.com/#sk='+questions[nQuestion]+'&svt=pinyin', '_blank');};
+	}else{
+		document.getElementById('showans').onclick = function(){window.open('https://jpdb.io/search?q='+questions[nQuestion], '_blank');};
 	}
 	document.getElementById('showans').style.cursor = 'pointer';
 	document.getElementById('showans').onmouseover = function(){document.getElementById('showans').style.background = '#EEE'};
@@ -314,10 +313,17 @@ function setDico(dico){
 		setCookie('dico', "jisho", 3650);
 		document.getElementById('dicojisho').style.color = 'mediumpurple';
 		document.getElementById('dicochinese').style.color = 'lightgrey';
-	}else{
+		document.getElementById('dicojpdb').style.color = 'lightgrey';
+	}else if(dico == "writtenchinese"){
 		setCookie('dico', "writtenchinese", 3650);
 		document.getElementById('dicojisho').style.color = 'lightgrey';
 		document.getElementById('dicochinese').style.color = 'mediumpurple';
+		document.getElementById('dicojpdb').style.color = 'lightgrey';
+	}else{
+		setCookie('dico', "jpdb", 3650);
+		document.getElementById('dicojisho').style.color = 'lightgrey';
+		document.getElementById('dicochinese').style.color = 'lightgrey';
+		document.getElementById('dicojpdb').style.color = 'mediumpurple';
 	}
 }
 
@@ -352,9 +358,15 @@ function checkcolors(){
 	if(getCookie('dico') == 'jisho'){
 		document.getElementById('dicojisho').style.color = 'mediumpurple';
 		document.getElementById('dicochinese').style.color = 'lightgrey';
-	}else{
+		document.getElementById('dicojpdb').style.color = 'lightgrey';
+	}else if(getCookie('dico') == 'writtenchinese'){
 		document.getElementById('dicojisho').style.color = 'lightgrey';
 		document.getElementById('dicochinese').style.color = 'mediumpurple';
+		document.getElementById('dicojpdb').style.color = 'lightgrey';
+	}else{
+		document.getElementById('dicojisho').style.color = 'lightgrey';
+		document.getElementById('dicochinese').style.color = 'lightgrey';
+		document.getElementById('dicojpdb').style.color = 'mediumpurple';
 	}
 
 	if(getCookie('fulldeck') == 'true'){

@@ -13,8 +13,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<div id='fullrandom' class='okButton okButton2' onclick='updateFulldeck(1)'>Deck Entier Hasard</div> <div id='fullordered' class='okButton okButton2' onclick='updateFulldeck(2)'>Deck Entier Ordonné</div><br><br><div id='random' class='okButton okButton2' onclick='updateFulldeck(3)'>15 Aléatoires</div>"+
 "<div id='startid'><br><br><h2>Carte de départ</h2><input id='inputid' placeholder='"+getCookie('startnum')+"' type='text'></input> <button onclick='choosestart()'>ok</button></div><br>"+
 "<h3>Dictionnaire utilisé :</h3>"+
-"<div id='dicojisho' class='okButton okButton2' onclick='setDico(\"jisho\")'>Jisho</div> <div id='dicochinese' class='okButton okButton2' onclick='setDico(\"writtenchinese\")'>Writtenchinese</div><br><br>"+
+"<div id='dicojisho' class='okButton okButton2' onclick='setDico(\"jisho\")'>Jisho</div> <div id='dicojpdb' class='okButton okButton2' onclick='setDico(\"jpdb\")'>Jpdb</div> <div id='dicochinese' class='okButton okButton2' onclick='setDico(\"writtenchinese\")'>Writtenchinese</div><br><br>"+
 "</div></div>";
-
 checkrandomnessmenu();
 checkcolors();

@@ -7,7 +7,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<div id='progressBar'><div id='progress'></div></div>"+
 "<center><label id='dd' for='file-input'><br><br><br><br>deposit your deck here<input type='file' id='file-input'></label></center>"+
 "<div id='com'><h1 id='comtitle'>コメント</h1><button onclick='closecom()'>X</button><br><span id='compar'></span><br><br></div>"+
-"<div id='memo'><h1>メモ</h1><button onclick='closememo()'>X</button><br><br><br><span id='memocont'></span></div>"+
+"<div id='memo'><h1>メモ<br><span id='percRetained'></span>% retained</h1><button onclick='closememo()'>X</button><br><br><br><br><br><span id='memocont'></span></div>"+
 "<div id='cardId'>#<span id='cid'>1</span></div>"+
 "<div id='question' onclick='altgame()'>n/a</div>"+
 "<div id='answerbox'><input id='answer' autofocus></input></div>"+

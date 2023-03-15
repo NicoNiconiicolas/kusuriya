@@ -227,6 +227,12 @@ function failedInit(){
 
 
 function showmemo(){
+	//update percentage of retained cards in H1
+	if(memo.length != 0){
+		var perc = Math.floor(memo.length/quest.length*100);
+		document.getElementById('percRetained').innerHTML = perc;
+	}
+	
 	var show = '';
 	for(x = 0 ; memo.length > x ; x++){
 		show += memo[x]+'<br>';

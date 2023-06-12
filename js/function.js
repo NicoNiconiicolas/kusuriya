@@ -46,7 +46,15 @@ function getTime(){
 }
 
 function initQuestion(fail){
-	diviseur = 100/quest.length;
+	progression = 0;
+	bar(progression);
+	document.getElementById('progress').style.background = "dodgerblue";
+	document.getElementById('progress').style.borderRight = "3px dodgerblue ridge";
+	if(getCookie('fulldeck') == 'true'){
+		diviseur = 100/quest.length;
+	}else{
+		diviseur = 100/15;
+	}
 	if(getCookie('fulldeck') == 'true' && getCookie('randomness') == 'false'){
 		progression = diviseur * parseInt(getCookie('startnum'))-1;
 		bar(progression);
@@ -126,11 +134,6 @@ function checkAnswer(){
 		return
 	}
 
-	if(user == '/r'){
-		window.open('https://budouen.github.io/reibun/?w='+questions[nQuestion-1], '_blank');
-		return
-	}
-
 	if(user == '/miss'){
 		failedInit();
 		return
@@ -147,7 +150,7 @@ function checkAnswer(){
 		totalcorrect++;
 		document.getElementById('goodAnswer').style.color = 'deepskyblue';
 		document.getElementById('correct').play();
-		if(getCookie('fulldeck') == 'true'){progression = progression+diviseur;}
+		progression = progression+diviseur;
 		bar(progression);
 	}else{
 		totalseen++;
@@ -160,7 +163,7 @@ function checkAnswer(){
 		wrongA.push(forLaterA);
 		wrongC.push(forLaterC);
 	}
-	document.getElementById('goodAnswer').innerHTML = questions[nQuestion]+" : "+answers[nQuestion];
+	document.getElementById('goodAnswer').innerHTML = "<span id='ansFrame'>"+questions[nQuestion]+"</span><br>"+answers[nQuestion];
 	document.getElementById('comtitle').innerHTML = questions[nQuestion]+" : "+answers[nQuestion];
 	if(recomment[nQuestion] != undefined){
 		document.getElementById('compar').innerHTML = recomment[nQuestion].replace(/\n/g, '<br>');
@@ -207,12 +210,18 @@ function failedInit(){
 		wrongC = [];
 		wasWrong = true
 		failed = 'failed';
+		if(document.getElementById('progress').style.background != "dodgerblue"){
+			document.getElementById('progress').style.background = "darkred";
+			document.getElementById('progress').style.borderRight = "darkred 3px ridge";
+		}else{
+			document.getElementById('progress').style.background = "mediumpurple"; 
+			document.getElementById('progress').style.borderRight = "mediumpurple 3px ridge";
+		}
 		newQuestion();
 	}else{
 		if(getCookie('fulldeck') == 'true'){
 			alert('Deck is restarting...');
 			progression = 0;
-			bar(progression);
 			achieved = true;
 			failed = 'nope';
 		}
@@ -259,7 +268,7 @@ function addmemo(){
 }
 
 function updateJLPT(n){
-	goto("gather&deck="+n);
+	goto("quizz&deck="+n);
 }
 
 function upcolor(){
@@ -295,7 +304,7 @@ function jeu2check(num){
 		document.getElementById('showans').onmouseout = '';
 		document.getElementById('showans').style.cursor = 'default';
 		document.getElementById('showans').onclick = "";
-		document.getElementById('showans').innerHTML = "? ? ?";
+		document.getElementById('showans').innerHTML = "？？？";
 		document.getElementById('answerbox2').style.display = "inline-block";
 		document.getElementsByClassName('ansbu')[0].style.display = "none";
 		document.getElementsByClassName('ansbu')[1].style.display = "none";

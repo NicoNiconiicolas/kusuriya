@@ -19,13 +19,13 @@
 	var menu = document.createElement('script');
 	switch(p){
 		case null:
-		p = "gestion";
+		p = "settings";
 		
-		case"gestion":case "gather":
+		case"settings":case "quizz":
 		break
 
 		default:
-		p = "gestion";
+		p = "settings";
 	}
 		page.src = 'pages/'+p+'.js';
 		document.getElementsByTagName('body')[0].appendChild(page);

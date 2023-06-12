@@ -14,6 +14,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<div id='startid'><br><br><h2>Card to start from</h2><input id='inputid' placeholder='"+getCookie('startnum')+"' type='text'></input> <button onclick='choosestart()'>ok</button></div><br>"+
 "<h3>Used dictionary :</h3>"+
 "<div id='dicojisho' class='okButton okButton2' onclick='setDico(\"jisho\")'>Jisho</div> <div id='dicojpdb' class='okButton okButton2' onclick='setDico(\"jpdb\")'>Jpdb</div> <div id='dicochinese' class='okButton okButton2' onclick='setDico(\"writtenchinese\")'>Writtenchinese</div><br><br>"+
-"</div></div>";
+"</div></div>"+
+`<br><br><img onclick="location.href='https://discord.gg/xYTT3TQUvM'" id="discord" src="art/discord.png">`;
 checkrandomnessmenu();
 checkcolors();

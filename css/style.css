@@ -3,6 +3,7 @@ html{
 	font-family:  consolas;
 	user-select: none;
 }
+
 body{
 	margin: 0;
 	text-align: center;
@@ -13,6 +14,17 @@ body{
 	background: #151515;
 	background-size: 100vw;
 }
+
+#discord{
+	cursor: pointer;
+	right: 15px;
+	width: 64px;
+	transition: 0.2s;
+}
+
+#discord:hover{
+	width: 70px;
+}	
 
 #ansFrame{
 	background: #151515;

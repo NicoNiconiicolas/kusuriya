@@ -11,8 +11,9 @@ body{
 	margin: 0;
 	width: 100vw;
 	height: 100vh;
-	background: #151515;
-	background-size: 100vw;
+	background: url('../art/bg2.png'), #151515;
+	background-size: 100%;
+	background-position: 10%;
 }
 
 #discord{
@@ -125,6 +126,7 @@ body{
 
 
 #progress{
+	opacity: 0.8;
 	transition: 1s;
 	width: 0%;
 	height: 99.5vh;
@@ -453,17 +455,23 @@ button{
 }
 
 
-@media (max-width: 1080px){
+@media (max-width: 1200px){
 	#progressBar{
 			background: rgba(0, 0, 0, 0);
-		}
+	}
+
+	body{
+		background-size: 158vw;
+		background-position: 50%;
+	}
 }
 
 
 @media (min-width : 501px) and (max-width: 768px){
 
 	body{
-		background-size: 220vw;
+		background-size: 250vw;
+		background-position: 50%;
 	}
 
 	#showans{
@@ -494,7 +502,8 @@ button{
 @media (max-width: 500px){
 
 	body{
-		background-size: 260vw;
+		background-size: 270vw;
+		background-position: 45%;
 	}
 
 	h1{

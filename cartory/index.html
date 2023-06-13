@@ -66,7 +66,7 @@
 		document.getElementById('totcards').innerHTML = quest.length;
 			
 		}else{
-		send = "<textarea id='transferarea' placeholder='type or copy & paste here the questions (questions only) you want to transfer as such :\n\nquestion1\nquestion2\nquestion3'></textarea><br><button id='transbutton' onclick='transgo()'>transfer !</button>";
+		send = "<textarea id='transferarea' placeholder='type or copy & paste here the questions (questions only) you want to transfer as such :\n\nquestion1\nquestion2\nquestion3'></textarea><br><button class='transbutton' onclick='transgo()'>transfer !</button><button class='transbutton' onclick='pasteAll()'>All</button>";
 		document.getElementById('main').innerHTML = send;
 		}
 	}
@@ -96,7 +96,7 @@
 			initQuestion();
 			curr = 'none';
 		}else{
-			send = "<textarea id='transferarea' placeholder='type or copy & paste here the questions (questions only) you want to delete as such :\n\nquestion1\nquestion2\nquestion3'></textarea><br><button id='transbutton' onclick='deletego()'>delete !</button>";
+			send = "<textarea id='transferarea' placeholder='type or copy & paste here the questions (questions only) you want to delete as such :\n\nquestion1\nquestion2\nquestion3'></textarea><br><button class='transbutton' onclick='deletego()'>delete !</button>";
 		document.getElementById('main').innerHTML = send;
 		}
 	}
@@ -152,7 +152,7 @@
 			comment.push(newc);
 			initQuestion();
 		}else{
-			send = "<textarea id='transferarea' placeholder='type or copy&paste here the questions & answers you want to create as such :\n\nquestion1　answer1\nquestion2　answer2 $comment2\nquestion3　answer3, answer3-2 $comment3\n\nDo not use japanese commas (、) as separator only regular ones (,)'></textarea><br><button id='transbutton' onclick='masscreate()'>add cards !</button>";
+			send = "<textarea id='transferarea' placeholder='type or copy&paste here the questions & answers you want to create as such :\n\nquestion1　answer1\nquestion2　answer2 $comment2\nquestion3　answer3, answer3-2 $comment3\n\nDo not use japanese commas (、) as separator only regular ones (,)'></textarea><br><button class='transbutton' onclick='masscreate()'>add cards !</button>";
 			document.getElementById('main').innerHTML = send;
 		}
 	}
@@ -293,6 +293,18 @@
 		}else{
 			alert('au moins une question réponse sont nécaissaires !');
 		}
+	}
+
+	function pasteAll(){
+		var result = "";
+		for(x=0; questor.length > x; x++){
+			if(questor[x] != questor[questor.length-1]){
+				result += questor[x]+"\n";
+			}else{
+				result += questor[x];
+			}
+		}
+		document.getElementById('transferarea').value = result;
 	}
 
 	document.getElementById('file-input').addEventListener('change', readSingleFile, false);

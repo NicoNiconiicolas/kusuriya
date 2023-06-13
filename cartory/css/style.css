@@ -113,8 +113,10 @@ table label{
 	margin-bottom: 2vh;
 }
 
-#transbutton{
-	width: 50%;
+.transbutton{
+	width: 40%;
+	margin-right: 10px;
+	margin-left: 10px;
 	font-size: 2em;
 	margin-bottom: 2vh;
 }

@@ -6,8 +6,8 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<audio id='click' src='sfx/click.mp3'></audio>"+
 "<div id='progressBar'><div id='progress'></div></div>"+
 "<center><label id='dd' for='file-input'><br><br><br><br>deposit your deck here<input type='file' id='file-input'></label></center>"+
-"<div id='com'><h1 id='comtitle'>Comments</h1><button onclick='closecom()'>X</button><br><span id='compar'></span><br><br></div>"+
-"<div id='memo'><h1>Memo<br><span id='percRetained'>0</span>% Memorized</h1><button onclick='closememo()'>X</button><br><br><br><br><br><span id='memocont'></span></div>"+
+"<div id='com'><div class='titleAndButton'><h1 id='comtitle'>Comments</h1><div class='closebutton' onclick='closecom()'>X</div></div><br><span id='compar'></span><br><br></div>"+
+"<div id='memo'><div class='titleAndButton'><h1><span id='percRetained'>0</span>% Memorized</h1><div class='closebutton' onclick='closememo()'>X</div></div><br><span id='memocont'></span></div>"+
 "<div id='cardId'>#<span id='cid'>1</span></div>"+
 "<div id='qa-div'>"+
 "<div id='question' onclick='altgame()'>question</div><hr>"+

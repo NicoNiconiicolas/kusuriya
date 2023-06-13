@@ -137,8 +137,39 @@ body{
 }
 
 #memocont{
+	font-size: 1.6em;
 	user-select: text;
 	display: block;
+}
+
+.titleAndButton{
+	display: grid;
+	grid-template-areas:
+	'a b';
+	grid-template-columns: 90% 10%;
+
+}
+
+.titleAndButton h1{
+	background: #555;
+}
+
+.titleAndButton .closebutton{
+	font-size: 2em;
+	background: #333;
+	cursor: pointer;
+}
+
+.titleAndButton .closebutton:hover{
+	background: #444;
+}
+
+#closebutton{
+	display: inline-block;
+}
+
+#compar{
+	font-size: 1.5em;
 }
 
 #com, #memo{
@@ -154,43 +185,9 @@ body{
 	display: none;
 }
 
-#com h1, #memo h1{
-	background: mediumpurple;
-	margin: 0;
-}
-
-#com button, #memo button{
-	background: #444;
-	color: ghostwhite;
-	border: none;
-	float: right;
-	position: relative;
-	cursor: pointer;
-}
-
-#memo button{
-	width: 84px;
-	height: 84px;
-	top: -84px;
-}
-
-#com button{
-	width: 50px;
-	height: 50px;
-	top: -50px;
-}
-
-#com button:hover, #memo button:hover{
-	background: #555;
-}
-
-#com span, #memo span{
-	font-size: 1.2em;
-}
-
 h1{
 	margin: 0;
-	font-size: 1.6em;
+	font-size: 2em;
 	color: white;
 	background: #222;
 	padding: 5px;
@@ -515,18 +512,6 @@ button{
 		height: 100vh;
 		top: 0vh;
 		left: 0vw;
-	}
-
-	#com button{
-		width: 43px;
-		height: 43px;
-		top: -43px;
-	}
-
-	#memo button{
-		width: 70px;
-		height: 70px;
-		top: -70px;
 	}
 
 	#answerbox2{

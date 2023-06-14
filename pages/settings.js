@@ -2,7 +2,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<div id='box2'>"+
 "<h1>Decks</h1>"+
 "<div id='bigrid'><div class='okButton jlptbt' title='Kotoba N5' onclick='updateJLPT(\"N5\")'>N5</div><div class='okButton allkana' onclick='updateJLPT(\"hiragana\")'>hiragana</div><div class='okButton jlptbt' title='Kotoba N4' onclick='updateJLPT(\"N4\")'>N4</div><div class='okButton allkana' onclick='updateJLPT(\"katakana\")'>katakana</div><div class='okButton jlptbt' title='Kotoba N3' onclick='updateJLPT(\"N3\")'>N3</div><div class='okButton allkana' id='kana' title='hiragana + katakana' onclick='updateJLPT(\"kana\")'>kana</div><div class='okButton jlptbt' title='Kotoba N2' onclick='updateJLPT(\"N2\")'>N2</div> <div class='okButton jlptbt' id='N1' title='Kotoba N1' onclick='updateJLPT(\"N1\")'>N1</div>"+
-"<div class='okButton' id='custom' title='glisser-déposer un deck créé avec Cardogus' onclick='goto(\"quizz&dd=y\")'>personnal deck</div></div>"+
+"<div class='okButton' id='custom' title='glisser-déposer un deck créé avec Cardogus' onclick='goto(\"quizz&dd=y\")'>custom deck</div></div>"+
 "</div><div id='box2'>"+
 "<h1>Options</h1>"+
 "<br><br>"+

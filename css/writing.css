@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #EFEFEF;
+    background-color: #111;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.example, .drawing-area {
+    border: 3px solid #222;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    cursor: url('../img/dot.png'), auto;
+}
+
+#kanji-gif {
+    display: none;
+    margin: auto;
+}
+
+#show-button {
+    cursor: pointer;
+    background-color: #EEE;
+    border-radius: 4px;
+    width: 150px;
+    height: 150px;
+}
+
+#show-button:hover {
+    background-color: #f0eAeA;
+}
+
+canvas {
+    border: 3px solid #222;
+    background: #EEE;
+}
+
+button {
+    font-size: 1.5em;
+}

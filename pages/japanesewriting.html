@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kanji writing</title>
+    <link rel="stylesheet" href="../css/writing.css">
+</head>
+<body>
+    <div class="container">
+        <div class="example">
+        <h2>
+            <span id='kanji-meaning'>kanji</span>
+            <span id='kanji-reading'>reading</span>
+        </h2>
+            <button id="show-button" onclick="showKanji()">show kanji</button>
+            <img id='kanji-gif' src="" alt="no image">
+        </div>
+        <div class="drawing-area">
+            <h2>write here</h2>
+            <canvas id="drawing-canvas" width="300" height="300"></canvas>
+        </div>
+        <div>
+            <button id="clear-button">Erase</button>
+            <button id="submit-button" onclick="nextKanji()">submit</button>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script src="../js/kanji_data.js"></script>
+<script src="../js/cookie.js"></script>
+<script src="../js/writing.js"></script>

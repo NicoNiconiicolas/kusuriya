@@ -886,7 +886,8 @@ const kanjiData = {
     {
       "character": "広",
       "mastery": 9,
-      "meaning": "Wide"
+      "meaning": "Wide",
+      "reading": "ひろ.い"
     },
 
     {
@@ -1397,7 +1398,7 @@ const kanjiData = {
       "character": "当",
       "mastery": 9,
       "meaning": "Correct",
-      "reading": "とう"
+      "reading": "あ.たる"
     },
 
     {
@@ -1691,7 +1692,7 @@ const kanjiData = {
     {
       "character": "安",
       "mastery": 9,
-      "meaning": "Relax",
+      "meaning": "Cheap",
       "reading": "やす.い"
     },
 
@@ -1824,7 +1825,8 @@ const kanjiData = {
     {
       "character": "開",
       "mastery": 9,
-      "meaning": "Open"
+      "meaning": "Open",
+      "reading": "あ.ける"
     },
 
     {

@@ -1791,7 +1791,7 @@ const kanjiData = {
       "character": "屋",
       "mastery": 9,
       "meaning": "Roof",
-      "reading": "やね"
+      "reading": "や.ね"
     },
 
     {
@@ -2231,7 +2231,8 @@ const kanjiData = {
     {
       "character": "受",
       "mastery": 9,
-      "meaning": "Accept"
+      "meaning": "Accept",
+      "reading": "う.ける"
     },
 
     {
@@ -2315,7 +2316,7 @@ const kanjiData = {
       "character": "昭",
       "mastery": 9,
       "meaning": "Shining",
-      "reading": "しょう"
+      "reading": "しょう.わ"
     },
 
     {

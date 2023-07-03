@@ -84,6 +84,10 @@ function writebtAction(grade) {
   yes_button.addEventListener('click', () => {window.location='./japanesewriting.html?grade='+grade+'&resume='+cookie;});
 }
 
+function custom(kanji){
+  window.location = './japanesewriting.html?grade=custom&custom='+kanji;
+}
+
 const main = document.querySelector('main');
 main.appendChild(createGradeSection(1, 'Grade 1'));
 main.appendChild(createGradeSection(2, 'Grade 2'));

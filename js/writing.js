@@ -12,6 +12,7 @@ const showButton = document.getElementById('show-button'); // Get the show butto
 let kanHidden = getCookie("kanHidden"); // Get the value of the "kanHidden" cookie
 let currentKanji = -1; // Index of the current kanji
 let gradeLength = ""; // Length of the grade kanji list
+let ckanji = ""; // custom kanji list from url
 
 // Set the canvas line width
 ctx.lineWidth = 6;
@@ -93,6 +94,57 @@ function nextKanji(g) {
     }
 }
 
+function nextCustom(){
+    if (kanHidden == "true" || kanHidden == "") {
+        showButton.style.display = "inline";
+        kanjiGif.style.display = "none";
+    } else {
+        showButton.style.display = "none";
+        kanjiGif.style.display = "block";
+    }
+    currentKanji++;
+    if(currentKanji >= ckanji.length) {
+        alert('End of custom deck');
+        window.location = "./japanese.html";
+    }else{
+        clearCanvas();
+        var meaning = getinfo(ckanji[currentKanji], 0);
+        var reading = getinfo(ckanji[currentKanji], 1);
+        kanjiGif.src = "../gif/kanji/" + ckanji[currentKanji] + ".gif";
+        if (reading != undefined) {
+            kanjiReading.innerHTML = '「'+reading+'」';
+        } else {
+            kanjiReading.innerHTML = '';
+        }
+        kanjiMeaning.innerHTML = meaning;
+    }
+}
+
+function getinfo(kanji, type){
+    var graden = 1;
+    var grade = "kanjiData.grade"+graden;
+    for(x=0; x < eval(grade).length; x++){
+        if(ckanji[currentKanji] == eval(grade)[x].character){
+
+            if(type == 0){
+                return eval(grade)[x].meaning;
+            }else{
+                return eval(grade)[x].reading;
+            }
+
+        }else{
+            if(eval(grade).length-1 == x){
+                x = 0;
+                graden++;
+                grade = "kanjiData.grade"+graden;
+                if(graden == 11){
+                    return "not found";
+                }
+            }
+        }
+    }
+}
+
 // Function to show the kanji GIF
 function showKanji() {
     kanjiGif.style.display = "block";
@@ -116,13 +168,20 @@ function $_GET(param) {
 }
     // Recover grade variable from URL
     let grade = $_GET("grade");
-    // Modify the submit button so it loads the next kanji of the right grade
-    submitButton.setAttribute("onClick", "nextKanji(" + grade + ")");
-    // Get the total number of kanji for the corresponding grade (to know when it reaches the end)
-    gradeLength = "kanjiData.grade" + grade + ".length";
-    // If the GET variable "resume" exists, load the right kanji
-    if ($_GET("resume")) {
-        currentKanji = $_GET("resume") - 1;
+    if(grade != "custom"){
+        // Modify the submit button so it loads the next kanji of the right grade
+        submitButton.setAttribute("onClick", "nextKanji(" + grade + ")");
+        // Get the total number of kanji for the corresponding grade (to know when it reaches the end)
+        gradeLength = "kanjiData.grade" + grade + ".length";
+        // If the GET variable "resume" exists, load the right kanji
+        if ($_GET("resume")) {
+            currentKanji = $_GET("resume") - 1;
+        }
+        // Initialize the first kanji by automatically clicking the submit button
+        submitButton.click();
+    }else{
+        //ckanji --> custom kanji
+        ckanji = decodeURI($_GET("custom"));
+        submitButton.setAttribute("onClick", "nextCustom()");
+        submitButton.click();
     }
-    // Initialize the first kanji by automatically clicking the submit button
-    submitButton.click();

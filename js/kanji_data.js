@@ -3198,7 +3198,7 @@ const kanjiData = {
     {
       "character": "課",
       "mastery": 9,
-      "meaning": "Section",
+      "meaning": "Lesson",
       "reading": "か"
     },
 

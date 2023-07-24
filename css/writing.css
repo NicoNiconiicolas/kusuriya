@@ -16,7 +16,7 @@ body {
     padding: 10px;
     margin: 10px;
     text-align: center;
-    cursor: url('../img/dot.png'), auto;
+    cursor: url('../art/dot.png'), auto;
 }
 
 #kanji-gif {

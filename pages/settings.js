@@ -6,7 +6,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "</div><div id='box2'>"+
 "<h1>Options</h1>"+
 "<br><br>"+
-"<div class='okButton okButton2' onclick='window.open(`pages/japanese.html`,`_blank`)'>Handwriting</div> <div class='okButton okButton2' title='app pour création & gestion de decks' onclick='window.open(`cartory/index.html`,`_blank`)'>Manage decks</div><br>"+
+"<div class='okButton okButton2' onclick='window.location = `pages/japanese.html`'>Handwriting</div> <div class='okButton okButton2' title='app pour création & gestion de decks' onclick='window.open(`cartory/index.html`,`_blank`)'>Manage decks</div><br>"+
 "<h3>Revision style :</h3>"+
 "<div id='kotoba' class='okButton okButton2' onclick='chooseGame(1)'>Kotoba</div> <div id='anki' class='okButton okButton2' onclick='chooseGame(2)'>Anki</div>"+
 "<h3>Questions selection :</h3>"+

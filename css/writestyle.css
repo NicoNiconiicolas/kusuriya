@@ -3,23 +3,17 @@
 body {
   background: url("../art/bg2.png") fixed;
   background-size: 102%;
+  margin: 0;
 }
 
 body, section {
+  display: flex;
   font-size: 3vw;
   font-family: consolas;
-  display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-}
-
-p{
-  font-size: 2vw;
-  padding-left: 10vw;
-  padding-right: 10vw;
-
 }
 
 h1, h2, .kanji-container, .button-2{
@@ -42,6 +36,7 @@ h1, h2, .kanji-container, .button-2{
   margin-right: 4em;
   margin-bottom: 2em;
   border: solid 4px #222;
+  text-align: center;
 }
 
 .kanji {
@@ -50,7 +45,6 @@ h1, h2, .kanji-container, .button-2{
   margin: 5px;
   padding: 5px;
   cursor: pointer;
-  font-size: 3vw;
   font-weight: 500;
 }
 
@@ -79,48 +73,33 @@ h1, h2, .kanji-container, .button-2{
   user-select: none;
 }
 
-/* Links */
-a,
-a:hover {
-  text-decoration: none;
-  color: black;
-}
-
-/* Images */
-img {
-  position: relative;
-  left: 0;
-}
-
 /* Headings */
 h1, h2 {
-  font-family: 'Quicksand', sans-serif;
+  font-family: sans-serif;
 }
 
 h1 {
-  font-size: 5vw; /* Update the font size here */
+  font-size: 2em; /* Update the font size here */
 }
 
 h2 {
-  font-size: 4.5vw; /* Update the font size here */
+  font-size: 1.6em; /* Update the font size here */
 }
 
 /* Buttons */
 .button-2 {
-  display: inline-flex;
-  border-radius: 1vw;
-  font-size: 1.7vw; /* smaller font size */
+  border-radius: 4px;
+  font-size: 0.8em; /* smaller font size */
   font-weight: bold;
   cursor: pointer;
 }
 
 .button-2 {
   background-color: rgba(51, 51, 51, 0.05);
-  border-width: 0;
+  border: 2px #333 solid;
   color: #333;
-  line-height: 1.8vw; /* smaller line height */
-  margin: 0;
-  padding: 1.8vw 2vw; /* smaller padding */
+  line-height: 0.8em;
+  padding: 0.8em;
   text-align: center;
   transition: all 200ms;
   white-space: nowrap;
@@ -139,85 +118,63 @@ h2 {
   border-radius: 4px;
 }
 
-/* Lists */
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  font-size: 2vw;
-}
-
-li {
-  margin: 0 1rem;
-}
-
-/* Media queries */
-@media only screen and (max-width: 767px) {
-  .hello {
-    font-size: 200%;
-  }
-  .button-2 {
-    font-size: 150%;
-    padding: 3vw 3vw;
-  }
-
-  #resume-box {
+#resume-box {
     font-size: 1em;
+    background: #222;
+    color: white;
   }
-  .nav-container{
-    font-size: 4vw;
-    padding: 10vw;
+
+@media (min-width:764px) and (max-width:1280px){
+
+  body{
+    background-size: 160%;
+    background-position: 80%;
   }
+}
+
+@media (min-width:562px) and (max-width:763px){
   .kanji{
-    font-size: 5vw;
-    margin: 0.8vw;
-    padding: 0.8vw;
+    font-size: 1.6em;
   }
-  h1{
-    padding-top: 7vw;
-    font-size: 6.5vw;
-  }
-  h2{
-    font-size: 5.5vw;
-  }
-  .button,
-.button-2 {
-  display: inline-flex;
-  border-radius: 1vw;
-  font-size: 1.7vw; /* smaller font size */
-  font-weight: bold;
-  cursor: pointer;
-}
 
-  .button-2 {
-    background-color: rgba(51, 51, 51, 0.05);
-    border-width: 0;
-    color: #333;
-    line-height: 1.8vw; /* smaller line height */
+  .kanji-container{
+    width: 90vw;
     margin: 0;
-    padding: 2vw 2vw; /* smaller padding */
-    text-align: center;
-    transition: all 200ms;
-    white-space: nowrap;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+  }
+
+  body{
+    background-size: 220%;
+    background-position: 50%;
   }
 }
 
-/* Radical table */
-table {
-  font-size: 1.5vw;
-  border-collapse: collapse;
+@media (min-width:344px) and (max-width:561px){
+  .kanji{
+    font-size: 1.6em;
+  }
+
+  .kanji-container{
+    width: 90vw;
+    margin: 0;
+  }
+
+  body{
+    background-size: 300%;
+    background-position: 75%;
+  }
 }
 
-.radicals h1 {
-  margin: 3vw 0 0.5vw 0;
-}
+@media (max-width:343px){
+  .kanji{
+    font-size: 1.6em;
+  }
 
-th, td {
-  padding: 15px;
-  border: 1px solid black;
-  text-align: left;
+  .kanji-container{
+    width: 90vw;
+    margin: 0;
+  }
+
+  body{
+    background: #444;
+  }
 }

@@ -3436,7 +3436,7 @@ const kanjiData = {
       "character": "訓",
       "mastery": 9,
       "meaning": "Native reading of a japanese character",
-      "reading": ""
+      "reading": "くん"
     },
 
     {

@@ -24,7 +24,7 @@ function createGradeSection(grade, labelText) {
   return section;
 }
 
-function createKanjiElement(character, mastery) {
+function createKanjiElement(character, mastery, grade, num) {
   const kanjiElement = document.createElement('span');
   kanjiElement.textContent = character;
   kanjiElement.classList.add('kanji');
@@ -32,15 +32,18 @@ function createKanjiElement(character, mastery) {
   kanjiElement.addEventListener('click', () => {
     // Add your click handler logic here
     console.log(`Clicked on kanji: ${character}`);
+    window.location='./japanesewriting.html?grade='+grade+'&resume='+num;
   });
   return kanjiElement;
 }
 
 function insertKanjiIntoContainer(grade, kanjiData) {
   const container = document.getElementById(`grade${grade}-kanji-container`);
+  var num = 0;
   kanjiData.forEach((item) => {
-    const kanjiElement = createKanjiElement(item.character, item.mastery);
+    const kanjiElement = createKanjiElement(item.character, item.mastery, grade, num);
     container.appendChild(kanjiElement);
+    num++;
   });
 }
 

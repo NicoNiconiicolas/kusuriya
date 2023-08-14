@@ -7,7 +7,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<h1>Options</h1>"+
 "<br><br>"+
 "<div class='okButton okButton2' onclick='window.location = `pages/japanese.html`'>Handwriting</div> <div class='okButton okButton2' title='app pour création & gestion de decks' onclick='window.open(`cartory/index.html`,`_blank`)'>Manage decks</div><br>"+
-"<h3>Revision style :</h3>"+
+"<h3>Review style :</h3>"+
 "<div id='kotoba' class='okButton okButton2' onclick='chooseGame(1)'>Kotoba</div> <div id='anki' class='okButton okButton2' onclick='chooseGame(2)'>Anki</div>"+
 "<h3>Questions selection :</h3>"+
 "<div id='fullrandom' class='okButton okButton2' onclick='updateFulldeck(1)'>Full Deck Random</div> <div id='fullordered' class='okButton okButton2' onclick='updateFulldeck(2)'>Full Deck Ordered</div><br><br><div id='random' class='okButton okButton2' onclick='updateFulldeck(3)'>Cycle of 15 Random Cards</div>"+

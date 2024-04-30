@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "alician";
+  src: url("Alician-Regular.ttf");
+}
+
+#ansFrame{
+	font-size: 1.4em;
+	background: #151515;
+	border-radius: 4px;
+	padding: 2px;
+}
+
 html{
 	overflow-x: hidden;
 	font-family: consolas;
@@ -25,12 +37,6 @@ body{
 
 #discord:hover{
 	width: 70px;
-}	
-
-#ansFrame{
-	background: #151515;
-	border-radius: 4px;
-	padding: 2px;
 }
 
 #memorizedCards{
@@ -314,13 +320,13 @@ button{
 	color: ghostwhite;
 	position: relative;
 	font-size: 3em;
-	background: #222;
+	background: #111;
 	border-bottom: ridge 1px dimgrey;
 	border-right: ridge 2px dimgrey;
 	padding-top: 20px;
 	padding-left: 50px;
 	padding-right: 50px;
-	top: 14vh;
+	top: 22vh;
 	cursor: pointer;
 }
 
@@ -343,7 +349,7 @@ button{
 }
 
 #answer{
-	margin-top: 50px;
+	margin-top: 10vh;
 	border-radius: 10px;
 	text-align: center;
 	height: 6vh;
@@ -351,7 +357,7 @@ button{
 	font-size: 2em;
 	padding: 10px;
 	font-family: consolas;
-	background: rgb(25,25,25);
+	background: #111;
 	border-color: #444;
 	color: ghostwhite;
 }

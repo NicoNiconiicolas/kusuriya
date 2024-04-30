@@ -48,8 +48,8 @@ function getTime(){
 function initQuestion(fail){
 	progression = 0;
 	bar(progression);
-	document.getElementById('progress').style.background = "dodgerblue";
-	document.getElementById('progress').style.borderRight = "3px dodgerblue ridge";
+	document.getElementById('progress').style.background = "ghostwhite";
+	document.getElementById('progress').style.borderRight = "3px ghostwhite ridge";
 	if(getCookie('fulldeck') == 'true'){
 		diviseur = 100/quest.length;
 	}else{
@@ -251,6 +251,8 @@ function showmemo(){
 }
 
 function addmemo(){
+	document.getElementById('memoclick').currentTime = 0;
+    document.getElementById('memoclick').play();
 	var exist = false;
 		for(x = 0 ; x <= memo.length ; x++){
 			var prememo = questions[nQuestion-1];

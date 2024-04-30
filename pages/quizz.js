@@ -3,7 +3,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<meta http-equiv='Cache-control' content='no-cache'>"+
 "<audio id='correct' src='sfx/correct.mp3'></audio>"+
 "<audio id='wrong' src='sfx/wrong.mp3'></audio>"+
-"<audio id='click' src='sfx/click.mp3'></audio>"+
+"<audio id='memoclick' src='sfx/click.mp3'></audio>"+
 "<div id='progressBar'><div id='progress'></div></div>"+
 "<center><label id='dd' for='file-input'><br><br><br><br>deposit your deck here<input type='file' id='file-input'></label></center>"+
 "<div id='com'><div class='titleAndButton'><h1 id='comtitle'>Comments</h1><div class='closebutton' onclick='closecom()'>X</div></div><br><span id='compar'></span><br><br></div>"+
@@ -75,7 +75,6 @@ document.addEventListener("keydown", (e) => {
   if(e.key == 'F1'){
     e.preventDefault();
     addmemo();
-    click.play();
     return
   }
 

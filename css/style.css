@@ -464,8 +464,8 @@ button{
 	}
 
 	body{
-		background-size: 158vw;
-		background-position: 50%;
+		background-size: 200vw;
+		background-position: 25%;
 	}
 }
 
@@ -473,8 +473,8 @@ button{
 @media (min-width : 501px) and (max-width: 768px){
 
 	body{
-		background-size: 250vw;
-		background-position: 50%;
+		background-size: 300vw;
+		background-position: 0%;
 	}
 
 	#showans{

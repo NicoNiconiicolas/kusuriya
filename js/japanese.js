@@ -92,16 +92,16 @@ function custom(kanji){
 }
 
 const main = document.querySelector('main');
-main.appendChild(createGradeSection(1, 'Grade 1'));
-main.appendChild(createGradeSection(2, 'Grade 2'));
-main.appendChild(createGradeSection(3, 'Grade 3'));
-main.appendChild(createGradeSection(4, 'Grade 4'));
-main.appendChild(createGradeSection(5, 'Grade 5'));
-main.appendChild(createGradeSection(6, 'Grade 6'));
-main.appendChild(createGradeSection(7, 'Grade 7'));
-main.appendChild(createGradeSection(8, 'Grade 8'));
-main.appendChild(createGradeSection(9, 'Grade 9'));
 main.appendChild(createGradeSection(10, 'Grade 10'));
+main.appendChild(createGradeSection(9, 'Grade 9'));
+main.appendChild(createGradeSection(8, 'Grade 8'));
+main.appendChild(createGradeSection(7, 'Grade 7'));
+main.appendChild(createGradeSection(6, 'Grade 6'));
+main.appendChild(createGradeSection(5, 'Grade 5'));
+main.appendChild(createGradeSection(4, 'Grade 4'));
+main.appendChild(createGradeSection(3, 'Grade 3'));
+main.appendChild(createGradeSection(2, 'Grade Pre-2'));
+main.appendChild(createGradeSection(1, 'Grade 2'));
 
 // Call the initKanji function when the page loads
 window.addEventListener('DOMContentLoaded', initKanji);

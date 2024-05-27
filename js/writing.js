@@ -18,9 +18,9 @@ let ckanji = ""; // custom kanji list from url
 ctx.lineWidth = 6;
 
 // Add event listeners
-canvas.addEventListener('mousedown', startDrawing); // When mouse is pressed down on the canvas, start drawing
-canvas.addEventListener('mousemove', draw); // When mouse is moved on the canvas, draw
-canvas.addEventListener('mouseup', stopDrawing); // When mouse is released, stop drawing
+canvas.addEventListener('pointerdown', startDrawing); // When mouse is pressed down on the canvas, start drawing
+canvas.addEventListener('pointermove', draw); // When mouse is moved on the canvas, draw
+canvas.addEventListener('pointerup', stopDrawing); // When mouse is released, stop drawing
 clearButton.addEventListener('click', clearCanvas); // When clear button is clicked, clear the canvas
 submitButton.addEventListener('click', submitCanvas); // When submit button is clicked, submit the canvas
 

@@ -1,5 +1,5 @@
 const kanjiData = {
-  "grade1": [
+  "grade10": [
     {
       "character": "一",
       "mastery": 9,
@@ -560,7 +560,7 @@ const kanjiData = {
       "reading": "ろく"
     }
   ],
-  "grade2": [
+  "grade9": [
     {
       "character": "引",
       "mastery": 9,
@@ -1681,7 +1681,7 @@ const kanjiData = {
       "reading": "はなし"
     }
   ],
-  "grade3": [
+  "grade8": [
     {
       "character": "悪",
       "mastery": 9,
@@ -3082,7 +3082,7 @@ const kanjiData = {
       "reading": "わ"
     }
   ],
-  "grade4": [
+  "grade7": [
     {
       "character": "愛",
       "mastery": 9,
@@ -4496,7 +4496,7 @@ const kanjiData = {
       "reading": "ろく"
     }
   ],
-  "grade5":[
+  "grade6":[
         {
       "character": "圧",
       "mastery": 9,
@@ -5849,7 +5849,7 @@ const kanjiData = {
     }
   ],
 
-  "grade6": [
+  "grade5": [
     {
       "character": "胃",
       "mastery": 9,
@@ -7187,7 +7187,7 @@ const kanjiData = {
       "reading": "ろん"
     }
   ],
-  "grade7": [
+  "grade4": [
     {
       "character": "握",
       "mastery": 9,
@@ -9379,7 +9379,7 @@ const kanjiData = {
       "reading": "うで"
     }
   ],
-  "grade8": [
+  "grade3": [
     {
       "character": "哀",
       "mastery": 9,
@@ -11367,7 +11367,7 @@ const kanjiData = {
       "reading": "わん"
     }
   ],
-  "grade9": [
+  "grade2": [
     {
       "character": "亜",
       "mastery": 9,
@@ -13663,7 +13663,7 @@ const kanjiData = {
       "reading": "わく"
     }
   ],
-  "grade10": [
+  "grade1": [
     {
       "character": "挨",
       "mastery": 9,

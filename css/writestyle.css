@@ -147,7 +147,7 @@ h2 {
 @media (min-width:764px) and (max-width:1280px){
 
   body{
-    background-size: 160%;
+    background-size: 210%;
     background-position: 80%;
   }
 }
@@ -163,7 +163,7 @@ h2 {
   }
 
   body{
-    background-size: 220%;
+    background-size: 310%;
     background-position: 50%;
   }
 }
@@ -179,7 +179,7 @@ h2 {
   }
 
   body{
-    background-size: 300%;
+    background-size: 350%;
     background-position: 75%;
   }
 }

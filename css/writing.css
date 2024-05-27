@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     color: #EFEFEF;
     background-color: #111;
-    background: url("../art/bg2.png") fixed no-repeat;
+    background: url("../art/bg2.png") fixed, #111;
     background-size: 102%;
     margin: 0;
 }

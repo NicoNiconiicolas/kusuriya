@@ -23,7 +23,7 @@ body{
 	margin: 0;
 	width: 100vw;
 	height: 100vh;
-	background: url('../art/bg2.png'), #151515;
+	background: url('../art/bg2.png'), #111;
 	background-size: 100%;
 	background-position: 10%;
 }

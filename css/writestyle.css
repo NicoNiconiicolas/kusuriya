@@ -1,7 +1,7 @@
 /* General settings */
 
 body {
-  background: url("../art/bg2.png") fixed;
+  background: url("../art/bg2.png") fixed, #111;
   background-size: 102%;
   margin: 0;
 }

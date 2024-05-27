@@ -25,8 +25,8 @@ clearButton.addEventListener('click', clearCanvas); // When clear button is clic
 submitButton.addEventListener('click', submitCanvas); // When submit button is clicked, submit the canvas
 
 //write on canvas from the center of the cursor instead of top-left
-var cx = canvas.width * 0.01;
-var cy = canvas.height * 0.01;
+var cx = canvas.width * 0.001;
+var cy = canvas.height * 0.001;
 ctx.translate(cx, cy);
 
 // Initialize drawing state

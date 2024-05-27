@@ -2,6 +2,9 @@ body {
     font-family: Arial, sans-serif;
     color: #EFEFEF;
     background-color: #111;
+    background: url("../art/bg2.png") fixed;
+    background-size: 102%;
+    margin: 0;
 }
 
 .container {
@@ -17,6 +20,8 @@ body {
     margin: 10px;
     text-align: center;
     cursor: url('../art/dot.png'), auto;
+    background-color: #111;
+    touch-action: none;
 }
 
 #kanji-gif {

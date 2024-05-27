@@ -25,7 +25,7 @@ body{
 	height: 100vh;
 	background: url('../art/bg2.png'), #151515;
 	background-size: 100%;
-	background-position: 0%;
+	background-position: 10%;
 }
 
 #discord{
@@ -424,7 +424,7 @@ button{
 	top: 0;
 	width: 64px;
 	height: 64px;
-	background: #222;
+	background: #111;
 	border-bottom-right-radius: 25%;
 	z-index: 999;
 }
@@ -505,8 +505,8 @@ button{
 @media (max-width: 500px){
 
 	body{
-		background-size: 270vw;
-		background-position: 45%;
+		background-size: 320vw;
+		background-position: 92%;
 	}
 
 	h1{

@@ -2,9 +2,22 @@ body {
     font-family: Arial, sans-serif;
     color: #EFEFEF;
     background-color: #111;
-    background: url("../art/bg2.png") fixed;
+    background: url("../art/bg2.png") fixed no-repeat;
     background-size: 102%;
     margin: 0;
+}
+
+#top{
+    font-size: 2.3em;
+    text-align: center;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    width: 64px;
+    height: 64px;
+    background: #111;
+    border-bottom-right-radius: 25%;
+    z-index: 999;
 }
 
 .container {

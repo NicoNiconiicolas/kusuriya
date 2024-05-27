@@ -73,23 +73,38 @@ h1, h2, .kanji-container, .button-2{
   user-select: none;
 }
 
+#top{
+    font-size: 33px;
+    color: ghostwhite;
+    text-align: center;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 64px;
+    background: #111;
+    border-bottom-right-radius: 25%;
+    z-index: 999;
+}
+
 /* Headings */
 h1, h2 {
   font-family: sans-serif;
 }
 
 h1 {
-  font-size: 1.5em; /* Update the font size here */
+  font-size: 2em; /* Update the font size here */
 }
 
 h2 {
-  font-size: 1.1em; /* Update the font size here */
+  font-size: 1.6em; /* Update the font size here */
 }
 
 /* Buttons */
 .button-2 {
   border-radius: 4px;
-  font-size: 0.7em; /* smaller font size */
+  font-size: 0.9em; /* smaller font size */
   font-weight: bold;
   cursor: pointer;
   background-color: rgba(51, 51, 51, 0.05);

@@ -10,7 +10,7 @@ document.getElementsByTagName('body')[0].innerHTML +=""+
 "<div id='memo'><div class='titleAndButton'><h1><span id='percRetained'>0</span>% Memorized</h1><div class='closebutton' onclick='closememo()'>X</div></div><br><span id='memocont'></span></div>"+
 "<div id='cardId'>#<span id='cid'>1</span></div>"+
 "<div id='qa-div'>"+
-"<div id='question' onclick='altgame()'>question</div><hr>"+
+"<div id='question'>question</div><hr>"+
 "<div id='goodAnswer'></div>"+
 "</div>"+
 "<div id='answerbox'><input id='answer' autofocus></input></div>"+

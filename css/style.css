@@ -464,7 +464,7 @@ button{
 	}
 
 	body{
-		background-size: 210vw;
+		background-size: 220vw;
 		background-position: 25%;
 	}
 }
@@ -473,7 +473,7 @@ button{
 @media (min-width : 501px) and (max-width: 768px){
 
 	body{
-		background-size: 310vw;
+		background-size: 320vw;
 		background-position: 0%;
 	}
 
@@ -505,7 +505,7 @@ button{
 @media (max-width: 500px){
 
 	body{
-		background-size: 350vw;
+		background-size: 360vw;
 		background-position: 92%;
 	}
 

@@ -169,11 +169,11 @@ function checkAnswer(){
 		document.getElementById('compar').innerHTML = recomment[nQuestion].replace(/\n/g, '<br>');
 	}
 	if(getCookie('dico') == "jisho"){
-		document.getElementById('goodAnswer').onclick = function(){window.open('https://jisho.org/search/'+questions[nQuestion-1], '_blank');};
+		document.getElementById('qa-div').onclick = function(){window.open('https://jisho.org/search/'+questions[nQuestion-1], '_blank');};
 	}else if(getCookie('dico') == "writtenchinese"){
-		document.getElementById('goodAnswer').onclick = function(){window.open('https://dictionary.writtenchinese.com/#sk='+questions[nQuestion-1]+'&svt=pinyin', '_blank');};
+		document.getElementById('qa-div').onclick = function(){window.open('https://dictionary.writtenchinese.com/#sk='+questions[nQuestion-1]+'&svt=pinyin', '_blank');};
 	}else{
-		document.getElementById('goodAnswer').onclick = function(){window.open('https://jpdb.io/search?q='+questions[nQuestion-1], '_blank');};
+		document.getElementById('qa-div').onclick = function(){window.open('https://jpdb.io/search?q='+questions[nQuestion-1], '_blank');};
 	}
 	nQuestion ++;
 	newQuestion();

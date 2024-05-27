@@ -17,10 +17,10 @@
             <button id="show-button" onclick="showKanji()">show kanji</button>
             <img id='kanji-gif' src="" alt="no image">
         </div>
-        <div class="drawing-area">
+        <div id="sketch">
             <canvas id="drawing-canvas" width="300" height="300"></canvas>
             <div>
-            <button id="clear-button">Erase</button>
+            <button id="clear-button" onclick="clearCanvas()">Erase</button>
             <button id="submit-button" onclick="nextKanji()">next</button>
         </div>
         </div>

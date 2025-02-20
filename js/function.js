@@ -18,6 +18,7 @@ function updateFulldeck(bool){
 		document.getElementById('fullordered').style.color = 'lightgrey';
 		document.getElementById('random').style.color = 'lightgrey';
 		document.getElementById('startid').style.display = 'none';
+		document.getElementById('totalcycle').style.display = 'none';
 		setCookie("startnum", '1', 3650);
 	}else if(bool == 2){
 		// full deck ordre
@@ -27,17 +28,21 @@ function updateFulldeck(bool){
 		document.getElementById('fullrandom').style.color = 'lightgrey';
 		document.getElementById('fullordered').style.color = 'mediumpurple';
 		document.getElementById('random').style.color = 'lightgrey';
-		document.getElementById('inputid').placeholder = getCookie('startnum');
 		document.getElementById('startid').style.display = 'inline';
+		document.getElementById('totalcycle').style.display = 'none';
+		document.getElementById('inputid').placeholder = getCookie('startnum');
 	}else{
-		// 15 random
+		// cycle random
 		setCookie('fulldeck', 'false', 3650);
 		setCookie('randomness', 'true', 3650);
 		setCookie("startnum", '1', 3650);
+		setCookie("cyclelength", '10', 3650);
 		document.getElementById('fullrandom').style.color = 'lightgrey';
 		document.getElementById('fullordered').style.color = 'lightgrey';
 		document.getElementById('random').style.color = 'mediumpurple';
 		document.getElementById('startid').style.display = 'none';
+		document.getElementById('totalcycle').style.display = 'inline';
+		document.getElementById('inputidcycle').placeholder = getCookie('cyclelength');
 	}
 }
 
@@ -53,7 +58,7 @@ function initQuestion(fail){
 	if(getCookie('fulldeck') == 'true'){
 		diviseur = 100/quest.length;
 	}else{
-		diviseur = 100/15;
+		diviseur = eval(100/getCookie('cyclelength'));
 	}
 	if(getCookie('fulldeck') == 'true' && getCookie('randomness') == 'false'){
 		progression = diviseur * parseInt(getCookie('startnum'))-1;
@@ -76,7 +81,7 @@ function initQuestion(fail){
     	values.push(i);
 	}
 	if(getCookie('fulldeck') == 'false'){
-		var numberofquestions = 15;
+		var numberofquestions = getCookie('cyclelength');
 	}else{
 		var numberofquestions = max;
 	}
@@ -316,13 +321,6 @@ function jeu2check(num){
 
 function chooseGame(num){
 	setCookie('jeu', num, 3650);
-	if(num == 1){
-		document.getElementById('kotoba').style.color = 'mediumpurple';
-		document.getElementById('anki').style.color = 'lightgrey';
-	}else{
-		document.getElementById('anki').style.color = 'mediumpurple';
-		document.getElementById('kotoba').style.color = 'lightgrey';
-	}
 }
 
 function setDico(dico){
@@ -353,6 +351,8 @@ function checkrandomness(){
 function checkrandomnessmenu(){
 	if(getCookie('randomness') == 'false'){
 		document.getElementById('startid').style.display = 'inline';
+	}else if(getCookie('fulldeck') == 'false' && getCookie('randomness') == 'true'){
+		document.getElementById('totalcycle').style.display = 'inline';
 	}
 }
 
@@ -363,15 +363,14 @@ function choosestart(){
 	document.getElementById('inputid').value = '';
 }
 
-function checkcolors(){
-	if(getCookie('jeu') == '1'){
-		document.getElementById('kotoba').style.color = 'mediumpurple';
-		document.getElementById('anki').style.color = 'lightgrey';	
-	}else{
-		document.getElementById('kotoba').style.color = 'lightgrey';
-		document.getElementById('anki').style.color = 'mediumpurple';
-	}
+function choosecycle(){
+	var number = document.getElementById('inputidcycle').value;
+	setCookie("cyclelength", number, 3650);
+	document.getElementById('inputidcycle').placeholder = getCookie('cyclelength');
+	document.getElementById('inputidcycle').value = '';
+}
 
+function checkcolors(){
 	if(getCookie('dico') == 'jisho'){
 		document.getElementById('dicojisho').style.color = 'mediumpurple';
 		document.getElementById('dicochinese').style.color = 'lightgrey';

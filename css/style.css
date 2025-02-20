@@ -233,12 +233,12 @@ label{
   	cursor: pointer;
 }
 
-#startid input{
+#startid input, #totalcycle input{
 	width: 33vw;
 	padding: 5px;
 }
 
-#startid{
+#startid, #totalcycle{
 	display: none;
 }
 
